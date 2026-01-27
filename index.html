@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATL Vibes & Views - Atlanta's Neighborhood & Culture Magazine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    :root {
+      --primary-yellow: #FFD95A;
+      --primary-red: #DC3535;
+      --primary-black: #0A0A0A;
+      --primary-white: #FAFAFA;
+      --secondary-yellow: #FFF4D6;
+      --accent-red: #A82B2B;
+      --text-dark: #1A1A1A;
+      --text-light: #6B6B6B;
+      --border-color: #E5E5E5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--primary-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--primary-white);
+      z-index: 1000;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--primary-yellow);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--primary-black);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--primary-red);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-yellow);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-red);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .submit-btn {
+      background: var(--primary-red);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-red);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      height: calc(100vh - 80px);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-black) 0%, #2A2A2A 100%);
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+      z-index: 2;
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+
+    .hero-text {
+      text-align: center;
+      color: white;
+      max-width: 900px;
+      padding: 2rem;
+      z-index: 3;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-category {
+      display: inline-block;
+      background: var(--primary-yellow);
+      color: var(--primary-black);
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero-meta {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 300;
+    }
+
+    /* Featured Stories */
+    .featured-stories {
+      padding: 6rem 5%;
+      background: white;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary-yellow);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      font-weight: 400;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .story-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .story-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .story-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .story-card:hover .story-image {
+      transform: scale(1.1);
+    }
+
+    .story-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%);
+      color: white;
+    }
+
+    .story-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-yellow);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .story-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .story-date {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Atlanta Map Section */
+    .atlanta-map-section {
+      padding: 6rem 5%;
+      background: var(--secondary-yellow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .atlanta-map-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -10%;
+      width: 40%;
+      height: 100%;
+      background: var(--primary-yellow);
+      transform: skewX(-10deg);
+      opacity: 0.3;
+    }
+
+    .map-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .map-content h2 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-black);
+    }
+
+    .map-content p {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .neighborhood-count {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--primary-red);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .explore-btn {
+      display: inline-block;
+      background: var(--primary-red);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .explore-btn:hover {
+      background: var(--accent-red);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(220, 53, 53, 0.3);
+    }
+
+    .map-placeholder {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .map-placeholder::after {
+      content: 'Interactive Map';
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+
+    /* Featured Business & Events */
+    .featured-section {
+      padding: 6rem 5%;
+      background: white;
+    }
+
+    .featured-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--primary-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .feature-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .feature-content {
+      padding: 2rem;
+    }
+
+    .feature-badge {
+      display: inline-block;
+      background: var(--primary-yellow);
+      color: var(--primary-black);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .feature-description {
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Properties Section */
+    .properties-section {
+      padding: 6rem 5%;
+      background: var(--primary-black);
+      color: white;
+    }
+
+    .properties-section .section-title {
+      color: white;
+    }
+
+    .properties-section .section-title::after {
+      background: var(--primary-red);
+    }
+
+    .properties-section .section-subtitle {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .property-card {
+      background: #1A1A1A;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .property-card:hover {
+      border-color: var(--primary-yellow);
+      transform: translateY(-5px);
+    }
+
+    .property-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .property-details {
+      padding: 1.5rem;
+    }
+
+    .property-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-yellow);
+      margin-bottom: 0.5rem;
+    }
+
+    .property-address {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .property-specs {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Directory Section */
+    .directory-section {
+      padding: 6rem 5%;
+      background: linear-gradient(135deg, var(--secondary-yellow) 0%, white 100%);
+    }
+
+    .directory-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .action-card {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      border: 3px solid transparent;
+    }
+
+    .action-card:hover {
+      border-color: var(--primary-yellow);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .action-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .action-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .action-description {
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .action-button {
+      display: inline-block;
+      background: var(--primary-red);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .action-button:hover {
+      background: var(--accent-red);
+      transform: translateY(-2px);
+    }
+
+    /* Ad Space */
+    .ad-section {
+      padding: 4rem 5%;
+      background: var(--primary-red);
+      text-align: center;
+    }
+
+    .ad-content {
+      max-width: 800px;
+      margin: 0 auto;
+      color: white;
+    }
+
+    .ad-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .ad-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .ad-button {
+      background: white;
+      color: var(--primary-red);
+      padding: 1rem 3rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .ad-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-black);
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-yellow);
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-yellow);
+      color: var(--primary-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      background: var(--primary-red);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .footer-column h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-yellow);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-yellow);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .featured-grid,
+      .properties-grid,
+      .directory-actions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-grid-2col {
+        grid-template-columns: 1fr;
+      }
+
+      .map-container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .featured-grid,
+      .properties-grid,
+      .directory-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function App() {
+      const [activeSection, setActiveSection] = useState('home');
+
+      // Sample data
+      const heroStory = {
+        category: 'Featured Story',
+        title: 'The Renaissance of Old Fourth Ward',
+        author: 'Marcus Johnson',
+        date: 'January 27, 2026',
+        image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600'
+      };
+
+      const featuredStories = [
+        {
+          tag: 'Culture',
+          title: 'Ponce City Market: Where History Meets Innovation',
+          date: '25 Jan 2026',
+          image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800'
+        },
+        {
+          tag: 'Food Scene',
+          title: 'Best Brunch Spots in Inman Park',
+          date: '24 Jan 2026',
+          image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800'
+        },
+        {
+          tag: 'Nightlife',
+          title: 'Hidden Speakeasies You Need to Visit',
+          date: '23 Jan 2026',
+          image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800'
+        }
+      ];
+
+      const businesses = [
+        {
+          badge: 'Restaurant',
+          title: 'Buttermilk Kitchen',
+          description: 'Farm-to-table Southern comfort food in Buckhead. Known for their legendary fried chicken and homemade biscuits.',
+          neighborhood: 'Buckhead',
+          category: 'Dining',
+          image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800'
+        },
+        {
+          badge: 'Coffee Shop',
+          title: 'Octane Coffee',
+          description: 'Award-winning coffee roasters with multiple locations across Atlanta. Perfect workspace with excellent wifi.',
+          neighborhood: 'West Midtown',
+          category: 'Café',
+          image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800'
+        }
+      ];
+
+      const events = [
+        {
+          badge: 'Music Festival',
+          title: 'Atlanta Jazz Festival 2026',
+          description: 'Three days of world-class jazz performances in Piedmont Park. Featuring international and local artists.',
+          date: 'May 25-27, 2026',
+          location: 'Piedmont Park',
+          image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800'
+        },
+        {
+          badge: 'Art Exhibition',
+          title: 'High Museum Contemporary Showcase',
+          description: 'Exploring the intersection of technology and traditional art forms through immersive installations.',
+          date: 'Feb 15 - Apr 30, 2026',
+          location: 'High Museum',
+          image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800'
+        }
+      ];
+
+      const properties = [
+        {
+          price: '$575,000',
+          address: '123 Piedmont Ave NE',
+          neighborhood: 'Midtown',
+          beds: 3,
+          baths: 2,
+          sqft: '2,100',
+          image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800'
+        },
+        {
+          price: '$425,000',
+          address: '456 Highland Ave',
+          neighborhood: 'Old Fourth Ward',
+          beds: 2,
+          baths: 2,
+          sqft: '1,650',
+          image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800'
+        },
+        {
+          price: '$1,250,000',
+          address: '789 West Paces Ferry Rd',
+          neighborhood: 'Buckhead',
+          beds: 5,
+          baths: 4,
+          sqft: '4,200',
+          image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800'
+        }
+      ];
+
+      return (
+        <>
+          {/* Navigation */}
+          <nav className="navbar">
+            <a href="/" className="logo">ATL <span>Vibes & Views</span></a>
+            <ul className="nav-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#neighborhoods">Neighborhoods</a></li>
+              <li><a href="#directory">Directory</a></li>
+              <li><a href="#events">Events</a></li>
+              <li><a href="#properties">Properties</a></li>
+              <li><a href="#submit" className="submit-btn">Submit Listing</a></li>
+            </ul>
+          </nav>
+
+          {/* Hero Section */}
+          <section className="hero" id="home">
+            <img src={heroStory.image} alt="Hero" className="hero-image" />
+            <div className="hero-content">
+              <div className="hero-text">
+                <span className="hero-category">{heroStory.category}</span>
+                <h1 className="hero-title">{heroStory.title}</h1>
+                <p className="hero-meta">By {heroStory.author} • {heroStory.date}</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Featured Stories */}
+          <section className="featured-stories">
+            <div className="section-header">
+              <h2 className="section-title">Editor's Choice</h2>
+              <p className="section-subtitle">Stories Worth Your Time</p>
+            </div>
+            <div className="featured-grid">
+              {featuredStories.map((story, index) => (
+                <div key={index} className="story-card">
+                  <img src={story.image} alt={story.title} className="story-image" />
+                  <div className="story-overlay">
+                    <div className="story-tag">{story.tag}</div>
+                    <h3 className="story-title">{story.title}</h3>
+                    <p className="story-date">{story.date}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Atlanta Map Section */}
+          <section className="atlanta-map-section" id="neighborhoods">
+            <div className="map-container">
+              <div className="map-content">
+                <div className="neighborhood-count">243</div>
+                <h2>Neighborhoods to Explore</h2>
+                <p>From the historic charm of Virginia-Highland to the vibrant energy of Midtown, Atlanta's 243 neighborhoods each tell their own unique story. Discover the perfect community that matches your lifestyle.</p>
+                <a href="#directory" className="explore-btn">Explore Neighborhoods</a>
+              </div>
+              <div className="map-placeholder"></div>
+            </div>
+          </section>
+
+          {/* Featured Businesses */}
+          <section className="featured-section">
+            <div className="section-header">
+              <h2 className="section-title">Featured Businesses</h2>
+              <p className="section-subtitle">Supporting Local Excellence</p>
+            </div>
+            <div className="featured-grid-2col">
+              {businesses.map((business, index) => (
+                <div key={index} className="feature-card">
+                  <img src={business.image} alt={business.title} className="feature-image" />
+                  <div className="feature-content">
+                    <span className="feature-badge">{business.badge}</span>
+                    <h3 className="feature-title">{business.title}</h3>
+                    <p className="feature-description">{business.description}</p>
+                    <div className="feature-meta">
+                      <span>📍 {business.neighborhood}</span>
+                      <span>🏷️ {business.category}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Featured Events */}
+          <section className="featured-section" id="events" style={{background: 'var(--secondary-yellow)'}}>
+            <div className="section-header">
+              <h2 className="section-title">Upcoming Events</h2>
+              <p className="section-subtitle">Don't Miss Out</p>
+            </div>
+            <div className="featured-grid-2col">
+              {events.map((event, index) => (
+                <div key={index} className="feature-card">
+                  <img src={event.image} alt={event.title} className="feature-image" />
+                  <div className="feature-content">
+                    <span className="feature-badge">{event.badge}</span>
+                    <h3 className="feature-title">{event.title}</h3>
+                    <p className="feature-description">{event.description}</p>
+                    <div className="feature-meta">
+                      <span>📅 {event.date}</span>
+                      <span>📍 {event.location}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Properties Section */}
+          <section className="properties-section" id="properties">
+            <div className="section-header">
+              <h2 className="section-title">Featured Properties</h2>
+              <p className="section-subtitle">Find Your Atlanta Home</p>
+            </div>
+            <div className="properties-grid">
+              {properties.map((property, index) => (
+                <div key={index} className="property-card">
+                  <img src={property.image} alt={property.address} className="property-image" />
+                  <div className="property-details">
+                    <div className="property-price">{property.price}</div>
+                    <div className="property-address">{property.address}</div>
+                    <div className="property-specs">
+                      <span>🛏️ {property.beds} beds</span>
+                      <span>🛁 {property.baths} baths</span>
+                      <span>📏 {property.sqft} sq ft</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Directory Actions */}
+          <section className="directory-section" id="directory">
+            <div className="section-header">
+              <h2 className="section-title">Atlanta Directory</h2>
+              <p className="section-subtitle">Connect with the City</p>
+            </div>
+            <div className="directory-actions">
+              <div className="action-card">
+                <div className="action-icon">🏢</div>
+                <h3 className="action-title">List Your Business</h3>
+                <p className="action-description">Join hundreds of Atlanta businesses in our comprehensive directory. Get discovered by locals and visitors.</p>
+                <a href="#submit" className="action-button">Submit Listing</a>
+              </div>
+              <div className="action-card">
+                <div className="action-icon">🎉</div>
+                <h3 className="action-title">Submit an Event</h3>
+                <p className="action-description">Share your event with the Atlanta community. From concerts to art shows, we showcase it all.</p>
+                <a href="#submit" className="action-button">Add Event</a>
+              </div>
+              <div className="action-card">
+                <div className="action-icon">🔍</div>
+                <h3 className="action-title">Explore by Neighborhood</h3>
+                <p className="action-description">Filter businesses, events, and properties by any of Atlanta's 243 unique neighborhoods.</p>
+                <a href="#neighborhoods" className="action-button">Browse Now</a>
+              </div>
+            </div>
+          </section>
+
+          {/* Ad Space */}
+          <section className="ad-section">
+            <div className="ad-content">
+              <h2>Advertise With Us</h2>
+              <p>Reach thousands of Atlanta locals and visitors. Partner with ATL Vibes & Views to grow your brand.</p>
+              <a href="#contact" className="ad-button">Learn More</a>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="footer">
+            <div className="footer-content">
+              <div className="footer-brand">
+                <h3>ATL Vibes & Views</h3>
+                <p>Your comprehensive guide to Atlanta's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
+                <div className="social-links">
+                  <a href="https://www.instagram.com/atlvibesandviews/" className="social-link" target="_blank">IG</a>
+                  <a href="#" className="social-link">FB</a>
+                  <a href="#" className="social-link">TW</a>
+                  <a href="#" className="social-link">YT</a>
+                </div>
+              </div>
+              <div className="footer-column">
+                <h4>Explore</h4>
+                <ul className="footer-links">
+                  <li><a href="#neighborhoods">Neighborhoods</a></li>
+                  <li><a href="#directory">Business Directory</a></li>
+                  <li><a href="#events">Events</a></li>
+                  <li><a href="#properties">Properties</a></li>
+                </ul>
+              </div>
+              <div className="footer-column">
+                <h4>Get Listed</h4>
+                <ul className="footer-links">
+                  <li><a href="#submit">Submit Business</a></li>
+                  <li><a href="#submit">Add Event</a></li>
+                  <li><a href="#submit">Advertise</a></li>
+                  <li><a href="#contact">Contact Us</a></li>
+                </ul>
+              </div>
+              <div className="footer-column">
+                <h4>Company</h4>
+                <ul className="footer-links">
+                  <li><a href="#about">About Us</a></li>
+                  <li><a href="#team">Our Team</a></li>
+                  <li><a href="#press">Press</a></li>
+                  <li><a href="#careers">Careers</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <p>&copy; 2026 ATL Vibes & Views. All rights reserved. | Celebrating Atlanta's diverse communities.</p>
+            </div>
+          </footer>
+        </>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
