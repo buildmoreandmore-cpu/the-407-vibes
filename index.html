@@ -9395,65 +9395,449 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       );
     }
 
-    // Business Detail Page
-    function BusinessDetail({ business, onBack }) {
+    // Business Detail Page V2 - Enhanced with Tier-Based Visibility
+    function BusinessDetailPage({ business, onBack, onNavigateTo }) {
+      const [nearbyListings, setNearbyListings] = React.useState([]);
+      const [relatedStories, setRelatedStories] = React.useState([]);
+      const [activePhotoIndex, setActivePhotoIndex] = React.useState(0);
+      const [loading, setLoading] = React.useState(true);
+
+      // Tier level helper: free=0, starter=1, pro=2, premium=3
+      const getTierLevel = (pkg) => {
+        const tiers = { free: 0, starter: 1, pro: 2, premium: 3 };
+        return tiers[pkg] || 0;
+      };
+      const tierLevel = getTierLevel(business.package);
+
+      // Tier-based limits
+      const getDescriptionLimit = () => [150, 300, Infinity, Infinity][tierLevel];
+      const getAmenitiesLimit = () => [3, 6, Infinity, Infinity][tierLevel];
+      const getPhotosLimit = () => [1, 3, 6, 10][tierLevel];
+      const getSocialLimit = () => [0, 2, Infinity, Infinity][tierLevel];
+      const getReviewsLimit = () => [0, 3, Infinity, Infinity][tierLevel];
+      const getNearbyLimit = () => [0, 3, 6, 6][tierLevel];
+      const getRelatedStoriesLimit = () => [0, 0, 3, 5][tierLevel];
+
+      // Price range display
+      const getPriceDisplay = (range) => '$'.repeat(range || 2);
+
+      // Rating stars display
+      const renderStars = (rating) => {
+        const stars = [];
+        const fullStars = Math.floor(rating);
+        const hasHalf = rating % 1 >= 0.5;
+        for (let i = 0; i < 5; i++) {
+          if (i < fullStars) stars.push(React.createElement('span', { key: i, className: 'star filled' }, '\u2605'));
+          else if (i === fullStars && hasHalf) stars.push(React.createElement('span', { key: i, className: 'star half' }, '\u2605'));
+          else stars.push(React.createElement('span', { key: i, className: 'star empty' }, '\u2606'));
+        }
+        return stars;
+      };
+
+      // Load nearby listings and related stories
+      React.useEffect(() => {
+        const loadData = async () => {
+          setLoading(true);
+          try {
+            const [nearby, stories] = await Promise.all([
+              mockSupabase.businessDetail.getNearbyListings(business, getNearbyLimit()),
+              mockSupabase.businessDetail.getRelatedStories(business, getRelatedStoriesLimit())
+            ]);
+            setNearbyListings(nearby);
+            setRelatedStories(stories);
+          } catch (err) {
+            console.error('Error loading business detail data:', err);
+          }
+          setLoading(false);
+        };
+        loadData();
+      }, [business.id]);
+
+      // Generate JSON-LD schema
+      const generateSchema = () => {
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": business.title,
+          "description": business.description ? business.description.substring(0, 300) : '',
+          "image": business.image,
+          "telephone": business.phone,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": business.address,
+            "addressLocality": "Atlanta",
+            "addressRegion": "GA"
+          }
+        };
+        if (tierLevel >= 1 && business.hours) {
+          schema.openingHoursSpecification = Object.entries(business.hours).map(([day, times]) => ({
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": day.charAt(0).toUpperCase() + day.slice(1),
+            "opens": times.closed ? undefined : times.open,
+            "closes": times.closed ? undefined : times.close
+          }));
+        }
+        if (tierLevel >= 2 && business.latitude && business.longitude) {
+          schema.geo = {
+            "@type": "GeoCoordinates",
+            "latitude": business.latitude,
+            "longitude": business.longitude
+          };
+        }
+        if (tierLevel >= 3 && business.rating) {
+          schema.aggregateRating = {
+            "@type": "AggregateRating",
+            "ratingValue": business.rating.average,
+            "reviewCount": business.rating.count
+          };
+        }
+        return JSON.stringify(schema);
+      };
+
+      // Truncate description based on tier
+      const getDescription = () => {
+        const limit = getDescriptionLimit();
+        if (!business.description) return '';
+        if (business.description.length <= limit) return business.description;
+        return business.description.substring(0, limit) + '...';
+      };
+
+      // Get limited amenities
+      const getAmenities = () => {
+        if (!business.amenities) return [];
+        return business.amenities.slice(0, getAmenitiesLimit());
+      };
+
+      // Get limited photos
+      const getPhotos = () => {
+        const photos = business.photos || [business.image];
+        return photos.slice(0, getPhotosLimit());
+      };
+
+      // Get social links based on tier
+      const getSocialLinks = () => {
+        if (!business.social) return [];
+        const platforms = Object.entries(business.social);
+        return platforms.slice(0, getSocialLimit());
+      };
+
+      // Get reviews based on tier
+      const getReviews = () => {
+        if (!business.reviews) return [];
+        return business.reviews.slice(0, getReviewsLimit());
+      };
+
+      const photos = getPhotos();
+      const amenities = getAmenities();
+      const socialLinks = getSocialLinks();
+      const reviews = getReviews();
+
       return (
-        <div className="detail-page">
-          <div className="detail-hero">
-            <img src={business.image} alt={business.title} className="detail-hero-image" />
-            <div className="detail-hero-overlay">
-              <span className="detail-category-badge">{business.badge}</span>
-              <h1 className="detail-title">{business.title}</h1>
-              <div className="detail-meta">
-                <span>📍 {business.neighborhood}</span>
-                <span>🏷️ {business.category}</span>
+        <div className="business-detail-page">
+          {/* JSON-LD Schema */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: generateSchema() }} />
+
+          {/* Hero Section */}
+          <div className="business-detail-hero">
+            <img src={business.image} alt={business.title} className="business-detail-hero-image" />
+            <div className="business-detail-hero-overlay">
+              <div className="business-detail-badges">
+                <span className="business-category-badge">{business.badge}</span>
+                {tierLevel >= 2 && <span className="business-tier-badge featured">Featured</span>}
+                {tierLevel >= 3 && <span className="business-tier-badge premium">Premium</span>}
+              </div>
+              <h1 className="business-detail-title">{business.title}</h1>
+              <div className="business-detail-meta">
+                <span>{business.neighborhood}</span>
+                <span>{getPriceDisplay(business.price_range)}</span>
+                {business.rating && (
+                  <span className="business-rating-inline">
+                    {renderStars(business.rating.average)}
+                    <span className="rating-count">({business.rating.count} reviews)</span>
+                  </span>
+                )}
               </div>
             </div>
           </div>
 
-          <div className="detail-content">
-            <button className="back-button" onClick={onBack}>
-              ← Back to Directory
-            </button>
+          {/* Two-Column Layout */}
+          <div className="business-detail-wrapper">
+            {/* Main Content */}
+            <main className="business-detail-main">
+              <button className="back-button" onClick={onBack}>
+                ← Back to Directory
+              </button>
 
-            <p>{business.description}</p>
+              {/* About Section */}
+              <section className="business-section">
+                <h2 className="business-section-title">About</h2>
+                <p className="business-description">{getDescription()}</p>
+                {tierLevel === 0 && business.description && business.description.length > 150 && (
+                  <p className="upgrade-hint">Upgrade to see full description</p>
+                )}
+              </section>
 
-            <div className="contact-cards">
-              {business.phone && (
-                <div className="contact-card">
-                  <div className="contact-card-icon">📞</div>
-                  <div className="contact-card-label">Phone</div>
-                  <div className="contact-card-value">
-                    <a href={`tel:${business.phone}`}>{business.phone}</a>
+              {/* Amenities Section (Starter+) */}
+              {tierLevel >= 1 && amenities.length > 0 && (
+                <section className="business-section">
+                  <h2 className="business-section-title">Amenities</h2>
+                  <div className="amenities-grid">
+                    {amenities.map((amenity, idx) => (
+                      <span key={idx} className="amenity-tag">{amenity}</span>
+                    ))}
+                  </div>
+                  {business.amenities && business.amenities.length > getAmenitiesLimit() && (
+                    <p className="upgrade-hint">+{business.amenities.length - getAmenitiesLimit()} more amenities with upgrade</p>
+                  )}
+                </section>
+              )}
+
+              {/* Photo Gallery */}
+              <section className="business-section">
+                <h2 className="business-section-title">Photos</h2>
+                <div className="gallery-container">
+                  <div className="gallery-main">
+                    <img src={photos[activePhotoIndex]} alt={business.title + ' photo ' + (activePhotoIndex + 1)} />
+                  </div>
+                  {photos.length > 1 && (
+                    <div className="gallery-thumbnails">
+                      {photos.map((photo, idx) => (
+                        <div
+                          key={idx}
+                          className={'gallery-thumbnail ' + (idx === activePhotoIndex ? 'active' : '')}
+                          onClick={() => setActivePhotoIndex(idx)}
+                        >
+                          <img src={photo} alt={'Thumbnail ' + (idx + 1)} />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {tierLevel >= 3 && business.video_url && (
+                    <div className="gallery-video">
+                      <VideoEmbed url={business.video_url} />
+                    </div>
+                  )}
+                </div>
+                {business.photos && business.photos.length > getPhotosLimit() && (
+                  <p className="upgrade-hint">+{business.photos.length - getPhotosLimit()} more photos with upgrade</p>
+                )}
+              </section>
+
+              {/* Reviews Section (Starter+) */}
+              {tierLevel >= 1 && business.rating && (
+                <section className="business-section">
+                  <h2 className="business-section-title">Reviews</h2>
+                  <div className="rating-summary">
+                    <div className="rating-average">
+                      <span className="rating-number">{business.rating.average.toFixed(1)}</span>
+                      <div className="rating-stars">{renderStars(business.rating.average)}</div>
+                      <span className="rating-total">{business.rating.count} reviews</span>
+                    </div>
+                    {tierLevel >= 2 && business.rating.breakdown && (
+                      <div className="rating-breakdown">
+                        {[5, 4, 3, 2, 1].map(star => (
+                          <div key={star} className="rating-bar-row">
+                            <span className="rating-bar-label">{star}★</span>
+                            <div className="rating-bar">
+                              <div
+                                className="rating-bar-fill"
+                                style={{ width: ((business.rating.breakdown[star] / business.rating.count) * 100) + '%' }}
+                              />
+                            </div>
+                            <span className="rating-bar-count">{business.rating.breakdown[star]}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  {reviews.length > 0 && (
+                    <div className="reviews-list">
+                      {reviews.map((review, idx) => (
+                        <div key={idx} className="review-card">
+                          <div className="review-header">
+                            <span className="review-author">{review.author_name}</span>
+                            <span className="review-date">{review.date}</span>
+                          </div>
+                          <div className="review-rating">{renderStars(review.rating)}</div>
+                          <p className="review-text">{review.text}</p>
+                          {review.helpful_count > 0 && (
+                            <span className="review-helpful">{review.helpful_count} found this helpful</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </section>
+              )}
+
+              {/* Related Stories (Pro+) */}
+              {tierLevel >= 2 && relatedStories.length > 0 && (
+                <section className="business-section">
+                  <h2 className="business-section-title">Related Stories</h2>
+                  <div className="related-stories-grid">
+                    {relatedStories.map(story => (
+                      <div
+                        key={story.id}
+                        className="related-story-card"
+                        onClick={() => onNavigateTo && onNavigateTo('story', story)}
+                      >
+                        <img src={story.image} alt={story.title} className="related-story-image" />
+                        <div className="related-story-content">
+                          <span className="related-story-badge">{story.badge}</span>
+                          <h4 className="related-story-title">{story.title}</h4>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </main>
+
+            {/* Sidebar */}
+            <aside className="business-detail-sidebar">
+              {/* Info Card */}
+              <div className="sidebar-card business-info-card">
+                <div className="info-row">
+                  <span className="info-label">Price Range</span>
+                  <span className="info-value">{getPriceDisplay(business.price_range)}</span>
+                </div>
+                {business.rating && (
+                  <div className="info-row">
+                    <span className="info-label">Rating</span>
+                    <span className="info-value rating-badge">{business.rating.average.toFixed(1)} ★</span>
+                  </div>
+                )}
+                <div className="info-divider" />
+                {business.phone && (
+                  <a href={'tel:' + business.phone} className="info-link">
+                    <span className="info-icon">📞</span> {business.phone}
+                  </a>
+                )}
+                {(tierLevel >= 1 || business.package !== 'free') && business.website && (
+                  <a href={business.website} target="_blank" rel="noopener noreferrer" className="info-link">
+                    <span className="info-icon">🌐</span> Visit Website
+                  </a>
+                )}
+                {(tierLevel >= 2 || business.address) && business.address && (
+                  <div className="info-address">
+                    <span className="info-icon">📍</span> {business.address}
+                  </div>
+                )}
+              </div>
+
+              {/* Map Card */}
+              <div className="sidebar-card business-map-card">
+                {tierLevel === 0 ? (
+                  <div className="map-text-only">
+                    <span className="info-icon">📍</span>
+                    <span>{business.neighborhood}, Atlanta</span>
+                  </div>
+                ) : tierLevel === 1 ? (
+                  <div className="map-static">
+                    <div className="map-placeholder">
+                      <span>📍 {business.neighborhood}</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="map-interactive">
+                    <div className="map-placeholder interactive">
+                      <span>📍 {business.neighborhood}</span>
+                      <small>Interactive map</small>
+                    </div>
+                  </div>
+                )}
+                {tierLevel >= 1 && business.address && (
+                  <a
+                    href={'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(business.address + ', Atlanta, GA')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="map-directions-btn"
+                  >
+                    Get Directions
+                  </a>
+                )}
+              </div>
+
+              {/* Business Hours (Starter+) */}
+              {tierLevel >= 1 && business.hours && (
+                <div className="sidebar-card business-hours-card">
+                  <h3 className="sidebar-card-title">Business Hours</h3>
+                  <div className="hours-list">
+                    {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map(day => {
+                      const dayHours = business.hours[day];
+                      if (!dayHours) return null;
+                      return (
+                        <div key={day} className={'hours-row ' + (dayHours.closed ? 'closed' : '')}>
+                          <span className="hours-day">{day.charAt(0).toUpperCase() + day.slice(1)}</span>
+                          <span className="hours-time">
+                            {dayHours.closed ? 'Closed' : dayHours.open + ' - ' + dayHours.close}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               )}
-              {business.website && (
-                <div className="contact-card">
-                  <div className="contact-card-icon">🌐</div>
-                  <div className="contact-card-label">Website</div>
-                  <div className="contact-card-value">
-                    <a href={business.website} target="_blank" rel="noopener noreferrer">Visit Site</a>
+
+              {/* Social Links (Starter+) */}
+              {tierLevel >= 1 && socialLinks.length > 0 && (
+                <div className="sidebar-card business-social-card">
+                  <h3 className="sidebar-card-title">Follow Us</h3>
+                  <div className="social-links">
+                    {socialLinks.map(([platform, url]) => (
+                      <a key={platform} href={url} target="_blank" rel="noopener noreferrer" className="social-link">
+                        {platform === 'instagram' && '📷'}
+                        {platform === 'facebook' && '👤'}
+                        {platform === 'twitter' && '🐦'}
+                        {platform === 'tiktok' && '🎵'}
+                        {platform === 'youtube' && '▶️'}
+                        <span>{platform.charAt(0).toUpperCase() + platform.slice(1)}</span>
+                      </a>
+                    ))}
                   </div>
                 </div>
               )}
-              {business.address && (
-                <div className="contact-card">
-                  <div className="contact-card-icon">📍</div>
-                  <div className="contact-card-label">Address</div>
-                  <div className="contact-card-value">{business.address}</div>
+
+              {/* CTAs */}
+              <div className="sidebar-card business-ctas-card">
+                {!business.claimed && tierLevel === 0 && (
+                  <button className="cta-btn claim-btn">Claim This Business</button>
+                )}
+                {tierLevel < 3 && (
+                  <button className="cta-btn upgrade-btn">Upgrade Listing</button>
+                )}
+                <button className="cta-btn advertise-btn">Advertise Here</button>
+              </div>
+
+              {/* Nearby Listings (Starter+) */}
+              {tierLevel >= 1 && nearbyListings.length > 0 && (
+                <div className="sidebar-card nearby-listings-card">
+                  <h3 className="sidebar-card-title">Nearby</h3>
+                  <div className="nearby-list">
+                    {nearbyListings.map(listing => (
+                      <div
+                        key={listing.id}
+                        className="nearby-item"
+                        onClick={() => onNavigateTo && onNavigateTo('business', listing)}
+                      >
+                        <img src={listing.image} alt={listing.title} className="nearby-image" />
+                        <div className="nearby-info">
+                          <h4 className="nearby-title">{listing.title}</h4>
+                          <span className="nearby-category">{listing.category}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
-            </div>
-
-            <div style={{background: '#f0f0f0', borderRadius: '12px', height: '250px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '2rem', color: 'var(--text-light)'}}>
-              Map placeholder - {business.neighborhood}
-            </div>
+            </aside>
           </div>
         </div>
       );
     }
 
+    // Legacy alias for backwards compatibility
+    const BusinessDetail = BusinessDetailPage;
     // Event Detail Page
     function EventDetail({ event, onBack }) {
       // Parse date for badge display
@@ -12334,7 +12718,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                 </ul>
               </li>
               <li><a href="#neighborhoods" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>Neighborhoods</a></li>
-              <li><a onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('eats-drinks'); }} style={{cursor: 'pointer'}}>Eats & Drinks</a></li>
+              <li><a onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('eats-drinks'); }} style={{cursor: 'pointer', whiteSpace: 'nowrap'}}>Eats & Drinks</a></li>
               <li><a href="development.html">Development</a></li>
               <li><a href="#directory" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>Directory</a></li>
               <li><a onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('events'); }} style={{cursor: 'pointer'}}>Events</a></li>
