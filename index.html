@@ -12337,7 +12337,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               <li><a onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('eats-drinks'); }} style={{cursor: 'pointer'}}>Eats & Drinks</a></li>
               <li><a href="development.html">Development</a></li>
               <li><a href="#directory" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>Directory</a></li>
-              <li><a href="#events" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>Events</a></li>
+              <li><a onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('events'); }} style={{cursor: 'pointer'}}>Events</a></li>
               <li><a href="#properties" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>Properties</a></li>
               {user ? (
                 <>
@@ -12381,7 +12381,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           ) : currentView === 'detail' && viewItemType === 'business' && viewItem ? (
             <BusinessDetail business={viewItem} onBack={() => navigateTo('home')} />
           ) : currentView === 'detail' && viewItemType === 'event' && viewItem ? (
-            <EventDetail event={viewItem} onBack={() => navigateTo('home')} />
+            <EventDetailV2 event={viewItem} onBack={() => navigateTo('events')} onNavigate={navigateTo} />
           ) : currentView === 'detail' && viewItemType === 'property' && viewItem ? (
             <PropertyDetail property={viewItem} onBack={() => navigateTo('home')} />
           ) : currentView === 'detail' && viewItemType === 'neighborhood' && viewItem ? (
