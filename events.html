@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlanta Events | ATL Vibes & Views</title>
+  <meta name="description" content="Discover upcoming events in Atlanta - concerts, art exhibitions, food festivals, and community gatherings across all neighborhoods.">
+  <link rel="canonical" href="https://atlvibesandviews.com/events.html">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    :root {
+      --primary-yellow: #FFD95A;
+      --primary-red: #DC3535;
+      --primary-black: #0A0A0A;
+      --primary-white: #FAFAFA;
+      --secondary-yellow: #FFF4D6;
+      --accent-red: #A82B2B;
+      --text-dark: #1A1A1A;
+      --text-light: #6B6B6B;
+      --border-color: #E5E5E5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--primary-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--primary-white);
+      z-index: 1000;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+    }
+
+    .logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-black);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .logo-tagline {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--text-light);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-yellow);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-red);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--primary-red);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Areas Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown > a {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      cursor: pointer;
+    }
+
+    .nav-dropdown > a::before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
+      margin-left: 4px;
+      transition: transform 0.3s;
+    }
+
+    .nav-dropdown:hover > a::before {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      min-width: 200px;
+      padding: 0.5rem 0;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      margin-top: 10px;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 5px;
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-transform: none;
+      letter-spacing: 0;
+      transition: all 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--primary-yellow);
+      color: var(--primary-black);
+    }
+
+    .dropdown-menu a::after {
+      display: none;
+    }
+
+    .submit-btn {
+      background: var(--primary-red);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-red);
+      transform: translateY(-2px);
+    }
+
+    /* Events Hero */
+    .events-hero {
+      margin-top: 80px;
+      height: 45vh;
+      min-height: 350px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .events-hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .events-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+    }
+
+    .events-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      max-width: 800px;
+    }
+
+    .events-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+
+    .events-hero-subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Content Layout */
+    .events-content-layout {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 3rem;
+      padding: 3rem 5%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .main-content {
+      min-width: 0;
+    }
+
+    /* Time Toggle */
+    .time-toggle {
+      display: inline-flex;
+      background: var(--border-color);
+      border-radius: 8px;
+      padding: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .time-toggle-btn {
+      padding: 0.75rem 2rem;
+      border: none;
+      background: transparent;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-light);
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .time-toggle-btn.active {
+      background: white;
+      color: var(--primary-red);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .time-toggle-btn:hover:not(.active) {
+      color: var(--text-dark);
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .filter-row:not(:last-child) {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Date Filter Pills */
+    .date-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .date-filter-pill {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      background: white;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .date-filter-pill:hover {
+      border-color: var(--primary-yellow);
+      background: var(--secondary-yellow);
+    }
+
+    .date-filter-pill.active {
+      background: var(--primary-yellow);
+      border-color: var(--primary-yellow);
+      color: var(--primary-black);
+      font-weight: 600;
+    }
+
+    /* Filter Dropdowns */
+    .filter-select {
+      padding: 0.65rem 2.5rem 0.65rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background: white;
+      font-size: 0.9rem;
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text-dark);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B6B6B' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      min-width: 150px;
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--primary-red);
+    }
+
+    /* Keyword Search */
+    .filter-search-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .filter-search-input:focus {
+      outline: none;
+      border-color: var(--primary-red);
+    }
+
+    .filter-search-input::placeholder {
+      color: var(--text-light);
+    }
+
+    /* Results Info */
+    .results-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .results-count {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .results-count strong {
+      color: var(--text-dark);
+    }
+
+    .results-sort {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* Events Grid */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    /* Event Archive Card */
+    .event-card {
+      background: var(--primary-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .event-card-image-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .event-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .event-card:hover .event-card-image {
+      transform: scale(1.05);
+    }
+
+    .event-card-featured-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--primary-yellow);
+      color: var(--primary-black);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+    }
+
+    .event-card-date-badge {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(0,0,0,0.85);
+      color: white;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 4px;
+      line-height: 1.3;
+    }
+
+    .event-card-date-badge .date-day {
+      display: block;
+      font-size: 1.1rem;
+    }
+
+    .event-card-save-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .event-card-save-btn:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    .event-card-save-btn.saved {
+      background: var(--primary-red);
+      color: white;
+    }
+
+    .event-card-content {
+      padding: 1.5rem;
+    }
+
+    .event-card-category {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--text-light);
+      color: var(--text-dark);
+      padding: 0.3rem 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.75rem;
+    }
+
+    .event-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .event-card-neighborhood {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .event-card-description {
+      color: var(--text-light);
+      line-height: 1.6;
+      font-size: 0.9rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .event-view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-red);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: gap 0.2s;
+    }
+
+    .event-view-link:hover {
+      gap: 0.75rem;
+    }
+
+    .event-view-link::after {
+      content: '→';
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-light);
+    }
+
+    .no-results h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .sidebar-module {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .sidebar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--primary-yellow);
+    }
+
+    /* Ad Placeholder */
+    .ad-placeholder {
+      background: #f0f0f0;
+      border: 2px dashed var(--border-color);
+      border-radius: 4px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Neighborhood List */
+    .neighborhood-list {
+      list-style: none;
+    }
+
+    .neighborhood-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+      transition: background 0.3s;
+    }
+
+    .neighborhood-list-item:last-child {
+      border-bottom: none;
+    }
+
+    .neighborhood-list-item:hover {
+      background: var(--secondary-yellow);
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .neighborhood-list-item a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .neighborhood-list-item a:hover {
+      color: var(--primary-red);
+    }
+
+    .neighborhood-list-count {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      background: var(--secondary-yellow);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* Newsletter Form */
+    .newsletter-description {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .newsletter-input {
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: 'Source Sans 3', sans-serif;
+      transition: border-color 0.3s;
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--primary-red);
+    }
+
+    .newsletter-btn {
+      background: var(--primary-red);
+      color: white;
+      border: none;
+      padding: 0.875rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .newsletter-btn:hover {
+      background: var(--accent-red);
+      transform: translateY(-2px);
+    }
+
+    /* Guide CTA */
+    .guide-cta {
+      background: var(--secondary-yellow);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .guide-cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+    }
+
+    .guide-cta-text {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .guide-cta-btn {
+      display: inline-block;
+      background: var(--primary-black);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s;
+    }
+
+    .guide-cta-btn:hover {
+      background: var(--primary-red);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-black);
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-yellow);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-yellow);
+      color: var(--primary-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      background: var(--primary-red);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .footer-column h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-yellow);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-yellow);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+      .events-content-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 968px) {
+      .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .events-hero-title {
+        font-size: 3rem;
+      }
+
+      .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .date-pills {
+        justify-content: center;
+      }
+
+      .filter-select,
+      .filter-search-input {
+        width: 100%;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .sidebar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .events-hero {
+        height: 35vh;
+        min-height: 280px;
+      }
+
+      .events-hero-title {
+        font-size: 2.2rem;
+      }
+
+      .events-hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .event-card-title {
+        font-size: 1.2rem;
+      }
+
+      .event-card-content {
+        padding: 1.25rem;
+      }
+
+      .time-toggle-btn {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.8rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useMemo } = React;
+
+    // Demo Events Data
+    const demoEvents = [
+      {
+        id: 1,
+        title: "Atlanta Jazz Festival",
+        date: "2026-02-14",
+        endDate: "2026-02-16",
+        displayDate: "Feb 14-16",
+        image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800",
+        neighborhood: "Piedmont Park",
+        area: "Midtown",
+        category: "Music",
+        description: "Three days of world-class jazz performances featuring Grammy-winning artists and emerging talent from across the globe.",
+        featured: true,
+        link: "#"
+      },
+      {
+        id: 2,
+        title: "Westside Art Walk",
+        date: "2026-02-01",
+        displayDate: "Feb 1",
+        image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800",
+        neighborhood: "West Midtown",
+        area: "Westside",
+        category: "Art",
+        description: "Explore galleries, studios, and pop-up exhibitions throughout the Westside Arts District.",
+        featured: false,
+        link: "#"
+      },
+      {
+        id: 3,
+        title: "Taste of Buckhead",
+        date: "2026-02-08",
+        displayDate: "Feb 8",
+        image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800",
+        neighborhood: "Buckhead",
+        area: "Buckhead",
+        category: "Food & Drink",
+        description: "Sample dishes from over 40 of Buckhead's finest restaurants at this annual culinary celebration.",
+        featured: true,
+        link: "#"
+      },
+      {
+        id: 4,
+        title: "BeltLine Lantern Parade",
+        date: "2026-02-22",
+        displayDate: "Feb 22",
+        image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800",
+        neighborhood: "Old Fourth Ward",
+        area: "Eastside",
+        category: "Community",
+        description: "Join thousands of Atlantans for the magical evening parade along the Eastside Trail.",
+        featured: false,
+        link: "#"
+      },
+      {
+        id: 5,
+        title: "Downtown Film Festival",
+        date: "2026-01-30",
+        displayDate: "Jan 30",
+        image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800",
+        neighborhood: "Downtown",
+        area: "Downtown",
+        category: "Art",
+        description: "Screening independent films from emerging Georgia filmmakers at the historic Fox Theatre.",
+        featured: false,
+        link: "#"
+      },
+      {
+        id: 6,
+        title: "Virginia-Highland Wine Walk",
+        date: "2026-02-28",
+        displayDate: "Feb 28",
+        image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800",
+        neighborhood: "Virginia-Highland",
+        area: "Eastside",
+        category: "Food & Drink",
+        description: "Stroll through the charming streets of VaHi while sampling wines from around the world.",
+        featured: false,
+        link: "#"
+      },
+      {
+        id: 7,
+        title: "Grant Park Music Festival",
+        date: "2026-01-15",
+        displayDate: "Jan 15",
+        image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800",
+        neighborhood: "Grant Park",
+        area: "Southeast",
+        category: "Music",
+        description: "An afternoon of live music featuring local Atlanta bands in the historic Grant Park setting.",
+        featured: false,
+        link: "#"
+      },
+      {
+        id: 8,
+        title: "Inman Park Art Show",
+        date: "2026-01-10",
+        displayDate: "Jan 10",
+        image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800",
+        neighborhood: "Inman Park",
+        area: "Eastside",
+        category: "Art",
+        description: "Discover works from over 200 artists at Atlanta's oldest neighborhood art festival.",
+        featured: true,
+        link: "#"
+      },
+      {
+        id: 9,
+        title: "Midtown Food Truck Rally",
+        date: "2026-02-07",
+        displayDate: "Feb 7",
+        image: "https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=800",
+        neighborhood: "Midtown",
+        area: "Midtown",
+        category: "Food & Drink",
+        description: "Over 30 food trucks gather in Piedmont Park for Atlanta's biggest mobile food festival.",
+        featured: false,
+        link: "#"
+      },
+      {
+        id: 10,
+        title: "East Atlanta Village Block Party",
+        date: "2026-01-05",
+        displayDate: "Jan 5",
+        image: "https://images.unsplash.com/photo-1528495612343-9ca9f4a4de28?w=800",
+        neighborhood: "East Atlanta",
+        area: "Southeast",
+        category: "Community",
+        description: "A neighborhood celebration with live music, local vendors, and community activities.",
+        featured: false,
+        link: "#"
+      }
+    ];
+
+    // Neighborhood data with event counts
+    const neighborhoodEventCounts = [
+      { name: "Midtown", count: 8 },
+      { name: "Buckhead", count: 6 },
+      { name: "Old Fourth Ward", count: 5 },
+      { name: "Virginia-Highland", count: 4 },
+      { name: "East Atlanta", count: 4 },
+      { name: "Inman Park", count: 3 }
+    ];
+
+    // Categories for filter
+    const categories = ["Music", "Art", "Food & Drink", "Community"];
+
+    // Areas for filter
+    const areas = ["Buckhead", "Midtown", "Downtown", "Eastside", "Westside", "Southeast", "Southwest", "Northwest"];
+
+    // Neighborhoods for filter
+    const neighborhoods = ["Piedmont Park", "West Midtown", "Buckhead", "Old Fourth Ward", "Downtown", "Virginia-Highland", "Grant Park", "Inman Park", "Midtown", "East Atlanta"];
+
+    // Date helper functions
+    const isToday = (dateStr) => {
+      const today = new Date();
+      const date = new Date(dateStr);
+      return date.toDateString() === today.toDateString();
+    };
+
+    const isThisWeek = (dateStr) => {
+      const today = new Date();
+      const date = new Date(dateStr);
+      const startOfWeek = new Date(today);
+      startOfWeek.setDate(today.getDate() - today.getDay());
+      startOfWeek.setHours(0, 0, 0, 0);
+      const endOfWeek = new Date(startOfWeek);
+      endOfWeek.setDate(startOfWeek.getDate() + 6);
+      endOfWeek.setHours(23, 59, 59, 999);
+      return date >= startOfWeek && date <= endOfWeek;
+    };
+
+    const isWeekend = (dateStr) => {
+      const date = new Date(dateStr);
+      const day = date.getDay();
+      return day === 0 || day === 6;
+    };
+
+    const isUpcoming = (dateStr) => {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const date = new Date(dateStr);
+      return date >= today;
+    };
+
+    // Event Card Component
+    function EventCard({ event, isSaved, onSave }) {
+      return (
+        <div className="event-card" onClick={() => window.location.href = event.link}>
+          <div className="event-card-image-wrapper">
+            <img src={event.image} alt={event.title} className="event-card-image" />
+            {event.featured && (
+              <span className="event-card-featured-badge">Featured</span>
+            )}
+            <span className="event-card-date-badge">
+              <span className="date-day">{event.displayDate}</span>
+            </span>
+            <button
+              className={`event-card-save-btn ${isSaved ? 'saved' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onSave(event.id);
+              }}
+              aria-label={isSaved ? 'Unsave event' : 'Save event'}
+            >
+              {isSaved ? '♥' : '♡'}
+            </button>
+          </div>
+          <div className="event-card-content">
+            <span className="event-card-category">{event.category}</span>
+            <h3 className="event-card-title">{event.title}</h3>
+            <p className="event-card-neighborhood">
+              📍 {event.neighborhood}
+            </p>
+            <p className="event-card-description">{event.description}</p>
+            <a href={event.link} className="event-view-link" onClick={(e) => e.stopPropagation()}>
+              View Event
+            </a>
+          </div>
+        </div>
+      );
+    }
+
+    // Main App Component
+    function EventsApp() {
+      const [timeMode, setTimeMode] = useState('upcoming');
+      const [dateRange, setDateRange] = useState('all');
+      const [category, setCategory] = useState('');
+      const [neighborhood, setNeighborhood] = useState('');
+      const [area, setArea] = useState('');
+      const [keyword, setKeyword] = useState('');
+      const [savedEvents, setSavedEvents] = useState([]);
+
+      const toggleSaveEvent = (eventId) => {
+        setSavedEvents(prev =>
+          prev.includes(eventId)
+            ? prev.filter(id => id !== eventId)
+            : [...prev, eventId]
+        );
+      };
+
+      // Filter and sort events
+      const filteredEvents = useMemo(() => {
+        let events = [...demoEvents];
+
+        // Filter by time mode (upcoming vs past)
+        events = events.filter(event => {
+          const upcoming = isUpcoming(event.date);
+          return timeMode === 'upcoming' ? upcoming : !upcoming;
+        });
+
+        // Filter by date range
+        if (dateRange === 'today') {
+          events = events.filter(event => isToday(event.date));
+        } else if (dateRange === 'this-week') {
+          events = events.filter(event => isThisWeek(event.date));
+        } else if (dateRange === 'weekend') {
+          events = events.filter(event => isWeekend(event.date));
+        }
+
+        // Filter by category
+        if (category) {
+          events = events.filter(event => event.category === category);
+        }
+
+        // Filter by neighborhood
+        if (neighborhood) {
+          events = events.filter(event => event.neighborhood === neighborhood);
+        }
+
+        // Filter by area
+        if (area) {
+          events = events.filter(event => event.area === area);
+        }
+
+        // Filter by keyword
+        if (keyword) {
+          const lowerKeyword = keyword.toLowerCase();
+          events = events.filter(event =>
+            event.title.toLowerCase().includes(lowerKeyword) ||
+            event.description.toLowerCase().includes(lowerKeyword)
+          );
+        }
+
+        // Sort: featured first, then by date
+        events.sort((a, b) => {
+          // Featured first
+          if (a.featured && !b.featured) return -1;
+          if (!a.featured && b.featured) return 1;
+
+          // Then by date
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+
+          if (timeMode === 'upcoming') {
+            return dateA - dateB; // Soonest first
+          } else {
+            return dateB - dateA; // Most recent first
+          }
+        });
+
+        return events;
+      }, [timeMode, dateRange, category, neighborhood, area, keyword]);
+
+      return (
+        <div>
+          {/* Navigation */}
+          <nav className="navbar">
+            <a href="index.html" className="logo">
+              <span className="logo-main">ATL Vibes</span>
+              <span className="logo-tagline">Atlanta's Neighborhood Magazine</span>
+            </a>
+            <ul className="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li className="nav-dropdown">
+                <a>Areas</a>
+                <ul className="dropdown-menu">
+                  <li><a href="buckhead.html">Buckhead</a></li>
+                  <li><a href="midtown.html">Midtown</a></li>
+                  <li><a href="downtown.html">Downtown</a></li>
+                  <li><a href="eastside.html">Eastside</a></li>
+                  <li><a href="westside.html">Westside</a></li>
+                  <li><a href="southeast.html">Southeast</a></li>
+                </ul>
+              </li>
+              <li><a href="development.html">Development</a></li>
+              <li><a href="events.html" className="active">Events</a></li>
+              <li><a href="index.html#businesses">Businesses</a></li>
+              <li><a href="#" className="submit-btn">Submit</a></li>
+            </ul>
+          </nav>
+
+          {/* Events Hero */}
+          <section className="events-hero">
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600"
+              alt="Atlanta Events"
+              className="events-hero-image"
+            />
+            <div className="events-hero-overlay"></div>
+            <div className="events-hero-content">
+              <h1 className="events-hero-title">Atlanta Events</h1>
+              <p className="events-hero-subtitle">
+                Discover concerts, festivals, art exhibitions, food experiences, and community gatherings happening across Atlanta's vibrant neighborhoods.
+              </p>
+            </div>
+          </section>
+
+          {/* Main Content Layout */}
+          <div className="events-content-layout">
+            <main className="main-content">
+              {/* Time Toggle */}
+              <div className="time-toggle">
+                <button
+                  className={`time-toggle-btn ${timeMode === 'upcoming' ? 'active' : ''}`}
+                  onClick={() => setTimeMode('upcoming')}
+                >
+                  Upcoming
+                </button>
+                <button
+                  className={`time-toggle-btn ${timeMode === 'past' ? 'active' : ''}`}
+                  onClick={() => setTimeMode('past')}
+                >
+                  Past
+                </button>
+              </div>
+
+              {/* Filter Bar */}
+              <div className="filter-bar">
+                <div className="filter-row">
+                  <div className="date-pills">
+                    <button
+                      className={`date-filter-pill ${dateRange === 'all' ? 'active' : ''}`}
+                      onClick={() => setDateRange('all')}
+                    >
+                      All
+                    </button>
+                    <button
+                      className={`date-filter-pill ${dateRange === 'today' ? 'active' : ''}`}
+                      onClick={() => setDateRange('today')}
+                    >
+                      Today
+                    </button>
+                    <button
+                      className={`date-filter-pill ${dateRange === 'this-week' ? 'active' : ''}`}
+                      onClick={() => setDateRange('this-week')}
+                    >
+                      This Week
+                    </button>
+                    <button
+                      className={`date-filter-pill ${dateRange === 'weekend' ? 'active' : ''}`}
+                      onClick={() => setDateRange('weekend')}
+                    >
+                      Weekend
+                    </button>
+                  </div>
+                </div>
+                <div className="filter-row">
+                  <select
+                    className="filter-select"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option value="">All Categories</option>
+                    {categories.map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                  </select>
+                  <select
+                    className="filter-select"
+                    value={neighborhood}
+                    onChange={(e) => setNeighborhood(e.target.value)}
+                  >
+                    <option value="">All Neighborhoods</option>
+                    {neighborhoods.map(n => (
+                      <option key={n} value={n}>{n}</option>
+                    ))}
+                  </select>
+                  <select
+                    className="filter-select"
+                    value={area}
+                    onChange={(e) => setArea(e.target.value)}
+                  >
+                    <option value="">All Areas</option>
+                    {areas.map(a => (
+                      <option key={a} value={a}>{a}</option>
+                    ))}
+                  </select>
+                  <input
+                    type="text"
+                    className="filter-search-input"
+                    placeholder="Search events..."
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              {/* Results Info */}
+              <div className="results-info">
+                <span className="results-count">
+                  Showing <strong>{filteredEvents.length}</strong> {filteredEvents.length === 1 ? 'event' : 'events'}
+                </span>
+                <span className="results-sort">
+                  Sorted by: Featured, then {timeMode === 'upcoming' ? 'soonest' : 'most recent'}
+                </span>
+              </div>
+
+              {/* Events Grid */}
+              {filteredEvents.length > 0 ? (
+                <div className="events-grid">
+                  {filteredEvents.map(event => (
+                    <EventCard
+                      key={event.id}
+                      event={event}
+                      isSaved={savedEvents.includes(event.id)}
+                      onSave={toggleSaveEvent}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="no-results">
+                  <h3>No events found</h3>
+                  <p>Try adjusting your filters or search terms.</p>
+                </div>
+              )}
+            </main>
+
+            {/* Sidebar */}
+            <aside className="sidebar">
+              {/* Ad Placeholder */}
+              <div className="sidebar-module">
+                <div className="ad-placeholder">
+                  Advertisement 300×250
+                </div>
+              </div>
+
+              {/* Neighborhoods Widget */}
+              <div className="sidebar-module">
+                <h3 className="sidebar-title">Events by Neighborhood</h3>
+                <ul className="neighborhood-list">
+                  {neighborhoodEventCounts.map(item => (
+                    <li key={item.name} className="neighborhood-list-item">
+                      <a href="#" onClick={(e) => { e.preventDefault(); setNeighborhood(item.name); }}>
+                        {item.name}
+                      </a>
+                      <span className="neighborhood-list-count">{item.count} events</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Newsletter CTA */}
+              <div className="sidebar-module">
+                <h3 className="sidebar-title">Stay Updated</h3>
+                <p className="newsletter-description">
+                  Get weekly event picks and neighborhood news delivered to your inbox.
+                </p>
+                <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+                  <input
+                    type="email"
+                    className="newsletter-input"
+                    placeholder="Your email address"
+                  />
+                  <button type="submit" className="newsletter-btn">
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+
+              {/* Guide Download CTA */}
+              <div className="guide-cta">
+                <h3 className="guide-cta-title">Atlanta Events Guide</h3>
+                <p className="guide-cta-text">
+                  Download our free guide to Atlanta's best annual events and festivals.
+                </p>
+                <a href="#" className="guide-cta-btn">Download Free Guide</a>
+              </div>
+            </aside>
+          </div>
+
+          {/* Footer */}
+          <footer className="footer">
+            <div className="footer-content">
+              <div className="footer-brand">
+                <h3>ATL VIBES & VIEWS</h3>
+                <p>Atlanta's premier neighborhood and culture magazine. Exploring the vibes, venues, and views that make Atlanta unique.</p>
+                <div className="social-links">
+                  <a href="#" className="social-link">IG</a>
+                  <a href="#" className="social-link">TW</a>
+                  <a href="#" className="social-link">FB</a>
+                </div>
+              </div>
+              <div className="footer-column">
+                <h4>Explore</h4>
+                <ul className="footer-links">
+                  <li><a href="index.html">Neighborhoods</a></li>
+                  <li><a href="development.html">Development</a></li>
+                  <li><a href="events.html">Events</a></li>
+                  <li><a href="index.html#businesses">Businesses</a></li>
+                </ul>
+              </div>
+              <div className="footer-column">
+                <h4>Areas</h4>
+                <ul className="footer-links">
+                  <li><a href="buckhead.html">Buckhead</a></li>
+                  <li><a href="midtown.html">Midtown</a></li>
+                  <li><a href="downtown.html">Downtown</a></li>
+                  <li><a href="eastside.html">Eastside</a></li>
+                </ul>
+              </div>
+              <div className="footer-column">
+                <h4>Company</h4>
+                <ul className="footer-links">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Advertise</a></li>
+                  <li><a href="#">Careers</a></li>
+                </ul>
+              </div>
+              <div className="footer-column">
+                <h4>Legal</h4>
+                <ul className="footer-links">
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="#">Cookie Policy</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <p>&copy; 2026 ATL Vibes & Views. All rights reserved.</p>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    // Render the app
+    ReactDOM.render(<EventsApp />, document.getElementById('root'));
+  </script>
+</body>
+</html>
