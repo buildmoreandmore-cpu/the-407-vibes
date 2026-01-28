@@ -9679,7 +9679,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                       <div
                         key={story.id}
                         className="related-story-card"
-                        onClick={() => onNavigateTo && onNavigateTo('story', story)}
+                        onClick={() => onNavigateTo && onNavigateTo('detail', 'blog', story)}
                       >
                         <img src={story.image} alt={story.title} className="related-story-image" />
                         <div className="related-story-content">
@@ -9818,7 +9818,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                       <div
                         key={listing.id}
                         className="nearby-item"
-                        onClick={() => onNavigateTo && onNavigateTo('business', listing)}
+                        onClick={() => onNavigateTo && onNavigateTo('detail', 'business', listing)}
                       >
                         <img src={listing.image} alt={listing.title} className="nearby-image" />
                         <div className="nearby-info">
@@ -12763,7 +12763,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           ) : currentView === 'detail' && viewItemType === 'blog' && viewItem ? (
             <BlogPostDetail post={viewItem} onBack={() => navigateTo('home')} />
           ) : currentView === 'detail' && viewItemType === 'business' && viewItem ? (
-            <BusinessDetail business={viewItem} onBack={() => navigateTo('home')} />
+            <BusinessDetail business={viewItem} onBack={() => navigateTo('home')} onNavigateTo={navigateTo} />
           ) : currentView === 'detail' && viewItemType === 'event' && viewItem ? (
             <EventDetailV2 event={viewItem} onBack={() => navigateTo('events')} onNavigate={navigateTo} />
           ) : currentView === 'detail' && viewItemType === 'property' && viewItem ? (
