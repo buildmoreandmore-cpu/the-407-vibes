@@ -12404,6 +12404,17 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               onNavigate={navigateTo}
               onSubmit={() => openSubmit('business')}
             />
+          ) : currentView === 'events' ? (
+            <EventsLandingPage
+              onBack={() => navigateTo('home')}
+              onNavigate={navigateTo}
+              onSubmit={() => openSubmit('event')}
+            />
+          ) : currentView === 'past-events' ? (
+            <PastEventsArchive
+              onBack={() => navigateTo('events')}
+              onNavigate={navigateTo}
+            />
           ) : (
           <>
           {/* Hero Section */}
