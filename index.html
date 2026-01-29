@@ -12856,58 +12856,142 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             </div>
           </section>
 
-          {/* Neighborhoods Section */}
-          <section className="neighborhoods-section" id="neighborhoods">
-            <div className="neighborhoods-container">
-              <div className="neighborhoods-content">
-                <h2>Neighborhoods to Explore</h2>
-                <p>From the historic charm of Virginia-Highland to the vibrant energy of Midtown, Atlanta's 243 neighborhoods each tell their own unique story. Discover the perfect community that matches your lifestyle.</p>
-                <a href="#directory" className="neighborhoods-btn">Explore Neighborhoods</a>
+          {/* Neighborhoods Section - Interactive Map */}
+          <section className="neighborhoods-section" id="neighborhoods" ref={mapSectionRef}>
+            <div className="section-header">
+              <h2 className="section-title">Explore Atlanta</h2>
+              <p className="section-subtitle">Click a neighborhood to learn more</p>
+            </div>
+
+            {/* Mobile Area Selector */}
+            <select
+              className="mobile-area-selector"
+              value={mapSelectedArea || ''}
+              onChange={(e) => setMapSelectedArea(e.target.value || null)}
+            >
+              <option value="">Select a Neighborhood</option>
+              {Object.entries(areaMetadata).map(([id, data]) => (
+                <option key={id} value={id}>{data.name}</option>
+              ))}
+            </select>
+
+            <div className="map-content-wrapper">
+              {/* Left: Area Card */}
+              <div className="area-card-container">
+                {mapSelectedArea && areaMetadata[mapSelectedArea] ? (
+                  <AreaCard
+                    area={mapSelectedArea}
+                    areaData={areaMetadata[mapSelectedArea]}
+                    onExplore={(area) => window.location.href = `${area}.html`}
+                    onClose={() => setMapSelectedArea(null)}
+                    onPrev={() => {
+                      const areaKeys = Object.keys(areaMetadata);
+                      const currentIndex = areaKeys.indexOf(mapSelectedArea);
+                      const prevIndex = currentIndex === 0 ? areaKeys.length - 1 : currentIndex - 1;
+                      setMapSelectedArea(areaKeys[prevIndex]);
+                    }}
+                    onNext={() => {
+                      const areaKeys = Object.keys(areaMetadata);
+                      const currentIndex = areaKeys.indexOf(mapSelectedArea);
+                      const nextIndex = currentIndex === areaKeys.length - 1 ? 0 : currentIndex + 1;
+                      setMapSelectedArea(areaKeys[nextIndex]);
+                    }}
+                    allAreas={areaMetadata}
+                  />
+                ) : (
+                  <div className="area-card-placeholder">
+                    <div className="area-card-placeholder-icon">📍</div>
+                    <p>Click on a neighborhood to explore</p>
+                  </div>
+                )}
               </div>
-              <AtlantaMap
-                neighborhoods={neighborhoods}
-                onSelect={(area) => navigateTo('area', 'area', area)}
-              />
+
+              {/* Right: Map */}
+              <div className="map-container">
+                {mapVisible ? (
+                  <AtlantaMap
+                    neighborhoods={neighborhoods}
+                    onSelect={(area) => navigateTo('area', 'area', area)}
+                    selectedArea={mapSelectedArea}
+                    onAreaSelect={setMapSelectedArea}
+                    onClear={() => setMapSelectedArea(null)}
+                  />
+                ) : (
+                  <div className="map-placeholder">Loading map...</div>
+                )}
+              </div>
             </div>
           </section>
 
-          {/* Featured Businesses */}
+          {/* Featured Businesses - filtered by selected area */}
           <section className="featured-section">
             <div className="section-header">
-              <h2 className="section-title">Featured Businesses</h2>
-              <p className="section-subtitle">Supporting Local Excellence</p>
+              <h2 className="section-title">
+                {mapSelectedArea && areaMetadata[mapSelectedArea]
+                  ? `Businesses in ${areaMetadata[mapSelectedArea].name}`
+                  : 'Featured Businesses'}
+              </h2>
+              <p className="section-subtitle">
+                {mapSelectedArea ? 'Filtered by neighborhood' : 'Supporting Local Excellence'}
+              </p>
             </div>
             <div className="featured-grid-2col">
-              {businesses.map((business, index) => (
-                <ArchiveItem
-                  key={index}
-                  item={business}
-                  type="business"
-                  onSave={toggleSaveItem}
-                  isSaved={isItemSaved('businesses', business.id || business.title.toLowerCase().replace(/\s+/g, '-'))}
-                  onClick={(item) => navigateTo('detail', 'business', item)}
-                />
-              ))}
+              {getFilteredListings('business').length > 0 ? (
+                getFilteredListings('business').map((business, index) => (
+                  <ArchiveItem
+                    key={business.id || index}
+                    item={{
+                      ...business,
+                      title: business.name || business.title,
+                      badge: business.category
+                    }}
+                    type="business"
+                    onSave={toggleSaveItem}
+                    isSaved={isItemSaved('businesses', business.id || (business.name || '').toLowerCase().replace(/\s+/g, '-'))}
+                    onClick={() => navigateTo('detail', 'business', business)}
+                  />
+                ))
+              ) : (
+                <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '2rem', color: 'var(--text-light)'}}>
+                  No businesses found in this area yet.
+                </div>
+              )}
             </div>
           </section>
 
-          {/* Featured Events */}
+          {/* Featured Events - filtered by selected area */}
           <section className="featured-section" id="events" style={{background: 'var(--secondary-yellow)'}}>
             <div className="section-header">
-              <h2 className="section-title">Upcoming Events</h2>
-              <p className="section-subtitle">Don't Miss Out</p>
+              <h2 className="section-title">
+                {mapSelectedArea && areaMetadata[mapSelectedArea]
+                  ? `Events in ${areaMetadata[mapSelectedArea].name}`
+                  : 'Upcoming Events'}
+              </h2>
+              <p className="section-subtitle">
+                {mapSelectedArea ? 'Filtered by neighborhood' : "Don't Miss Out"}
+              </p>
             </div>
             <div className="featured-grid-2col">
-              {events.map((event, index) => (
-                <ArchiveItem
-                  key={index}
-                  item={event}
-                  type="event"
-                  onSave={toggleSaveItem}
-                  isSaved={isItemSaved('events', event.id || event.title.toLowerCase().replace(/\s+/g, '-'))}
-                  onClick={(item) => navigateTo('detail', 'event', item)}
-                />
-              ))}
+              {getFilteredListings('event').length > 0 ? (
+                getFilteredListings('event').map((event, index) => (
+                  <ArchiveItem
+                    key={event.id || index}
+                    item={{
+                      ...event,
+                      title: event.name || event.title,
+                      badge: event.category
+                    }}
+                    type="event"
+                    onSave={toggleSaveItem}
+                    isSaved={isItemSaved('events', event.id || (event.name || '').toLowerCase().replace(/\s+/g, '-'))}
+                    onClick={() => navigateTo('detail', 'event', event)}
+                  />
+                ))
+              ) : (
+                <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '2rem', color: 'var(--text-light)'}}>
+                  No events found in this area yet.
+                </div>
+              )}
             </div>
           </section>
 
