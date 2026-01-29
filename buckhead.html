@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buckhead - ATL Vibes & Views | Atlanta's Upscale District</title>
+  <meta name="description" content="Explore Buckhead, Atlanta's upscale district known for luxury shopping, fine dining, and vibrant nightlife. Discover neighborhoods, businesses, events, and real estate.">
+  <link rel="canonical" href="https://atlvibesandviews.com/buckhead.html">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    :root {
+      --primary-yellow: #FFD95A;
+      --primary-red: #DC3535;
+      --primary-black: #0A0A0A;
+      --primary-white: #FAFAFA;
+      --secondary-yellow: #FFF4D6;
+      --accent-red: #A82B2B;
+      --text-dark: #1A1A1A;
+      --text-light: #6B6B6B;
+      --border-color: #E5E5E5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--primary-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--primary-white);
+      z-index: 1000;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+    }
+
+    .logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-black);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .logo-tagline {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--text-light);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-yellow);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-red);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdown Navigation */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown > a {
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 200px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      padding: 0.5rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.85rem;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--secondary-yellow);
+    }
+
+    .dropdown-menu a::after {
+      display: none;
+    }
+
+    /* Area Hero */
+    .area-hero {
+      margin-top: 80px;
+      position: relative;
+      height: 50vh;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .area-hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .area-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+    }
+
+    .area-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      max-width: 800px;
+    }
+
+    .area-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .area-back-link:hover {
+      opacity: 1;
+    }
+
+    .area-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+
+    .area-hero-tagline {
+      font-size: 1.25rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .area-vibe-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .area-vibe-tag {
+      background: rgba(255, 217, 90, 0.2);
+      border: 1px solid rgba(255, 217, 90, 0.5);
+      color: var(--primary-yellow);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .area-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .area-stat {
+      text-align: center;
+    }
+
+    .area-stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .area-stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+    }
+
+    /* Area Content */
+    .area-content {
+      padding: 4rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .area-section {
+      margin-bottom: 4rem;
+    }
+
+    .area-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .area-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .area-section-link {
+      color: var(--primary-red);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .area-section-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Neighborhood Map Section */
+    .neighborhood-map-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .neighborhood-map-wrapper {
+      position: relative;
+      background: #f5f5f5;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .neighborhood-map-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .neighborhood-region {
+      fill: rgba(255, 217, 90, 0.2);
+      stroke: var(--primary-black);
+      stroke-width: 1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .neighborhood-region:hover,
+    .neighborhood-region.active {
+      fill: rgba(255, 217, 90, 0.5);
+      filter: drop-shadow(0 0 8px rgba(255, 215, 90, 0.5));
+    }
+
+    .neighborhood-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+    }
+
+    /* Neighborhoods Grid */
+    .neighborhoods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .neighborhood-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .neighborhood-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      border-color: var(--primary-yellow);
+    }
+
+    .neighborhood-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .neighborhood-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Content Tabs */
+    .content-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+
+    .content-tab {
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.3s;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+    }
+
+    .content-tab:hover {
+      color: var(--text-dark);
+    }
+
+    .content-tab.active {
+      color: var(--primary-red);
+      border-bottom-color: var(--primary-red);
+    }
+
+    /* Content Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .content-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .content-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    .content-card.featured {
+      border: 2px solid var(--primary-yellow);
+    }
+
+    .content-card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .content-card-body {
+      padding: 1.5rem;
+    }
+
+    .content-card-badge {
+      display: inline-block;
+      background: var(--secondary-yellow);
+      color: var(--text-dark);
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .content-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .content-card-desc {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .content-card-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* Property Cards */
+    .property-card-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--primary-red);
+      margin-bottom: 0.25rem;
+    }
+
+    .property-card-address {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .property-card-specs {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+      background: var(--primary-black);
+      color: white;
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .newsletter-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+      gap: 1rem;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .newsletter-btn {
+      background: var(--primary-yellow);
+      color: var(--primary-black);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .newsletter-btn:hover {
+      background: #FFE580;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-black);
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo-main {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .footer-brand .logo-tagline {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-brand p {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      color: var(--primary-yellow);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 5%;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .area-hero-title {
+        font-size: 3rem;
+      }
+
+      .neighborhood-map-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .area-hero-title {
+        font-size: 2.5rem;
+      }
+
+      .area-stats {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .content-tabs {
+        flex-wrap: wrap;
+      }
+
+      .content-tab {
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // Area Data
+    const areaData = {
+      id: 'buckhead',
+      name: 'Buckhead',
+      tagline: "Atlanta's upscale district where luxury shopping meets vibrant nightlife",
+      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
+      vibes: ['Upscale', 'Shopping', 'Nightlife', 'Fine Dining'],
+      stats: {
+        neighborhoods: 8,
+        businesses: 156,
+        events: 24
+      }
+    };
+
+    // Neighborhoods within Buckhead
+    const neighborhoods = [
+      { id: 'buckhead-village', name: 'Buckhead Village', description: 'Upscale shopping and dining district with boutiques and restaurants' },
+      { id: 'chastain-park', name: 'Chastain Park', description: 'Family-friendly area with amphitheater and beautiful park' },
+      { id: 'garden-hills', name: 'Garden Hills', description: 'Historic residential neighborhood with tree-lined streets' },
+      { id: 'peachtree-hills', name: 'Peachtree Hills', description: 'Quiet residential streets near Piedmont Hospital' },
+      { id: 'tuxedo-park', name: 'Tuxedo Park', description: 'Prestigious historic estates and Governor\'s Mansion' },
+      { id: 'paces', name: 'Paces', description: 'Luxury homes and exclusive golf courses' },
+      { id: 'peachtree-battle', name: 'Peachtree Battle', description: 'Tree-lined streets with classic Southern homes' },
+      { id: 'lenox', name: 'Lenox', description: 'High-rises and condos near Lenox Square Mall' }
+    ];
+
+    // Demo Businesses
+    const businesses = [
+      {
+        id: 1,
+        name: 'Bones Restaurant',
+        category: 'Fine Dining',
+        description: 'Atlanta\'s premier steakhouse serving prime cuts since 1979.',
+        image: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800',
+        neighborhood: 'Buckhead Village',
+        featured: true
+      },
+      {
+        id: 2,
+        name: 'Lenox Square',
+        category: 'Shopping',
+        description: 'Premier luxury shopping destination with over 250 stores.',
+        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800',
+        neighborhood: 'Lenox',
+        featured: true
+      },
+      {
+        id: 3,
+        name: 'Phipps Plaza',
+        category: 'Shopping',
+        description: 'Upscale mall featuring high-end retailers and dining.',
+        image: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800',
+        neighborhood: 'Lenox',
+        featured: false
+      },
+      {
+        id: 4,
+        name: 'Chastain Park Amphitheatre',
+        category: 'Entertainment',
+        description: 'Iconic outdoor venue for concerts and performances.',
+        image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800',
+        neighborhood: 'Chastain Park',
+        featured: false
+      }
+    ];
+
+    // Demo Events
+    const events = [
+      {
+        id: 1,
+        title: 'Buckhead Art & Wine Festival',
+        category: 'Festival',
+        description: 'Annual celebration of art, wine, and local cuisine.',
+        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
+        date: 'March 15-17, 2026',
+        location: 'Buckhead Village',
+        featured: true
+      },
+      {
+        id: 2,
+        title: 'Chastain Park Summer Concert Series',
+        category: 'Music',
+        description: 'Weekly outdoor concerts featuring top artists.',
+        image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800',
+        date: 'June - August 2026',
+        location: 'Chastain Park Amphitheatre',
+        featured: true
+      }
+    ];
+
+    // Demo Properties
+    const properties = [
+      {
+        id: 1,
+        price: '$1,250,000',
+        address: '789 West Paces Ferry Rd',
+        neighborhood: 'Tuxedo Park',
+        beds: 5,
+        baths: 4,
+        sqft: '4,200',
+        image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800',
+        featured: true
+      },
+      {
+        id: 2,
+        price: '$875,000',
+        address: '456 Habersham Rd NW',
+        neighborhood: 'Garden Hills',
+        beds: 4,
+        baths: 3,
+        sqft: '3,100',
+        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800',
+        featured: false
+      },
+      {
+        id: 3,
+        price: '$525,000',
+        address: '123 Peachtree Rd NE #1502',
+        neighborhood: 'Lenox',
+        beds: 2,
+        baths: 2,
+        sqft: '1,800',
+        image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800',
+        featured: false
+      }
+    ];
+
+    function AreaPage() {
+      const [activeTab, setActiveTab] = useState('businesses');
+      const [email, setEmail] = useState('');
+      const [subscribed, setSubscribed] = useState(false);
+
+      const handleSubscribe = (e) => {
+        e.preventDefault();
+        if (email) {
+          setSubscribed(true);
+        }
+      };
+
+      const getContent = () => {
+        switch (activeTab) {
+          case 'businesses':
+            return businesses;
+          case 'events':
+            return events;
+          case 'properties':
+            return properties;
+          default:
+            return businesses;
+        }
+      };
+
+      return (
+        <>
+          {/* Navigation */}
+          <nav className="navbar">
+            <a href="index.html" className="logo">
+              <span className="logo-main">ATL Vibes & Views</span>
+              <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
+            </a>
+            <ul className="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li className="nav-dropdown">
+                <a href="#">Areas</a>
+                <ul className="dropdown-menu">
+                  <li><a href="buckhead.html">Buckhead</a></li>
+                  <li><a href="midtown.html">Midtown</a></li>
+                  <li><a href="downtown.html">Downtown</a></li>
+                  <li><a href="eastside.html">Eastside</a></li>
+                  <li><a href="westside.html">Westside</a></li>
+                  <li><a href="southwest.html">Southwest Atlanta</a></li>
+                  <li><a href="southeast.html">Southeast Atlanta</a></li>
+                  <li><a href="south-atlanta.html">South Atlanta</a></li>
+                  <li><a href="north-atlanta.html">North Atlanta</a></li>
+                </ul>
+              </li>
+              <li><a href="development.html">Development</a></li>
+              <li><a href="index.html#directory">Directory</a></li>
+              <li><a href="index.html#events">Events</a></li>
+              <li><a href="index.html#properties">Properties</a></li>
+            </ul>
+          </nav>
+
+          {/* Area Hero */}
+          <section className="area-hero">
+            <img src={areaData.image} alt={areaData.name} className="area-hero-image" />
+            <div className="area-hero-overlay"></div>
+            <div className="area-hero-content">
+              <a href="index.html" className="area-back-link">
+                <span>&larr;</span> Back to Atlanta
+              </a>
+              <h1 className="area-hero-title">{areaData.name}</h1>
+              <p className="area-hero-tagline">{areaData.tagline}</p>
+              <div className="area-vibe-tags">
+                {areaData.vibes.map((vibe, i) => (
+                  <span key={i} className="area-vibe-tag">{vibe}</span>
+                ))}
+              </div>
+              <div className="area-stats">
+                <div className="area-stat">
+                  <span className="area-stat-value">{areaData.stats.neighborhoods}</span>
+                  <span className="area-stat-label">Neighborhoods</span>
+                </div>
+                <div className="area-stat">
+                  <span className="area-stat-value">{areaData.stats.businesses}</span>
+                  <span className="area-stat-label">Businesses</span>
+                </div>
+                <div className="area-stat">
+                  <span className="area-stat-value">{areaData.stats.events}</span>
+                  <span className="area-stat-label">Events</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Main Content */}
+          <div className="area-content">
+            {/* Neighborhoods Section */}
+            <section className="area-section">
+              <div className="area-section-header">
+                <h2 className="area-section-title">Explore {areaData.name} Neighborhoods</h2>
+              </div>
+              <div className="neighborhood-map-container">
+                <div className="neighborhood-map-wrapper">
+                  <svg className="neighborhood-map-svg" viewBox="0 0 400 300">
+                    {/* Simplified neighborhood map */}
+                    <rect x="20" y="20" width="120" height="80" className="neighborhood-region" rx="8" />
+                    <text x="80" y="65" textAnchor="middle" className="neighborhood-label">Tuxedo Park</text>
+
+                    <rect x="150" y="20" width="100" height="80" className="neighborhood-region" rx="8" />
+                    <text x="200" y="65" textAnchor="middle" className="neighborhood-label">Paces</text>
+
+                    <rect x="260" y="20" width="120" height="80" className="neighborhood-region" rx="8" />
+                    <text x="320" y="65" textAnchor="middle" className="neighborhood-label">Chastain Park</text>
+
+                    <rect x="20" y="110" width="110" height="80" className="neighborhood-region" rx="8" />
+                    <text x="75" y="155" textAnchor="middle" className="neighborhood-label">Garden Hills</text>
+
+                    <rect x="140" y="110" width="130" height="80" className="neighborhood-region" rx="8" />
+                    <text x="205" y="155" textAnchor="middle" className="neighborhood-label">Peachtree Battle</text>
+
+                    <rect x="280" y="110" width="100" height="80" className="neighborhood-region" rx="8" />
+                    <text x="330" y="155" textAnchor="middle" className="neighborhood-label">Peachtree Hills</text>
+
+                    <rect x="20" y="200" width="180" height="80" className="neighborhood-region" rx="8" />
+                    <text x="110" y="245" textAnchor="middle" className="neighborhood-label">Buckhead Village</text>
+
+                    <rect x="210" y="200" width="170" height="80" className="neighborhood-region" rx="8" />
+                    <text x="295" y="245" textAnchor="middle" className="neighborhood-label">Lenox</text>
+                  </svg>
+                </div>
+                <div className="neighborhoods-grid">
+                  {neighborhoods.map((neighborhood) => (
+                    <div key={neighborhood.id} className="neighborhood-card">
+                      <h3 className="neighborhood-card-name">{neighborhood.name}</h3>
+                      <p className="neighborhood-card-desc">{neighborhood.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Tabbed Content Section */}
+            <section className="area-section">
+              <div className="area-section-header">
+                <h2 className="area-section-title">Discover {areaData.name}</h2>
+              </div>
+
+              <div className="content-tabs">
+                <button
+                  className={`content-tab ${activeTab === 'businesses' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('businesses')}
+                >
+                  Businesses
+                </button>
+                <button
+                  className={`content-tab ${activeTab === 'events' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('events')}
+                >
+                  Events
+                </button>
+                <button
+                  className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('properties')}
+                >
+                  Properties
+                </button>
+              </div>
+
+              <div className="content-grid">
+                {activeTab === 'businesses' && businesses.map((item) => (
+                  <div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}>
+                    <img src={item.image} alt={item.name} className="content-card-image" />
+                    <div className="content-card-body">
+                      <span className="content-card-badge">{item.category}</span>
+                      <h3 className="content-card-title">{item.name}</h3>
+                      <p className="content-card-desc">{item.description}</p>
+                      <div className="content-card-meta">
+                        <span>{item.neighborhood}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                {activeTab === 'events' && events.map((item) => (
+                  <div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}>
+                    <img src={item.image} alt={item.title} className="content-card-image" />
+                    <div className="content-card-body">
+                      <span className="content-card-badge">{item.category}</span>
+                      <h3 className="content-card-title">{item.title}</h3>
+                      <p className="content-card-desc">{item.description}</p>
+                      <div className="content-card-meta">
+                        <span>{item.date}</span>
+                        <span>{item.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                {activeTab === 'properties' && properties.map((item) => (
+                  <div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}>
+                    <img src={item.image} alt={item.address} className="content-card-image" />
+                    <div className="content-card-body">
+                      <div className="property-card-price">{item.price}</div>
+                      <div className="property-card-address">{item.address}</div>
+                      <div className="property-card-specs">
+                        <span>{item.beds} beds</span>
+                        <span>{item.baths} baths</span>
+                        <span>{item.sqft} sq ft</span>
+                      </div>
+                      <div className="content-card-meta" style={{marginTop: '0.75rem'}}>
+                        <span>{item.neighborhood}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Newsletter Section */}
+          <section className="newsletter-section">
+            <h2 className="newsletter-title">Stay Connected with {areaData.name}</h2>
+            <p className="newsletter-subtitle">
+              Get the latest news, events, and insider tips delivered to your inbox.
+            </p>
+            {!subscribed ? (
+              <form className="newsletter-form" onSubmit={handleSubscribe}>
+                <input
+                  type="email"
+                  className="newsletter-input"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button type="submit" className="newsletter-btn">Subscribe</button>
+              </form>
+            ) : (
+              <p style={{color: 'var(--primary-yellow)', fontSize: '1.1rem'}}>
+                Thanks for subscribing! Check your inbox soon.
+              </p>
+            )}
+          </section>
+
+          {/* Footer */}
+          <footer className="footer">
+            <div className="footer-grid">
+              <div className="footer-brand">
+                <div className="logo">
+                  <span className="logo-main">ATL Vibes & Views</span>
+                  <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
+                </div>
+                <p>
+                  Your guide to Atlanta's neighborhoods, culture, and lifestyle.
+                  Discover local businesses, events, and real estate across the city.
+                </p>
+              </div>
+              <div>
+                <h4 className="footer-title">Areas</h4>
+                <ul className="footer-links">
+                  <li><a href="buckhead.html">Buckhead</a></li>
+                  <li><a href="midtown.html">Midtown</a></li>
+                  <li><a href="downtown.html">Downtown</a></li>
+                  <li><a href="eastside.html">Eastside</a></li>
+                  <li><a href="westside.html">Westside</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="footer-title">More Areas</h4>
+                <ul className="footer-links">
+                  <li><a href="southwest.html">Southwest Atlanta</a></li>
+                  <li><a href="southeast.html">Southeast Atlanta</a></li>
+                  <li><a href="south-atlanta.html">South Atlanta</a></li>
+                  <li><a href="north-atlanta.html">North Atlanta</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="footer-title">Explore</h4>
+                <ul className="footer-links">
+                  <li><a href="index.html#directory">Business Directory</a></li>
+                  <li><a href="index.html#events">Events Calendar</a></li>
+                  <li><a href="index.html#properties">Real Estate</a></li>
+                  <li><a href="development.html">Development News</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <p>&copy; 2026 ATL Vibes & Views. All rights reserved.</p>
+            </div>
+          </footer>
+        </>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<AreaPage />);
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "Buckhead, Atlanta",
+    "description": "Atlanta's upscale district known for luxury shopping at Lenox Square and Phipps Plaza, high-end dining, and vibrant nightlife.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buckhead",
+      "addressRegion": "GA",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 33.8384,
+      "longitude": -84.3794
+    },
+    "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600"
+  }
+  </script>
+</body>
+</html>
