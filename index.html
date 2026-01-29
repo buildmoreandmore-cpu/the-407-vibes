@@ -5870,81 +5870,76 @@
       height: 100%;
     }
 
-    .area-card-v2-image {
-      height: 200px;
+    /* Hero image with title overlay */
+    .area-card-v2-hero {
+      position: relative;
+      height: 280px;
       overflow: hidden;
     }
 
-    .area-card-v2-image img {
+    .area-card-v2-hero img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .area-card-v2-content {
-      padding: 1.75rem 2rem;
-      flex: 1;
+    .area-card-v2-title {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      color: white;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      text-align: center;
+      width: 100%;
+      padding: 0 1rem;
     }
 
-    .area-card-v2-name {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      color: var(--primary-black);
-      margin-bottom: 1rem;
+    .area-card-v2-body {
+      padding: 1.75rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .area-card-v2-description {
-      color: var(--text-dark);
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: #5a7a8a;
       margin-bottom: 1.5rem;
+      flex: 1;
     }
 
     .area-card-v2-explore {
-      display: inline-block;
+      display: block;
+      width: 100%;
       background: transparent;
-      color: var(--primary-black);
+      color: #5a7a8a;
       border: 2px solid var(--primary-yellow);
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
+      padding: 1rem 2rem;
+      border-radius: 0;
       font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
       cursor: pointer;
       transition: all 0.3s;
-      margin-bottom: 1.5rem;
+      text-align: center;
     }
 
     .area-card-v2-explore:hover {
       background: var(--primary-yellow);
-    }
-
-    .area-card-v2-featuring {
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-
-    .featuring-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--text-light);
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .featuring-tags {
-      font-size: 0.9rem;
-      font-style: italic;
-      color: var(--text-dark);
-      line-height: 1.5;
+      color: var(--primary-black);
     }
 
     .area-card-v2-nav {
       display: flex;
-      border-top: 1px solid #ddd;
+      margin-top: auto;
     }
 
     .area-nav-btn {
@@ -5960,7 +5955,7 @@
     }
 
     .area-nav-btn:first-child {
-      border-right: 1px solid rgba(0,0,0,0.1);
+      border-right: 1px solid rgba(0,0,0,0.15);
     }
 
     .area-nav-btn:hover {
@@ -10543,21 +10538,17 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
 
       return (
         <div className="area-card-v2">
-          <div className="area-card-v2-image">
+          <div className="area-card-v2-hero">
             <img src={areaData.image} alt={areaData.name} />
+            <h3 className="area-card-v2-title">{areaData.name.toUpperCase()}</h3>
           </div>
-          <div className="area-card-v2-content">
-            <h3 className="area-card-v2-name">{areaData.name.toUpperCase()}</h3>
-            <p className="area-card-v2-description">{areaData.shortDescription}</p>
+          <div className="area-card-v2-body">
+            <p className="area-card-v2-description">
+              {areaData.shortDescription} Explore this map to see what each neighborhood holds!
+            </p>
             <button className="area-card-v2-explore" onClick={() => onExplore(area)}>
               EXPLORE →
             </button>
-            <div className="area-card-v2-featuring">
-              <span className="featuring-label">FEATURING</span>
-              <p className="featuring-tags">
-                {areaData.vibes.join(' | ')}
-              </p>
-            </div>
           </div>
           <div className="area-card-v2-nav">
             <button className="area-nav-btn" onClick={onPrev} aria-label="Previous area">
@@ -12885,9 +12876,33 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                     allAreas={areaMetadata}
                   />
                 ) : (
-                  <div className="area-card-placeholder">
-                    <div className="area-card-placeholder-icon">📍</div>
-                    <p>Click on a neighborhood to explore</p>
+                  <div className="area-card-v2">
+                    <div className="area-card-v2-hero">
+                      <img src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?w=800" alt="Atlanta Skyline" />
+                      <h3 className="area-card-v2-title">ATLANTA</h3>
+                    </div>
+                    <div className="area-card-v2-body">
+                      <p className="area-card-v2-description">
+                        Great food & Southern hospitality, live music, a world-class arts scene, patios & rooftops - Atlanta has it all. Explore this map to see what each neighborhood holds!
+                      </p>
+                      <button className="area-card-v2-explore" onClick={() => setMapSelectedArea('buckhead')}>
+                        EXPLORE →
+                      </button>
+                    </div>
+                    <div className="area-card-v2-nav">
+                      <button className="area-nav-btn" onClick={() => {
+                        const areaKeys = Object.keys(areaMetadata);
+                        setMapSelectedArea(areaKeys[areaKeys.length - 1]);
+                      }}>
+                        <span>‹</span>
+                      </button>
+                      <button className="area-nav-btn" onClick={() => {
+                        const areaKeys = Object.keys(areaMetadata);
+                        setMapSelectedArea(areaKeys[0]);
+                      }}>
+                        <span>›</span>
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
