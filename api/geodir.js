@@ -107,18 +107,21 @@ export default async function handler(req, res) {
       // Debug: Log what we're sending
       console.log('Submitting to GeoDirectory:', JSON.stringify(submissionData, null, 2));
 
-      // Convert to form-urlencoded for better WordPress compatibility
-      const formData = new URLSearchParams();
+      // Convert to form-urlencoded with %20 for spaces (WordPress compatibility)
+      const formParts = [];
       for (const [key, value] of Object.entries(submissionData)) {
         if (Array.isArray(value)) {
           // Handle arrays (like post_category)
-          value.forEach((v, i) => formData.append(`${key}[${i}]`, v));
+          value.forEach((v, i) => {
+            formParts.push(`${encodeURIComponent(`${key}[${i}]`)}=${encodeURIComponent(v)}`);
+          });
         } else if (value !== null && value !== undefined) {
-          formData.append(key, value);
+          formParts.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
         }
       }
+      const formBody = formParts.join('&');
 
-      console.log('Form data being sent:', formData.toString());
+      console.log('Form data being sent:', formBody);
 
       const response = await fetch(url, {
         method: 'POST',
@@ -127,7 +130,7 @@ export default async function handler(req, res) {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Accept': 'application/json'
         },
-        body: formData.toString()
+        body: formBody
       });
 
       const data = await response.json();
