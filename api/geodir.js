@@ -19,6 +19,20 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
+  // Debug endpoint to check what Vercel receives
+  if (req.query.debug === 'echo') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    return res.status(200).json({
+      method: req.method,
+      query: req.query,
+      body: req.body,
+      bodyType: typeof req.body,
+      headers: {
+        'content-type': req.headers['content-type']
+      }
+    });
+  }
+
   // Only allow GET and POST requests
   if (req.method !== 'GET' && req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
