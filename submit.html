@@ -586,6 +586,12 @@
                 <option value="Cobb">Cobb County</option>
                 <option value="Gwinnett">Gwinnett County</option>
                 <option value="Clayton">Clayton County</option>
+                <option value="Douglas">Douglas County</option>
+                <option value="Fayette">Fayette County</option>
+                <option value="Henry">Henry County</option>
+                <option value="Rockdale">Rockdale County</option>
+                <option value="Cherokee">Cherokee County</option>
+                <option value="Paulding">Paulding County</option>
               </select>
             </div>
             <input type="hidden" name="country" value="United States">
@@ -853,9 +859,11 @@
       const data = getFormData(e.target);
 
       // Transform data to match GeoDirectory API requirements
+      // Note: GeoDirectory REST API uses 'title' and 'content' (not 'post_title'/'post_content')
+      // Also, business_certifications must be an array, not a string
       const submissionData = {
-        post_title: data.post_title,
-        post_content: data.post_content,
+        title: data.post_title,
+        content: data.post_content,
         post_category: [parseInt(data.default_category)], // Array of integer IDs
         email: data.submitter_email, // Required field
         street: data.street,
@@ -863,9 +871,9 @@
         region: data.region,
         zip: data.zip,
         country: data.country,
-        county: data.county, // Now properly cased (e.g., "Fulton" not "fulton")
-        business_certifications: data.business_certifications, // Required field
-        post_status: 'pending' // Submit as pending for review
+        county: data.county, // Properly cased (e.g., "Fulton" not "fulton")
+        business_certifications: [data.business_certifications], // Must be array
+        status: 'pending' // Submit as pending for review
       };
 
       // Add optional fields if provided
@@ -874,12 +882,6 @@
       if (data.price_range) submissionData.price_range = data.price_range;
       if (data.neighbourhood) submissionData.neighbourhood = data.neighbourhood;
       if (data.post_tags) submissionData.post_tags = data.post_tags;
-
-      // Store submitter info in a custom field
-      submissionData.submitter_info = JSON.stringify({
-        name: data.submitter_name,
-        email: data.submitter_email
-      });
 
       try {
         const result = await GeoDirectoryAPI.submitBusiness(submissionData);
@@ -898,9 +900,10 @@
       const data = getFormData(e.target);
 
       // Transform data to match GeoDirectory API requirements
+      // Note: GeoDirectory REST API uses 'title' and 'content' (not 'post_title'/'post_content')
       const submissionData = {
-        post_title: data.post_title,
-        post_content: data.post_content,
+        title: data.post_title,
+        content: data.post_content,
         post_category: [parseInt(data.default_category)], // Array of integer IDs
         email: data.submitter_email, // Required field
         street: data.street,
@@ -911,19 +914,13 @@
         venue: data.venue,
         event_start: data.event_start,
         event_start_time: data.event_start_time,
-        post_status: 'pending' // Submit as pending for review
+        status: 'pending' // Submit as pending for review
       };
 
       // Add optional fields if provided
       if (data.event_end) submissionData.event_end = data.event_end;
       if (data.event_end_time) submissionData.event_end_time = data.event_end_time;
       if (data.ticket_url) submissionData.ticket_url = data.ticket_url;
-
-      // Store submitter info in a custom field
-      submissionData.submitter_info = JSON.stringify({
-        name: data.submitter_name,
-        email: data.submitter_email
-      });
 
       try {
         const result = await GeoDirectoryAPI.submitEvent(submissionData);

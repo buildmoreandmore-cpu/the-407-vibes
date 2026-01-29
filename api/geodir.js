@@ -19,20 +19,6 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // Debug endpoint to check what Vercel receives
-  if (req.query.debug === 'echo') {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    return res.status(200).json({
-      method: req.method,
-      query: req.query,
-      body: req.body,
-      bodyType: typeof req.body,
-      headers: {
-        'content-type': req.headers['content-type']
-      }
-    });
-  }
-
   // Only allow GET and POST requests
   if (req.method !== 'GET' && req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -121,29 +107,16 @@ export default async function handler(req, res) {
       // Debug: Log what we're sending
       console.log('Submitting to GeoDirectory:', JSON.stringify(submissionData, null, 2));
 
-      // Log the raw value to verify it's correct
-      console.log('business_certifications raw value:', JSON.stringify(submissionData.business_certifications));
-      console.log('business_certifications length:', submissionData.business_certifications?.length);
-
       // Send as JSON to WordPress REST API
-      const jsonBody = JSON.stringify(submissionData);
-
-      console.log('Full JSON body length:', jsonBody.length);
-      console.log('JSON contains "Certified":', jsonBody.includes('Certified'));
-
-      // Use explicit Request object for more control
-      const fetchOptions = {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Authorization': authHeader,
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: jsonBody
-      };
-
-      console.log('Fetching:', url);
-      const response = await fetch(url, fetchOptions);
+        body: JSON.stringify(submissionData)
+      });
 
       const data = await response.json();
 
