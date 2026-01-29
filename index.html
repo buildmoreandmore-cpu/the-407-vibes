@@ -10904,19 +10904,16 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       const [hoveredRegion, setHoveredRegion] = useState(null);
       const mapRef = React.useRef(null);
 
-      // Core Areas matching the illustrated map
+      // Core Areas matching the illustrated map - traced to actual boundaries
       const regions = [
-        { id: 'buckhead', path: 'M 35 0 L 90 0 L 90 28 L 72 32 L 45 30 L 35 18 Z' },
-        { id: 'westside', path: 'M 0 18 L 35 18 L 45 30 L 45 48 L 38 55 L 32 70 L 0 70 Z' },
-        { id: 'midtown', path: 'M 45 30 L 60 30 L 62 48 L 45 48 Z' },
-        { id: 'o4w', path: 'M 60 30 L 72 32 L 72 50 L 62 48 Z' },
-        { id: 'downtown', path: 'M 45 48 L 62 48 L 62 60 L 50 65 L 38 60 L 38 55 Z' },
-        { id: 'eastside', path: 'M 72 32 L 100 32 L 100 55 L 85 55 L 72 50 Z' },
-        { id: 'decatur', path: 'M 85 55 L 100 55 L 100 75 L 85 75 Z' },
-        { id: 'inman-park', path: 'M 62 48 L 72 50 L 85 55 L 85 75 L 70 78 L 62 70 L 62 60 Z' },
-        { id: 'southwest', path: 'M 0 70 L 32 70 L 38 60 L 38 80 L 25 100 L 0 100 Z' },
-        { id: 'south-atlanta', path: 'M 38 60 L 50 65 L 50 80 L 38 80 Z' },
-        { id: 'east-atlanta', path: 'M 50 65 L 62 70 L 70 78 L 70 100 L 50 100 L 50 80 Z' }
+        { id: 'buckhead', path: 'M 38 2 L 50 0 L 75 0 L 82 8 L 82 18 L 78 28 L 68 32 L 55 30 L 45 25 L 38 15 Z' },
+        { id: 'westside', path: 'M 5 15 L 18 10 L 32 12 L 38 15 L 45 25 L 45 35 L 40 45 L 32 50 L 22 48 L 12 52 L 5 45 L 2 30 Z' },
+        { id: 'midtown', path: 'M 45 25 L 55 30 L 68 32 L 70 42 L 65 50 L 52 52 L 45 45 L 45 35 Z' },
+        { id: 'downtown', path: 'M 40 45 L 45 45 L 52 52 L 52 60 L 45 65 L 35 62 L 32 55 L 32 50 Z' },
+        { id: 'eastside', path: 'M 68 32 L 78 28 L 88 35 L 92 45 L 90 58 L 82 65 L 72 60 L 65 50 L 70 42 Z' },
+        { id: 'southwest', path: 'M 2 52 L 12 52 L 22 48 L 32 50 L 32 55 L 35 62 L 32 72 L 25 82 L 15 88 L 5 82 L 0 68 Z' },
+        { id: 'south-atlanta', path: 'M 35 62 L 45 65 L 52 60 L 55 68 L 52 78 L 42 82 L 32 78 L 32 72 Z' },
+        { id: 'southeast', path: 'M 52 60 L 65 50 L 72 60 L 82 65 L 85 75 L 78 85 L 65 88 L 52 82 L 52 78 L 55 68 Z' }
       ];
 
       const handleRegionClick = (id) => {
