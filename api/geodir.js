@@ -121,20 +121,29 @@ export default async function handler(req, res) {
       // Debug: Log what we're sending
       console.log('Submitting to GeoDirectory:', JSON.stringify(submissionData, null, 2));
 
+      // Log the raw value to verify it's correct
+      console.log('business_certifications raw value:', JSON.stringify(submissionData.business_certifications));
+      console.log('business_certifications length:', submissionData.business_certifications?.length);
+
       // Send as JSON to WordPress REST API
       const jsonBody = JSON.stringify(submissionData);
 
-      console.log('JSON body being sent:', jsonBody);
+      console.log('Full JSON body length:', jsonBody.length);
+      console.log('JSON contains "Certified":', jsonBody.includes('Certified'));
 
-      const response = await fetch(url, {
+      // Use explicit Request object for more control
+      const fetchOptions = {
         method: 'POST',
         headers: {
           'Authorization': authHeader,
-          'Content-Type': 'application/json; charset=utf-8',
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: jsonBody
-      });
+      };
+
+      console.log('Fetching:', url);
+      const response = await fetch(url, fetchOptions);
 
       const data = await response.json();
 
