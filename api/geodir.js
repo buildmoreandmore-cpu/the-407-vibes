@@ -98,10 +98,14 @@ export default async function handler(req, res) {
       const url = `${GD_URL}/wp-json/geodir/v2/${endpoint}`;
 
       // Get the submission data from request body
-      const submissionData = req.body;
+      // Clone to avoid modifying the original
+      const submissionData = { ...req.body };
 
       // Force status to pending for all public submissions
       submissionData.status = 'pending';
+
+      // Debug: Log what we're sending
+      console.log('Submitting to GeoDirectory:', JSON.stringify(submissionData, null, 2));
 
       const response = await fetch(url, {
         method: 'POST',

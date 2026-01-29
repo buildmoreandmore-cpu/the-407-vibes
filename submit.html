@@ -481,19 +481,20 @@
             <div class="form-group">
               <label>Category <span class="required">*</span></label>
               <select name="default_category" required id="businessCategory">
-                <option value="">Select a category...</option>
-                <option value="restaurants">Restaurants</option>
-                <option value="bars-nightlife">Bars & Nightlife</option>
-                <option value="cafes-coffee">Cafes & Coffee</option>
-                <option value="shopping">Shopping & Retail</option>
-                <option value="beauty-wellness">Beauty & Wellness</option>
-                <option value="fitness">Fitness & Gyms</option>
-                <option value="services">Professional Services</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="arts-culture">Arts & Culture</option>
-                <option value="automotive">Automotive</option>
-                <option value="home-services">Home Services</option>
-                <option value="other">Other</option>
+                <option value="">Loading categories...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Business Certifications <span class="required">*</span></label>
+              <select name="business_certifications" required id="businessCertifications">
+                <option value="">Select certification...</option>
+                <option value="No formal certification">No formal certification</option>
+                <option value="8(a) Certification – SBA">8(a) Certification – SBA</option>
+                <option value="DBE – Disadvantaged Business Enterprise">DBE – Disadvantaged Business Enterprise</option>
+                <option value="LGBTBE – LGBTQ+ Business Enterprise">LGBTBE – LGBTQ+ Business Enterprise</option>
+                <option value="Veteran-Owned Certified">Veteran-Owned Certified</option>
+                <option value="WBENC Certified (Women's Business Enterprise)">WBENC Certified (Women's Business Enterprise)</option>
+                <option value="WOSB – Women-Owned Small Business">WOSB – Women-Owned Small Business</option>
               </select>
             </div>
             <div class="form-group">
@@ -577,14 +578,14 @@
               </div>
             </div>
             <div class="form-group">
-              <label>County</label>
-              <select name="county">
+              <label>County <span class="required">*</span></label>
+              <select name="county" required>
                 <option value="">Select county...</option>
-                <option value="fulton">Fulton County</option>
-                <option value="dekalb">DeKalb County</option>
-                <option value="cobb">Cobb County</option>
-                <option value="gwinnett">Gwinnett County</option>
-                <option value="clayton">Clayton County</option>
+                <option value="Fulton">Fulton County</option>
+                <option value="DeKalb">DeKalb County</option>
+                <option value="Cobb">Cobb County</option>
+                <option value="Gwinnett">Gwinnett County</option>
+                <option value="Clayton">Clayton County</option>
               </select>
             </div>
             <input type="hidden" name="country" value="United States">
@@ -623,19 +624,7 @@
             <div class="form-group">
               <label>Category <span class="required">*</span></label>
               <select name="default_category" required id="eventCategory">
-                <option value="">Select a category...</option>
-                <option value="music">Music & Concerts</option>
-                <option value="food-drink">Food & Drink</option>
-                <option value="arts">Arts & Theater</option>
-                <option value="sports">Sports & Fitness</option>
-                <option value="community">Community & Social</option>
-                <option value="business">Business & Networking</option>
-                <option value="family">Family & Kids</option>
-                <option value="festivals">Festivals & Fairs</option>
-                <option value="nightlife">Nightlife & Parties</option>
-                <option value="education">Classes & Workshops</option>
-                <option value="charity">Charity & Fundraisers</option>
-                <option value="other">Other</option>
+                <option value="">Loading categories...</option>
               </select>
             </div>
             <div class="form-group">
@@ -782,6 +771,79 @@
       return data;
     }
 
+    // Populate category dropdown from API
+    async function loadCategories() {
+      const businessCategorySelect = document.getElementById('businessCategory');
+      const eventCategorySelect = document.getElementById('eventCategory');
+
+      // Fallback categories in case API fails
+      const fallbackBusinessCategories = [
+        { id: 274, name: 'Restaurants' },
+        { id: 275, name: 'Bars & Lounges' },
+        { id: 276, name: 'Cafes' },
+        { id: 290, name: 'Hair Salons' },
+        { id: 288, name: 'Specialty Stores' },
+        { id: 319, name: 'Real Estate Agents' }
+      ];
+
+      const fallbackEventCategories = [
+        { id: 1, name: 'Music & Concerts' },
+        { id: 2, name: 'Food & Drink' },
+        { id: 3, name: 'Arts & Theater' },
+        { id: 4, name: 'Community & Social' }
+      ];
+
+      // Load business categories
+      try {
+        const categories = await GeoDirectoryAPI.getBusinessCategories();
+        if (categories && categories.length > 0) {
+          businessCategorySelect.innerHTML = '<option value="">Select a category...</option>';
+          categories.forEach(cat => {
+            const option = document.createElement('option');
+            option.value = cat.id || cat.term_id;
+            option.textContent = cat.name;
+            businessCategorySelect.appendChild(option);
+          });
+        } else {
+          throw new Error('No categories returned');
+        }
+      } catch (error) {
+        console.error('Failed to load business categories:', error);
+        businessCategorySelect.innerHTML = '<option value="">Select a category...</option>';
+        fallbackBusinessCategories.forEach(cat => {
+          const option = document.createElement('option');
+          option.value = cat.id;
+          option.textContent = cat.name;
+          businessCategorySelect.appendChild(option);
+        });
+      }
+
+      // Load event categories
+      try {
+        const categories = await GeoDirectoryAPI.getEventCategories();
+        if (categories && categories.length > 0) {
+          eventCategorySelect.innerHTML = '<option value="">Select a category...</option>';
+          categories.forEach(cat => {
+            const option = document.createElement('option');
+            option.value = cat.id || cat.term_id;
+            option.textContent = cat.name;
+            eventCategorySelect.appendChild(option);
+          });
+        } else {
+          throw new Error('No categories returned');
+        }
+      } catch (error) {
+        console.error('Failed to load event categories:', error);
+        eventCategorySelect.innerHTML = '<option value="">Select a category...</option>';
+        fallbackEventCategories.forEach(cat => {
+          const option = document.createElement('option');
+          option.value = cat.id;
+          option.textContent = cat.name;
+          eventCategorySelect.appendChild(option);
+        });
+      }
+    }
+
     // Business Form Submission
     document.getElementById('businessSubmissionForm').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -790,14 +852,37 @@
 
       const data = getFormData(e.target);
 
-      // Add metadata
-      data.submitter_info = JSON.stringify({
+      // Transform data to match GeoDirectory API requirements
+      const submissionData = {
+        post_title: data.post_title,
+        post_content: data.post_content,
+        post_category: [parseInt(data.default_category)], // Array of integer IDs
+        email: data.submitter_email, // Required field
+        street: data.street,
+        city: data.city,
+        region: data.region,
+        zip: data.zip,
+        country: data.country,
+        county: data.county, // Now properly cased (e.g., "Fulton" not "fulton")
+        business_certifications: data.business_certifications, // Required field
+        post_status: 'pending' // Submit as pending for review
+      };
+
+      // Add optional fields if provided
+      if (data.phone) submissionData.phone = data.phone;
+      if (data.website) submissionData.website = data.website;
+      if (data.price_range) submissionData.price_range = data.price_range;
+      if (data.neighbourhood) submissionData.neighbourhood = data.neighbourhood;
+      if (data.post_tags) submissionData.post_tags = data.post_tags;
+
+      // Store submitter info in a custom field
+      submissionData.submitter_info = JSON.stringify({
         name: data.submitter_name,
         email: data.submitter_email
       });
 
       try {
-        const result = await GeoDirectoryAPI.submitBusiness(data);
+        const result = await GeoDirectoryAPI.submitBusiness(submissionData);
         showSuccess();
       } catch (error) {
         showError('Submission failed: ' + error.message);
@@ -812,14 +897,36 @@
 
       const data = getFormData(e.target);
 
-      // Add metadata
-      data.submitter_info = JSON.stringify({
+      // Transform data to match GeoDirectory API requirements
+      const submissionData = {
+        post_title: data.post_title,
+        post_content: data.post_content,
+        post_category: [parseInt(data.default_category)], // Array of integer IDs
+        email: data.submitter_email, // Required field
+        street: data.street,
+        city: data.city,
+        region: data.region,
+        zip: data.zip,
+        country: data.country,
+        venue: data.venue,
+        event_start: data.event_start,
+        event_start_time: data.event_start_time,
+        post_status: 'pending' // Submit as pending for review
+      };
+
+      // Add optional fields if provided
+      if (data.event_end) submissionData.event_end = data.event_end;
+      if (data.event_end_time) submissionData.event_end_time = data.event_end_time;
+      if (data.ticket_url) submissionData.ticket_url = data.ticket_url;
+
+      // Store submitter info in a custom field
+      submissionData.submitter_info = JSON.stringify({
         name: data.submitter_name,
         email: data.submitter_email
       });
 
       try {
-        const result = await GeoDirectoryAPI.submitEvent(data);
+        const result = await GeoDirectoryAPI.submitEvent(submissionData);
         showSuccess();
       } catch (error) {
         showError('Submission failed: ' + error.message);
@@ -843,6 +950,9 @@
     }
     checkHash();
     window.addEventListener('hashchange', checkHash);
+
+    // Load categories on page load
+    loadCategories();
   </script>
 </body>
 </html>
