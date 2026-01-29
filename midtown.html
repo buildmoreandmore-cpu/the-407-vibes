@@ -29,6 +29,11 @@
     .logo { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
     .logo-main { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--primary-black); letter-spacing: 0.15em; text-transform: uppercase; line-height: 1; }
     .logo-tagline { font-family: 'Source Sans 3', sans-serif; font-size: 0.65rem; font-weight: 400; color: var(--text-light); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 4px; }
+    .navbar-search { display: flex; align-items: center; gap: 0.5rem; flex: 0 1 300px; margin: 0 2rem; }
+    .navbar-search input { flex: 1; padding: 0.6rem 0; border: none; border-bottom: 2px solid #5BA4A4; background: transparent; font-size: 1rem; color: #5BA4A4; outline: none; }
+    .navbar-search input::placeholder { color: #5BA4A4; font-weight: 500; }
+    .navbar-search button { background: none; border: none; cursor: pointer; padding: 0.5rem; display: flex; }
+    .navbar-search button svg { width: 22px; height: 22px; stroke: #5BA4A4; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
     .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; position: relative; }
     .nav-links a:hover { color: var(--primary-red); }
@@ -56,11 +61,20 @@
     .area-section { margin-bottom: 4rem; }
     .area-section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
     .area-section-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; }
-    .neighborhoods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
-    .neighborhood-card { background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease; }
-    .neighborhood-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-color: var(--primary-yellow); }
-    .neighborhood-card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .neighborhood-card-desc { font-size: 0.9rem; color: var(--text-light); }
+    .neighborhoods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .neighborhood-card { position: relative; height: 200px; border-radius: 16px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .neighborhood-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); z-index: 1; transition: all 0.4s ease; }
+    .neighborhood-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .neighborhood-card:hover::before { background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%); }
+    .neighborhood-card-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; transition: transform 0.4s ease; }
+    .neighborhood-card:hover .neighborhood-card-bg { transform: scale(1.1); }
+    .neighborhood-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; z-index: 2; color: white; }
+    .neighborhood-card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    .neighborhood-card-desc { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.5; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
+    .neighborhood-card:hover .neighborhood-card-desc { opacity: 1; transform: translateY(0); }
+    .neighborhood-card-arrow { position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; }
+    .neighborhood-card:hover .neighborhood-card-arrow { opacity: 1; transform: translateX(0); }
+    .neighborhood-card-arrow svg { width: 18px; height: 18px; stroke: white; fill: none; }
     .content-tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border-color); margin-bottom: 2rem; }
     .content-tab { padding: 1rem 2rem; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.3s; }
     .content-tab:hover { color: var(--text-dark); }
@@ -113,13 +127,13 @@
       stats: { neighborhoods: 7, businesses: 189, events: 42 }
     };
     const neighborhoods = [
-      { id: 'midtown-core', name: 'Midtown Core', description: 'Arts district and Piedmont Park area' },
-      { id: 'ansley-park', name: 'Ansley Park', description: 'Historic neighborhood with winding streets' },
-      { id: 'piedmont-heights', name: 'Piedmont Heights', description: 'Near Piedmont Hospital' },
-      { id: 'sherwood-forest', name: 'Sherwood Forest', description: 'Quiet residential enclave' },
-      { id: 'atlantic-station', name: 'Atlantic Station', description: 'Mixed-use urban development' },
-      { id: 'loring-heights', name: 'Loring Heights', description: 'Bungalows near I-75' },
-      { id: 'home-park', name: 'Home Park', description: 'Near Georgia Tech campus' }
+      { id: 'midtown-core', name: 'Midtown Core', description: 'Arts district and Piedmont Park area', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800' },
+      { id: 'ansley-park', name: 'Ansley Park', description: 'Historic neighborhood with winding streets', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800' },
+      { id: 'piedmont-heights', name: 'Piedmont Heights', description: 'Near Piedmont Hospital', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800' },
+      { id: 'sherwood-forest', name: 'Sherwood Forest', description: 'Quiet residential enclave', image: 'https://images.unsplash.com/photo-1448630360428-65456885c650?w=800' },
+      { id: 'atlantic-station', name: 'Atlantic Station', description: 'Mixed-use urban development', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800' },
+      { id: 'loring-heights', name: 'Loring Heights', description: 'Bungalows near I-75', image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800' },
+      { id: 'home-park', name: 'Home Park', description: 'Near Georgia Tech campus', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800' }
     ];
     const businesses = [
       { id: 1, name: 'High Museum of Art', category: 'Arts & Culture', description: 'Atlanta\'s leading art museum with world-class exhibitions.', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', neighborhood: 'Midtown Core', featured: true },
@@ -143,6 +157,7 @@
         <>
           <nav className="navbar">
             <a href="index.html" className="logo"><span className="logo-main">ATL Vibes & Views</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></a>
+            <div className="navbar-search"><input type="text" placeholder="Search" /><button type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div>
             <ul className="nav-links">
               <li><a href="index.html">Home</a></li>
               <li className="nav-dropdown"><a href="#">Areas</a>
@@ -182,7 +197,7 @@
             <section className="area-section">
               <div className="area-section-header"><h2 className="area-section-title">Explore {areaData.name} Neighborhoods</h2></div>
               <div className="neighborhoods-grid">
-                {neighborhoods.map((n) => (<div key={n.id} className="neighborhood-card"><h3 className="neighborhood-card-name">{n.name}</h3><p className="neighborhood-card-desc">{n.description}</p></div>))}
+                {neighborhoods.map((n) => (<div key={n.id} className="neighborhood-card"><div className="neighborhood-card-bg" style={{backgroundImage: `url(${n.image})`}}></div><div className="neighborhood-card-arrow"><svg viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div className="neighborhood-card-content"><h3 className="neighborhood-card-name">{n.name}</h3><p className="neighborhood-card-desc">{n.description}</p></div></div>))}
               </div>
             </section>
             <section className="area-section">

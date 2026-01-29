@@ -86,6 +86,57 @@
       margin-top: 4px;
     }
 
+    /* Navbar Search */
+    .navbar-search {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 0 1 300px;
+      margin: 0 2rem;
+    }
+
+    .navbar-search input {
+      flex: 1;
+      padding: 0.6rem 0;
+      border: none;
+      border-bottom: 2px solid #5BA4A4;
+      background: transparent;
+      font-size: 1rem;
+      color: #5BA4A4;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .navbar-search input::placeholder {
+      color: #5BA4A4;
+      font-weight: 500;
+    }
+
+    .navbar-search input:focus {
+      border-bottom-color: var(--primary-red);
+    }
+
+    .navbar-search button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .navbar-search button svg {
+      width: 22px;
+      height: 22px;
+      stroke: #5BA4A4;
+      transition: stroke 0.3s;
+    }
+
+    .navbar-search button:hover svg {
+      stroke: var(--primary-red);
+    }
+
     .nav-links {
       display: flex;
       gap: 2.5rem;
@@ -372,35 +423,117 @@
     /* Neighborhoods Grid */
     .neighborhoods-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
     }
 
     .neighborhood-card {
-      background: white;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
+      position: relative;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .neighborhood-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+      z-index: 1;
+      transition: all 0.4s ease;
     }
 
     .neighborhood-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      border-color: var(--primary-yellow);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .neighborhood-card:hover::before {
+      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+    }
+
+    .neighborhood-card-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.4s ease;
+    }
+
+    .neighborhood-card:hover .neighborhood-card-bg {
+      transform: scale(1.1);
+    }
+
+    .neighborhood-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      z-index: 2;
+      color: white;
     }
 
     .neighborhood-card-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
     .neighborhood-card-desc {
       font-size: 0.9rem;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .neighborhood-card:hover .neighborhood-card-desc {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .neighborhood-card-arrow {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .neighborhood-card:hover .neighborhood-card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .neighborhood-card-arrow svg {
+      width: 18px;
+      height: 18px;
+      stroke: white;
+      fill: none;
     }
 
     /* Content Tabs */
@@ -732,14 +865,14 @@
 
     // Neighborhoods within Buckhead
     const neighborhoods = [
-      { id: 'buckhead-village', name: 'Buckhead Village', description: 'Upscale shopping and dining district with boutiques and restaurants' },
-      { id: 'chastain-park', name: 'Chastain Park', description: 'Family-friendly area with amphitheater and beautiful park' },
-      { id: 'garden-hills', name: 'Garden Hills', description: 'Historic residential neighborhood with tree-lined streets' },
-      { id: 'peachtree-hills', name: 'Peachtree Hills', description: 'Quiet residential streets near Piedmont Hospital' },
-      { id: 'tuxedo-park', name: 'Tuxedo Park', description: 'Prestigious historic estates and Governor\'s Mansion' },
-      { id: 'paces', name: 'Paces', description: 'Luxury homes and exclusive golf courses' },
-      { id: 'peachtree-battle', name: 'Peachtree Battle', description: 'Tree-lined streets with classic Southern homes' },
-      { id: 'lenox', name: 'Lenox', description: 'High-rises and condos near Lenox Square Mall' }
+      { id: 'buckhead-village', name: 'Buckhead Village', description: 'Upscale shopping and dining district with boutiques and restaurants', image: 'https://images.unsplash.com/photo-1567449303078-57ad995bd329?w=800' },
+      { id: 'chastain-park', name: 'Chastain Park', description: 'Family-friendly area with amphitheater and beautiful park', image: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800' },
+      { id: 'garden-hills', name: 'Garden Hills', description: 'Historic residential neighborhood with tree-lined streets', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800' },
+      { id: 'peachtree-hills', name: 'Peachtree Hills', description: 'Quiet residential streets near Piedmont Hospital', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800' },
+      { id: 'tuxedo-park', name: 'Tuxedo Park', description: 'Prestigious historic estates and Governor\'s Mansion', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800' },
+      { id: 'paces', name: 'Paces', description: 'Luxury homes and exclusive golf courses', image: 'https://images.unsplash.com/photo-1592595896616-c37162298647?w=800' },
+      { id: 'peachtree-battle', name: 'Peachtree Battle', description: 'Tree-lined streets with classic Southern homes', image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800' },
+      { id: 'lenox', name: 'Lenox', description: 'High-rises and condos near Lenox Square Mall', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800' }
     ];
 
     // Demo Businesses
@@ -876,6 +1009,15 @@
               <span className="logo-main">ATL Vibes & Views</span>
               <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
             </a>
+            <div className="navbar-search">
+              <input type="text" placeholder="Search" />
+              <button type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="M21 21l-4.35-4.35"/>
+                </svg>
+              </button>
+            </div>
             <ul className="nav-links">
               <li><a href="index.html">Home</a></li>
               <li className="nav-dropdown">
@@ -970,8 +1112,16 @@
                 <div className="neighborhoods-grid">
                   {neighborhoods.map((neighborhood) => (
                     <div key={neighborhood.id} className="neighborhood-card">
-                      <h3 className="neighborhood-card-name">{neighborhood.name}</h3>
-                      <p className="neighborhood-card-desc">{neighborhood.description}</p>
+                      <div className="neighborhood-card-bg" style={{backgroundImage: `url(${neighborhood.image})`}}></div>
+                      <div className="neighborhood-card-arrow">
+                        <svg viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                      </div>
+                      <div className="neighborhood-card-content">
+                        <h3 className="neighborhood-card-name">{neighborhood.name}</h3>
+                        <p className="neighborhood-card-desc">{neighborhood.description}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
