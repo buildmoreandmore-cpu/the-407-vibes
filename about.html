@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - ATL Vibes & Views</title>
+  <meta name="description" content="Learn about ATL Vibes & Views, Atlanta's premier hyperlocal media platform covering culture, development, and community across 243 neighborhoods.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-yellow: #FFD95A;
+      --primary-red: #DC3535;
+      --primary-black: #0A0A0A;
+      --primary-white: #FAFAFA;
+      --secondary-yellow: #FFF4D6;
+      --accent-red: #A82B2B;
+      --text-dark: #1A1A1A;
+      --text-light: #6B6B6B;
+      --border-color: #E5E5E5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--primary-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--primary-white);
+      z-index: 1000;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-black);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .logo-tagline {
+      font-size: 0.6rem;
+      color: var(--text-light);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-red);
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 80px;
+      height: 60vh;
+      min-height: 450px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?w=1600') center/cover;
+      filter: brightness(0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Section */
+    .section {
+      padding: 5rem 5%;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--primary-red);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+    }
+
+    /* Our Story */
+    .story-section {
+      background: white;
+    }
+
+    .story-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .story-content p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    /* Mission */
+    .mission-section {
+      background: var(--primary-black);
+      color: white;
+      text-align: center;
+    }
+
+    .mission-quote {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .mission-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .mission-quote cite {
+      font-size: 1rem;
+      font-style: normal;
+      color: var(--primary-yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* What We Cover */
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .coverage-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+
+    .coverage-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .coverage-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--secondary-yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+    }
+
+    .coverage-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary-black);
+    }
+
+    .coverage-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Team */
+    .team-section {
+      background: #f8f8f8;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, var(--primary-black) 0%, #333 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 4rem;
+    }
+
+    .team-info {
+      padding: 1.5rem;
+    }
+
+    .team-name {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+      color: var(--primary-black);
+    }
+
+    .team-title {
+      color: var(--primary-red);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .team-bio {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Stats */
+    .stats-section {
+      background: var(--primary-red);
+      color: white;
+      padding: 4rem 5%;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .stat-item p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--primary-yellow);
+      padding: 5rem 5%;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: var(--primary-black);
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .cta-button.primary {
+      background: var(--primary-black);
+      color: white;
+    }
+
+    .cta-button.primary:hover {
+      background: var(--primary-red);
+      transform: translateY(-2px);
+    }
+
+    .cta-button.secondary {
+      background: white;
+      color: var(--primary-black);
+    }
+
+    .cta-button.secondary:hover {
+      background: var(--primary-black);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-black);
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary-yellow);
+      font-weight: 600;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: var(--primary-yellow);
+      color: var(--primary-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.8rem;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      background: var(--primary-red);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .footer-column h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+      color: var(--primary-yellow);
+      font-weight: 600;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-yellow);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--primary-yellow);
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .coverage-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .coverage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .stat-item h3 {
+        font-size: 2.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .mission-quote blockquote {
+        font-size: 1.6rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-main">ATL Vibes & Views</span>
+      <span class="logo-tagline">Culture Blog & Vlog Magazine</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#neighborhoods">Neighborhoods</a></li>
+      <li><a href="index.html#directory">Directory</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>About Us</h1>
+      <p>Documenting Atlanta's culture, community, and progress through authentic storytelling</p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="section story-section">
+    <div class="section-header">
+      <h2 class="section-title">Our Story</h2>
+    </div>
+    <div class="story-content">
+      <p>ATL Vibes & Views began with a simple belief: Atlanta's story deserves to be told by those who know it best. Founded by local journalists and community advocates, we set out to create a media platform that goes beyond headlines to capture the authentic pulse of our city.</p>
+      <p>From the historic streets of Sweet Auburn to the emerging neighborhoods along the BeltLine, Atlanta is a city of constant evolution. We document the businesses opening their doors, the artists making their mark, the developers reshaping skylines, and the community members who make each neighborhood unique.</p>
+      <p>What started as a passion project has grown into Atlanta's go-to source for hyperlocal coverage. Today, we reach over 50,000 engaged readers monthly, covering 243 neighborhoods and partnering with hundreds of local businesses to tell their stories.</p>
+      <p>Our commitment remains the same: to inform, connect, and inspire the communities shaping what's next for Atlanta.</p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section mission-section">
+    <div class="mission-quote">
+      <blockquote>"Our mission is to document and elevate Atlanta's people, places, and progress through storytelling that informs, connects, and inspires the communities shaping what's next."</blockquote>
+      <cite>Editorial-led. Community-rooted. Brand-aligned.</cite>
+    </div>
+  </section>
+
+  <!-- What We Cover -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">What We Cover</h2>
+      <p class="section-subtitle">Four pillars of coverage that define Atlanta's story</p>
+    </div>
+    <div class="coverage-grid">
+      <div class="coverage-card">
+        <div class="coverage-icon">🏗️</div>
+        <h3>Development</h3>
+        <p>Tracking neighborhood growth, new projects, and the businesses reshaping Atlanta's urban landscape.</p>
+      </div>
+      <div class="coverage-card">
+        <div class="coverage-icon">🍽️</div>
+        <h3>Food & Drink</h3>
+        <p>Spotlighting restaurants, chefs, and culinary experiences from neighborhood gems to new openings.</p>
+      </div>
+      <div class="coverage-card">
+        <div class="coverage-icon">🎨</div>
+        <h3>Art & Culture</h3>
+        <p>Celebrating the artists, festivals, music, and creative movements defining Atlanta's cultural identity.</p>
+      </div>
+      <div class="coverage-card">
+        <div class="coverage-icon">🏘️</div>
+        <h3>Community</h3>
+        <p>Highlighting the people, events, and initiatives that bring Atlanta's neighborhoods together.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section team-section">
+    <div class="section-header">
+      <h2 class="section-title">Meet The Team</h2>
+      <p class="section-subtitle">The storytellers behind ATL Vibes & Views</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">👤</div>
+        <div class="team-info">
+          <h3 class="team-name">Team Member</h3>
+          <p class="team-title">Founder & Editor-in-Chief</p>
+          <p class="team-bio">Leading editorial vision and strategy, with deep roots in Atlanta's media and community landscape.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">👤</div>
+        <div class="team-info">
+          <h3 class="team-name">Team Member</h3>
+          <p class="team-title">Creative Director</p>
+          <p class="team-bio">Bringing Atlanta's stories to life through visual storytelling, video production, and brand experiences.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">👤</div>
+        <div class="team-info">
+          <h3 class="team-name">Team Member</h3>
+          <p class="team-title">Community Manager</p>
+          <p class="team-bio">Building relationships with neighborhoods, businesses, and partners across the city.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>351K</h3>
+        <p>Platform Reach</p>
+      </div>
+      <div class="stat-item">
+        <h3>50K+</h3>
+        <p>Engaged Audience</p>
+      </div>
+      <div class="stat-item">
+        <h3>243</h3>
+        <p>Neighborhoods</p>
+      </div>
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Business Partners</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Partner With Us</h2>
+    <p>Join the brands and organizations shaping Atlanta's culture, growth, and community through editorial-led partnerships.</p>
+    <div class="cta-buttons">
+      <a href="advertise.html" class="cta-button primary">Advertise With Us</a>
+      <a href="media-kit.html" class="cta-button secondary">View Media Kit</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>ATL Vibes & Views</h3>
+        <p>Your comprehensive guide to Atlanta's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/atlvibesandviews/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
+          <a href="#" class="social-link">FB</a>
+          <a href="#" class="social-link">TW</a>
+          <a href="#" class="social-link">YT</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#neighborhoods">Neighborhoods</a></li>
+          <li><a href="index.html#directory">Business Directory</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#properties">Properties</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Get Listed</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#submit">Submit Business</a></li>
+          <li><a href="index.html#submit">Add Event</a></li>
+          <li><a href="advertise.html">Advertise</a></li>
+          <li><a href="activation.html">Activation</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="media-kit.html">Media Kit</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ATL Vibes & Views. All rights reserved. |
+        <a href="terms.html">Terms</a> |
+        <a href="privacy.html">Privacy</a> |
+        <a href="cookies.html">Cookies</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
