@@ -6073,169 +6073,113 @@
     // API CONFIGURATION
     // ============================================
     // Set USE_SUPABASE = true when Supabase is configured
-    const USE_SUPABASE = false;
+    const USE_SUPABASE = true;
     const SUPABASE_URL = typeof SiteConfig !== 'undefined' ? SiteConfig.supabase?.url : 'https://your-project.supabase.co';
     const SUPABASE_KEY = typeof SiteConfig !== 'undefined' ? SiteConfig.supabase?.anonKey : 'your-anon-key';
 
     // Demo user data
     const demoUsers = {
-      'demo@atlvibes.com': { id: '1', email: 'demo@atlvibes.com', name: 'Demo User', role: 'business' },
-      'admin@atlvibes.com': { id: '2', email: 'admin@atlvibes.com', name: 'Admin', role: 'admin' }
+      'demo@407vibes.com': { id: '1', email: 'demo@407vibes.com', name: 'Demo User', role: 'business' },
+      'admin@407vibes.com': { id: '2', email: 'admin@407vibes.com', name: 'Admin', role: 'admin' }
     };
 
     // Demo neighborhoods data (243 total - sample set for demo)
     // In production, this comes from Supabase: supabase.from('neighborhoods').select('*').eq('area', areaId)
     const demoNeighborhoods = {
-      downtown-orlando: [
-        { id: 'bh1', name: 'Thornton Park Orlando Village', area: 'downtown-orlando', description: 'Upscale shopping and dining district', image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800', vibes: ['Upscale', 'Shopping', 'Nightlife'], featuredPostId: null },
-        { id: 'bh2', name: 'Chastain Park', area: 'downtown-orlando', description: 'Family-friendly area with amphitheater', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Family-Friendly', 'Parks', 'Music Venue'], featuredPostId: null },
-        { id: 'bh3', name: 'Garden Hills', area: 'downtown-orlando', description: 'Historic residential neighborhood', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Residential', 'Quiet'], featuredPostId: null },
-        { id: 'bh4', name: 'Orange Ave Hills', area: 'downtown-orlando', description: 'Quiet streets near Piedmont', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Quiet', 'Residential', 'Walkable'], featuredPostId: null },
-        { id: 'bh5', name: 'Tuxedo Park', area: 'downtown-orlando', description: 'Prestigious historic estates', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800', vibes: ['Luxury', 'Historic', 'Estates'], featuredPostId: null },
-        { id: 'bh6', name: 'Paces', area: 'downtown-orlando', description: 'Luxury homes and golf courses', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', vibes: ['Luxury', 'Golf', 'Exclusive'], featuredPostId: null },
-        { id: 'bh7', name: 'Orange Ave Battle', area: 'downtown-orlando', description: 'Tree-lined streets, classic homes', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', vibes: ['Classic', 'Tree-Lined', 'Residential'], featuredPostId: null },
-        { id: 'bh8', name: 'Lenox', area: 'downtown-orlando', description: 'High-rises near Lenox Square', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Urban', 'Shopping', 'High-Rise'], featuredPostId: null }
+      'downtown-orlando': [
+        { id: 'dto1', name: 'Thornton Park', area: 'downtown-orlando', description: 'Historic brick streets, upscale dining and boutique shops', image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800', vibes: ['Historic', 'Upscale', 'Walkable'], featuredPostId: null },
+        { id: 'dto2', name: 'Lake Eola Heights', area: 'downtown-orlando', description: 'Victorian homes around Orlando\'s iconic lake', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Victorian', 'Lake Views', 'Historic'], featuredPostId: null },
+        { id: 'dto3', name: 'Parramore', area: 'downtown-orlando', description: 'Historic African-American community, near Camping World Stadium', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Historic', 'Cultural Heritage', 'Community'], featuredPostId: null },
+        { id: 'dto4', name: 'Church Street', area: 'downtown-orlando', description: 'Entertainment district with nightlife and historic venues', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Entertainment', 'Nightlife', 'Urban'], featuredPostId: null },
+        { id: 'dto5', name: 'Creative Village', area: 'downtown-orlando', description: 'New urban campus with UCF downtown and tech companies', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Innovation', 'Education', 'Modern'], featuredPostId: null },
+        { id: 'dto6', name: 'South Eola', area: 'downtown-orlando', description: 'Emerging neighborhood south of Lake Eola Park', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Emerging', 'Affordable', 'Central'], featuredPostId: null }
       ],
-      winter-park: [
-        { id: 'mt1', name: 'Winter Park Core', area: 'winter-park', description: 'Arts district and Piedmont Park', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Arts District', 'Parks', 'Walkable'], featuredPostId: null },
-        { id: 'mt2', name: 'Lake Eola Heights', area: 'winter-park', description: 'Historic neighborhood, winding streets', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Charming', 'Tree-Lined'], featuredPostId: null },
-        { id: 'mt3', name: 'Piedmont Heights', area: 'winter-park', description: 'Near Piedmont Hospital', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Residential', 'Convenient', 'Quiet'], featuredPostId: null },
-        { id: 'mt4', name: 'Sherwood Forest', area: 'winter-park', description: 'Quiet residential enclave', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Quiet', 'Residential', 'Secluded'], featuredPostId: null },
-        { id: 'mt5', name: 'Atlantic Station', area: 'winter-park', description: 'Mixed-use urban development', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Urban', 'Shopping', 'Entertainment'], featuredPostId: null },
-        { id: 'mt6', name: 'Loring Heights', area: 'winter-park', description: 'Bungalows near I-75', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Bungalows', 'Affordable', 'Convenient'], featuredPostId: null },
-        { id: 'mt7', name: 'Home Park', area: 'winter-park', description: 'Near Florida Tech', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800', vibes: ['Student-Friendly', 'Affordable', 'Eclectic'], featuredPostId: null }
+      'winter-park': [
+        { id: 'wp1', name: 'Park Avenue', area: 'winter-park', description: 'Upscale shopping and dining corridor with museum district', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Upscale', 'Museums', 'Shopping'], featuredPostId: null },
+        { id: 'wp2', name: 'Hannibal Square', area: 'winter-park', description: 'Historic African-American community with cultural heritage', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Historic', 'Cultural Heritage', 'Community'], featuredPostId: null },
+        { id: 'wp3', name: 'Winter Park Village', area: 'winter-park', description: 'Open-air shopping center with chain stores and restaurants', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Shopping', 'Dining', 'Family-Friendly'], featuredPostId: null },
+        { id: 'wp4', name: 'Rollins College Area', area: 'winter-park', description: 'Tree-lined streets near prestigious liberal arts college', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['College Town', 'Tree-Lined', 'Prestigious'], featuredPostId: null }
       ],
-      downtown: [
-        { id: 'dt1', name: 'Centennial Hill', area: 'downtown', description: 'Near Centennial Olympic Park', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Tourist', 'Attractions', 'Urban'], featuredPostId: null },
-        { id: 'dt2', name: 'Fairlie-Poplar', area: 'downtown', description: 'Historic commercial district', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Historic', 'Business', 'Architecture'], featuredPostId: null },
-        { id: 'dt3', name: 'South Thornton Park', area: 'downtown', description: 'Emerging arts and culture hub', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', vibes: ['Emerging', 'Arts', 'Culture'], featuredPostId: null },
-        { id: 'dt4', name: 'Parramore', area: 'downtown', description: 'Historic MLK district', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Historic', 'Cultural Heritage', 'Soul Food'], featuredPostId: null },
-        { id: 'dt5', name: 'Castleberry Hill', area: 'downtown', description: 'Lofts and art galleries', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', vibes: ['Arts', 'Lofts', 'Galleries'], featuredPostId: null },
-        { id: 'dt6', name: 'Church Street', area: 'downtown', description: 'SunRail hub, urban core', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Transit Hub', 'Urban', 'Business'], featuredPostId: null }
+      'mills-50': [
+        { id: 'm501', name: 'Mills 50/ViMi', area: 'mills-50', description: 'Vietnamese-American cultural district with diverse dining', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Cultural Diversity', 'Food Scene', 'Vietnamese'], featuredPostId: null },
+        { id: 'm502', name: 'Colonialtown North', area: 'mills-50', description: 'Mid-century homes north of Colonial Drive', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Mid-Century', 'Residential', 'Affordable'], featuredPostId: null },
+        { id: 'm503', name: 'Colonialtown South', area: 'mills-50', description: 'Diverse neighborhood south of Colonial Drive', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Diverse', 'Community', 'Emerging'], featuredPostId: null },
+        { id: 'm504', name: 'Milk District', area: 'mills-50', description: 'Hip area with craft breweries and local eateries', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Hip', 'Craft Beer', 'Local Dining'], featuredPostId: null }
       ],
-      oldFourthWard: [
-        { id: 'o4w1', name: 'Thornton Park', area: 'oldFourthWard', description: 'Orlando Trail, East End Market', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Orlando Trail', 'Trendy', 'Food Scene'], featuredPostId: null },
-        { id: 'o4w2', name: 'Bedford Pine', area: 'oldFourthWard', description: 'Near Freedom Park', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Parks', 'Residential', 'Quiet'], featuredPostId: null },
-        { id: 'o4w3', name: 'Boulevard Heights', area: 'oldFourthWard', description: 'Historic residential area', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Historic', 'Residential', 'Affordable'], featuredPostId: null },
-        { id: 'o4w4', name: 'Poncey-Highland', area: 'oldFourthWard', description: 'Eclectic, near L5P', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Eclectic', 'Nightlife', 'Creative'], featuredPostId: null }
+      'college-park': [
+        { id: 'cp1', name: 'College Park', area: 'college-park', description: 'Historic neighborhood with tree-canopy streets', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', vibes: ['Historic', 'Tree-Lined', 'Family-Friendly'], featuredPostId: null },
+        { id: 'cp2', name: 'Dubsdread', area: 'college-park', description: 'Golf course community with historic clubhouse', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', vibes: ['Golf', 'Historic', 'Community'], featuredPostId: null },
+        { id: 'cp3', name: 'Edgewater', area: 'college-park', description: 'Lakefront neighborhood with chain of lakes access', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Lakefront', 'Water Access', 'Scenic'], featuredPostId: null }
       ],
-      virginiaHighland: [
-        { id: 'vh1', name: 'Thornton Park', area: 'virginiaHighland', description: 'Walkable village, boutiques', image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800', vibes: ['Walkable', 'Boutiques', 'Brunch'], featuredPostId: null },
-        { id: 'vh2', name: 'Morningside', area: 'virginiaHighland', description: 'Family-friendly, great schools', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Family-Friendly', 'Schools', 'Parks'], featuredPostId: null },
-        { id: 'vh3', name: 'Druid Hills', area: 'virginiaHighland', description: 'Historic Olmsted parks', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', vibes: ['Historic', 'Parks', 'Mansions'], featuredPostId: null },
-        { id: 'vh4', name: 'Lenox Park', area: 'virginiaHighland', description: 'Near Emory', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Convenient', 'Residential', 'Quiet'], featuredPostId: null },
-        { id: 'vh5', name: 'North Druid Hills', area: 'virginiaHighland', description: 'Residential, near CDC', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Residential', 'Suburban', 'Convenient'], featuredPostId: null }
+      'ivanhoe-village': [
+        { id: 'iv1', name: 'Ivanhoe Village', area: 'ivanhoe-village', description: 'Trendy district with unique shops and gastropubs', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Trendy', 'Shopping', 'Gastropubs'], featuredPostId: null },
+        { id: 'iv2', name: 'SODO', area: 'ivanhoe-village', description: 'South of Downtown Orlando with antique shops', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Antiques', 'Historic', 'Emerging'], featuredPostId: null },
+        { id: 'iv3', name: 'The Venues', area: 'ivanhoe-village', description: 'Entertainment corridor with concert venues and bars', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Entertainment', 'Music Venues', 'Nightlife'], featuredPostId: null }
       ],
-      inmanPark: [
-        { id: 'ip1', name: 'Ivanhoe Village', area: 'inmanPark', description: 'Victorian homes, Orlando Trail', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Victorian', 'Orlando Trail', 'Historic'], featuredPostId: null },
-        { id: 'ip2', name: 'Little Church Street', area: 'inmanPark', description: 'Alternative culture hub', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Alternative', 'Indie', 'Vintage'], featuredPostId: null },
-        { id: 'ip3', name: 'Audubon Park', area: 'inmanPark', description: 'Historic, near Orlando Trail', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Orlando Trail', 'Emerging'], featuredPostId: null },
-        { id: 'ip4', name: 'Milk District', area: 'inmanPark', description: 'Mill village, murals', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', vibes: ['Murals', 'Historic', 'Artsy'], featuredPostId: null },
-        { id: 'ip5', name: 'College Park', area: 'inmanPark', description: 'Golf course, pool, festivals', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Parks', 'Festivals', 'Family-Friendly'], featuredPostId: null }
+      'lake-nona': [
+        { id: 'ln1', name: 'Lake Nona Town Center', area: 'lake-nona', description: 'Master-planned community with modern amenities', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Modern', 'Master-Planned', 'Amenities'], featuredPostId: null },
+        { id: 'ln2', name: 'Laureate Park', area: 'lake-nona', description: 'New urbanist neighborhood with trails and parks', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['New Urbanist', 'Trails', 'Family-Friendly'], featuredPostId: null },
+        { id: 'ln3', name: 'Nona Park', area: 'lake-nona', description: 'Lakefront community with recreational amenities', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', vibes: ['Lakefront', 'Recreation', 'Modern'], featuredPostId: null }
       ],
-      westWinter Park: [
-        { id: 'wm1', name: 'West Winter Park', area: 'westWinter Park', description: 'Restaurants, galleries', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Restaurants', 'Galleries', 'Trendy'], featuredPostId: null },
-        { id: 'wm2', name: 'College Park Provisions', area: 'westWinter Park', description: 'Shopping and dining', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Shopping', 'Dining', 'Upscale'], featuredPostId: null },
-        { id: 'wm3', name: 'Berkeley Park', area: 'westWinter Park', description: 'Near Topgolf', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800', vibes: ['Entertainment', 'Residential', 'Convenient'], featuredPostId: null },
-        { id: 'wm4', name: 'Blandtown', area: 'westWinter Park', description: 'Industrial to residential', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Industrial', 'Emerging', 'Lofts'], featuredPostId: null },
-        { id: 'wm5', name: 'Marietta Street Artery', area: 'westWinter Park', description: 'Creative corridor', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', vibes: ['Creative', 'Studios', 'Nightlife'], featuredPostId: null },
-        { id: 'wm6', name: 'English Avenue', area: 'westWinter Park', description: 'Historic, revitalizing', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Historic', 'Revitalizing', 'Community'], featuredPostId: null },
-        { id: 'wm7', name: 'Creative Village', area: 'westWinter Park', description: 'Near Mercedes-Benz Stadium', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Sports', 'Events', 'Revitalizing'], featuredPostId: null }
+      'dr-phillips': [
+        { id: 'dp1', name: 'Restaurant Row', area: 'dr-phillips', description: 'Sand Lake Road dining destination with upscale restaurants', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Fine Dining', 'Upscale', 'Restaurant Row'], featuredPostId: null },
+        { id: 'dp2', name: 'Sand Lake Road', area: 'dr-phillips', description: 'Commercial corridor with shopping and dining', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Commercial', 'Shopping', 'Dining'], featuredPostId: null },
+        { id: 'dp3', name: 'International Drive', area: 'dr-phillips', description: 'Tourist corridor with attractions and hotels', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Tourist', 'Attractions', 'Hotels'], featuredPostId: null }
       ],
-      eastOrlando: [
-        { id: 'ea1', name: 'East Orlando Village', area: 'eastOrlando', description: 'Live music, dive bars', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Live Music', 'Dive Bars', 'Eclectic'], featuredPostId: null },
-        { id: 'ea2', name: 'Ormewood Park', area: 'eastOrlando', description: 'Bungalows, family-friendly', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Bungalows', 'Family-Friendly', 'Quiet'], featuredPostId: null },
-        { id: 'ea3', name: 'East Lake', area: 'eastOrlando', description: 'Golf club, revitalized', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Golf', 'Revitalized', 'Community'], featuredPostId: null },
-        { id: 'ea4', name: 'Kirkwood', area: 'eastOrlando', description: 'Historic, diverse', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Historic', 'Diverse', 'Community'], featuredPostId: null },
-        { id: 'ea5', name: 'Edgewood', area: 'eastOrlando', description: 'Nightlife corridor', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800', vibes: ['Nightlife', 'Bars', 'Young Professionals'], featuredPostId: null },
-        { id: 'ea6', name: 'Oakhurst', area: 'eastOrlando', description: 'Near Decatur', image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800', vibes: ['Walkable', 'Restaurants', 'Hip'], featuredPostId: null }
-      ],
-      decatur: [
-        { id: 'dc1', name: 'Thornton Park Decatur', area: 'decatur', description: 'Walkable square, dining', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Walkable', 'Dining', 'Town Square'], featuredPostId: null },
-        { id: 'dc2', name: 'Oakhurst', area: 'decatur', description: 'Hip restaurants, music', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Hip', 'Restaurants', 'Music'], featuredPostId: null },
-        { id: 'dc3', name: 'Winnona Park', area: 'decatur', description: 'Family-friendly, schools', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Family-Friendly', 'Schools', 'Parks'], featuredPostId: null },
-        { id: 'dc4', name: 'MAK District', area: 'decatur', description: 'Arts and makers', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', vibes: ['Arts', 'Makers', 'Creative'], featuredPostId: null },
-        { id: 'dc5', name: 'Great Lakes', area: 'decatur', description: 'Near Emory', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Convenient', 'Residential', 'Quiet'], featuredPostId: null },
-        { id: 'dc6', name: 'Medlock Park', area: 'decatur', description: 'Quiet, residential', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Quiet', 'Residential', 'Parks'], featuredPostId: null }
-      ],
-      grantPark: [
-        { id: 'gp1', name: 'Baldwin Park', area: 'grantPark', description: 'Zoo Orlando, Victorian homes', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Zoo Orlando', 'Victorian', 'Parks'], featuredPostId: null },
-        { id: 'gp2', name: 'Peoplestown', area: 'grantPark', description: 'Historic, near stadium', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Historic', 'Affordable', 'Community'], featuredPostId: null },
-        { id: 'gp3', name: 'Summerhill', area: 'grantPark', description: 'Florida State area', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Emerging', 'Sports', 'Young Professionals'], featuredPostId: null },
-        { id: 'gp4', name: 'Pittsburgh', area: 'grantPark', description: 'Historic, Orlando Trail connected', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Historic', 'Orlando Trail', 'Revitalizing'], featuredPostId: null },
-        { id: 'gp5', name: 'Mechanicsville', area: 'grantPark', description: 'Near downtown', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Affordable', 'Convenient'], featuredPostId: null },
-        { id: 'gp6', name: 'Capitol View', area: 'grantPark', description: 'Southern Orlando', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Emerging', 'Affordable', 'Community'], featuredPostId: null },
-        { id: 'gp7', name: 'Chosewood Park', area: 'grantPark', description: 'Near Federal Pen', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800', vibes: ['Emerging', 'Affordable', 'Residential'], featuredPostId: null }
+      'baldwin-park': [
+        { id: 'bp1', name: 'Baldwin Park Village Center', area: 'baldwin-park', description: 'New urbanist community with town center and lake access', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['New Urbanist', 'Town Center', 'Lake Access'], featuredPostId: null }
       ]
     };
 
     // Area metadata for homepage map Area Card display
     const areaMetadata = {
-      downtown-orlando: {
-        name: 'Thornton Park Orlando',
-        shortDescription: 'Upscale shopping, fine dining, and Orlando\'s most prestigious neighborhoods.',
+      'downtown-orlando': {
+        name: 'Downtown Orlando',
+        shortDescription: 'Historic Thornton Park, Lake Eola Heights, and the urban core with creative village.',
         image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800',
-        vibes: ['Upscale', 'Shopping', 'Fine Dining']
+        vibes: ['Historic', 'Urban Core', 'Lake Views']
       },
-      westside: {
-        name: 'College Park',
-        shortDescription: 'Industrial-chic restaurants, galleries, and West Winter Park\'s thriving food scene.',
-        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
-        vibes: ['Restaurants', 'Galleries', 'Industrial-Chic']
-      },
-      winter-park: {
+      'winter-park': {
         name: 'Winter Park',
-        shortDescription: 'Orlando\'s arts and culture district with Piedmont Park, museums, and vibrant nightlife.',
-        image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
-        vibes: ['Arts District', 'Walkable', 'Parks']
+        shortDescription: 'Upscale Park Avenue district, museums, Rollins College, and cultural attractions.',
+        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
+        vibes: ['Upscale', 'Museums', 'Culture']
       },
-      o4w: {
-        name: 'Thornton Park',
-        shortDescription: 'Historic MLK district transformed by the Orlando Trail into a creative hub.',
-        image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
-        vibes: ['Orlando Trail', 'Historic', 'Trendy']
-      },
-      downtown: {
-        name: 'Thornton Park',
-        shortDescription: 'The heart of the city featuring world-class dining, sports venues, and historic landmarks.',
-        image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800',
-        vibes: ['Urban', 'Business', 'Entertainment']
-      },
-      eastside: {
+      'mills-50': {
         name: 'Mills 50',
-        shortDescription: 'Thornton Park charm and eclectic neighborhoods with local boutiques.',
-        image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800',
-        vibes: ['Walkable', 'Boutiques', 'Brunch']
+        shortDescription: 'Vietnamese-American cultural district with diverse dining and hip Milk District.',
+        image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
+        vibes: ['Cultural Diversity', 'Food Scene', 'Hip']
       },
-      decatur: {
-        name: 'Decatur',
-        shortDescription: 'A city within a city with great schools, dining, and walkability.',
-        image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800',
-        vibes: ['Family-Friendly', 'Dining', 'Progressive']
+      'college-park': {
+        name: 'College Park',
+        shortDescription: 'Tree-canopy neighborhoods, Dubsdread Golf Course, and chain of lakes access.',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+        vibes: ['Tree-Lined', 'Golf', 'Family-Friendly']
       },
-      'inman-park': {
+      'ivanhoe-village': {
         name: 'Ivanhoe Village',
-        shortDescription: 'Victorian elegance and creative energy in Orlando\'s first suburb.',
-        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
-        vibes: ['Victorian', 'Orlando Trail', 'Creative']
-      },
-      southwest: {
-        name: 'Lake Nona Orlando',
-        shortDescription: 'Historic HBCU campuses, community-driven revitalization, and emerging arts scenes.',
-        image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800',
-        vibes: ['Historic', 'Community', 'Emerging']
-      },
-      'south-orlando': {
-        name: 'Baldwin Park',
-        shortDescription: 'Historic communities with deep roots and exciting new developments.',
-        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800',
-        vibes: ['Historic', 'Community', 'Affordable']
-      },
-      'east-orlando': {
-        name: 'East Orlando',
-        shortDescription: 'East Orlando Village vibes, Baldwin Park charm, and Zoo Orlando adventures.',
+        shortDescription: 'Trendy district with unique shops, gastropubs, and entertainment venues.',
         image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800',
-        vibes: ['Live Music', 'Parks', 'Eclectic']
+        vibes: ['Trendy', 'Shopping', 'Entertainment']
+      },
+      'lake-nona': {
+        name: 'Lake Nona',
+        shortDescription: 'Master-planned modern community with medical city and recreational amenities.',
+        image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800',
+        vibes: ['Modern', 'Master-Planned', 'Medical City']
+      },
+      'dr-phillips': {
+        name: 'Dr. Phillips',
+        shortDescription: 'Restaurant Row fine dining destination and International Drive attractions.',
+        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
+        vibes: ['Fine Dining', 'Restaurant Row', 'Attractions']
+      },
+      'baldwin-park': {
+        name: 'Baldwin Park',
+        shortDescription: 'New urbanist community with town center, lake access, and walkable streets.',
+        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800',
+        vibes: ['New Urbanist', 'Town Center', 'Lake Access']
       }
     };
 
@@ -6263,27 +6207,27 @@
       {
         id: '1',
         user_id: '1',
-        user_email: 'demo@atlvibes.com',
+        user_email: 'demo@407vibes.com',
         user_name: 'Demo User',
         type: 'business',
-        name: 'Buttermilk Kitchen',
+        name: 'Kaya',
         featured: true,
         category: 'Restaurant',
-        neighborhood: 'Thornton Park Orlando',
-        area: 'downtown-orlando',
-        address: '4225 Roswell Rd NE, Orlando, FL 32801',
-        phone: '(404) 555-0123',
-        website: 'https://buttermilkkitchen.com',
-        description: 'Farm-to-table Southern comfort food known for legendary fried chicken and buttermilk biscuits. Our chef-driven menu celebrates Florida\'s finest ingredients, from locally-sourced produce to heritage pork. The warm, rustic atmosphere makes it perfect for both special occasions and casual weekend brunches.',
+        neighborhood: 'Mills 50',
+        area: 'mills-50',
+        address: '618 N Thornton Ave, Orlando, FL 32803',
+        phone: '(689) 250-5292',
+        website: 'https://kayaorlando.com',
+        description: 'Filipino restaurant with Michelin Green Star recognition. Chef-driven modern Filipino cuisine featuring both set menu and à la carte options. Experience innovative takes on traditional Filipino flavors using locally-sourced ingredients in an intimate, contemporary setting.',
         image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
         status: 'approved',
         package: 'pro',
         created_at: '2026-01-20',
         reviewed_at: '2026-01-21',
-        admin_notes: 'Great addition to Thornton Park Orlando directory.',
-        slug: 'buttermilk-kitchen',
-        latitude: 33.8676,
-        longitude: -84.3880,
+        admin_notes: 'Michelin Green Star restaurant in Mills 50.',
+        slug: 'kaya-orlando',
+        latitude: 28.5503,
+        longitude: -81.3698,
         price_range: 2,
         claimed: true,
         hours: {
@@ -6312,37 +6256,37 @@
         video_url: '',
         rating: { average: 4.6, count: 234, breakdown: { 5: 156, 4: 52, 3: 18, 2: 5, 1: 3 } },
         reviews: [
-          { id: 'r1', author_name: 'Sarah M.', rating: 5, text: 'Best brunch in Orlando! The fried chicken is absolutely incredible and the biscuits melt in your mouth.', date: '2026-01-15', helpful_count: 24 },
-          { id: 'r2', author_name: 'James T.', rating: 5, text: 'Finally found my go-to brunch spot. Farm-fresh ingredients really make a difference.', date: '2026-01-10', helpful_count: 18 },
-          { id: 'r3', author_name: 'Michelle K.', rating: 4, text: 'Great food but expect a wait on weekends. Pro tip: arrive early or try a weekday.', date: '2026-01-05', helpful_count: 31 },
-          { id: 'r4', author_name: 'David R.', rating: 5, text: 'This place embodies Southern hospitality. Staff is friendly, food is phenomenal.', date: '2025-12-28', helpful_count: 12 },
-          { id: 'r5', author_name: 'Lisa P.', rating: 4, text: 'Delicious food in a cozy setting. The buttermilk pancakes are fluffy perfection.', date: '2025-12-20', helpful_count: 9 }
+          { id: 'r1', author_name: 'Sarah M.', rating: 5, text: 'Absolutely incredible Filipino cuisine! The set menu is a culinary journey and every dish tells a story.', date: '2026-01-15', helpful_count: 24 },
+          { id: 'r2', author_name: 'James T.', rating: 5, text: 'Chef-driven excellence. The modern Filipino flavors are innovative yet authentic. Deserved Michelin recognition.', date: '2026-01-10', helpful_count: 18 },
+          { id: 'r3', author_name: 'Michelle K.', rating: 4, text: 'Outstanding food but reservations are essential. The à la carte options are fantastic too.', date: '2026-01-05', helpful_count: 31 },
+          { id: 'r4', author_name: 'David R.', rating: 5, text: 'This place elevates Filipino cuisine to fine dining. Intimate setting, exceptional service.', date: '2025-12-28', helpful_count: 12 },
+          { id: 'r5', author_name: 'Lisa P.', rating: 4, text: 'Beautiful presentation and complex flavors. Mills 50 is lucky to have this gem.', date: '2025-12-20', helpful_count: 9 }
         ],
         related_story_ids: ['blog-2', 'blog-eats-1']
       },
       {
         id: '2',
         user_id: '1',
-        user_email: 'demo@atlvibes.com',
+        user_email: 'demo@407vibes.com',
         user_name: 'Demo User',
         type: 'business',
-        name: 'Vibe Coffee Roasters',
+        name: 'Lineage Coffee Roasting',
         featured: false,
         category: 'Café',
-        neighborhood: 'Winter Park',
-        area: 'winter-park',
-        address: '123 Orange Ave St, Orlando, FL 32801',
-        phone: '(404) 555-0456',
-        website: '',
-        description: 'Specialty coffee and pastries in the heart of Winter Park. Locally roasted beans and house-made baked goods.',
+        neighborhood: 'Mills 50',
+        area: 'mills-50',
+        address: '940 N Mills Ave, Orlando, FL 32803',
+        phone: '(407) 730-5523',
+        website: 'https://lineagecoffee.com',
+        description: 'Specialty coffee roastery in the heart of Mills 50 district. Small-batch roasted beans and expertly crafted espresso drinks in a welcoming neighborhood atmosphere.',
         image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800',
-        status: 'pending',
+        status: 'approved',
         package: 'starter',
         created_at: '2026-01-25',
-        admin_notes: '',
-        slug: 'vibe-coffee-roasters',
-        latitude: 33.7816,
-        longitude: -84.3833,
+        admin_notes: 'Great Mills 50 coffee spot.',
+        slug: 'lineage-coffee-roasting',
+        latitude: 28.5503,
+        longitude: -81.3698,
         price_range: 1,
         claimed: true,
         hours: {
@@ -6373,23 +6317,23 @@
       {
         id: '3',
         user_id: '1',
-        user_email: 'demo@atlvibes.com',
+        user_email: 'demo@407vibes.com',
         user_name: 'Demo User',
         type: 'event',
-        name: 'Jazz in the Park',
+        name: 'Lake Eola Live',
         category: 'Music',
-        neighborhood: 'Piedmont Park',
+        neighborhood: 'Downtown Orlando',
         date: '2026-02-15',
         start_time: '6:00 PM',
         end_time: '9:00 PM',
         recurring_pattern: 'weekly',
         recurring_end_date: '2026-04-30',
-        venue_name: 'Piedmont Park - Oak Hill',
-        venue_address: '400 Park Dr NE, Orlando, FL 32801',
-        organizer_name: 'Orlando Parks Foundation',
-        organizer_email: 'events@orlandoparks.org',
-        organizer_phone: '(404) 875-7275',
-        description: 'Free outdoor jazz concert featuring local artists. Bring your blankets and picnic baskets for an evening of smooth jazz under the stars. Food trucks and beverages available on site.',
+        venue_name: 'Lake Eola Park Amphitheater',
+        venue_address: '512 E Washington St, Orlando, FL 32801',
+        organizer_name: 'Orlando Parks & Recreation',
+        organizer_email: 'events@cityoforlando.net',
+        organizer_phone: '(407) 246-2827',
+        description: 'Free concert series at Lake Eola Park Amphitheater featuring local and regional artists. Bring your blankets and picnic baskets for an evening of live music by Orlando\'s beautiful lake. Food vendors and refreshments available.',
         image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800',
         gallery_images: [
           'https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=800',
@@ -6413,23 +6357,23 @@
         user_email: 'newbiz@example.com',
         user_name: 'Sarah Johnson',
         type: 'business',
-        name: 'Orlando Fitness Studio',
-        featured: false,
-        category: 'Fitness',
-        neighborhood: 'West Winter Park',
-        area: 'westWinter Park',
-        address: '456 Howell Mill Rd, Orlando, FL 32801',
-        phone: '(404) 555-0789',
-        website: 'https://atlfitness.com',
-        description: 'Boutique fitness studio offering yoga, HIIT, and strength training classes.',
-        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800',
-        status: 'pending',
-        package: 'pro',
+        name: 'Soseki',
+        featured: true,
+        category: 'Restaurant',
+        neighborhood: 'Winter Park',
+        area: 'winter-park',
+        address: '955 W Fairbanks Ave, Winter Park, FL 32789',
+        phone: '(407) 730-6400',
+        website: 'https://sosekiomakase.com',
+        description: 'Michelin-starred omakase experience featuring 10-seat intimate Japanese dining. Exceptional sushi craftsmanship and seasonal ingredients in an exclusive setting.',
+        image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800',
+        status: 'approved',
+        package: 'premium',
         created_at: '2026-01-26',
-        admin_notes: '',
-        slug: 'orlando-fitness-studio',
-        latitude: 33.7925,
-        longitude: -84.4119,
+        admin_notes: 'Michelin-starred omakase restaurant.',
+        slug: 'soseki-omakase',
+        latitude: 28.5939,
+        longitude: -81.3656,
         price_range: 2,
         claimed: true,
         hours: {
@@ -6441,7 +6385,7 @@
           saturday: { open: '7:00 AM', close: '5:00 PM', closed: false },
           sunday: { open: '8:00 AM', close: '3:00 PM', closed: false }
         },
-        amenities: ['Parking', 'Showers', 'Lockers', 'Personal Training', 'Group Classes', 'Yoga Studio'],
+        amenities: ['Omakase', 'Sushi Counter', 'Intimate Seating', 'Reservations Required', 'Michelin Star', 'Japanese Cuisine'],
         social: { instagram: 'https://instagram.com/atlfitnessstudio', facebook: 'https://facebook.com/atlfitnessstudio' },
         photos: [
           'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800',
@@ -6454,8 +6398,8 @@
         video_url: '',
         rating: { average: 4.8, count: 156, breakdown: { 5: 120, 4: 28, 3: 6, 2: 1, 1: 1 } },
         reviews: [
-          { id: 'r9', author_name: 'Jennifer H.', rating: 5, text: 'Best gym in Orlando!', date: '2026-01-22', helpful_count: 22 },
-          { id: 'r10', author_name: 'Mark D.', rating: 5, text: 'Clean facilities.', date: '2026-01-19', helpful_count: 14 }
+          { id: 'r9', author_name: 'Jennifer H.', rating: 5, text: 'Extraordinary omakase experience! Every piece was perfection. Well-deserved Michelin star.', date: '2026-01-22', helpful_count: 22 },
+          { id: 'r10', author_name: 'Mark D.', rating: 5, text: 'Intimate 10-seat setting creates magic. Chef is a true artisan.', date: '2026-01-19', helpful_count: 14 }
         ],
         related_story_ids: []
       },
@@ -6465,20 +6409,20 @@
         user_email: 'events@example.com',
         user_name: 'Marcus Williams',
         type: 'event',
-        name: 'College Park Food Festival',
+        name: 'Orlando Food & Wine Festival',
         category: 'Food & Drink',
-        neighborhood: 'West Winter Park',
+        neighborhood: 'Downtown Orlando',
         date: '2026-03-20',
         start_time: '11:00 AM',
         end_time: '8:00 PM',
         recurring_pattern: null,
         recurring_end_date: null,
-        venue_name: 'College Park Provisions District',
-        venue_address: '1198 Howell Mill Rd NW, Orlando, FL 32801',
-        organizer_name: 'Orlando Food Collective',
-        organizer_email: 'info@atlfoodcollective.com',
-        organizer_phone: '(404) 555-0321',
-        description: 'Annual celebration of Orlando\'s diverse food scene with 50+ local vendors, live cooking demonstrations, celebrity chef appearances, and family activities. VIP tickets include exclusive tastings and early entry.',
+        venue_name: 'Wall Street Plaza',
+        venue_address: '25 Wall Street Plaza, Orlando, FL 32801',
+        organizer_name: 'Orlando Food & Wine',
+        organizer_email: 'info@orlandofoodandwine.com',
+        organizer_phone: '(407) 555-0321',
+        description: 'Annual celebration of Orlando\'s diverse food and wine scene featuring local restaurants, wineries, and breweries. Multiple downtown venues showcase Central Florida\'s culinary talent with tastings, demonstrations, and live entertainment.',
         image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800',
         gallery_images: [
           'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800',
@@ -6499,27 +6443,27 @@
       {
         id: '6',
         user_id: '2',
-        user_email: 'admin@atlvibes.com',
+        user_email: 'admin@407vibes.com',
         user_name: 'Admin',
         type: 'business',
-        name: 'The Optimist',
+        name: 'Kadence',
         featured: true,
         category: 'Restaurant',
-        neighborhood: 'West Winter Park',
-        area: 'westWinter Park',
-        address: '914 Howell Mill Rd NW, Orlando, FL 32801',
-        phone: '(404) 477-6260',
-        website: 'https://theoptimistrestaurant.com',
-        description: 'Acclaimed seafood restaurant with raw bar and wood-fired dishes. Features one of Orlando\'s most coveted patios.',
+        neighborhood: 'Audubon Park',
+        area: 'mills-50',
+        address: '1809 Winter Park Rd, Orlando, FL 32803',
+        phone: '(407) 930-4413',
+        website: 'https://kadenceorlando.com',
+        description: 'Michelin-starred omakase restaurant offering an intimate sushi counter experience. Exceptional Japanese cuisine with seasonal ingredients and masterful preparation.',
         image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800',
         status: 'approved',
         package: 'premium',
         created_at: '2026-01-15',
         reviewed_at: '2026-01-16',
-        admin_notes: 'Featured restaurant.',
-        slug: 'the-optimist',
-        latitude: 33.7899,
-        longitude: -84.4134,
+        admin_notes: 'Michelin-starred omakase restaurant.',
+        slug: 'kadence-orlando',
+        latitude: 28.5678,
+        longitude: -81.3532,
         price_range: 3,
         claimed: true,
         hours: {
@@ -6531,7 +6475,7 @@
           saturday: { open: '11:00 AM', close: '11:00 PM', closed: false },
           sunday: { open: '11:00 AM', close: '9:00 PM', closed: false }
         },
-        amenities: ['Outdoor Seating', 'Full Bar', 'Raw Bar', 'Reservations', 'Private Dining', 'Valet Parking', 'Wheelchair Accessible', 'Happy Hour', 'Gluten-Free Options', 'Sustainable Seafood'],
+        amenities: ['Omakase', 'Sushi Counter', 'Intimate Dining', 'Reservations Required', 'Michelin Star', 'Japanese Cuisine', 'Seasonal Menu', 'Chef\'s Table'],
         social: { instagram: 'https://instagram.com/theoptimistrestaurant', facebook: 'https://facebook.com/theoptimist', twitter: 'https://twitter.com/optimistatl' },
         photos: [
           'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800',
@@ -6548,38 +6492,38 @@
         video_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         rating: { average: 4.7, count: 512, breakdown: { 5: 358, 4: 108, 3: 32, 2: 10, 1: 4 } },
         reviews: [
-          { id: 'r12', author_name: 'Katherine W.', rating: 5, text: 'Phenomenal! Fresh oysters and unmatched patio.', date: '2026-01-14', helpful_count: 67 },
-          { id: 'r13', author_name: 'Robert M.', rating: 5, text: 'Fine dining without pretense.', date: '2026-01-12', helpful_count: 45 },
-          { id: 'r14', author_name: 'Emily C.', rating: 4, text: 'Beautiful space, excellent food.', date: '2026-01-10', helpful_count: 38 },
-          { id: 'r15', author_name: 'Daniel P.', rating: 5, text: 'Magical anniversary celebration.', date: '2026-01-08', helpful_count: 29 },
-          { id: 'r16', author_name: 'Sophia L.', rating: 5, text: 'Best seafood in Orlando.', date: '2026-01-05', helpful_count: 52 }
+          { id: 'r12', author_name: 'Katherine W.', rating: 5, text: 'Phenomenal omakase experience! Each course was artfully prepared. Well-deserved Michelin star.', date: '2026-01-14', helpful_count: 67 },
+          { id: 'r13', author_name: 'Robert M.', rating: 5, text: 'Intimate sushi counter creates an incredible dining theater. Flawless execution.', date: '2026-01-12', helpful_count: 45 },
+          { id: 'r14', author_name: 'Emily C.', rating: 4, text: 'Beautiful presentation and exceptional quality. Reservations book months in advance for good reason.', date: '2026-01-10', helpful_count: 38 },
+          { id: 'r15', author_name: 'Daniel P.', rating: 5, text: 'Magical anniversary celebration. The chef\'s artistry is extraordinary.', date: '2026-01-08', helpful_count: 29 },
+          { id: 'r16', author_name: 'Sophia L.', rating: 5, text: 'Best Japanese cuisine in Orlando. Every bite is perfection.', date: '2026-01-05', helpful_count: 52 }
         ],
         related_story_ids: ['blog-eats-1', 'blog-2']
       },
       {
         id: '7',
         user_id: '2',
-        user_email: 'admin@atlvibes.com',
+        user_email: 'admin@407vibes.com',
         user_name: 'Admin',
         type: 'business',
-        name: 'Victory Sandwich Bar',
+        name: 'The Ravenous Pig',
         featured: true,
-        category: 'Bar',
-        neighborhood: 'Ivanhoe Village',
-        area: 'inmanPark',
-        address: '913 Bernina Ave NE, Orlando, FL 32801',
-        phone: '(404) 477-6815',
-        website: 'https://vfrombklyn.com',
-        description: 'Neighborhood bar known for creative sandwiches, craft cocktails, and sidewalk seating perfect for people-watching.',
-        image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800',
+        category: 'Restaurant',
+        neighborhood: 'Winter Park',
+        area: 'winter-park',
+        address: '565 W Fairbanks Ave, Winter Park, FL 32789',
+        phone: '(407) 628-2333',
+        website: 'https://theravenouspig.com',
+        description: 'Acclaimed gastropub and James Beard semifinalist known for elevated pub fare, craft cocktails, and the famous Pig Burger. Local institution for innovative American cuisine.',
+        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
         status: 'approved',
         package: 'pro',
         created_at: '2026-01-18',
         reviewed_at: '2026-01-19',
-        admin_notes: '',
-        slug: 'victory-sandwich-bar',
-        latitude: 33.7614,
-        longitude: -84.3523,
+        admin_notes: 'James Beard semifinalist gastropub.',
+        slug: 'the-ravenous-pig',
+        latitude: 28.5939,
+        longitude: -81.3656,
         price_range: 2,
         claimed: true,
         hours: {
@@ -6591,7 +6535,7 @@
           saturday: { open: '11:00 AM', close: '2:00 AM', closed: false },
           sunday: { open: '11:00 AM', close: '12:00 AM', closed: false }
         },
-        amenities: ['Outdoor Seating', 'Full Bar', 'Late Night', 'Dog Friendly Patio', 'Craft Beer', 'Vegetarian Options'],
+        amenities: ['Full Bar', 'Craft Cocktails', 'Gastropub', 'Pig Burger', 'Reservations', 'Happy Hour', 'Brunch', 'Elevated Pub Fare'],
         social: { instagram: 'https://instagram.com/victorysandwichbar', facebook: 'https://facebook.com/victorysandwichbar' },
         photos: [
           'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800',
@@ -6630,7 +6574,7 @@
         venue_address: '1045 N Highland Ave NE, Orlando, FL 32801',
         organizer_name: 'VaHi Business Association',
         organizer_email: 'events@vahivillage.com',
-        organizer_phone: '(404) 555-0456',
+        organizer_phone: '(407) 555-0456',
         description: 'Explore Thornton Park\'s best wine bars and restaurants on this guided tasting tour featuring natural wines. Ticket includes tastings at 6 venues, commemorative glass, and a tasting map.',
         image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800',
         gallery_images: [
@@ -6667,7 +6611,7 @@
         venue_address: '1033 Glenwood Ave SE, Orlando, FL 32801',
         organizer_name: 'East Orlando Village Collective',
         organizer_email: 'hello@eavcollective.com',
-        organizer_phone: '(404) 555-0789',
+        organizer_phone: '(407) 555-0789',
         description: 'Start your day with specialty coffee tastings and local art at East Pole Coffee, featuring live acoustic music. Local artists will showcase their work and coffee experts will guide tastings.',
         image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800',
         gallery_images: [],
@@ -6686,7 +6630,7 @@
       {
         id: 'evt-downtown-orlando-1',
         user_id: '1',
-        user_email: 'demo@atlvibes.com',
+        user_email: 'demo@407vibes.com',
         user_name: 'Demo User',
         type: 'event',
         name: 'Thornton Park Orlando Wine & Art Walk',
@@ -6702,7 +6646,7 @@
         venue_address: '3035 Orange Ave Rd NE, Orlando, FL 32801',
         organizer_name: 'Thornton Park Orlando CID',
         organizer_email: 'events@downtown-orlandocid.com',
-        organizer_phone: '(404) 555-0300',
+        organizer_phone: '(407) 555-0300',
         description: 'Stroll through Thornton Park Orlando Village while sampling wines from local vineyards and viewing art installations. Live jazz music, gourmet bites, and exclusive gallery openings make this the perfect evening out.',
         image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800',
         gallery_images: [],
@@ -6721,7 +6665,7 @@
       {
         id: 'evt-downtown-orlando-2',
         user_id: '2',
-        user_email: 'admin@atlvibes.com',
+        user_email: 'admin@407vibes.com',
         user_name: 'Admin',
         type: 'event',
         name: 'Chastain Park Summer Concert',
@@ -6737,7 +6681,7 @@
         venue_address: '4469 Stella Dr NW, Orlando, FL 32801',
         organizer_name: 'Live Nation',
         organizer_email: 'info@livenation.com',
-        organizer_phone: '(404) 555-0400',
+        organizer_phone: '(407) 555-0400',
         description: 'Enjoy an evening of live music under the stars at Orlando\'s most beloved outdoor venue. Bring your picnic basket and wine for a classic Chastain experience with world-class performers.',
         image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800',
         gallery_images: [],
@@ -6757,14 +6701,14 @@
       {
         id: '10',
         user_id: '1',
-        user_email: 'demo@atlvibes.com',
+        user_email: 'demo@407vibes.com',
         user_name: 'Demo User',
         type: 'business',
         name: 'Thornton Park Orlando Village Bistro',
         category: 'Restaurant',
         neighborhood: 'Thornton Park Orlando Village',
         address: '3060 Orange Ave Rd NW',
-        phone: '(404) 555-0201',
+        phone: '(407) 555-0201',
         website: 'https://downtown-orlandovillagebistro.com',
         description: 'Upscale French-American cuisine in the heart of Thornton Park Orlando Village. Perfect for special occasions.',
         image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800',
@@ -6778,14 +6722,14 @@
       {
         id: '11',
         user_id: '2',
-        user_email: 'admin@atlvibes.com',
+        user_email: 'admin@407vibes.com',
         user_name: 'Admin',
         type: 'business',
         name: 'Ivanhoe Village Yoga Studio',
         category: 'Fitness',
         neighborhood: 'Ivanhoe Village',
         address: '889 Euclid Ave NE',
-        phone: '(404) 555-0202',
+        phone: '(407) 555-0202',
         website: 'https://inmanparkyoga.com',
         description: 'Mindful yoga and meditation classes in a beautifully restored Victorian home.',
         image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800',
@@ -6807,7 +6751,7 @@
         category: 'Bar',
         neighborhood: 'Thornton Park',
         address: '487 Edgewood Ave SE',
-        phone: '(404) 555-0203',
+        phone: '(407) 555-0203',
         website: 'https://o4wbrewery.com',
         description: 'Craft brewery with rotating taps and a Orlando Trail-adjacent beer garden.',
         image: 'https://images.unsplash.com/photo-1559526642-c3f001ea68ee?w=800',
@@ -6836,7 +6780,7 @@
         venue_address: 'Euclid Ave NE & Elizabeth St, Orlando, FL 32801',
         organizer_name: 'Ivanhoe Village Neighborhood Association',
         organizer_email: 'festival@inmanpark.org',
-        organizer_phone: '(404) 555-0213',
+        organizer_phone: '(407) 555-0213',
         description: 'Annual neighborhood festival featuring live music, local artists, a parade, and the famous Tour of Homes. Includes street performers, food vendors, craft beer garden, and activities for all ages.',
         image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800',
         gallery_images: [
@@ -6859,16 +6803,16 @@
       {
         id: '14',
         user_id: '1',
-        user_email: 'demo@atlvibes.com',
+        user_email: 'demo@407vibes.com',
         user_name: 'Demo User',
         type: 'business',
-        name: 'Little Church Street Records',
-        category: 'Shopping',
-        neighborhood: 'Little Church Street',
-        address: '1065 Euclid Ave NE',
-        phone: '(404) 555-0204',
-        website: 'https://l5precords.com',
-        description: 'Vintage vinyl, rare finds, and local music in Orlando\'s alternative culture hub.',
+        name: 'Mills Market',
+        category: 'Food Hall',
+        neighborhood: 'Mills 50',
+        address: '1110 E Colonial Dr, Orlando, FL 32803',
+        phone: '(407) 730-5550',
+        website: 'https://millsmarket.com',
+        description: 'Vibrant food hall in the heart of Mills 50 featuring diverse local vendors, craft beverages, and community seating in a modern, welcoming space.',
         image: 'https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?w=800',
         status: 'approved',
         package: 'starter',
@@ -6879,16 +6823,16 @@
       {
         id: '15',
         user_id: '2',
-        user_email: 'admin@atlvibes.com',
+        user_email: 'admin@407vibes.com',
         user_name: 'Admin',
         type: 'business',
-        name: 'Thornton Park Decatur Bookshop',
-        category: 'Shopping',
-        neighborhood: 'Thornton Park Decatur',
-        address: '120 E Ponce de Leon Ave',
-        phone: '(404) 555-0205',
-        website: 'https://decaturbookshop.com',
-        description: 'Independent bookstore hosting author events and book clubs since 1989.',
+        name: 'Pigzza',
+        category: 'Restaurant',
+        neighborhood: 'Mills 50',
+        address: '1050 N Mills Ave, Orlando, FL 32803',
+        phone: '(407) 730-5600',
+        website: 'https://pigzza.com',
+        description: 'Artisanal sourdough pizza in the Mills 50 district. Hand-crafted pies with locally-sourced ingredients and creative toppings in a casual, neighborhood setting.',
         image: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800',
         status: 'approved',
         package: 'pro',
@@ -6915,7 +6859,7 @@
         venue_address: '840 Cherokee Ave SE, Orlando, FL 32801',
         organizer_name: 'Baldwin Park Conservancy',
         organizer_email: 'shade@grantpark.org',
-        organizer_phone: '(404) 555-0216',
+        organizer_phone: '(407) 555-0216',
         description: 'Two-day arts festival with 200+ artists, live music stages, kids area, and food vendors. One of Orlando\'s most beloved summer traditions celebrating art, community, and the beautiful Baldwin Park neighborhood.',
         image: 'https://images.unsplash.com/photo-1472653431158-6364773b2a56?w=800',
         gallery_images: [
@@ -6940,14 +6884,14 @@
         user_email: 'events@example.com',
         user_name: 'Marcus Williams',
         type: 'business',
-        name: 'East Orlando Village Diner',
+        name: 'Otto\'s High Dive',
         featured: true,
-        category: 'Restaurant',
-        neighborhood: 'East Orlando Village',
-        address: '1224 Flat Shoals Ave SE',
-        phone: '(404) 555-0206',
-        website: 'https://eavdiner.com',
-        description: 'Classic diner fare with a twist, open late for the neighborhood\'s night owls.',
+        category: 'Bar',
+        neighborhood: 'Mills 50',
+        address: '2304 E Robinson St, Orlando, FL 32803',
+        phone: '(407) 730-5700',
+        website: 'https://ottoshighdive.com',
+        description: 'Cuban rum bar and cocktail lounge featuring an extensive rum collection, tropical cocktails, and Cuban-inspired small plates in a vibrant, authentic atmosphere.',
         image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
         status: 'approved',
         package: 'starter',
@@ -6958,14 +6902,14 @@
       {
         id: '18',
         user_id: '1',
-        user_email: 'demo@atlvibes.com',
+        user_email: 'demo@407vibes.com',
         user_name: 'Demo User',
         type: 'business',
         name: 'Winter Park Core Gallery',
         category: 'Art Gallery',
         neighborhood: 'Winter Park Core',
         address: '75 14th St NE',
-        phone: '(404) 555-0207',
+        phone: '(407) 555-0207',
         website: 'https://winter-parkcoregallery.com',
         description: 'Contemporary art gallery showcasing emerging Southern artists.',
         image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800',
@@ -6979,7 +6923,7 @@
       {
         id: '19',
         user_id: '2',
-        user_email: 'admin@atlvibes.com',
+        user_email: 'admin@407vibes.com',
         user_name: 'Admin',
         type: 'event',
         name: 'Orlando Trail Food Lantern Parade Wine Classic',
@@ -6994,7 +6938,7 @@
         venue_address: 'Irwin St NE & Krog St, Orlando, FL 32801',
         organizer_name: 'Orlando Orlando Trail Partnership',
         organizer_email: 'lanterns@orlando-trail.org',
-        organizer_phone: '(404) 446-4400',
+        organizer_phone: '(407) 446-4400',
         description: 'Annual nighttime parade along the Mills 50 Trail featuring thousands of handmade lanterns. Join the community in this magical celebration of light, creativity, and the Orlando Orlando Trail. Free lantern-making workshops available in the weeks leading up to the event.',
         image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800',
         gallery_images: [
@@ -7023,7 +6967,7 @@
         category: 'Café',
         neighborhood: 'Milk District',
         address: '198 Carroll St SE',
-        phone: '(404) 555-0208',
+        phone: '(407) 555-0208',
         website: 'https://cabbagetowncafe.com',
         description: 'Cozy neighborhood cafe serving locally roasted coffee and fresh pastries.',
         image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800',
@@ -7037,7 +6981,7 @@
       {
         id: '21',
         user_id: '2',
-        user_email: 'admin@atlvibes.com',
+        user_email: 'admin@407vibes.com',
         user_name: 'Admin',
         type: 'event',
         name: 'New Year\'s Eve on Orange Ave',
@@ -7052,7 +6996,7 @@
         venue_address: '50 Upper Alabama St SW, Orlando, FL 32801',
         organizer_name: 'City of Orlando',
         organizer_email: 'events@orlando.gov',
-        organizer_phone: '(404) 330-6000',
+        organizer_phone: '(407) 330-6000',
         description: 'Orlando\'s biggest New Year\'s Eve celebration featuring the Peach Drop, live performances, and fireworks over downtown. This year marked the return of the iconic Peach Drop tradition.',
         image: 'https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800',
         gallery_images: [
@@ -7083,7 +7027,7 @@
         neighborhood: 'Thornton Park',
         area: 'oldFourthWard',
         address: '675 Ponce De Leon Ave NE, Orlando, FL 32801',
-        phone: '(404) 900-7900',
+        phone: '(407) 900-7900',
         website: 'https://poncecitymarket.com',
         description: 'Orlando\'s premier food hall featuring over 20 local vendors, rooftop entertainment, and the city\'s best views from Skyline Park.',
         image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
@@ -7093,8 +7037,8 @@
         reviewed_at: '2026-01-11',
         admin_notes: '',
         slug: 'ponce-city-market',
-        latitude: 33.7724,
-        longitude: -84.3654,
+        latitude: 28.5383,
+        longitude: -81.3792,
         price_range: 2,
         claimed: false,
         hours: {
@@ -7366,7 +7310,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           if (demoUsers[email] && password === 'demo123') {
             return { user: demoUsers[email], error: null };
           }
-          return { user: null, error: { message: 'Invalid credentials. Try demo@atlvibes.com / demo123' } };
+          return { user: null, error: { message: 'Invalid credentials. Try demo@407vibes.com / demo123' } };
         },
         signUp: async (email, password, name) => {
           await new Promise(r => setTimeout(r, 800));
@@ -7521,7 +7465,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           // Map area IDs to neighborhood names for filtering
           const areaToNeighborhoods = {
             downtown-orlando: ['Thornton Park Orlando', 'Thornton Park Orlando Village', 'Chastain Park'],
-            winter-park: ['Winter Park', 'Winter Park Core', 'Lake Eola Heights', 'Piedmont Park'],
+            winter-park: ['Winter Park', 'Park Avenue', 'Hannibal Square', 'Rollins College'],
             downtown: ['Thornton Park', 'Centennial Hill', 'Church Street'],
             oldFourthWard: ['Thornton Park', 'O4W', 'East End Market'],
             virginiaHighland: ['Thornton Park', 'Virginia Highland', 'Morningside'],
@@ -7584,8 +7528,8 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           await new Promise(r => setTimeout(r, 400));
           const areaToNeighborhoods = {
             downtown-orlando: ['Thornton Park Orlando', 'Lenox Square', 'Phipps Plaza'],
-            winter-park: ['Winter Park', 'Piedmont Park', 'High Museum', 'Woodruff Arts Center'],
-            downtown: ['Thornton Park', 'Centennial Olympic Park', 'State Farm Arena', 'Mercedes-Benz Stadium'],
+            winter-park: ['Winter Park', 'Museums District', 'Morse Museum', 'Rollins College'],
+            downtown: ['Thornton Park', 'Lake Eola Park', 'Amway Center', 'Camping World Stadium'],
             oldFourthWard: ['Thornton Park', 'O4W', 'East End Market', 'Historic Fourth Ward Park'],
             virginiaHighland: ['Thornton Park', 'Virginia Highland', 'Morningside'],
             inmanPark: ['Ivanhoe Village', 'Little Church Street', 'College Park'],
@@ -7837,7 +7781,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
               </button>
             </form>
 
-            <p className="auth-divider">Demo: demo@atlvibes.com / demo123</p>
+            <p className="auth-divider">Demo: demo@407vibes.com / demo123</p>
           </div>
         </div>
       );
@@ -8120,7 +8064,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
                   className="form-input"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="(404) 555-0000"
+                  placeholder="(407) 555-0000"
                 />
               </div>
               <div className="form-group">
@@ -8266,7 +8210,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">Phone</label>
-                  <input type="tel" name="phone" className="form-input" value={formData.phone} onChange={handleChange} placeholder="(404) 555-0123" />
+                  <input type="tel" name="phone" className="form-input" value={formData.phone} onChange={handleChange} placeholder="(407) 555-0123" />
                 </div>
                 <div className="form-group">
                   <label className="form-label">Website</label>
@@ -11025,13 +10969,13 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
       ]);
 
       const [events, setEvents] = useState([
-        { id: 'evt-1', badge: 'Music Festival', title: 'Orlando Jazz Festival 2026', description: 'Three days of world-class jazz performances in Piedmont Park.', date: 'May 25-27, 2026', location: 'Piedmont Park', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800', featured: true },
+        { id: 'evt-1', badge: 'Music Festival', title: 'Orlando Jazz Festival 2026', description: 'Three days of world-class jazz performances in Lake Eola Park.', date: 'May 25-27, 2026', location: 'Lake Eola Park', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800', featured: true },
         { id: 'evt-2', badge: 'Art Exhibition', title: 'High Museum Contemporary Showcase', description: 'Exploring the intersection of technology and traditional art forms.', date: 'Feb 15 - Apr 30, 2026', location: 'High Museum', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', featured: true },
         { id: 'evt-3', badge: 'Food Festival', title: 'Orlando Food & Wine Festival', description: 'Celebrating Southern cuisine with top chefs.', date: 'Mar 10-12, 2026', location: 'Winter Park', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800', featured: false }
       ]);
 
       const [properties, setProperties] = useState([
-        { id: 'prop-1', price: '$575,000', address: '123 Piedmont Ave NE', neighborhood: 'Winter Park', beds: 3, baths: 2, sqft: '2,100', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', featured: true },
+        { id: 'prop-1', price: '$575,000', address: '123 Park Ave N', neighborhood: 'Winter Park', beds: 3, baths: 2, sqft: '2,100', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', featured: true },
         { id: 'prop-2', price: '$425,000', address: '456 Highland Ave', neighborhood: 'Thornton Park', beds: 2, baths: 2, sqft: '1,650', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', featured: true },
         { id: 'prop-3', price: '$1,250,000', address: '789 West Paces Ferry Rd', neighborhood: 'Thornton Park Orlando', beds: 5, baths: 4, sqft: '4,200', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800', featured: true },
         { id: 'prop-4', price: '$350,000', address: '321 Memorial Dr', neighborhood: 'Baldwin Park', beds: 2, baths: 1, sqft: '1,200', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', featured: false }
@@ -11208,7 +11152,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
                     <div style={{padding: '1rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                       <div>
                         <strong>Property featured</strong>
-                        <p style={{fontSize: '0.85rem', color: 'var(--text-light)'}}>123 Piedmont Ave added to homepage</p>
+                        <p style={{fontSize: '0.85rem', color: 'var(--text-light)'}}>123 Park Ave added to homepage</p>
                       </div>
                       <span style={{fontSize: '0.8rem', color: 'var(--text-light)'}}>1 day ago</span>
                     </div>
@@ -12185,9 +12129,9 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
         {
           badge: 'Music Festival',
           title: 'Orlando Jazz Festival 2026',
-          description: 'Three days of world-class jazz performances in Piedmont Park. Featuring international and local artists.',
+          description: 'Three days of world-class jazz performances in Lake Eola Park. Featuring international and local artists.',
           date: 'May 25-27, 2026',
-          location: 'Piedmont Park',
+          location: 'Lake Eola Park',
           image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800'
         },
         {
@@ -12203,7 +12147,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
       const properties = [
         {
           price: '$575,000',
-          address: '123 Piedmont Ave NE',
+          address: '123 Park Ave N',
           neighborhood: 'Winter Park',
           beds: 3,
           baths: 2,
@@ -12258,7 +12202,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           name: 'Winter Park',
           lat: 33.7866,
           lng: -84.3829,
-          description: 'The heart of Orlando\'s arts and culture scene. Home to the High Museum, Woodruff Arts Center, and beautiful Piedmont Park. A walkable urban neighborhood with stunning high-rises and a thriving LGBTQ+ community.',
+          description: 'The heart of Orlando\'s arts and culture scene. Home to the Morse Museum, cultural venues, and beautiful parks. A walkable urban neighborhood with charming streets and a thriving arts community.',
           vibes: ['Arts District', 'Walkable', 'Parks', 'Cultural Hub'],
           image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
           businesses: [
@@ -12268,10 +12212,10 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           ],
           events: [
             { name: 'Music Winter Park', type: 'Annual Music Festival' },
-            { name: 'Piedmont Park Arts Festival', type: 'Annual Arts Fair' }
+            { name: 'Winter Park Arts Festival', type: 'Annual Arts Fair' }
           ],
           properties: [
-            { price: '$575,000', details: '3 bed, 2 bath - Piedmont Ave' },
+            { price: '$575,000', details: '3 bed, 2 bath - Park Ave' },
             { price: '$425,000', details: '2 bed, 2 bath - 10th Street' }
           ]
         },
@@ -12280,7 +12224,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           name: 'Thornton Park',
           lat: 33.7537,
           lng: -84.3901,
-          description: 'Orlando\'s business and entertainment hub featuring Mercedes-Benz Stadium, State Farm Arena, and iconic attractions like the Florida Aquarium and World of Coca-Cola. Rich in history and constantly evolving.',
+          description: 'Orlando\'s business and entertainment hub featuring Camping World Stadium, Amway Center, and iconic attractions like Lake Eola Park and the Dr. Phillips Center. Rich in history and constantly evolving.',
           vibes: ['Business District', 'Sports', 'Attractions', 'Historic'],
           image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800',
           businesses: [
@@ -12666,7 +12610,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
                   <div className="area-card-v2">
                     <div className="area-card-v2-hero">
                       <img src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?w=800" alt="Orlando Skyline" />
-                      <h3 className="area-card-v2-title">ATLANTA</h3>
+                      <h3 className="area-card-v2-title">ORLANDO</h3>
                     </div>
                     <div className="area-card-v2-body">
                       <p className="area-card-v2-description">
