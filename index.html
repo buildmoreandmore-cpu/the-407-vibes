@@ -6087,47 +6087,47 @@
     // In production, this comes from Supabase: supabase.from('neighborhoods').select('*').eq('area', areaId)
     const demoNeighborhoods = {
       'downtown-orlando': [
-        { id: 'dto1', name: 'Thornton Park', area: 'downtown-orlando', description: 'Historic brick streets, upscale dining and boutique shops', image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800', vibes: ['Historic', 'Upscale', 'Walkable'], featuredPostId: null },
+        { id: 'dto1', name: 'Thornton Park', area: 'downtown-orlando', description: 'Historic brick streets, upscale dining and boutique shops', image: 'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=800', vibes: ['Historic', 'Upscale', 'Walkable'], featuredPostId: null },
         { id: 'dto2', name: 'Lake Eola Heights', area: 'downtown-orlando', description: 'Victorian homes around Orlando\'s iconic lake', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Victorian', 'Lake Views', 'Historic'], featuredPostId: null },
-        { id: 'dto3', name: 'Parramore', area: 'downtown-orlando', description: 'Historic African-American community, near Camping World Stadium', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Historic', 'Cultural Heritage', 'Community'], featuredPostId: null },
-        { id: 'dto4', name: 'Church Street', area: 'downtown-orlando', description: 'Entertainment district with nightlife and historic venues', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Entertainment', 'Nightlife', 'Urban'], featuredPostId: null },
-        { id: 'dto5', name: 'Creative Village', area: 'downtown-orlando', description: 'New urban campus with UCF downtown and tech companies', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Innovation', 'Education', 'Modern'], featuredPostId: null },
-        { id: 'dto6', name: 'South Eola', area: 'downtown-orlando', description: 'Emerging neighborhood south of Lake Eola Park', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Emerging', 'Affordable', 'Central'], featuredPostId: null }
+        { id: 'dto3', name: 'Parramore', area: 'downtown-orlando', description: 'Historic African-American community, near Camping World Stadium', image: 'https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=800', vibes: ['Historic', 'Cultural Heritage', 'Community'], featuredPostId: null },
+        { id: 'dto4', name: 'Church Street', area: 'downtown-orlando', description: 'Entertainment district with nightlife and historic venues', image: 'https://images.unsplash.com/photo-1614094082869-cd4e4b2dd1c3?w=800', vibes: ['Entertainment', 'Nightlife', 'Urban'], featuredPostId: null },
+        { id: 'dto5', name: 'Creative Village', area: 'downtown-orlando', description: 'New urban campus with UCF downtown and tech companies', image: 'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=800', vibes: ['Innovation', 'Education', 'Modern'], featuredPostId: null },
+        { id: 'dto6', name: 'South Eola', area: 'downtown-orlando', description: 'Emerging neighborhood south of Lake Eola Park', image: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800', vibes: ['Emerging', 'Affordable', 'Central'], featuredPostId: null }
       ],
       'winter-park': [
         { id: 'wp1', name: 'Park Avenue', area: 'winter-park', description: 'Upscale shopping and dining corridor with museum district', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Upscale', 'Museums', 'Shopping'], featuredPostId: null },
-        { id: 'wp2', name: 'Hannibal Square', area: 'winter-park', description: 'Historic African-American community with cultural heritage', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Historic', 'Cultural Heritage', 'Community'], featuredPostId: null },
+        { id: 'wp2', name: 'Hannibal Square', area: 'winter-park', description: 'Historic African-American community with cultural heritage', image: 'https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=800', vibes: ['Historic', 'Cultural Heritage', 'Community'], featuredPostId: null },
         { id: 'wp3', name: 'Winter Park Village', area: 'winter-park', description: 'Open-air shopping center with chain stores and restaurants', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Shopping', 'Dining', 'Family-Friendly'], featuredPostId: null },
-        { id: 'wp4', name: 'Rollins College Area', area: 'winter-park', description: 'Tree-lined streets near prestigious liberal arts college', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['College Town', 'Tree-Lined', 'Prestigious'], featuredPostId: null }
+        { id: 'wp4', name: 'Rollins College Area', area: 'winter-park', description: 'Tree-lined streets near prestigious liberal arts college', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['College Town', 'Tree-Lined', 'Prestigious'], featuredPostId: null }
       ],
       'mills-50': [
         { id: 'm501', name: 'Mills 50/ViMi', area: 'mills-50', description: 'Vietnamese-American cultural district with diverse dining', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Cultural Diversity', 'Food Scene', 'Vietnamese'], featuredPostId: null },
         { id: 'm502', name: 'Colonialtown North', area: 'mills-50', description: 'Mid-century homes north of Colonial Drive', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Mid-Century', 'Residential', 'Affordable'], featuredPostId: null },
-        { id: 'm503', name: 'Colonialtown South', area: 'mills-50', description: 'Diverse neighborhood south of Colonial Drive', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Diverse', 'Community', 'Emerging'], featuredPostId: null },
+        { id: 'm503', name: 'Colonialtown South', area: 'mills-50', description: 'Diverse neighborhood south of Colonial Drive', image: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800', vibes: ['Diverse', 'Community', 'Emerging'], featuredPostId: null },
         { id: 'm504', name: 'Milk District', area: 'mills-50', description: 'Hip area with craft breweries and local eateries', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Hip', 'Craft Beer', 'Local Dining'], featuredPostId: null }
       ],
       'college-park': [
-        { id: 'cp1', name: 'College Park', area: 'college-park', description: 'Historic neighborhood with tree-canopy streets', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', vibes: ['Historic', 'Tree-Lined', 'Family-Friendly'], featuredPostId: null },
-        { id: 'cp2', name: 'Dubsdread', area: 'college-park', description: 'Golf course community with historic clubhouse', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', vibes: ['Golf', 'Historic', 'Community'], featuredPostId: null },
-        { id: 'cp3', name: 'Edgewater', area: 'college-park', description: 'Lakefront neighborhood with chain of lakes access', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Lakefront', 'Water Access', 'Scenic'], featuredPostId: null }
+        { id: 'cp1', name: 'College Park', area: 'college-park', description: 'Historic neighborhood with tree-canopy streets', image: 'https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=800', vibes: ['Historic', 'Tree-Lined', 'Family-Friendly'], featuredPostId: null },
+        { id: 'cp2', name: 'Dubsdread', area: 'college-park', description: 'Golf course community with historic clubhouse', image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800', vibes: ['Golf', 'Historic', 'Community'], featuredPostId: null },
+        { id: 'cp3', name: 'Edgewater', area: 'college-park', description: 'Lakefront neighborhood with chain of lakes access', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Lakefront', 'Water Access', 'Scenic'], featuredPostId: null }
       ],
       'ivanhoe-village': [
         { id: 'iv1', name: 'Ivanhoe Village', area: 'ivanhoe-village', description: 'Trendy district with unique shops and gastropubs', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Trendy', 'Shopping', 'Gastropubs'], featuredPostId: null },
-        { id: 'iv2', name: 'SODO', area: 'ivanhoe-village', description: 'South of Downtown Orlando with antique shops', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Antiques', 'Historic', 'Emerging'], featuredPostId: null },
-        { id: 'iv3', name: 'The Venues', area: 'ivanhoe-village', description: 'Entertainment corridor with concert venues and bars', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Entertainment', 'Music Venues', 'Nightlife'], featuredPostId: null }
+        { id: 'iv2', name: 'SODO', area: 'ivanhoe-village', description: 'South of Downtown Orlando with antique shops', image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800', vibes: ['Antiques', 'Historic', 'Emerging'], featuredPostId: null },
+        { id: 'iv3', name: 'The Venues', area: 'ivanhoe-village', description: 'Entertainment corridor with concert venues and bars', image: 'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=800', vibes: ['Entertainment', 'Music Venues', 'Nightlife'], featuredPostId: null }
       ],
       'lake-nona': [
-        { id: 'ln1', name: 'Lake Nona Town Center', area: 'lake-nona', description: 'Master-planned community with modern amenities', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Modern', 'Master-Planned', 'Amenities'], featuredPostId: null },
-        { id: 'ln2', name: 'Laureate Park', area: 'lake-nona', description: 'New urbanist neighborhood with trails and parks', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['New Urbanist', 'Trails', 'Family-Friendly'], featuredPostId: null },
-        { id: 'ln3', name: 'Nona Park', area: 'lake-nona', description: 'Lakefront community with recreational amenities', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', vibes: ['Lakefront', 'Recreation', 'Modern'], featuredPostId: null }
+        { id: 'ln1', name: 'Lake Nona Town Center', area: 'lake-nona', description: 'Master-planned community with modern amenities', image: 'https://images.unsplash.com/photo-1597655601841-214a4cfe8b2c?w=800', vibes: ['Modern', 'Master-Planned', 'Amenities'], featuredPostId: null },
+        { id: 'ln2', name: 'Laureate Park', area: 'lake-nona', description: 'New urbanist neighborhood with trails and parks', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['New Urbanist', 'Trails', 'Family-Friendly'], featuredPostId: null },
+        { id: 'ln3', name: 'Nona Park', area: 'lake-nona', description: 'Lakefront community with recreational amenities', image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800', vibes: ['Lakefront', 'Recreation', 'Modern'], featuredPostId: null }
       ],
       'dr-phillips': [
         { id: 'dp1', name: 'Restaurant Row', area: 'dr-phillips', description: 'Sand Lake Road dining destination with upscale restaurants', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Fine Dining', 'Upscale', 'Restaurant Row'], featuredPostId: null },
         { id: 'dp2', name: 'Sand Lake Road', area: 'dr-phillips', description: 'Commercial corridor with shopping and dining', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Commercial', 'Shopping', 'Dining'], featuredPostId: null },
-        { id: 'dp3', name: 'International Drive', area: 'dr-phillips', description: 'Tourist corridor with attractions and hotels', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Tourist', 'Attractions', 'Hotels'], featuredPostId: null }
+        { id: 'dp3', name: 'International Drive', area: 'dr-phillips', description: 'Tourist corridor with attractions and hotels', image: 'https://images.unsplash.com/photo-1614094082869-cd4e4b2dd1c3?w=800', vibes: ['Tourist', 'Attractions', 'Hotels'], featuredPostId: null }
       ],
       'baldwin-park': [
-        { id: 'bp1', name: 'Baldwin Park Village Center', area: 'baldwin-park', description: 'New urbanist community with town center and lake access', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['New Urbanist', 'Town Center', 'Lake Access'], featuredPostId: null }
+        { id: 'bp1', name: 'Baldwin Park Village Center', area: 'baldwin-park', description: 'New urbanist community with town center and lake access', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['New Urbanist', 'Town Center', 'Lake Access'], featuredPostId: null }
       ]
     };
 
@@ -6136,7 +6136,7 @@
       'downtown-orlando': {
         name: 'Downtown Orlando',
         shortDescription: 'Historic Thornton Park, Lake Eola Heights, and the urban core with creative village.',
-        image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800',
+        image: 'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=800',
         vibes: ['Historic', 'Urban Core', 'Lake Views']
       },
       'winter-park': {
@@ -6154,7 +6154,7 @@
       'college-park': {
         name: 'College Park',
         shortDescription: 'Tree-canopy neighborhoods, Dubsdread Golf Course, and chain of lakes access.',
-        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+        image: 'https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=800',
         vibes: ['Tree-Lined', 'Golf', 'Family-Friendly']
       },
       'ivanhoe-village': {
@@ -6166,7 +6166,7 @@
       'lake-nona': {
         name: 'Lake Nona',
         shortDescription: 'Master-planned modern community with medical city and recreational amenities.',
-        image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800',
+        image: 'https://images.unsplash.com/photo-1597655601841-214a4cfe8b2c?w=800',
         vibes: ['Modern', 'Master-Planned', 'Medical City']
       },
       'dr-phillips': {
@@ -6178,7 +6178,7 @@
       'baldwin-park': {
         name: 'Baldwin Park',
         shortDescription: 'New urbanist community with town center, lake access, and walkable streets.',
-        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800',
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
         vibes: ['New Urbanist', 'Town Center', 'Lake Access']
       }
     };
@@ -6912,7 +6912,7 @@
         phone: '(407) 555-0207',
         website: 'https://winter-parkcoregallery.com',
         description: 'Contemporary art gallery showcasing emerging Southern artists.',
-        image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800',
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f7e7?w=800',
         status: 'approved',
         package: 'pro',
         featured: true,
@@ -7079,7 +7079,7 @@ But beyond the development, O4W maintains its historic character. The Martin Lut
 Local businesses thrive here: Sister Louisa's Church of the Living Room and Ping Pong Emporium offers irreverent Southern hospitality, while Staplehouse serves award-winning cuisine with a mission to support the community.
 
 The neighborhood exemplifies Orlando's ability to honor its past while embracing the future—a delicate balance that makes O4W a model for urban renewal done right.`,
-        image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
+        image: 'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=1600',
         video_url: '',
         featured: true,
         status: 'published',
@@ -7131,7 +7131,7 @@ The Orlando Orlando Trail commissioned major works as part of its development, b
 In West Winter Park, the warehouses of the College Park Cultural Arts Center showcase both established and emerging artists. The area hosts regular art walks that draw crowds from across the metro area.
 
 Living Walls, an annual street art conference, has brought internationally renowned artists to Orlando since 2009, leaving behind permanent installations throughout the city.`,
-        image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=1600',
+        image: 'https://images.unsplash.com/photo-1582481725274-d63bdf929a98?w=1600',
         video_url: '',
         featured: false,
         status: 'published',
@@ -8831,33 +8831,33 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
 
       // Neighborhood images based on area type
       const areaImages = {
-        'downtown-orlando': 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600',
-        'winter-park': 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600',
+        'downtown-orlando': 'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=600',
+        'winter-park': 'https://images.unsplash.com/photo-1562613648-a3e5f5a5b0a6?w=600',
         downtown: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600',
         'mills-50': 'https://images.unsplash.com/photo-1545987796-200677ee1011?w=600',
-        'college-park': 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600',
+        'college-park': 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600',
         'ivanhoe-village': 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600',
         'dr-phillips': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600',
         'lake-nona': 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600',
         'winter-park': 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600',
-        'baldwin-park': 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600'
+        'baldwin-park': 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600'
       };
 
       // Different images for variety within each area
       const getNeighborhoodImage = (neighborhood, index) => {
         const imagePool = [
-          'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600',
-          'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600',
+          'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=600',
+          'https://images.unsplash.com/photo-1562613648-a3e5f5a5b0a6?w=600',
           'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600',
           'https://images.unsplash.com/photo-1545987796-200677ee1011?w=600',
-          'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600',
+          'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600',
           'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600',
           'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600',
           'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600',
           'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600',
-          'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600',
+          'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600',
           'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600',
-          'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600'
+          'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600'
         ];
         return neighborhood.image || imagePool[index % imagePool.length];
       };
@@ -10365,19 +10365,19 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
         'downtown-orlando': {
           title: 'Thornton Park Orlando',
           tagline: 'Orlando\'s upscale district where luxury shopping meets vibrant nightlife',
-          image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
+          image: 'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=1600',
           vibes: ['Upscale', 'Shopping', 'Nightlife', 'Fine Dining']
         },
         'winter-park': {
           title: 'Winter Park',
           tagline: 'The heart of Orlando\'s arts, culture, and urban lifestyle',
-          image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600',
+          image: 'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=1600',
           vibes: ['Arts District', 'Walkable', 'Parks', 'Cultural Hub']
         },
         downtown: {
           title: 'Thornton Park',
           tagline: 'Orlando\'s business core with world-class attractions and sports',
-          image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1600',
+          image: 'https://images.unsplash.com/photo-1614094082869-cd4e4b2dd1c3?w=1600',
           vibes: ['Business District', 'Sports', 'Attractions', 'Historic']
         },
         'mills-50': {
@@ -10389,7 +10389,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
         'college-park': {
           title: 'Thornton Park',
           tagline: 'Orlando\'s beloved walkable village with boutiques and brunch',
-          image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600',
+          image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600',
           vibes: ['Walkable', 'Boutiques', 'Brunch', 'Family-Friendly']
         },
         'ivanhoe-village': {
@@ -10413,13 +10413,13 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
         'winter-park': {
           title: 'Decatur',
           tagline: 'A city within a city with great schools, dining, and walkability',
-          image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=1600',
+          image: 'https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=1600',
           vibes: ['Family-Friendly', 'Thornton Park Square', 'Dining', 'Progressive']
         },
         'baldwin-park': {
           title: 'Baldwin Park',
           tagline: 'Historic homes and Zoo Orlando in a tight-knit community',
-          image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600',
+          image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600',
           vibes: ['Historic Homes', 'Zoo Orlando', 'Parks', 'Community']
         }
       };
@@ -10951,7 +10951,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
         title: 'The Renaissance of Thornton Park',
         author: 'Marcus Johnson',
         date: 'January 27, 2026',
-        image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
+        image: 'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=1600',
         featured: true
       });
 
@@ -10959,7 +10959,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
         { id: 'ec-1', tag: 'Culture', title: 'East End Market: Where History Meets Innovation', date: '25 Jan 2026', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', featured: true },
         { id: 'ec-2', tag: 'Food Scene', title: 'Best Brunch Spots in Ivanhoe Village', date: '24 Jan 2026', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800', featured: true },
         { id: 'ec-3', tag: 'Nightlife', title: 'Hidden Speakeasies You Need to Visit', date: '23 Jan 2026', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', featured: true },
-        { id: 'ec-4', tag: 'Art', title: 'Street Art Walking Tours in Orlando', date: '22 Jan 2026', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', featured: false }
+        { id: 'ec-4', tag: 'Art', title: 'Street Art Walking Tours in Orlando', date: '22 Jan 2026', image: 'https://images.unsplash.com/photo-1582481725274-d63bdf929a98?w=800', featured: false }
       ]);
 
       const [businesses, setBusinesses] = useState([
@@ -10970,14 +10970,14 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
 
       const [events, setEvents] = useState([
         { id: 'evt-1', badge: 'Music Festival', title: 'Orlando Jazz Festival 2026', description: 'Three days of world-class jazz performances in Lake Eola Park.', date: 'May 25-27, 2026', location: 'Lake Eola Park', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800', featured: true },
-        { id: 'evt-2', badge: 'Art Exhibition', title: 'High Museum Contemporary Showcase', description: 'Exploring the intersection of technology and traditional art forms.', date: 'Feb 15 - Apr 30, 2026', location: 'High Museum', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', featured: true },
+        { id: 'evt-2', badge: 'Art Exhibition', title: 'High Museum Contemporary Showcase', description: 'Exploring the intersection of technology and traditional art forms.', date: 'Feb 15 - Apr 30, 2026', location: 'High Museum', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f7e7?w=800', featured: true },
         { id: 'evt-3', badge: 'Food Festival', title: 'Orlando Food & Wine Festival', description: 'Celebrating Southern cuisine with top chefs.', date: 'Mar 10-12, 2026', location: 'Winter Park', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800', featured: false }
       ]);
 
       const [properties, setProperties] = useState([
-        { id: 'prop-1', price: '$575,000', address: '123 Park Ave N', neighborhood: 'Winter Park', beds: 3, baths: 2, sqft: '2,100', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', featured: true },
-        { id: 'prop-2', price: '$425,000', address: '456 Highland Ave', neighborhood: 'Thornton Park', beds: 2, baths: 2, sqft: '1,650', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', featured: true },
-        { id: 'prop-3', price: '$1,250,000', address: '789 West Paces Ferry Rd', neighborhood: 'Thornton Park Orlando', beds: 5, baths: 4, sqft: '4,200', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800', featured: true },
+        { id: 'prop-1', price: '$575,000', address: '123 Park Ave N', neighborhood: 'Winter Park', beds: 3, baths: 2, sqft: '2,100', image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800', featured: true },
+        { id: 'prop-2', price: '$425,000', address: '456 Highland Ave', neighborhood: 'Thornton Park', beds: 2, baths: 2, sqft: '1,650', image: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800', featured: true },
+        { id: 'prop-3', price: '$1,250,000', address: '789 West Paces Ferry Rd', neighborhood: 'Thornton Park Orlando', beds: 5, baths: 4, sqft: '4,200', image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c0?w=800', featured: true },
         { id: 'prop-4', price: '$350,000', address: '321 Memorial Dr', neighborhood: 'Baldwin Park', beds: 2, baths: 1, sqft: '1,200', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', featured: false }
       ]);
 
@@ -12082,7 +12082,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
         title: 'The Renaissance of Thornton Park',
         author: 'Marcus Johnson',
         date: 'January 27, 2026',
-        image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600'
+        image: 'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=1600'
       };
 
       const featuredStories = [
@@ -12140,7 +12140,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           description: 'Exploring the intersection of technology and traditional art forms through immersive installations.',
           date: 'Feb 15 - Apr 30, 2026',
           location: 'High Museum',
-          image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800'
+          image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f7e7?w=800'
         }
       ];
 
@@ -12152,7 +12152,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           beds: 3,
           baths: 2,
           sqft: '2,100',
-          image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800'
+          image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800'
         },
         {
           price: '$425,000',
@@ -12161,7 +12161,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           beds: 2,
           baths: 2,
           sqft: '1,650',
-          image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800'
+          image: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800'
         },
         {
           price: '$1,250,000',
@@ -12170,7 +12170,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           beds: 5,
           baths: 4,
           sqft: '4,200',
-          image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800'
+          image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c0?w=800'
         }
       ];
 
@@ -12182,7 +12182,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           lng: -84.3794,
           description: 'Orlando\'s upscale district known for luxury shopping at Lenox Square and Phipps Plaza, high-end dining, and vibrant nightlife. Tree-lined streets, historic estates, and modern high-rises define this affluent neighborhood.',
           vibes: ['Upscale', 'Shopping', 'Nightlife', 'Dining'],
-          image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800',
+          image: 'https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=800',
           businesses: [
             { name: 'Bones Restaurant', type: 'Fine Dining Steakhouse' },
             { name: 'Lenox Square', type: 'Luxury Shopping Mall' },
@@ -12204,7 +12204,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           lng: -84.3829,
           description: 'The heart of Orlando\'s arts and culture scene. Home to the Morse Museum, cultural venues, and beautiful parks. A walkable urban neighborhood with charming streets and a thriving arts community.',
           vibes: ['Arts District', 'Walkable', 'Parks', 'Cultural Hub'],
-          image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
+          image: 'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=800',
           businesses: [
             { name: 'High Museum of Art', type: 'World-Class Art Museum' },
             { name: 'Park Tavern', type: 'Restaurant & Event Venue' },
@@ -12226,7 +12226,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           lng: -84.3901,
           description: 'Orlando\'s business and entertainment hub featuring Camping World Stadium, Amway Center, and iconic attractions like Lake Eola Park and the Dr. Phillips Center. Rich in history and constantly evolving.',
           vibes: ['Business District', 'Sports', 'Attractions', 'Historic'],
-          image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800',
+          image: 'https://images.unsplash.com/photo-1614094082869-cd4e4b2dd1c3?w=800',
           businesses: [
             { name: 'Florida Aquarium', type: 'World\'s Largest Aquarium' },
             { name: 'Centennial Olympic Park', type: 'Urban Park & Landmark' },
@@ -12270,7 +12270,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           lng: -84.3519,
           description: 'One of Orlando\'s most beloved walkable neighborhoods. Tree-lined streets, local boutiques, sidewalk cafes, and a strong sense of community. Popular with young professionals and families alike.',
           vibes: ['Walkable', 'Boutiques', 'Restaurants', 'Community'],
-          image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800',
+          image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800',
           businesses: [
             { name: 'Murphy\'s', type: 'Classic American Restaurant' },
             { name: 'Highland Bakery', type: 'Local Breakfast Spot' },
@@ -12292,7 +12292,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           lng: -84.3522,
           description: 'Orlando\'s first planned suburb with stunning Victorian architecture. Known for the Ivanhoe Village Festival, eclectic restaurants, and access to the Orlando Trail. A charming neighborhood with historic character.',
           vibes: ['Historic', 'Victorian', 'Festivals', 'Orlando Trail Access'],
-          image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800',
+          image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800',
           businesses: [
             { name: 'Barcelona Wine Bar', type: 'Spanish Tapas & Wine' },
             { name: 'Wrecking Bar Brewpub', type: 'Craft Brewery & Restaurant' },
@@ -12358,7 +12358,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           lng: -84.2963,
           description: 'Charming city-within-a-city known for its walkable downtown square, excellent schools, and thriving food scene. Family-friendly with a progressive vibe and strong community events throughout the year.',
           vibes: ['Family-Friendly', 'Thornton Park Square', 'Dining', 'Progressive'],
-          image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800',
+          image: 'https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=800',
           businesses: [
             { name: 'Leon\'s Full Service', type: 'Southern Gastropub' },
             { name: 'Eddie\'s Attic', type: 'Acoustic Music Venue' },
@@ -12380,7 +12380,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
           lng: -84.3700,
           description: 'Historic neighborhood surrounding Orlando\'s oldest park. Home to Zoo Orlando and beautifully preserved Victorian homes. A tight-knit community with excellent restaurants and a beloved farmers market.',
           vibes: ['Historic Homes', 'Zoo Orlando', 'Parks', 'Community'],
-          image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800',
+          image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
           businesses: [
             { name: 'Zoo Orlando', type: 'Major Zoo & Conservation' },
             { name: 'Six Feet Under', type: 'Rooftop Seafood Restaurant' },
@@ -12835,7 +12835,7 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
             </div>
             <div className="instagram-grid">
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400" alt="Orlando skyline" />
+                <img src="https://images.unsplash.com/photo-1575026055541-59e6eab1905e?w=400" alt="Orlando skyline" />
               </div>
               <div className="instagram-item">
                 <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400" alt="Orlando food scene" />
@@ -12847,10 +12847,10 @@ For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seati
                 <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400" alt="Orlando restaurant" />
               </div>
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400" alt="Orlando art" />
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f7e7?w=400" alt="Orlando art" />
               </div>
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400" alt="Orlando streets" />
+                <img src="https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=400" alt="Orlando streets" />
               </div>
             </div>
             <a href="https://www.instagram.com/atlvibesandviews/" target="_blank" rel="noopener noreferrer" className="instagram-follow">
