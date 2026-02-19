@@ -103,7 +103,7 @@ module.exports = async function handler(req, res) {
         .from(targetTable)
         .insert({
           ...data,
-          status: 'pending',
+          status: 'published',
           source: source || 'ai_agent',
         })
         .select()
