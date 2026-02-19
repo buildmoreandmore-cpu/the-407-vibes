@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Southeast Atlanta - ATL Vibes & Views | East Atlanta Village & More</title>
-  <meta name="description" content="Explore Southeast Atlanta including East Atlanta Village, Ormewood Park, and Kirkwood. Eclectic vibes, live music, and diverse communities.">
-  <link rel="canonical" href="https://atlvibesandviews.com/southeast.html">
+  <title>Ivanhoe Village - The 407 Vibes | Sandy Springs, Dunwoody & Perimeter</title>
+  <meta name="description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee. Business centers, diverse dining, and suburban amenities.">
+  <link rel="canonical" href="https://the-407-vibes.vercel.app/ivanhoe-village.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://atlvibesandviews.com/southeast.html">
-  <meta property="og:title" content="Southeast Atlanta - East Atlanta Village & More | ATL Vibes & Views">
-  <meta property="og:description" content="Explore Southeast Atlanta including East Atlanta Village, Ormewood Park, and Kirkwood. Eclectic vibes and live music.">
-  <meta property="og:image" content="https://atlvibesandviews.com/atlanta-map.png">
-  <meta property="og:site_name" content="ATL Vibes & Views">
+  <meta property="og:url" content="https://the-407-vibes.vercel.app/ivanhoe-village.html">
+  <meta property="og:title" content="Ivanhoe Village - Sandy Springs, Dunwoody & Perimeter | The 407 Vibes">
+  <meta property="og:description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee.">
+  <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta property="og:site_name" content="The 407 Vibes">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Southeast Atlanta - East Atlanta Village & More | ATL Vibes & Views">
-  <meta name="twitter:description" content="Explore Southeast Atlanta including East Atlanta Village, Ormewood Park, and Kirkwood.">
-  <meta name="twitter:image" content="https://atlvibesandviews.com/atlanta-map.png">
+  <meta name="twitter:title" content="Ivanhoe Village - Sandy Springs, Dunwoody & Perimeter | The 407 Vibes">
+  <meta name="twitter:description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee.">
+  <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -169,32 +169,32 @@
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
-    const areaData = { id: 'southeast', name: 'Southeast Atlanta', tagline: "Eclectic vibes and live music in Atlanta's village scene", image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600', vibes: ['Live Music', 'Dive Bars', 'Eclectic', 'Community'], stats: { neighborhoods: 13, businesses: 124, events: 32 } };
+    const areaData = { id: 'north-orlando', name: 'Ivanhoe Village', tagline: "Business centers, diverse dining, and suburban living at the Perimeter", image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600', vibes: ['Business', 'Diverse Dining', 'Shopping', 'Suburban'], stats: { neighborhoods: 18, businesses: 287, events: 45 } };
     const neighborhoodGroups = [
-      { id: 'east-atlanta-area', name: 'East Atlanta Area', description: 'Eclectic vibes & live music', neighborhoods: [
-        { id: 'east-atlanta-village', name: 'East Atlanta Village' }, { id: 'east-atlanta', name: 'East Atlanta' }, { id: 'ormewood-park', name: 'Ormewood Park' }, { id: 'gresham-park', name: 'Gresham Park' }
+      { id: 'perimeter', name: 'Perimeter Area', description: 'Business & shopping hubs', neighborhoods: [
+        { id: 'sandy-springs', name: 'Sandy Springs' }, { id: 'dunwoody', name: 'Dunwoody' }, { id: 'perimeter-center', name: 'Perimeter Center' }, { id: 'brookhaven', name: 'Brookhaven' }
       ]},
-      { id: 'kirkwood-area', name: 'Kirkwood & Oakhurst', description: 'Historic & hip', neighborhoods: [
-        { id: 'kirkwood', name: 'Kirkwood' }, { id: 'oakhurst', name: 'Oakhurst' }, { id: 'east-lake', name: 'East Lake' }, { id: 'edgewood', name: 'Edgewood' }
+      { id: 'buford-hwy', name: 'Buford Highway Corridor', description: 'International food & culture', neighborhoods: [
+        { id: 'chamblee', name: 'Chamblee' }, { id: 'doraville', name: 'Doraville' }, { id: 'norcross', name: 'Norcross' }, { id: 'tucker', name: 'Tucker' }
       ]},
-      { id: 'beltline-se', name: 'BeltLine Southeast', description: 'Murals & revitalization', neighborhoods: [
-        { id: 'cabbagetown', name: 'Cabbagetown' }, { id: 'reynoldstown', name: 'Reynoldstown' }, { id: 'grant-park', name: 'Grant Park' }, { id: 'boulevard-heights', name: 'Boulevard Heights' }
+      { id: 'north-fulton', name: 'North Fulton', description: 'Tech hub & upscale living', neighborhoods: [
+        { id: 'roswell', name: 'Roswell' }, { id: 'alpharetta', name: 'Alpharetta' }, { id: 'johns-creek', name: 'Johns Creek' }, { id: 'milton', name: 'Milton' }
       ]}
     ];
     const neighborhoods = neighborhoodGroups.flatMap(g => g.neighborhoods);
     // Fallback Demo Businesses
     const demoBusinesses = [
-      { id: 1, name: 'The Earl', category: 'Live Music', description: 'Legendary live music venue and dive bar.', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', neighborhood: 'East Atlanta Village', featured: true },
-      { id: 2, name: 'Argosy', category: 'Restaurant', description: 'Neighborhood bar and grill with great food.', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', neighborhood: 'East Atlanta Village', featured: true },
-      { id: 3, name: 'Holy Taco', category: 'Restaurant', description: 'Mexican street food with a twist.', image: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=800', neighborhood: 'East Atlanta Village', featured: false }
+      { id: 1, name: 'Perimeter Mall', category: 'Shopping', description: 'Premier shopping destination in Ivanhoe Village.', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800', neighborhood: 'Dunwoody', featured: true },
+      { id: 2, name: 'Buford Highway Food Corridor', category: 'Dining', description: 'Diverse international restaurants along Buford Highway.', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', neighborhood: 'Chamblee', featured: true },
+      { id: 3, name: 'Chattahoochee River National Recreation Area', category: 'Parks', description: 'Beautiful river trails and outdoor activities.', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800', neighborhood: 'Sandy Springs', featured: false }
     ];
     // Fallback Demo Events
     const demoEvents = [
-      { id: 1, title: 'East Atlanta Strut', category: 'Festival', description: 'Annual neighborhood parade and festival.', image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800', date: 'September 2026', location: 'East Atlanta Village', featured: true }
+      { id: 1, title: 'Taste of Chamblee', category: 'Food Festival', description: 'Celebrating the diverse cuisines of Buford Highway.', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800', date: 'October 2026', location: 'Chamblee', featured: true }
     ];
     // Fallback Demo Properties
     const demoProperties = [
-      { id: 1, price: '$375,000', address: '123 Flat Shoals Ave', neighborhood: 'East Atlanta', beds: 2, baths: 1, sqft: '1,200', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', featured: true }
+      { id: 1, price: '$485,000', address: '123 Roswell Rd', neighborhood: 'Sandy Springs', beds: 3, baths: 2, sqft: '2,100', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', featured: true }
     ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
@@ -205,7 +205,7 @@
       const properties = demoProperties;
 
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
-      const [expandedSections, setExpandedSections] = useState(['east-atlanta-area']);
+      const [expandedSections, setExpandedSections] = useState(['perimeter']);
       const toggleSection = (id) => setExpandedSections(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]);
 
       const filterByNeighborhood = (items, neighborhoodId) => {
@@ -247,12 +247,12 @@
       return (
         <>
           <nav className="navbar">
-            <a href="index.html" className="logo"><span className="logo-main">ATL Vibes & Views</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></a>
+            <a href="index.html" className="logo"><span className="logo-main">The 407 Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></a>
             <div className="navbar-search"><input type="text" placeholder="Search" /><button type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div>
             <ul className="nav-links">
               <li><a href="index.html">Home</a></li>
               <li className="nav-dropdown"><a href="#">Areas</a>
-                <ul className="dropdown-menu"><li><a href="buckhead.html">Buckhead</a></li><li><a href="midtown.html">Midtown</a></li><li><a href="downtown.html">Downtown</a></li><li><a href="eastside.html">Eastside</a></li><li><a href="westside.html">Westside</a></li><li><a href="southwest.html">Southwest Atlanta</a></li><li><a href="southeast.html">Southeast Atlanta</a></li><li><a href="south-atlanta.html">South Atlanta</a></li><li><a href="north-atlanta.html">North Atlanta</a></li></ul>
+                <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul>
               </li>
               <li><a href="development.html">Development</a></li>
             </ul>
@@ -261,7 +261,7 @@
             <img src={areaData.image} alt={areaData.name} className="area-hero-image" />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
-              <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Atlanta</a>
+              <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Orlando</a>
               <h1 className="area-hero-title">{areaData.name}</h1>
               <p className="area-hero-tagline">{areaData.tagline}</p>
               <div className="area-vibe-tags">{areaData.vibes.map((vibe, i) => (<span key={i} className="area-vibe-tag">{vibe}</span>))}</div>
@@ -324,12 +324,12 @@
           </section>
           <footer className="footer">
             <div className="footer-grid">
-              <div className="footer-brand"><div className="logo"><span className="logo-main">ATL Vibes & Views</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Atlanta's neighborhoods.</p></div>
-              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="buckhead.html">Buckhead</a></li><li><a href="midtown.html">Midtown</a></li><li><a href="downtown.html">Downtown</a></li><li><a href="eastside.html">Eastside</a></li><li><a href="westside.html">Westside</a></li></ul></div>
-              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="southwest.html">Southwest Atlanta</a></li><li><a href="southeast.html">Southeast Atlanta</a></li><li><a href="south-atlanta.html">South Atlanta</a></li><li><a href="north-atlanta.html">North Atlanta</a></li></ul></div>
+              <div className="footer-brand"><div className="logo"><span className="logo-main">The 407 Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Orlando's neighborhoods.</p></div>
+              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li></ul></div>
+              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul></div>
               <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="index.html#directory">Business Directory</a></li><li><a href="index.html#events">Events Calendar</a></li><li><a href="development.html">Development News</a></li></ul></div>
             </div>
-            <div className="footer-bottom"><p>&copy; 2026 ATL Vibes & Views. All rights reserved.</p></div>
+            <div className="footer-bottom"><p>&copy; 2026 The 407 Vibes. All rights reserved.</p></div>
           </footer>
         </>
       );

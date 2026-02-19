@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>South Atlanta - ATL Vibes & Views | Grant Park, Zoo Atlanta & Summerhill</title>
-  <meta name="description" content="Explore South Atlanta including Grant Park, Zoo Atlanta, and Summerhill. Historic homes, parks, and tight-knit communities.">
-  <link rel="canonical" href="https://atlvibesandviews.com/south-atlanta.html">
+  <title>College Park - The 407 Vibes | West Winter Park, Industrial-Chic & Galleries</title>
+  <meta name="description" content="Explore Orlando's College Park - West Winter Park's industrial-chic restaurants, galleries, and creative spaces. Home to College Park Provisions District.">
+  <link rel="canonical" href="https://the-407-vibes.vercel.app/college-park.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://atlvibesandviews.com/south-atlanta.html">
-  <meta property="og:title" content="South Atlanta - Grant Park, Zoo Atlanta & Summerhill | ATL Vibes & Views">
-  <meta property="og:description" content="Explore South Atlanta including Grant Park, Zoo Atlanta, and Summerhill. Historic homes and tight-knit communities.">
-  <meta property="og:image" content="https://atlvibesandviews.com/atlanta-map.png">
-  <meta property="og:site_name" content="ATL Vibes & Views">
+  <meta property="og:url" content="https://the-407-vibes.vercel.app/college-park.html">
+  <meta property="og:title" content="College Park Orlando - West Winter Park & Industrial-Chic | The 407 Vibes">
+  <meta property="og:description" content="Explore Orlando's College Park - West Winter Park's industrial-chic restaurants, galleries, and creative spaces.">
+  <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta property="og:site_name" content="The 407 Vibes">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="South Atlanta - Grant Park, Zoo Atlanta & Summerhill | ATL Vibes & Views">
-  <meta name="twitter:description" content="Explore South Atlanta including Grant Park, Zoo Atlanta, and Summerhill.">
-  <meta name="twitter:image" content="https://atlvibesandviews.com/atlanta-map.png">
+  <meta name="twitter:title" content="College Park Orlando - West Winter Park & Industrial-Chic | The 407 Vibes">
+  <meta name="twitter:description" content="Explore Orlando's College Park - West Winter Park's industrial-chic restaurants, galleries, and creative spaces.">
+  <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -83,18 +83,20 @@
     .neighborhood-card:hover .neighborhood-card-arrow { opacity: 1; transform: translateX(0); }
     .neighborhood-card-arrow svg { width: 18px; height: 18px; stroke: white; fill: none; }
     .neighborhood-card.selected { border: 3px solid var(--primary-yellow); box-shadow: 0 0 20px rgba(255, 217, 90, 0.4); }
+    /* Neighborhood Map Styles */
     .neighborhood-map-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .neighborhood-map-wrapper { position: relative; background: #f5f5f5; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
     .neighborhood-map-svg { width: 100%; height: 100%; }
     .neighborhood-region { fill: rgba(255, 217, 90, 0.2); stroke: var(--primary-black); stroke-width: 1; cursor: pointer; transition: all 0.3s ease; }
-    .neighborhood-region:hover { fill: rgba(255, 217, 90, 0.5); filter: drop-shadow(0 0 8px rgba(255, 215, 90, 0.5)); }
+    .neighborhood-region:hover, .neighborhood-region.active { fill: rgba(255, 217, 90, 0.5); filter: drop-shadow(0 0 8px rgba(255, 215, 90, 0.5)); }
     .neighborhood-region.selected { fill: rgba(255, 217, 90, 0.7); stroke: var(--primary-yellow); stroke-width: 2; filter: drop-shadow(0 0 12px rgba(255, 215, 90, 0.8)); }
-    .neighborhood-label { font-size: 8px; font-weight: 600; text-transform: uppercase; pointer-events: none; }
+    .neighborhood-label { font-size: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; pointer-events: none; }
     .map-hint { text-align: center; font-size: 0.85rem; color: var(--text-light); margin-top: 0.75rem; font-style: italic; }
+    /* Filter Indicator */
     .filter-indicator { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--secondary-yellow); border-radius: 8px; margin-bottom: 2rem; }
     .filter-indicator-text { font-weight: 600; color: var(--text-dark); }
     .filter-indicator-text span { color: var(--primary-red); }
-    .filter-clear-btn { background: var(--primary-black); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; margin-left: auto; }
+    .filter-clear-btn { background: var(--primary-black); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-left: auto; }
     .filter-clear-btn:hover { background: var(--primary-red); }
     .view-all-neighborhoods { margin-top: 1.5rem; text-align: center; }
     .view-all-btn { display: inline-flex; align-items: center; justify-content: center; background: var(--primary-black); color: white; border: none; padding: 0.875rem 1.75rem; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
@@ -107,8 +109,8 @@
     .dropdown-item.selected { border-color: var(--primary-yellow); background: var(--secondary-yellow); box-shadow: 0 0 0 2px var(--primary-yellow); }
     .dropdown-item-name { font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; }
     .dropdown-item-desc { font-size: 0.85rem; color: var(--text-light); }
-    @media (max-width: 968px) { .neighborhood-map-container { grid-template-columns: 1fr; } }
     .content-tabs { display: flex; border-bottom: 2px solid var(--border-color); margin-bottom: 2rem; }
+    @media (max-width: 968px) { .neighborhood-map-container { grid-template-columns: 1fr; } }
     .content-tab { padding: 1rem 2rem; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; color: var(--text-light); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -2px; }
     .content-tab:hover { color: var(--text-dark); }
     .content-tab.active { color: var(--primary-red); border-bottom-color: var(--primary-red); }
@@ -169,34 +171,32 @@
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
-    const areaData = { id: 'south-atlanta', name: 'South Atlanta', tagline: "Historic homes and Zoo Atlanta in tight-knit communities", image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600', vibes: ['Historic Homes', 'Zoo Atlanta', 'Parks', 'Community'], stats: { neighborhoods: 18, businesses: 78, events: 22 } };
+    const areaData = { id: 'westside', name: 'College Park', tagline: "Orlando's industrial-chic hub for food, art, and nightlife", image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600', vibes: ['Restaurants', 'Galleries', 'Industrial-Chic', 'Nightlife'], stats: { neighborhoods: 16, businesses: 178, events: 34 } };
     const neighborhoodGroups = [
-      { id: 'grant-park-area', name: 'Grant Park Area', description: 'Zoo Atlanta & Victorian homes', neighborhoods: [
-        { id: 'grant-park', name: 'Grant Park' }, { id: 'summerhill', name: 'Summerhill' }, { id: 'peoplestown', name: 'Peoplestown' }, { id: 'chosewood-park', name: 'Chosewood Park' }
+      { id: 'west-winter-park', name: 'West Winter Park', description: 'Design district & restaurants', neighborhoods: [
+        { id: 'west-winter-park', name: 'West Winter Park' }, { id: 'westside-provisions', name: 'College Park Provisions' }, { id: 'howell-mill', name: 'Howell Mill' }
       ]},
-      { id: 'beltline-south', name: 'BeltLine South', description: 'Trail-connected neighborhoods', neighborhoods: [
-        { id: 'pittsburgh', name: 'Pittsburgh' }, { id: 'mechanicsville', name: 'Mechanicsville' }, { id: 'capitol-view', name: 'Capitol View' }, { id: 'lakewood-heights', name: 'Lakewood Heights' }
+      { id: 'historic-west', name: 'Historic College Park', description: 'Civil rights heritage', neighborhoods: [
+        { id: 'vine-city', name: 'Creative Village' }, { id: 'english-avenue', name: 'English Avenue' }, { id: 'washington-park', name: 'Washington Park' }, { id: 'ashview-heights', name: 'Ashview Heights' }
       ]},
-      { id: 'airport-cities', name: 'Airport Cities', description: 'Transit-accessible communities', neighborhoods: [
-        { id: 'college-park', name: 'College Park' }, { id: 'east-point', name: 'East Point' }, { id: 'hapeville', name: 'Hapeville' }, { id: 'forest-park', name: 'Forest Park' }
+      { id: 'northwest', name: 'Northwest Orlando', description: 'Residential & emerging', neighborhoods: [
+        { id: 'grove-park', name: 'Grove Park' }, { id: 'center-hill', name: 'Center Hill' }, { id: 'bankhead', name: 'Bankhead' }, { id: 'bolton', name: 'Bolton' }
       ]}
     ];
     const neighborhoods = neighborhoodGroups.flatMap(g => g.neighborhoods);
     // Fallback Demo Businesses
     const demoBusinesses = [
-      { id: 1, name: 'Zoo Atlanta', category: 'Attraction', description: 'Major zoo and conservation center with giant pandas.', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=800', neighborhood: 'Grant Park', featured: true },
-      { id: 2, name: 'Six Feet Under', category: 'Restaurant', description: 'Rooftop seafood restaurant with skyline views.', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', neighborhood: 'Grant Park', featured: true },
-      { id: 3, name: 'Grant Park Market', category: 'Farmers Market', description: 'Weekly farmers market with local produce.', image: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800', neighborhood: 'Grant Park', featured: false }
+      { id: 1, name: 'College Park Provisions District', category: 'Mixed Use', description: 'Premier shopping and dining in converted warehouses.', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', neighborhood: 'College Park Provisions', featured: true },
+      { id: 2, name: 'Miller Union', category: 'Restaurant', description: 'Award-winning farm-to-table Southern cuisine.', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800', neighborhood: 'West Winter Park', featured: true },
+      { id: 3, name: 'Octane Coffee', category: 'Coffee', description: 'Artisanal coffee roasters and creative workspace.', image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800', neighborhood: 'West Winter Park', featured: false }
     ];
     // Fallback Demo Events
     const demoEvents = [
-      { id: 1, title: 'Grant Park Summer Shade Festival', category: 'Festival', description: 'Annual arts and music festival in the park.', image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800', date: 'August 2026', location: 'Grant Park', featured: true },
-      { id: 2, title: 'Grant Park Tour of Homes', category: 'Home Tour', description: 'Annual tour of historic Victorian homes.', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', date: 'September 2026', location: 'Grant Park', featured: false }
+      { id: 1, title: 'College Park Art Walk', category: 'Art', description: 'Monthly gallery hop featuring local artists.', image: 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=800', date: 'First Friday Monthly', location: 'Marietta Street', featured: true }
     ];
     // Fallback Demo Properties
     const demoProperties = [
-      { id: 1, price: '$675,000', address: '456 Cherokee Ave SE', neighborhood: 'Grant Park', beds: 4, baths: 2, sqft: '2,400', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', featured: true },
-      { id: 2, price: '$425,000', address: '123 Boulevard SE', neighborhood: 'Grant Park', beds: 3, baths: 2, sqft: '1,800', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', featured: false }
+      { id: 1, price: '$520,000', address: '456 Howell Mill Rd', neighborhood: 'West Winter Park', beds: 2, baths: 2, sqft: '1,650', image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800', featured: true }
     ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
@@ -205,9 +205,8 @@
       const [businesses, setBusinesses] = useState(demoBusinesses);
       const [events, setEvents] = useState(demoEvents);
       const properties = demoProperties;
-
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
-      const [expandedSections, setExpandedSections] = useState(['grant-park-area']);
+      const [expandedSections, setExpandedSections] = useState(['west-winter-park']);
       const toggleSection = (id) => setExpandedSections(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]);
 
       const filterByNeighborhood = (items, neighborhoodId) => {
@@ -249,12 +248,12 @@
       return (
         <>
           <nav className="navbar">
-            <a href="index.html" className="logo"><span className="logo-main">ATL Vibes & Views</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></a>
+            <a href="index.html" className="logo"><span className="logo-main">The 407 Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></a>
             <div className="navbar-search"><input type="text" placeholder="Search" /><button type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div>
             <ul className="nav-links">
               <li><a href="index.html">Home</a></li>
               <li className="nav-dropdown"><a href="#">Areas</a>
-                <ul className="dropdown-menu"><li><a href="buckhead.html">Buckhead</a></li><li><a href="midtown.html">Midtown</a></li><li><a href="downtown.html">Downtown</a></li><li><a href="eastside.html">Eastside</a></li><li><a href="westside.html">Westside</a></li><li><a href="southwest.html">Southwest Atlanta</a></li><li><a href="southeast.html">Southeast Atlanta</a></li><li><a href="south-atlanta.html">South Atlanta</a></li><li><a href="north-atlanta.html">North Atlanta</a></li></ul>
+                <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul>
               </li>
               <li><a href="development.html">Development</a></li>
             </ul>
@@ -263,7 +262,7 @@
             <img src={areaData.image} alt={areaData.name} className="area-hero-image" />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
-              <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Atlanta</a>
+              <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Orlando</a>
               <h1 className="area-hero-title">{areaData.name}</h1>
               <p className="area-hero-tagline">{areaData.tagline}</p>
               <div className="area-vibe-tags">{areaData.vibes.map((vibe, i) => (<span key={i} className="area-vibe-tag">{vibe}</span>))}</div>
@@ -303,8 +302,8 @@
               <div className="area-section-header"><h2 className="area-section-title">Discover {areaData.name}</h2></div>
               {selectedNeighborhood && (
                 <div className="filter-indicator">
-                  <div className="filter-indicator-text">Showing results for: <span>{getSelectedNeighborhoodName()}</span></div>
-                  <button className="filter-clear-btn" onClick={clearFilter}>Clear Filter</button>
+                  <div className="filter-indicator-text">Showing {activeTab === 'businesses' ? filteredBusinesses.length : activeTab === 'events' ? filteredEvents.length : filteredProperties.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span></div>
+                  <button className="filter-clear-btn" onClick={clearFilter}>Show All {areaData.name}</button>
                 </div>
               )}
               <div className="content-tabs">
@@ -316,6 +315,12 @@
                 {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
                 {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
                 {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
+                {selectedNeighborhood && ((activeTab === 'businesses' && filteredBusinesses.length === 0) || (activeTab === 'events' && filteredEvents.length === 0) || (activeTab === 'properties' && filteredProperties.length === 0)) && (
+                  <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-light)'}}>
+                    <p style={{fontSize: '1.1rem', marginBottom: '1rem'}}>No {activeTab} found in {getSelectedNeighborhoodName()}</p>
+                    <button onClick={clearFilter} style={{background: 'var(--primary-yellow)', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer'}}>Show All {areaData.name} {activeTab}</button>
+                  </div>
+                )}
               </div>
             </section>
           </div>
@@ -326,12 +331,12 @@
           </section>
           <footer className="footer">
             <div className="footer-grid">
-              <div className="footer-brand"><div className="logo"><span className="logo-main">ATL Vibes & Views</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Atlanta's neighborhoods.</p></div>
-              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="buckhead.html">Buckhead</a></li><li><a href="midtown.html">Midtown</a></li><li><a href="downtown.html">Downtown</a></li><li><a href="eastside.html">Eastside</a></li><li><a href="westside.html">Westside</a></li></ul></div>
-              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="southwest.html">Southwest Atlanta</a></li><li><a href="southeast.html">Southeast Atlanta</a></li><li><a href="south-atlanta.html">South Atlanta</a></li><li><a href="north-atlanta.html">North Atlanta</a></li></ul></div>
+              <div className="footer-brand"><div className="logo"><span className="logo-main">The 407 Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Orlando's neighborhoods.</p></div>
+              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li></ul></div>
+              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul></div>
               <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="index.html#directory">Business Directory</a></li><li><a href="index.html#events">Events Calendar</a></li><li><a href="development.html">Development News</a></li></ul></div>
             </div>
-            <div className="footer-bottom"><p>&copy; 2026 ATL Vibes & Views. All rights reserved.</p></div>
+            <div className="footer-bottom"><p>&copy; 2026 The 407 Vibes. All rights reserved.</p></div>
           </footer>
         </>
       );

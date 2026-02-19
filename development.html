@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATL Development | ATL Vibes & Views</title>
-  <meta name="description" content="Editorial development stories and neighborhood impact in Atlanta. Stay informed about the BeltLine, mixed-use developments, and urban transformation.">
+  <title>Orlando Development | The 407 Vibes</title>
+  <meta name="description" content="Editorial development stories and neighborhood impact in Orlando. Stay informed about the Orlando Trail, mixed-use developments, and urban transformation.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -786,12 +786,12 @@
       id: 1,
       category: 'Development',
       subcategory: 'Mixed-Use',
-      title: "The BeltLine's Next Chapter: Westside Trail Expansion Transforms West End",
-      excerpt: 'New mixed-use developments along the Westside Trail are reshaping Atlanta\'s historic West End neighborhood, bringing thousands of residential units, retail spaces, and community amenities while sparking conversations about equitable development.',
+      title: "The Orlando Trail's Next Chapter: College Park Trail Expansion Transforms College Park",
+      excerpt: 'New mixed-use developments along the College Park Trail are reshaping Orlando\'s historic College Park neighborhood, bringing thousands of residential units, retail spaces, and community amenities while sparking conversations about equitable development.',
       author: 'Marcus Johnson',
       date: 'January 28, 2026',
       image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600',
-      neighborhood: 'West End',
+      neighborhood: 'College Park',
       featured: true
     };
 
@@ -800,15 +800,15 @@
       {
         id: 2,
         subcategory: 'Residential',
-        title: 'Midtown High-Rise Breaks Ground on Peachtree',
-        neighborhood: 'Midtown',
+        title: 'Winter Park High-Rise Breaks Ground on Orange Ave',
+        neighborhood: 'Winter Park',
         date: '27 Jan 2026',
         image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800'
       },
       {
         id: 3,
         subcategory: 'Commercial',
-        title: 'Tech Hub Anchors New Westside Development',
+        title: 'Tech Hub Anchors New College Park Development',
         neighborhood: 'English Avenue',
         date: '25 Jan 2026',
         image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800'
@@ -816,15 +816,15 @@
       {
         id: 4,
         subcategory: 'Mixed-Use',
-        title: 'Ponce City Market Phase 2 Revealed',
-        neighborhood: 'Old Fourth Ward',
+        title: 'East End Market Phase 2 Revealed',
+        neighborhood: 'Thornton Park',
         date: '24 Jan 2026',
         image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800'
       },
       {
         id: 5,
         subcategory: 'Transit-Oriented',
-        title: 'MARTA Station Development Plans Unveiled',
+        title: 'SunRail Station Development Plans Unveiled',
         neighborhood: 'East Point',
         date: '22 Jan 2026',
         image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800'
@@ -850,20 +850,20 @@
     // Neighborhoods with development activity
     const impactedNeighborhoods = [
       {
-        name: 'Old Fourth Ward',
+        name: 'Thornton Park',
         slug: 'old-fourth-ward',
         storyCount: 12,
         image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600'
       },
       {
-        name: 'West End',
+        name: 'College Park',
         slug: 'west-end',
         storyCount: 9,
         image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600'
       },
       {
-        name: 'Midtown',
-        slug: 'midtown',
+        name: 'Winter Park',
+        slug: 'winter-park',
         storyCount: 15,
         image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600'
       },
@@ -874,7 +874,7 @@
         image: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=600'
       },
       {
-        name: 'Reynoldstown',
+        name: 'Audubon Park',
         slug: 'reynoldstown',
         storyCount: 6,
         image: 'https://images.unsplash.com/photo-1464938050520-ef2571d1b858?w=600'
@@ -889,9 +889,9 @@
 
     // Popular neighborhoods for sidebar
     const popularNeighborhoods = [
-      { name: 'Midtown', storyCount: 15 },
-      { name: 'Old Fourth Ward', storyCount: 12 },
-      { name: 'West End', storyCount: 9 },
+      { name: 'Winter Park', storyCount: 15 },
+      { name: 'Thornton Park', storyCount: 12 },
+      { name: 'College Park', storyCount: 9 },
       { name: 'Summerhill', storyCount: 8 },
       { name: 'English Avenue', storyCount: 7 }
     ];
@@ -919,7 +919,7 @@
         <section className="development-section">
           <div className="section-header">
             <h2 className="section-title">Featured Development Stories</h2>
-            <p className="section-subtitle">Tracking Atlanta's Urban Transformation</p>
+            <p className="section-subtitle">Tracking Orlando's Urban Transformation</p>
           </div>
           <div className="development-grid">
             {stories.map((story) => (
@@ -1025,7 +1025,7 @@
           <div className="see-all-content">
             <h2 className="see-all-title">Explore All Development Stories</h2>
             <p className="see-all-text">
-              Dive deeper into Atlanta's transformation with our complete archive of development coverage, project tracking, and neighborhood impact analysis.
+              Dive deeper into Orlando's transformation with our complete archive of development coverage, project tracking, and neighborhood impact analysis.
             </p>
             <a href="/development/archive" className="see-all-btn">View Full Archive</a>
           </div>
@@ -1039,8 +1039,8 @@
         <footer className="footer">
           <div className="footer-content">
             <div className="footer-brand">
-              <h3>ATL Vibes & Views</h3>
-              <p>Your comprehensive guide to Atlanta's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
+              <h3>The 407 Vibes</h3>
+              <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
               <div className="social-links">
                 <a href="https://www.instagram.com/atlvibesandviews/" className="social-link" target="_blank" rel="noopener noreferrer">IG</a>
                 <a href="#" className="social-link">FB</a>
@@ -1084,7 +1084,7 @@
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2026 ATL Vibes & Views. All rights reserved. |
+            <p>&copy; 2026 The 407 Vibes. All rights reserved. |
               <a href="terms.html">Terms</a> |
               <a href="privacy.html">Privacy</a> |
               <a href="cookies.html">Cookies</a>
@@ -1101,7 +1101,7 @@
           {/* Navigation */}
           <nav className="navbar">
             <a href="index.html" className="logo">
-              <span className="logo-main">ATL Vibes & Views</span>
+              <span className="logo-main">The 407 Vibes</span>
               <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
             </a>
             <ul className="nav-links">

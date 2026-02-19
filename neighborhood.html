@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neighborhood - ATL Vibes & Views</title>
-  <meta name="description" content="Explore this Atlanta neighborhood - local businesses, events, stories, and real estate.">
-  <link rel="canonical" href="https://atlvibesandviews.com/neighborhood.html">
+  <title>Neighborhood - The 407 Vibes</title>
+  <meta name="description" content="Explore this Orlando neighborhood - local businesses, events, stories, and real estate.">
+  <link rel="canonical" href="https://the-407-vibes.vercel.app/neighborhood.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://atlvibesandviews.com/neighborhood.html">
-  <meta property="og:title" content="Neighborhood - ATL Vibes & Views">
-  <meta property="og:description" content="Explore this Atlanta neighborhood - local businesses, events, stories, and real estate.">
-  <meta property="og:image" content="https://atlvibesandviews.com/atlanta-map.png">
-  <meta property="og:site_name" content="ATL Vibes & Views">
+  <meta property="og:url" content="https://the-407-vibes.vercel.app/neighborhood.html">
+  <meta property="og:title" content="Neighborhood - The 407 Vibes">
+  <meta property="og:description" content="Explore this Orlando neighborhood - local businesses, events, stories, and real estate.">
+  <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta property="og:site_name" content="The 407 Vibes">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Neighborhood - ATL Vibes & Views">
-  <meta name="twitter:description" content="Explore this Atlanta neighborhood.">
-  <meta name="twitter:image" content="https://atlvibesandviews.com/atlanta-map.png">
+  <meta name="twitter:title" content="Neighborhood - The 407 Vibes">
+  <meta name="twitter:description" content="Explore this Orlando neighborhood.">
+  <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -275,7 +275,7 @@
             setNeighborhood({ id: neighborhoodId, ...data });
 
             // Update page metadata
-            document.title = `${data.name} - ${data.areaName} | ATL Vibes & Views`;
+            document.title = `${data.name} - ${data.areaName} | The 407 Vibes`;
             document.querySelector('meta[name="description"]').content = data.description;
 
             // Get related neighborhoods
@@ -342,7 +342,7 @@
             <div className="not-found">
               <h1>Neighborhood Not Found</h1>
               <p>We couldn't find the neighborhood you're looking for.</p>
-              <a href="index.html">Back to Atlanta Map</a>
+              <a href="index.html">Back to Orlando Map</a>
             </div>
             <Footer />
           </>
@@ -541,7 +541,7 @@
       return (
         <nav className="navbar">
           <a href="index.html" className="logo">
-            <span className="logo-main">ATL Vibes & Views</span>
+            <span className="logo-main">The 407 Vibes</span>
             <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
           </a>
           <div className="navbar-search">
@@ -558,15 +558,15 @@
             <li className="nav-dropdown">
               <a href="#">Areas</a>
               <ul className="dropdown-menu">
-                <li><a href="buckhead.html">Buckhead</a></li>
-                <li><a href="midtown.html">Midtown</a></li>
-                <li><a href="downtown.html">Downtown</a></li>
-                <li><a href="eastside.html">Eastside</a></li>
-                <li><a href="westside.html">Westside</a></li>
-                <li><a href="southwest.html">Southwest Atlanta</a></li>
-                <li><a href="southeast.html">Southeast Atlanta</a></li>
-                <li><a href="south-atlanta.html">South Atlanta</a></li>
-                <li><a href="north-atlanta.html">North Atlanta</a></li>
+                <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                <li><a href="winter-park.html">Winter Park</a></li>
+                <li><a href="thornton-park.html">Thornton Park</a></li>
+                <li><a href="mills-50.html">Mills 50</a></li>
+                <li><a href="college-park.html">College Park</a></li>
+                <li><a href="lake-nona.html">Lake Nona Orlando</a></li>
+                <li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li>
+                <li><a href="baldwin-park.html">Baldwin Park</a></li>
+                <li><a href="ivanhoe-village.html">Ivanhoe Village</a></li>
               </ul>
             </li>
             <li><a href="development.html">Development</a></li>
@@ -585,31 +585,31 @@
           <div className="footer-grid">
             <div className="footer-brand">
               <div className="logo">
-                <span className="logo-main">ATL Vibes & Views</span>
+                <span className="logo-main">The 407 Vibes</span>
                 <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
               </div>
               <p>
-                Your guide to Atlanta's neighborhoods, culture, and lifestyle.
+                Your guide to Orlando's neighborhoods, culture, and lifestyle.
                 Discover local businesses, events, and real estate across the city.
               </p>
             </div>
             <div>
               <h4 className="footer-title">Areas</h4>
               <ul className="footer-links">
-                <li><a href="buckhead.html">Buckhead</a></li>
-                <li><a href="midtown.html">Midtown</a></li>
-                <li><a href="downtown.html">Downtown</a></li>
-                <li><a href="eastside.html">Eastside</a></li>
-                <li><a href="westside.html">Westside</a></li>
+                <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                <li><a href="winter-park.html">Winter Park</a></li>
+                <li><a href="thornton-park.html">Thornton Park</a></li>
+                <li><a href="mills-50.html">Mills 50</a></li>
+                <li><a href="college-park.html">College Park</a></li>
               </ul>
             </div>
             <div>
               <h4 className="footer-title">More Areas</h4>
               <ul className="footer-links">
-                <li><a href="southwest.html">Southwest Atlanta</a></li>
-                <li><a href="southeast.html">Southeast Atlanta</a></li>
-                <li><a href="south-atlanta.html">South Atlanta</a></li>
-                <li><a href="north-atlanta.html">North Atlanta</a></li>
+                <li><a href="lake-nona.html">Lake Nona Orlando</a></li>
+                <li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li>
+                <li><a href="baldwin-park.html">Baldwin Park</a></li>
+                <li><a href="ivanhoe-village.html">Ivanhoe Village</a></li>
               </ul>
             </div>
             <div>
@@ -623,7 +623,7 @@
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2026 ATL Vibes & Views. All rights reserved.</p>
+            <p>&copy; 2026 The 407 Vibes. All rights reserved.</p>
           </div>
         </footer>
       );

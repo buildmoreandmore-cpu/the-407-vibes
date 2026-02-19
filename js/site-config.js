@@ -1,8 +1,6 @@
 /**
- * Site Configuration — City-Agnostic Content Platform
- *
- * This single config file drives ALL city-specific content.
- * To deploy for a different city, change values here — no other files need editing.
+ * Site Configuration — The 407 Vibes
+ * Orlando City Media + Storytelling Platform
  */
 
 const SiteConfig = {
@@ -10,26 +8,26 @@ const SiteConfig = {
   // SITE IDENTITY
   // ============================================
   site: {
-    name: 'ATL Vibes & Views',
-    tagline: 'Culture Blog & Vlog Magazine',
-    domain: 'atlvibesandviews.com',
-    logoText: 'ATL Vibes & Views',
-    description: 'Your guide to Atlanta\'s neighborhoods, businesses, events, and culture.',
-    email: 'hello@atlvibesandviews.com'
+    name: 'The 407 Vibes',
+    tagline: 'Orlando Culture, Neighborhoods & City Intelligence',
+    domain: 'the-407-vibes.vercel.app',
+    logoText: 'The 407 Vibes',
+    description: 'Orlando\'s neighborhood guide, culture magazine, and city intelligence platform. Documenting the City Beautiful\'s growth, one story at a time.',
+    email: 'hello@the407vibes.com'
   },
 
   // ============================================
   // CITY CONFIGURATION
   // ============================================
   city: {
-    name: 'Atlanta',
-    nameShort: 'ATL',
-    state: 'Georgia',
-    stateCode: 'GA',
+    name: 'Orlando',
+    nameShort: '407',
+    state: 'Florida',
+    stateCode: 'FL',
     country: 'US',
-    coordinates: { lat: 33.749, lng: -84.388 },
+    coordinates: { lat: 28.5383, lng: -81.3792 },
     timezone: 'America/New_York',
-    metroArea: 'Metro Atlanta'
+    metroArea: 'Greater Orlando'
   },
 
   // ============================================
@@ -37,15 +35,15 @@ const SiteConfig = {
   // ============================================
   theme: {
     colors: {
-      primaryYellow: '#FFD95A',
-      primaryRed: '#DC3535',
-      accentRed: '#C62828',
-      secondaryYellow: '#FFF8E1',
-      textDark: '#1A1A2E',
+      primaryBlue: '#1B3A5C',
+      primaryOrange: '#E8713A',
+      accentTeal: '#2A9D8F',
+      secondaryWarm: '#FFF8F0',
+      textDark: '#0F1923',
       textLight: '#6B7280',
       borderColor: '#E5E7EB',
       bgLight: '#FAFAFA',
-      bgDark: '#1A1A2E',
+      bgDark: '#0F1923',
       success: '#10B981',
       warning: '#F59E0B',
       error: '#EF4444'
@@ -58,98 +56,108 @@ const SiteConfig = {
   },
 
   // ============================================
-  // AREAS (top-level city zones)
+  // AREAS (Orlando zones)
   // ============================================
   areas: [
     {
-      id: 'buckhead',
-      name: 'Buckhead',
-      slug: 'buckhead',
-      tagline: 'Uptown Luxury & Nightlife',
-      description: 'Atlanta\'s upscale district known for luxury shopping, fine dining, and vibrant nightlife.',
-      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
-      vibes: ['Luxury', 'Nightlife', 'Shopping', 'Dining'],
-      page: 'buckhead.html'
+      id: 'downtown-orlando',
+      name: 'Downtown Orlando',
+      slug: 'downtown-orlando',
+      tagline: 'The Heart of the City Beautiful',
+      description: 'Orlando\'s urban core — Lake Eola, Church Street, and the growing creative district where history meets high-rises.',
+      image: 'https://images.unsplash.com/photo-1575089776834-8be34c8a652f?w=1600',
+      vibes: ['Urban', 'Lakefront', 'Nightlife', 'Arts'],
+      page: 'downtown-orlando.html'
     },
     {
-      id: 'midtown',
-      name: 'Midtown',
-      slug: 'midtown',
-      tagline: 'Arts, Culture & Innovation',
-      description: 'The cultural heart of Atlanta with world-class museums, theaters, and a thriving tech scene.',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
-      vibes: ['Arts', 'Culture', 'Tech', 'Parks'],
-      page: 'midtown.html'
+      id: 'winter-park',
+      name: 'Winter Park',
+      slug: 'winter-park',
+      tagline: 'Old Florida Charm & Culture',
+      description: 'Tree-lined Park Avenue, Rollins College, world-class museums, and some of the best dining in Central Florida.',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600',
+      vibes: ['Charming', 'Culture', 'Dining', 'Historic'],
+      page: 'winter-park.html'
     },
     {
-      id: 'downtown',
-      name: 'Downtown',
-      slug: 'downtown',
-      tagline: 'History & Urban Energy',
-      description: 'The historic core where Atlanta\'s past meets its future in a dynamic urban landscape.',
-      image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600',
-      vibes: ['History', 'Sports', 'Urban', 'Transit'],
-      page: 'downtown.html'
+      id: 'thornton-park',
+      name: 'Thornton Park',
+      slug: 'thornton-park',
+      tagline: 'Walkable Urban Village',
+      description: 'Orlando\'s most walkable neighborhood — brick streets, local boutiques, wine bars, and Lake Eola views.',
+      image: 'https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee?w=1600',
+      vibes: ['Walkable', 'Boutique', 'Dining', 'Village'],
+      page: 'thornton-park.html'
     },
     {
-      id: 'eastside',
-      name: 'Eastside',
-      slug: 'eastside',
-      tagline: 'Creative & Eclectic',
-      description: 'A collection of creative neighborhoods with indie shops, street art, and diverse dining.',
+      id: 'mills-50',
+      name: 'Mills 50 / Milk District',
+      slug: 'mills-50',
+      tagline: 'Creative & Multicultural',
+      description: 'Orlando\'s vibrant Vietnamese food corridor meets indie arts scene. Murals, pho, craft beer, and community.',
       image: 'https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=1600',
-      vibes: ['Creative', 'Indie', 'Diverse', 'Walkable'],
-      page: 'eastside.html'
+      vibes: ['Multicultural', 'Food', 'Arts', 'Indie'],
+      page: 'mills-50.html'
     },
     {
-      id: 'westside',
-      name: 'Westside',
-      slug: 'westside',
-      tagline: 'Emerging & Authentic',
-      description: 'Rapidly evolving neighborhoods blending rich history with new development.',
-      image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1600',
-      vibes: ['Emerging', 'History', 'Food', 'Community'],
-      page: 'westside.html'
+      id: 'college-park',
+      name: 'College Park',
+      slug: 'college-park',
+      tagline: 'Historic Bungalows & Local Flavor',
+      description: 'One of Orlando\'s oldest neighborhoods with Craftsman bungalows, Edgewater Drive\'s local shops, and serious community pride.',
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600',
+      vibes: ['Historic', 'Walkable', 'Community', 'Local'],
+      page: 'college-park.html'
     },
     {
-      id: 'southwest',
-      name: 'Southwest',
-      slug: 'southwest',
-      tagline: 'Heritage & Community',
-      description: 'Established communities with deep roots and growing cultural attractions.',
-      image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?w=1600',
-      vibes: ['Heritage', 'Family', 'Community', 'Parks'],
-      page: 'southwest.html'
+      id: 'lake-nona',
+      name: 'Lake Nona',
+      slug: 'lake-nona',
+      tagline: 'Innovation & Modern Living',
+      description: 'Orlando\'s planned community of the future — Medical City, smart home tech, and the USTA National Campus.',
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600',
+      vibes: ['Innovation', 'Health', 'Modern', 'Sports'],
+      page: 'lake-nona.html'
     },
     {
-      id: 'southeast',
-      name: 'Southeast',
-      slug: 'southeast',
-      tagline: 'Growth & Opportunity',
-      description: 'Areas of tremendous growth with new retail, dining, and entertainment options.',
-      image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600',
-      vibes: ['Growth', 'Affordable', 'Nature', 'Family'],
-      page: 'southeast.html'
+      id: 'dr-phillips',
+      name: 'Dr. Phillips',
+      slug: 'dr-phillips',
+      tagline: 'Restaurant Row & Family Living',
+      description: 'Orlando\'s culinary epicenter on Sand Lake Road, plus top-rated schools and the Dr. Phillips Center for the Performing Arts.',
+      image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600',
+      vibes: ['Dining', 'Family', 'Entertainment', 'Suburban'],
+      page: 'dr-phillips.html'
     },
     {
-      id: 'south-atlanta',
-      name: 'South Atlanta',
-      slug: 'south-atlanta',
-      tagline: 'Revival & Culture',
-      description: 'Historic neighborhoods experiencing a cultural and economic renaissance.',
-      image: 'https://images.unsplash.com/photo-1524813686514-a57563d77965?w=1600',
-      vibes: ['Revival', 'Culture', 'History', 'Affordable'],
-      page: 'south-atlanta.html'
-    },
-    {
-      id: 'north-atlanta',
-      name: 'North Atlanta',
-      slug: 'north-atlanta',
-      tagline: 'Suburban & Connected',
-      description: 'Suburban communities with urban amenities, top schools, and diverse dining.',
+      id: 'baldwin-park',
+      name: 'Baldwin Park',
+      slug: 'baldwin-park',
+      tagline: 'New Urbanism Done Right',
+      description: 'A master-planned community built on the former Naval Training Center — walkable streets, village center, and lakefront living.',
       image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600',
-      vibes: ['Suburban', 'Schools', 'Dining', 'Parks'],
-      page: 'north-atlanta.html'
+      vibes: ['New Urbanism', 'Walkable', 'Lakefront', 'Family'],
+      page: 'baldwin-park.html'
+    },
+    {
+      id: 'ivanhoe-village',
+      name: 'Ivanhoe Village',
+      slug: 'ivanhoe-village',
+      tagline: 'Antiques, Art & Lakeside Living',
+      description: 'Orlando\'s antique row meets emerging arts district along the shores of Lake Ivanhoe. Eclectic, creative, and growing.',
+      image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1600',
+      vibes: ['Eclectic', 'Arts', 'Antiques', 'Lakefront'],
+      page: 'ivanhoe-village.html'
+    },
+    {
+      id: 'audubon-park',
+      name: 'Audubon Park',
+      slug: 'audubon-park',
+      tagline: 'Garden District Vibes',
+      description: 'Orlando\'s garden district — community market, local coffee, East End Market, and tree-canopied streets full of character.',
+      image: 'https://images.unsplash.com/photo-1470058869958-2a77ade41c02?w=1600',
+      vibes: ['Garden', 'Market', 'Community', 'Walkable'],
+      page: 'audubon-park.html'
     }
   ],
 
@@ -202,8 +210,8 @@ const SiteConfig = {
   // SUPABASE
   // ============================================
   supabase: {
-    url: '', // Set via environment or manually
-    anonKey: '' // Set via environment or manually
+    url: 'https://ottaaklorclfbzztpsrm.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90dGFha2xvcmNsZmJ6enRwc3JtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0NjQyMzIsImV4cCI6MjA4NzA0MDIzMn0.qLff-CNx8KDjhvPzhS_m-KkGAfF0qQCFd768Co83AG4'
   },
 
   // ============================================

@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buckhead - ATL Vibes & Views | Atlanta's Upscale District</title>
-  <meta name="description" content="Explore Buckhead, Atlanta's upscale district known for luxury shopping, fine dining, and vibrant nightlife. Discover neighborhoods, businesses, events, and real estate.">
-  <link rel="canonical" href="https://atlvibesandviews.com/buckhead.html">
+  <title>Thornton Park Orlando - The 407 Vibes | Orlando's Upscale District</title>
+  <meta name="description" content="Explore Thornton Park Orlando, Orlando's upscale district known for luxury shopping, fine dining, and vibrant nightlife. Discover neighborhoods, businesses, events, and real estate.">
+  <link rel="canonical" href="https://the-407-vibes.vercel.app/downtown-orlando.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://atlvibesandviews.com/buckhead.html">
-  <meta property="og:title" content="Buckhead - Atlanta's Upscale District | ATL Vibes & Views">
-  <meta property="og:description" content="Explore Buckhead, Atlanta's upscale district known for luxury shopping, fine dining, and vibrant nightlife. Discover neighborhoods, businesses, events, and real estate.">
-  <meta property="og:image" content="https://atlvibesandviews.com/atlanta-map.png">
-  <meta property="og:site_name" content="ATL Vibes & Views">
+  <meta property="og:url" content="https://the-407-vibes.vercel.app/downtown-orlando.html">
+  <meta property="og:title" content="Thornton Park Orlando - Orlando's Upscale District | The 407 Vibes">
+  <meta property="og:description" content="Explore Thornton Park Orlando, Orlando's upscale district known for luxury shopping, fine dining, and vibrant nightlife. Discover neighborhoods, businesses, events, and real estate.">
+  <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta property="og:site_name" content="The 407 Vibes">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Buckhead - Atlanta's Upscale District | ATL Vibes & Views">
-  <meta name="twitter:description" content="Explore Buckhead, Atlanta's upscale district known for luxury shopping, fine dining, and vibrant nightlife.">
-  <meta name="twitter:image" content="https://atlvibesandviews.com/atlanta-map.png">
+  <meta name="twitter:title" content="Thornton Park Orlando - Orlando's Upscale District | The 407 Vibes">
+  <meta name="twitter:description" content="Explore Thornton Park Orlando, Orlando's upscale district known for luxury shopping, fine dining, and vibrant nightlife.">
+  <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -1058,9 +1058,9 @@
 
     // Area Data
     const areaData = {
-      id: 'buckhead',
-      name: 'Buckhead',
-      tagline: "Atlanta's upscale district where luxury shopping meets vibrant nightlife",
+      id: 'downtown-orlando',
+      name: 'Thornton Park Orlando',
+      tagline: "Orlando's upscale district where luxury shopping meets vibrant nightlife",
       image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
       vibes: ['Upscale', 'Shopping', 'Nightlife', 'Fine Dining'],
       stats: {
@@ -1073,26 +1073,26 @@
     // Neighborhoods grouped by sub-area
     const neighborhoodGroups = [
       {
-        id: 'central-buckhead',
-        name: 'Central Buckhead',
+        id: 'central-downtown-orlando',
+        name: 'Central Thornton Park Orlando',
         description: 'Shopping, dining & entertainment hub',
         neighborhoods: [
-          { id: 'buckhead-village', name: 'Buckhead Village' },
+          { id: 'downtown-orlando-village', name: 'Thornton Park Orlando Village' },
           { id: 'lenox', name: 'Lenox' },
-          { id: 'peachtree-battle', name: 'Peachtree Battle' },
+          { id: 'orange-ave-battle', name: 'Orange Ave Battle' },
           { id: 'garden-hills', name: 'Garden Hills' },
-          { id: 'peachtree-hills', name: 'Peachtree Hills' },
+          { id: 'orange-ave-hills', name: 'Orange Ave Hills' },
           { id: 'brookwood', name: 'Brookwood' },
           { id: 'brookwood-hills', name: 'Brookwood Hills' }
         ]
       },
       {
-        id: 'north-buckhead',
-        name: 'North Buckhead',
+        id: 'north-downtown-orlando',
+        name: 'North Thornton Park Orlando',
         description: 'Parks, family neighborhoods & nature',
         neighborhoods: [
           { id: 'chastain-park', name: 'Chastain Park' },
-          { id: 'north-buckhead-area', name: 'North Buckhead' },
+          { id: 'north-downtown-orlando-area', name: 'North Thornton Park Orlando' },
           { id: 'kingswood', name: 'Kingswood' },
           { id: 'castlewood', name: 'Castlewood' },
           { id: 'pine-hills', name: 'Pine Hills' },
@@ -1101,8 +1101,8 @@
         ]
       },
       {
-        id: 'west-buckhead',
-        name: 'West Buckhead',
+        id: 'west-downtown-orlando',
+        name: 'West Thornton Park Orlando',
         description: 'Historic estates & luxury living',
         neighborhoods: [
           { id: 'tuxedo-park', name: 'Tuxedo Park' },
@@ -1114,12 +1114,12 @@
         ]
       },
       {
-        id: 'east-buckhead',
-        name: 'East Buckhead',
+        id: 'east-downtown-orlando',
+        name: 'East Thornton Park Orlando',
         description: 'Historic homes & tree-lined streets',
         neighborhoods: [
-          { id: 'peachtree-heights-east', name: 'Peachtree Heights East' },
-          { id: 'peachtree-heights-west', name: 'Peachtree Heights West' },
+          { id: 'orange-ave-heights-east', name: 'Orange Ave Heights East' },
+          { id: 'orange-ave-heights-west', name: 'Orange Ave Heights West' },
           { id: 'haynes-manor', name: 'Haynes Manor' },
           { id: 'brandon', name: 'Brandon' },
           { id: 'lindridge-martin-manor', name: 'Lindridge/Martin Manor' },
@@ -1127,8 +1127,8 @@
         ]
       },
       {
-        id: 'south-buckhead',
-        name: 'South Buckhead',
+        id: 'south-downtown-orlando',
+        name: 'South Thornton Park Orlando',
         description: 'Near Piedmont & Bobby Jones Golf',
         neighborhoods: [
           { id: 'collier-hills', name: 'Collier Hills' },
@@ -1147,9 +1147,9 @@
         id: 1,
         name: 'Bones Restaurant',
         category: 'Fine Dining',
-        description: 'Atlanta\'s premier steakhouse serving prime cuts since 1979.',
+        description: 'Orlando\'s premier steakhouse serving prime cuts since 1979.',
         image: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800',
-        neighborhood: 'Buckhead Village',
+        neighborhood: 'Thornton Park Orlando Village',
         featured: true
       },
       {
@@ -1185,12 +1185,12 @@
     const demoEvents = [
       {
         id: 1,
-        title: 'Buckhead Art & Wine Festival',
+        title: 'Thornton Park Orlando Art & Wine Festival',
         category: 'Festival',
         description: 'Annual celebration of art, wine, and local cuisine.',
         image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
         date: 'March 15-17, 2026',
-        location: 'Buckhead Village',
+        location: 'Thornton Park Orlando Village',
         featured: true
       },
       {
@@ -1232,7 +1232,7 @@
       {
         id: 3,
         price: '$525,000',
-        address: '123 Peachtree Rd NE #1502',
+        address: '123 Orange Ave Rd NE #1502',
         neighborhood: 'Lenox',
         beds: 2,
         baths: 2,
@@ -1250,7 +1250,7 @@
       const [events, setEvents] = useState(demoEvents);
       const [loading, setLoading] = useState(true);
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
-      const [expandedSections, setExpandedSections] = useState(['central-buckhead']);
+      const [expandedSections, setExpandedSections] = useState(['central-downtown-orlando']);
 
       const toggleSection = (sectionId) => {
         setExpandedSections(prev =>
@@ -1338,7 +1338,7 @@
           {/* Navigation */}
           <nav className="navbar">
             <a href="index.html" className="logo">
-              <span className="logo-main">ATL Vibes & Views</span>
+              <span className="logo-main">The 407 Vibes</span>
               <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
             </a>
             <div className="navbar-search">
@@ -1355,15 +1355,15 @@
               <li className="nav-dropdown">
                 <a href="#">Areas</a>
                 <ul className="dropdown-menu">
-                  <li><a href="buckhead.html">Buckhead</a></li>
-                  <li><a href="midtown.html">Midtown</a></li>
-                  <li><a href="downtown.html">Downtown</a></li>
-                  <li><a href="eastside.html">Eastside</a></li>
-                  <li><a href="westside.html">Westside</a></li>
-                  <li><a href="southwest.html">Southwest Atlanta</a></li>
-                  <li><a href="southeast.html">Southeast Atlanta</a></li>
-                  <li><a href="south-atlanta.html">South Atlanta</a></li>
-                  <li><a href="north-atlanta.html">North Atlanta</a></li>
+                  <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                  <li><a href="winter-park.html">Winter Park</a></li>
+                  <li><a href="thornton-park.html">Thornton Park</a></li>
+                  <li><a href="mills-50.html">Mills 50</a></li>
+                  <li><a href="college-park.html">College Park</a></li>
+                  <li><a href="lake-nona.html">Lake Nona Orlando</a></li>
+                  <li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li>
+                  <li><a href="baldwin-park.html">Baldwin Park</a></li>
+                  <li><a href="ivanhoe-village.html">Ivanhoe Village</a></li>
                 </ul>
               </li>
               <li><a href="development.html">Development</a></li>
@@ -1379,7 +1379,7 @@
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <a href="index.html" className="area-back-link">
-                <span>&larr;</span> Back to Atlanta
+                <span>&larr;</span> Back to Orlando
               </a>
               <h1 className="area-hero-title">{areaData.name}</h1>
               <p className="area-hero-tagline">{areaData.tagline}</p>
@@ -1584,31 +1584,31 @@
             <div className="footer-grid">
               <div className="footer-brand">
                 <div className="logo">
-                  <span className="logo-main">ATL Vibes & Views</span>
+                  <span className="logo-main">The 407 Vibes</span>
                   <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
                 </div>
                 <p>
-                  Your guide to Atlanta's neighborhoods, culture, and lifestyle.
+                  Your guide to Orlando's neighborhoods, culture, and lifestyle.
                   Discover local businesses, events, and real estate across the city.
                 </p>
               </div>
               <div>
                 <h4 className="footer-title">Areas</h4>
                 <ul className="footer-links">
-                  <li><a href="buckhead.html">Buckhead</a></li>
-                  <li><a href="midtown.html">Midtown</a></li>
-                  <li><a href="downtown.html">Downtown</a></li>
-                  <li><a href="eastside.html">Eastside</a></li>
-                  <li><a href="westside.html">Westside</a></li>
+                  <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                  <li><a href="winter-park.html">Winter Park</a></li>
+                  <li><a href="thornton-park.html">Thornton Park</a></li>
+                  <li><a href="mills-50.html">Mills 50</a></li>
+                  <li><a href="college-park.html">College Park</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="footer-title">More Areas</h4>
                 <ul className="footer-links">
-                  <li><a href="southwest.html">Southwest Atlanta</a></li>
-                  <li><a href="southeast.html">Southeast Atlanta</a></li>
-                  <li><a href="south-atlanta.html">South Atlanta</a></li>
-                  <li><a href="north-atlanta.html">North Atlanta</a></li>
+                  <li><a href="lake-nona.html">Lake Nona Orlando</a></li>
+                  <li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li>
+                  <li><a href="baldwin-park.html">Baldwin Park</a></li>
+                  <li><a href="ivanhoe-village.html">Ivanhoe Village</a></li>
                 </ul>
               </div>
               <div>
@@ -1622,7 +1622,7 @@
               </div>
             </div>
             <div className="footer-bottom">
-              <p>&copy; 2026 ATL Vibes & Views. All rights reserved.</p>
+              <p>&copy; 2026 The 407 Vibes. All rights reserved.</p>
             </div>
           </footer>
         </>
@@ -1639,11 +1639,11 @@
   {
     "@context": "https://schema.org",
     "@type": "Place",
-    "name": "Buckhead, Atlanta",
-    "description": "Atlanta's upscale district known for luxury shopping at Lenox Square and Phipps Plaza, high-end dining, and vibrant nightlife.",
+    "name": "Thornton Park Orlando, Orlando",
+    "description": "Orlando's upscale district known for luxury shopping at Lenox Square and Phipps Plaza, high-end dining, and vibrant nightlife.",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Buckhead",
+      "addressLocality": "Thornton Park Orlando",
       "addressRegion": "GA",
       "addressCountry": "US"
     },

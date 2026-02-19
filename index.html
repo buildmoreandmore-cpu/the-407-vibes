@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATL Vibes & Views - Atlanta's Neighborhood & Culture Magazine</title>
-  <meta name="description" content="Discover Atlanta's vibrant neighborhoods, local businesses, events, and real estate. Your guide to Buckhead, Midtown, Downtown, and all of Atlanta's unique communities.">
-  <link rel="canonical" href="https://atlvibesandviews.com/">
+  <title>The 407 Vibes - Orlando's Neighborhood & Culture Magazine</title>
+  <meta name="description" content="Discover Orlando's vibrant neighborhoods, local businesses, events, and real estate. Your guide to Thornton Park Orlando, Winter Park, Thornton Park, and all of Orlando's unique communities.">
+  <link rel="canonical" href="https://the-407-vibes.vercel.app/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://atlvibesandviews.com/">
-  <meta property="og:title" content="ATL Vibes & Views - Atlanta's Neighborhood & Culture Magazine">
-  <meta property="og:description" content="Discover Atlanta's vibrant neighborhoods, local businesses, events, and real estate. Your guide to Buckhead, Midtown, Downtown, and all of Atlanta's unique communities.">
-  <meta property="og:image" content="https://atlvibesandviews.com/atlanta-map.png">
-  <meta property="og:site_name" content="ATL Vibes & Views">
+  <meta property="og:url" content="https://the-407-vibes.vercel.app/">
+  <meta property="og:title" content="The 407 Vibes - Orlando's Neighborhood & Culture Magazine">
+  <meta property="og:description" content="Discover Orlando's vibrant neighborhoods, local businesses, events, and real estate. Your guide to Thornton Park Orlando, Winter Park, Thornton Park, and all of Orlando's unique communities.">
+  <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta property="og:site_name" content="The 407 Vibes">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://atlvibesandviews.com/">
-  <meta name="twitter:title" content="ATL Vibes & Views - Atlanta's Neighborhood & Culture Magazine">
-  <meta name="twitter:description" content="Discover Atlanta's vibrant neighborhoods, local businesses, events, and real estate. Your guide to Buckhead, Midtown, Downtown, and all of Atlanta's unique communities.">
-  <meta name="twitter:image" content="https://atlvibesandviews.com/atlanta-map.png">
+  <meta name="twitter:url" content="https://the-407-vibes.vercel.app/">
+  <meta name="twitter:title" content="The 407 Vibes - Orlando's Neighborhood & Culture Magazine">
+  <meta name="twitter:description" content="Discover Orlando's vibrant neighborhoods, local businesses, events, and real estate. Your guide to Thornton Park Orlando, Winter Park, Thornton Park, and all of Orlando's unique communities.">
+  <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
 
   <!-- Additional SEO -->
   <meta name="robots" content="index, follow">
-  <meta name="author" content="ATL Vibes & Views">
-  <meta name="geo.region" content="US-GA">
-  <meta name="geo.placename" content="Atlanta">
+  <meta name="author" content="The 407 Vibes">
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -6086,72 +6086,72 @@
     // Demo neighborhoods data (243 total - sample set for demo)
     // In production, this comes from Supabase: supabase.from('neighborhoods').select('*').eq('area', areaId)
     const demoNeighborhoods = {
-      buckhead: [
-        { id: 'bh1', name: 'Buckhead Village', area: 'buckhead', description: 'Upscale shopping and dining district', image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800', vibes: ['Upscale', 'Shopping', 'Nightlife'], featuredPostId: null },
-        { id: 'bh2', name: 'Chastain Park', area: 'buckhead', description: 'Family-friendly area with amphitheater', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Family-Friendly', 'Parks', 'Music Venue'], featuredPostId: null },
-        { id: 'bh3', name: 'Garden Hills', area: 'buckhead', description: 'Historic residential neighborhood', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Residential', 'Quiet'], featuredPostId: null },
-        { id: 'bh4', name: 'Peachtree Hills', area: 'buckhead', description: 'Quiet streets near Piedmont', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Quiet', 'Residential', 'Walkable'], featuredPostId: null },
-        { id: 'bh5', name: 'Tuxedo Park', area: 'buckhead', description: 'Prestigious historic estates', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800', vibes: ['Luxury', 'Historic', 'Estates'], featuredPostId: null },
-        { id: 'bh6', name: 'Paces', area: 'buckhead', description: 'Luxury homes and golf courses', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', vibes: ['Luxury', 'Golf', 'Exclusive'], featuredPostId: null },
-        { id: 'bh7', name: 'Peachtree Battle', area: 'buckhead', description: 'Tree-lined streets, classic homes', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', vibes: ['Classic', 'Tree-Lined', 'Residential'], featuredPostId: null },
-        { id: 'bh8', name: 'Lenox', area: 'buckhead', description: 'High-rises near Lenox Square', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Urban', 'Shopping', 'High-Rise'], featuredPostId: null }
+      downtown-orlando: [
+        { id: 'bh1', name: 'Thornton Park Orlando Village', area: 'downtown-orlando', description: 'Upscale shopping and dining district', image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800', vibes: ['Upscale', 'Shopping', 'Nightlife'], featuredPostId: null },
+        { id: 'bh2', name: 'Chastain Park', area: 'downtown-orlando', description: 'Family-friendly area with amphitheater', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Family-Friendly', 'Parks', 'Music Venue'], featuredPostId: null },
+        { id: 'bh3', name: 'Garden Hills', area: 'downtown-orlando', description: 'Historic residential neighborhood', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Residential', 'Quiet'], featuredPostId: null },
+        { id: 'bh4', name: 'Orange Ave Hills', area: 'downtown-orlando', description: 'Quiet streets near Piedmont', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Quiet', 'Residential', 'Walkable'], featuredPostId: null },
+        { id: 'bh5', name: 'Tuxedo Park', area: 'downtown-orlando', description: 'Prestigious historic estates', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800', vibes: ['Luxury', 'Historic', 'Estates'], featuredPostId: null },
+        { id: 'bh6', name: 'Paces', area: 'downtown-orlando', description: 'Luxury homes and golf courses', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', vibes: ['Luxury', 'Golf', 'Exclusive'], featuredPostId: null },
+        { id: 'bh7', name: 'Orange Ave Battle', area: 'downtown-orlando', description: 'Tree-lined streets, classic homes', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', vibes: ['Classic', 'Tree-Lined', 'Residential'], featuredPostId: null },
+        { id: 'bh8', name: 'Lenox', area: 'downtown-orlando', description: 'High-rises near Lenox Square', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Urban', 'Shopping', 'High-Rise'], featuredPostId: null }
       ],
-      midtown: [
-        { id: 'mt1', name: 'Midtown Core', area: 'midtown', description: 'Arts district and Piedmont Park', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Arts District', 'Parks', 'Walkable'], featuredPostId: null },
-        { id: 'mt2', name: 'Ansley Park', area: 'midtown', description: 'Historic neighborhood, winding streets', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Charming', 'Tree-Lined'], featuredPostId: null },
-        { id: 'mt3', name: 'Piedmont Heights', area: 'midtown', description: 'Near Piedmont Hospital', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Residential', 'Convenient', 'Quiet'], featuredPostId: null },
-        { id: 'mt4', name: 'Sherwood Forest', area: 'midtown', description: 'Quiet residential enclave', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Quiet', 'Residential', 'Secluded'], featuredPostId: null },
-        { id: 'mt5', name: 'Atlantic Station', area: 'midtown', description: 'Mixed-use urban development', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Urban', 'Shopping', 'Entertainment'], featuredPostId: null },
-        { id: 'mt6', name: 'Loring Heights', area: 'midtown', description: 'Bungalows near I-75', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Bungalows', 'Affordable', 'Convenient'], featuredPostId: null },
-        { id: 'mt7', name: 'Home Park', area: 'midtown', description: 'Near Georgia Tech', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800', vibes: ['Student-Friendly', 'Affordable', 'Eclectic'], featuredPostId: null }
+      winter-park: [
+        { id: 'mt1', name: 'Winter Park Core', area: 'winter-park', description: 'Arts district and Piedmont Park', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Arts District', 'Parks', 'Walkable'], featuredPostId: null },
+        { id: 'mt2', name: 'Lake Eola Heights', area: 'winter-park', description: 'Historic neighborhood, winding streets', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Charming', 'Tree-Lined'], featuredPostId: null },
+        { id: 'mt3', name: 'Piedmont Heights', area: 'winter-park', description: 'Near Piedmont Hospital', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Residential', 'Convenient', 'Quiet'], featuredPostId: null },
+        { id: 'mt4', name: 'Sherwood Forest', area: 'winter-park', description: 'Quiet residential enclave', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Quiet', 'Residential', 'Secluded'], featuredPostId: null },
+        { id: 'mt5', name: 'Atlantic Station', area: 'winter-park', description: 'Mixed-use urban development', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Urban', 'Shopping', 'Entertainment'], featuredPostId: null },
+        { id: 'mt6', name: 'Loring Heights', area: 'winter-park', description: 'Bungalows near I-75', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Bungalows', 'Affordable', 'Convenient'], featuredPostId: null },
+        { id: 'mt7', name: 'Home Park', area: 'winter-park', description: 'Near Florida Tech', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800', vibes: ['Student-Friendly', 'Affordable', 'Eclectic'], featuredPostId: null }
       ],
       downtown: [
         { id: 'dt1', name: 'Centennial Hill', area: 'downtown', description: 'Near Centennial Olympic Park', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Tourist', 'Attractions', 'Urban'], featuredPostId: null },
         { id: 'dt2', name: 'Fairlie-Poplar', area: 'downtown', description: 'Historic commercial district', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Historic', 'Business', 'Architecture'], featuredPostId: null },
-        { id: 'dt3', name: 'South Downtown', area: 'downtown', description: 'Emerging arts and culture hub', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', vibes: ['Emerging', 'Arts', 'Culture'], featuredPostId: null },
-        { id: 'dt4', name: 'Sweet Auburn', area: 'downtown', description: 'Historic MLK district', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Historic', 'Cultural Heritage', 'Soul Food'], featuredPostId: null },
+        { id: 'dt3', name: 'South Thornton Park', area: 'downtown', description: 'Emerging arts and culture hub', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', vibes: ['Emerging', 'Arts', 'Culture'], featuredPostId: null },
+        { id: 'dt4', name: 'Parramore', area: 'downtown', description: 'Historic MLK district', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Historic', 'Cultural Heritage', 'Soul Food'], featuredPostId: null },
         { id: 'dt5', name: 'Castleberry Hill', area: 'downtown', description: 'Lofts and art galleries', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', vibes: ['Arts', 'Lofts', 'Galleries'], featuredPostId: null },
-        { id: 'dt6', name: 'Five Points', area: 'downtown', description: 'MARTA hub, urban core', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Transit Hub', 'Urban', 'Business'], featuredPostId: null }
+        { id: 'dt6', name: 'Church Street', area: 'downtown', description: 'SunRail hub, urban core', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800', vibes: ['Transit Hub', 'Urban', 'Business'], featuredPostId: null }
       ],
       oldFourthWard: [
-        { id: 'o4w1', name: 'Old Fourth Ward', area: 'oldFourthWard', description: 'BeltLine, Ponce City Market', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['BeltLine', 'Trendy', 'Food Scene'], featuredPostId: null },
+        { id: 'o4w1', name: 'Thornton Park', area: 'oldFourthWard', description: 'Orlando Trail, East End Market', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Orlando Trail', 'Trendy', 'Food Scene'], featuredPostId: null },
         { id: 'o4w2', name: 'Bedford Pine', area: 'oldFourthWard', description: 'Near Freedom Park', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Parks', 'Residential', 'Quiet'], featuredPostId: null },
         { id: 'o4w3', name: 'Boulevard Heights', area: 'oldFourthWard', description: 'Historic residential area', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Historic', 'Residential', 'Affordable'], featuredPostId: null },
         { id: 'o4w4', name: 'Poncey-Highland', area: 'oldFourthWard', description: 'Eclectic, near L5P', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Eclectic', 'Nightlife', 'Creative'], featuredPostId: null }
       ],
       virginiaHighland: [
-        { id: 'vh1', name: 'Virginia-Highland', area: 'virginiaHighland', description: 'Walkable village, boutiques', image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800', vibes: ['Walkable', 'Boutiques', 'Brunch'], featuredPostId: null },
+        { id: 'vh1', name: 'Thornton Park', area: 'virginiaHighland', description: 'Walkable village, boutiques', image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800', vibes: ['Walkable', 'Boutiques', 'Brunch'], featuredPostId: null },
         { id: 'vh2', name: 'Morningside', area: 'virginiaHighland', description: 'Family-friendly, great schools', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Family-Friendly', 'Schools', 'Parks'], featuredPostId: null },
         { id: 'vh3', name: 'Druid Hills', area: 'virginiaHighland', description: 'Historic Olmsted parks', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', vibes: ['Historic', 'Parks', 'Mansions'], featuredPostId: null },
         { id: 'vh4', name: 'Lenox Park', area: 'virginiaHighland', description: 'Near Emory', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Convenient', 'Residential', 'Quiet'], featuredPostId: null },
         { id: 'vh5', name: 'North Druid Hills', area: 'virginiaHighland', description: 'Residential, near CDC', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Residential', 'Suburban', 'Convenient'], featuredPostId: null }
       ],
       inmanPark: [
-        { id: 'ip1', name: 'Inman Park', area: 'inmanPark', description: 'Victorian homes, BeltLine', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Victorian', 'BeltLine', 'Historic'], featuredPostId: null },
-        { id: 'ip2', name: 'Little Five Points', area: 'inmanPark', description: 'Alternative culture hub', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Alternative', 'Indie', 'Vintage'], featuredPostId: null },
-        { id: 'ip3', name: 'Reynoldstown', area: 'inmanPark', description: 'Historic, near BeltLine', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'BeltLine', 'Emerging'], featuredPostId: null },
-        { id: 'ip4', name: 'Cabbagetown', area: 'inmanPark', description: 'Mill village, murals', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', vibes: ['Murals', 'Historic', 'Artsy'], featuredPostId: null },
-        { id: 'ip5', name: 'Candler Park', area: 'inmanPark', description: 'Golf course, pool, festivals', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Parks', 'Festivals', 'Family-Friendly'], featuredPostId: null }
+        { id: 'ip1', name: 'Ivanhoe Village', area: 'inmanPark', description: 'Victorian homes, Orlando Trail', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Victorian', 'Orlando Trail', 'Historic'], featuredPostId: null },
+        { id: 'ip2', name: 'Little Church Street', area: 'inmanPark', description: 'Alternative culture hub', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Alternative', 'Indie', 'Vintage'], featuredPostId: null },
+        { id: 'ip3', name: 'Audubon Park', area: 'inmanPark', description: 'Historic, near Orlando Trail', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Orlando Trail', 'Emerging'], featuredPostId: null },
+        { id: 'ip4', name: 'Milk District', area: 'inmanPark', description: 'Mill village, murals', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', vibes: ['Murals', 'Historic', 'Artsy'], featuredPostId: null },
+        { id: 'ip5', name: 'College Park', area: 'inmanPark', description: 'Golf course, pool, festivals', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Parks', 'Festivals', 'Family-Friendly'], featuredPostId: null }
       ],
-      westMidtown: [
-        { id: 'wm1', name: 'West Midtown', area: 'westMidtown', description: 'Restaurants, galleries', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Restaurants', 'Galleries', 'Trendy'], featuredPostId: null },
-        { id: 'wm2', name: 'Westside Provisions', area: 'westMidtown', description: 'Shopping and dining', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Shopping', 'Dining', 'Upscale'], featuredPostId: null },
-        { id: 'wm3', name: 'Berkeley Park', area: 'westMidtown', description: 'Near Topgolf', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800', vibes: ['Entertainment', 'Residential', 'Convenient'], featuredPostId: null },
-        { id: 'wm4', name: 'Blandtown', area: 'westMidtown', description: 'Industrial to residential', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Industrial', 'Emerging', 'Lofts'], featuredPostId: null },
-        { id: 'wm5', name: 'Marietta Street Artery', area: 'westMidtown', description: 'Creative corridor', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', vibes: ['Creative', 'Studios', 'Nightlife'], featuredPostId: null },
-        { id: 'wm6', name: 'English Avenue', area: 'westMidtown', description: 'Historic, revitalizing', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Historic', 'Revitalizing', 'Community'], featuredPostId: null },
-        { id: 'wm7', name: 'Vine City', area: 'westMidtown', description: 'Near Mercedes-Benz Stadium', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Sports', 'Events', 'Revitalizing'], featuredPostId: null }
+      westWinter Park: [
+        { id: 'wm1', name: 'West Winter Park', area: 'westWinter Park', description: 'Restaurants, galleries', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', vibes: ['Restaurants', 'Galleries', 'Trendy'], featuredPostId: null },
+        { id: 'wm2', name: 'College Park Provisions', area: 'westWinter Park', description: 'Shopping and dining', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Shopping', 'Dining', 'Upscale'], featuredPostId: null },
+        { id: 'wm3', name: 'Berkeley Park', area: 'westWinter Park', description: 'Near Topgolf', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800', vibes: ['Entertainment', 'Residential', 'Convenient'], featuredPostId: null },
+        { id: 'wm4', name: 'Blandtown', area: 'westWinter Park', description: 'Industrial to residential', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800', vibes: ['Industrial', 'Emerging', 'Lofts'], featuredPostId: null },
+        { id: 'wm5', name: 'Marietta Street Artery', area: 'westWinter Park', description: 'Creative corridor', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', vibes: ['Creative', 'Studios', 'Nightlife'], featuredPostId: null },
+        { id: 'wm6', name: 'English Avenue', area: 'westWinter Park', description: 'Historic, revitalizing', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Historic', 'Revitalizing', 'Community'], featuredPostId: null },
+        { id: 'wm7', name: 'Creative Village', area: 'westWinter Park', description: 'Near Mercedes-Benz Stadium', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Sports', 'Events', 'Revitalizing'], featuredPostId: null }
       ],
-      eastAtlanta: [
-        { id: 'ea1', name: 'East Atlanta Village', area: 'eastAtlanta', description: 'Live music, dive bars', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Live Music', 'Dive Bars', 'Eclectic'], featuredPostId: null },
-        { id: 'ea2', name: 'Ormewood Park', area: 'eastAtlanta', description: 'Bungalows, family-friendly', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Bungalows', 'Family-Friendly', 'Quiet'], featuredPostId: null },
-        { id: 'ea3', name: 'East Lake', area: 'eastAtlanta', description: 'Golf club, revitalized', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Golf', 'Revitalized', 'Community'], featuredPostId: null },
-        { id: 'ea4', name: 'Kirkwood', area: 'eastAtlanta', description: 'Historic, diverse', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Historic', 'Diverse', 'Community'], featuredPostId: null },
-        { id: 'ea5', name: 'Edgewood', area: 'eastAtlanta', description: 'Nightlife corridor', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800', vibes: ['Nightlife', 'Bars', 'Young Professionals'], featuredPostId: null },
-        { id: 'ea6', name: 'Oakhurst', area: 'eastAtlanta', description: 'Near Decatur', image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800', vibes: ['Walkable', 'Restaurants', 'Hip'], featuredPostId: null }
+      eastOrlando: [
+        { id: 'ea1', name: 'East Orlando Village', area: 'eastOrlando', description: 'Live music, dive bars', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', vibes: ['Live Music', 'Dive Bars', 'Eclectic'], featuredPostId: null },
+        { id: 'ea2', name: 'Ormewood Park', area: 'eastOrlando', description: 'Bungalows, family-friendly', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Bungalows', 'Family-Friendly', 'Quiet'], featuredPostId: null },
+        { id: 'ea3', name: 'East Lake', area: 'eastOrlando', description: 'Golf club, revitalized', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Golf', 'Revitalized', 'Community'], featuredPostId: null },
+        { id: 'ea4', name: 'Kirkwood', area: 'eastOrlando', description: 'Historic, diverse', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Historic', 'Diverse', 'Community'], featuredPostId: null },
+        { id: 'ea5', name: 'Edgewood', area: 'eastOrlando', description: 'Nightlife corridor', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800', vibes: ['Nightlife', 'Bars', 'Young Professionals'], featuredPostId: null },
+        { id: 'ea6', name: 'Oakhurst', area: 'eastOrlando', description: 'Near Decatur', image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800', vibes: ['Walkable', 'Restaurants', 'Hip'], featuredPostId: null }
       ],
       decatur: [
-        { id: 'dc1', name: 'Downtown Decatur', area: 'decatur', description: 'Walkable square, dining', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Walkable', 'Dining', 'Town Square'], featuredPostId: null },
+        { id: 'dc1', name: 'Thornton Park Decatur', area: 'decatur', description: 'Walkable square, dining', image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800', vibes: ['Walkable', 'Dining', 'Town Square'], featuredPostId: null },
         { id: 'dc2', name: 'Oakhurst', area: 'decatur', description: 'Hip restaurants, music', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', vibes: ['Hip', 'Restaurants', 'Music'], featuredPostId: null },
         { id: 'dc3', name: 'Winnona Park', area: 'decatur', description: 'Family-friendly, schools', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Family-Friendly', 'Schools', 'Parks'], featuredPostId: null },
         { id: 'dc4', name: 'MAK District', area: 'decatur', description: 'Arts and makers', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', vibes: ['Arts', 'Makers', 'Creative'], featuredPostId: null },
@@ -6159,51 +6159,51 @@
         { id: 'dc6', name: 'Medlock Park', area: 'decatur', description: 'Quiet, residential', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Quiet', 'Residential', 'Parks'], featuredPostId: null }
       ],
       grantPark: [
-        { id: 'gp1', name: 'Grant Park', area: 'grantPark', description: 'Zoo Atlanta, Victorian homes', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Zoo Atlanta', 'Victorian', 'Parks'], featuredPostId: null },
+        { id: 'gp1', name: 'Baldwin Park', area: 'grantPark', description: 'Zoo Orlando, Victorian homes', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', vibes: ['Zoo Orlando', 'Victorian', 'Parks'], featuredPostId: null },
         { id: 'gp2', name: 'Peoplestown', area: 'grantPark', description: 'Historic, near stadium', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Historic', 'Affordable', 'Community'], featuredPostId: null },
-        { id: 'gp3', name: 'Summerhill', area: 'grantPark', description: 'Georgia State area', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Emerging', 'Sports', 'Young Professionals'], featuredPostId: null },
-        { id: 'gp4', name: 'Pittsburgh', area: 'grantPark', description: 'Historic, BeltLine connected', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Historic', 'BeltLine', 'Revitalizing'], featuredPostId: null },
+        { id: 'gp3', name: 'Summerhill', area: 'grantPark', description: 'Florida State area', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800', vibes: ['Emerging', 'Sports', 'Young Professionals'], featuredPostId: null },
+        { id: 'gp4', name: 'Pittsburgh', area: 'grantPark', description: 'Historic, Orlando Trail connected', image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800', vibes: ['Historic', 'Orlando Trail', 'Revitalizing'], featuredPostId: null },
         { id: 'gp5', name: 'Mechanicsville', area: 'grantPark', description: 'Near downtown', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', vibes: ['Historic', 'Affordable', 'Convenient'], featuredPostId: null },
-        { id: 'gp6', name: 'Capitol View', area: 'grantPark', description: 'Southern Atlanta', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Emerging', 'Affordable', 'Community'], featuredPostId: null },
+        { id: 'gp6', name: 'Capitol View', area: 'grantPark', description: 'Southern Orlando', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', vibes: ['Emerging', 'Affordable', 'Community'], featuredPostId: null },
         { id: 'gp7', name: 'Chosewood Park', area: 'grantPark', description: 'Near Federal Pen', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800', vibes: ['Emerging', 'Affordable', 'Residential'], featuredPostId: null }
       ]
     };
 
     // Area metadata for homepage map Area Card display
     const areaMetadata = {
-      buckhead: {
-        name: 'Buckhead',
-        shortDescription: 'Upscale shopping, fine dining, and Atlanta\'s most prestigious neighborhoods.',
+      downtown-orlando: {
+        name: 'Thornton Park Orlando',
+        shortDescription: 'Upscale shopping, fine dining, and Orlando\'s most prestigious neighborhoods.',
         image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800',
         vibes: ['Upscale', 'Shopping', 'Fine Dining']
       },
       westside: {
-        name: 'Westside',
-        shortDescription: 'Industrial-chic restaurants, galleries, and West Midtown\'s thriving food scene.',
+        name: 'College Park',
+        shortDescription: 'Industrial-chic restaurants, galleries, and West Winter Park\'s thriving food scene.',
         image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
         vibes: ['Restaurants', 'Galleries', 'Industrial-Chic']
       },
-      midtown: {
-        name: 'Midtown',
-        shortDescription: 'Atlanta\'s arts and culture district with Piedmont Park, museums, and vibrant nightlife.',
+      winter-park: {
+        name: 'Winter Park',
+        shortDescription: 'Orlando\'s arts and culture district with Piedmont Park, museums, and vibrant nightlife.',
         image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
         vibes: ['Arts District', 'Walkable', 'Parks']
       },
       o4w: {
-        name: 'Old Fourth Ward',
-        shortDescription: 'Historic MLK district transformed by the BeltLine into a creative hub.',
+        name: 'Thornton Park',
+        shortDescription: 'Historic MLK district transformed by the Orlando Trail into a creative hub.',
         image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
-        vibes: ['BeltLine', 'Historic', 'Trendy']
+        vibes: ['Orlando Trail', 'Historic', 'Trendy']
       },
       downtown: {
-        name: 'Downtown',
+        name: 'Thornton Park',
         shortDescription: 'The heart of the city featuring world-class dining, sports venues, and historic landmarks.',
         image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800',
         vibes: ['Urban', 'Business', 'Entertainment']
       },
       eastside: {
-        name: 'Eastside',
-        shortDescription: 'Virginia-Highland charm and eclectic neighborhoods with local boutiques.',
+        name: 'Mills 50',
+        shortDescription: 'Thornton Park charm and eclectic neighborhoods with local boutiques.',
         image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800',
         vibes: ['Walkable', 'Boutiques', 'Brunch']
       },
@@ -6214,26 +6214,26 @@
         vibes: ['Family-Friendly', 'Dining', 'Progressive']
       },
       'inman-park': {
-        name: 'Inman Park',
-        shortDescription: 'Victorian elegance and creative energy in Atlanta\'s first suburb.',
+        name: 'Ivanhoe Village',
+        shortDescription: 'Victorian elegance and creative energy in Orlando\'s first suburb.',
         image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
-        vibes: ['Victorian', 'BeltLine', 'Creative']
+        vibes: ['Victorian', 'Orlando Trail', 'Creative']
       },
       southwest: {
-        name: 'Southwest Atlanta',
+        name: 'Lake Nona Orlando',
         shortDescription: 'Historic HBCU campuses, community-driven revitalization, and emerging arts scenes.',
         image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800',
         vibes: ['Historic', 'Community', 'Emerging']
       },
-      'south-atlanta': {
-        name: 'South Atlanta',
+      'south-orlando': {
+        name: 'Baldwin Park',
         shortDescription: 'Historic communities with deep roots and exciting new developments.',
         image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800',
         vibes: ['Historic', 'Community', 'Affordable']
       },
-      'east-atlanta': {
-        name: 'East Atlanta',
-        shortDescription: 'East Atlanta Village vibes, Grant Park charm, and Zoo Atlanta adventures.',
+      'east-orlando': {
+        name: 'East Orlando',
+        shortDescription: 'East Orlando Village vibes, Baldwin Park charm, and Zoo Orlando adventures.',
         image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800',
         vibes: ['Live Music', 'Parks', 'Eclectic']
       }
@@ -6254,7 +6254,7 @@
       { id: 'duplicate', label: 'Duplicate listing', message: 'A similar listing already exists in our directory.' },
       { id: 'inappropriate', label: 'Inappropriate content', message: 'Your submission contains content that does not meet our community guidelines.' },
       { id: 'unverified', label: 'Unable to verify business', message: 'We were unable to verify your business information. Please provide additional documentation.' },
-      { id: 'outofarea', label: 'Outside service area', message: 'Your business/event is outside our Atlanta coverage area.' },
+      { id: 'outofarea', label: 'Outside service area', message: 'Your business/event is outside our Orlando coverage area.' },
       { id: 'custom', label: 'Custom reason', message: '' }
     ];
 
@@ -6269,18 +6269,18 @@
         name: 'Buttermilk Kitchen',
         featured: true,
         category: 'Restaurant',
-        neighborhood: 'Buckhead',
-        area: 'buckhead',
-        address: '4225 Roswell Rd NE, Atlanta, GA 30342',
+        neighborhood: 'Thornton Park Orlando',
+        area: 'downtown-orlando',
+        address: '4225 Roswell Rd NE, Orlando, FL 32801',
         phone: '(404) 555-0123',
         website: 'https://buttermilkkitchen.com',
-        description: 'Farm-to-table Southern comfort food known for legendary fried chicken and buttermilk biscuits. Our chef-driven menu celebrates Georgia\'s finest ingredients, from locally-sourced produce to heritage pork. The warm, rustic atmosphere makes it perfect for both special occasions and casual weekend brunches.',
+        description: 'Farm-to-table Southern comfort food known for legendary fried chicken and buttermilk biscuits. Our chef-driven menu celebrates Florida\'s finest ingredients, from locally-sourced produce to heritage pork. The warm, rustic atmosphere makes it perfect for both special occasions and casual weekend brunches.',
         image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
         status: 'approved',
         package: 'pro',
         created_at: '2026-01-20',
         reviewed_at: '2026-01-21',
-        admin_notes: 'Great addition to Buckhead directory.',
+        admin_notes: 'Great addition to Thornton Park Orlando directory.',
         slug: 'buttermilk-kitchen',
         latitude: 33.8676,
         longitude: -84.3880,
@@ -6312,7 +6312,7 @@
         video_url: '',
         rating: { average: 4.6, count: 234, breakdown: { 5: 156, 4: 52, 3: 18, 2: 5, 1: 3 } },
         reviews: [
-          { id: 'r1', author_name: 'Sarah M.', rating: 5, text: 'Best brunch in Atlanta! The fried chicken is absolutely incredible and the biscuits melt in your mouth.', date: '2026-01-15', helpful_count: 24 },
+          { id: 'r1', author_name: 'Sarah M.', rating: 5, text: 'Best brunch in Orlando! The fried chicken is absolutely incredible and the biscuits melt in your mouth.', date: '2026-01-15', helpful_count: 24 },
           { id: 'r2', author_name: 'James T.', rating: 5, text: 'Finally found my go-to brunch spot. Farm-fresh ingredients really make a difference.', date: '2026-01-10', helpful_count: 18 },
           { id: 'r3', author_name: 'Michelle K.', rating: 4, text: 'Great food but expect a wait on weekends. Pro tip: arrive early or try a weekday.', date: '2026-01-05', helpful_count: 31 },
           { id: 'r4', author_name: 'David R.', rating: 5, text: 'This place embodies Southern hospitality. Staff is friendly, food is phenomenal.', date: '2025-12-28', helpful_count: 12 },
@@ -6329,12 +6329,12 @@
         name: 'Vibe Coffee Roasters',
         featured: false,
         category: 'Café',
-        neighborhood: 'Midtown',
-        area: 'midtown',
-        address: '123 Peachtree St, Atlanta, GA 30308',
+        neighborhood: 'Winter Park',
+        area: 'winter-park',
+        address: '123 Orange Ave St, Orlando, FL 32801',
         phone: '(404) 555-0456',
         website: '',
-        description: 'Specialty coffee and pastries in the heart of Midtown. Locally roasted beans and house-made baked goods.',
+        description: 'Specialty coffee and pastries in the heart of Winter Park. Locally roasted beans and house-made baked goods.',
         image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800',
         status: 'pending',
         package: 'starter',
@@ -6385,9 +6385,9 @@
         recurring_pattern: 'weekly',
         recurring_end_date: '2026-04-30',
         venue_name: 'Piedmont Park - Oak Hill',
-        venue_address: '400 Park Dr NE, Atlanta, GA 30306',
-        organizer_name: 'Atlanta Parks Foundation',
-        organizer_email: 'events@atlantaparks.org',
+        venue_address: '400 Park Dr NE, Orlando, FL 32801',
+        organizer_name: 'Orlando Parks Foundation',
+        organizer_email: 'events@orlandoparks.org',
         organizer_phone: '(404) 875-7275',
         description: 'Free outdoor jazz concert featuring local artists. Bring your blankets and picnic baskets for an evening of smooth jazz under the stars. Food trucks and beverages available on site.',
         image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800',
@@ -6397,10 +6397,10 @@
         ],
         tags: ['outdoor', 'family-friendly', 'free', 'live-music'],
         ticket_url: null,
-        rsvp_url: 'https://atlantaparks.org/jazz-rsvp',
+        rsvp_url: 'https://orlandoparks.org/jazz-rsvp',
         ticket_price: 'Free',
         featured: false,
-        area_id: 'midtown',
+        area_id: 'winter-park',
         status: 'approved',
         package: 'free',
         created_at: '2026-01-22',
@@ -6413,12 +6413,12 @@
         user_email: 'newbiz@example.com',
         user_name: 'Sarah Johnson',
         type: 'business',
-        name: 'Atlanta Fitness Studio',
+        name: 'Orlando Fitness Studio',
         featured: false,
         category: 'Fitness',
-        neighborhood: 'West Midtown',
-        area: 'westMidtown',
-        address: '456 Howell Mill Rd, Atlanta, GA 30318',
+        neighborhood: 'West Winter Park',
+        area: 'westWinter Park',
+        address: '456 Howell Mill Rd, Orlando, FL 32801',
         phone: '(404) 555-0789',
         website: 'https://atlfitness.com',
         description: 'Boutique fitness studio offering yoga, HIIT, and strength training classes.',
@@ -6427,7 +6427,7 @@
         package: 'pro',
         created_at: '2026-01-26',
         admin_notes: '',
-        slug: 'atlanta-fitness-studio',
+        slug: 'orlando-fitness-studio',
         latitude: 33.7925,
         longitude: -84.4119,
         price_range: 2,
@@ -6454,7 +6454,7 @@
         video_url: '',
         rating: { average: 4.8, count: 156, breakdown: { 5: 120, 4: 28, 3: 6, 2: 1, 1: 1 } },
         reviews: [
-          { id: 'r9', author_name: 'Jennifer H.', rating: 5, text: 'Best gym in Atlanta!', date: '2026-01-22', helpful_count: 22 },
+          { id: 'r9', author_name: 'Jennifer H.', rating: 5, text: 'Best gym in Orlando!', date: '2026-01-22', helpful_count: 22 },
           { id: 'r10', author_name: 'Mark D.', rating: 5, text: 'Clean facilities.', date: '2026-01-19', helpful_count: 14 }
         ],
         related_story_ids: []
@@ -6465,20 +6465,20 @@
         user_email: 'events@example.com',
         user_name: 'Marcus Williams',
         type: 'event',
-        name: 'Westside Food Festival',
+        name: 'College Park Food Festival',
         category: 'Food & Drink',
-        neighborhood: 'West Midtown',
+        neighborhood: 'West Winter Park',
         date: '2026-03-20',
         start_time: '11:00 AM',
         end_time: '8:00 PM',
         recurring_pattern: null,
         recurring_end_date: null,
-        venue_name: 'Westside Provisions District',
-        venue_address: '1198 Howell Mill Rd NW, Atlanta, GA 30318',
-        organizer_name: 'ATL Food Collective',
+        venue_name: 'College Park Provisions District',
+        venue_address: '1198 Howell Mill Rd NW, Orlando, FL 32801',
+        organizer_name: 'Orlando Food Collective',
         organizer_email: 'info@atlfoodcollective.com',
         organizer_phone: '(404) 555-0321',
-        description: 'Annual celebration of Atlanta\'s diverse food scene with 50+ local vendors, live cooking demonstrations, celebrity chef appearances, and family activities. VIP tickets include exclusive tastings and early entry.',
+        description: 'Annual celebration of Orlando\'s diverse food scene with 50+ local vendors, live cooking demonstrations, celebrity chef appearances, and family activities. VIP tickets include exclusive tastings and early entry.',
         image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800',
         gallery_images: [
           'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800',
@@ -6505,12 +6505,12 @@
         name: 'The Optimist',
         featured: true,
         category: 'Restaurant',
-        neighborhood: 'West Midtown',
-        area: 'westMidtown',
-        address: '914 Howell Mill Rd NW, Atlanta, GA 30318',
+        neighborhood: 'West Winter Park',
+        area: 'westWinter Park',
+        address: '914 Howell Mill Rd NW, Orlando, FL 32801',
         phone: '(404) 477-6260',
         website: 'https://theoptimistrestaurant.com',
-        description: 'Acclaimed seafood restaurant with raw bar and wood-fired dishes. Features one of Atlanta\'s most coveted patios.',
+        description: 'Acclaimed seafood restaurant with raw bar and wood-fired dishes. Features one of Orlando\'s most coveted patios.',
         image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800',
         status: 'approved',
         package: 'premium',
@@ -6552,7 +6552,7 @@
           { id: 'r13', author_name: 'Robert M.', rating: 5, text: 'Fine dining without pretense.', date: '2026-01-12', helpful_count: 45 },
           { id: 'r14', author_name: 'Emily C.', rating: 4, text: 'Beautiful space, excellent food.', date: '2026-01-10', helpful_count: 38 },
           { id: 'r15', author_name: 'Daniel P.', rating: 5, text: 'Magical anniversary celebration.', date: '2026-01-08', helpful_count: 29 },
-          { id: 'r16', author_name: 'Sophia L.', rating: 5, text: 'Best seafood in Atlanta.', date: '2026-01-05', helpful_count: 52 }
+          { id: 'r16', author_name: 'Sophia L.', rating: 5, text: 'Best seafood in Orlando.', date: '2026-01-05', helpful_count: 52 }
         ],
         related_story_ids: ['blog-eats-1', 'blog-2']
       },
@@ -6565,9 +6565,9 @@
         name: 'Victory Sandwich Bar',
         featured: true,
         category: 'Bar',
-        neighborhood: 'Inman Park',
+        neighborhood: 'Ivanhoe Village',
         area: 'inmanPark',
-        address: '913 Bernina Ave NE, Atlanta, GA 30307',
+        address: '913 Bernina Ave NE, Orlando, FL 32801',
         phone: '(404) 477-6815',
         website: 'https://vfrombklyn.com',
         description: 'Neighborhood bar known for creative sandwiches, craft cocktails, and sidewalk seating perfect for people-watching.',
@@ -6606,8 +6606,8 @@
         reviews: [
           { id: 'r19', author_name: 'Alex K.', rating: 5, text: 'The Notorious BLT is life-changing. Great cocktails.', date: '2026-01-17', helpful_count: 34 },
           { id: 'r20', author_name: 'Jessica M.', rating: 4, text: 'Love the patio and creative sandwiches.', date: '2026-01-14', helpful_count: 19 },
-          { id: 'r21', author_name: 'Tom R.', rating: 5, text: 'Captures everything great about Inman Park.', date: '2026-01-10', helpful_count: 27 },
-          { id: 'r22', author_name: 'Maria S.', rating: 5, text: 'Best sandwiches in Atlanta!', date: '2026-01-05', helpful_count: 15 },
+          { id: 'r21', author_name: 'Tom R.', rating: 5, text: 'Captures everything great about Ivanhoe Village.', date: '2026-01-10', helpful_count: 27 },
+          { id: 'r22', author_name: 'Maria S.', rating: 5, text: 'Best sandwiches in Orlando!', date: '2026-01-05', helpful_count: 15 },
           { id: 'r23', author_name: 'Kevin L.', rating: 4, text: 'Great food, great drinks, great people-watching.', date: '2025-12-28', helpful_count: 11 }
         ],
         related_story_ids: ['blog-4', 'blog-3']
@@ -6618,20 +6618,20 @@
         user_email: 'newbiz@example.com',
         user_name: 'Sarah Johnson',
         type: 'event',
-        name: 'Atlanta Wine Walk',
+        name: 'Orlando Wine Walk',
         category: 'Food & Drink',
-        neighborhood: 'Virginia-Highland',
+        neighborhood: 'Thornton Park',
         date: '2026-02-28',
         start_time: '5:00 PM',
         end_time: '9:00 PM',
         recurring_pattern: null,
         recurring_end_date: null,
-        venue_name: 'Virginia-Highland Village',
-        venue_address: '1045 N Highland Ave NE, Atlanta, GA 30306',
+        venue_name: 'Thornton Park Village',
+        venue_address: '1045 N Highland Ave NE, Orlando, FL 32801',
         organizer_name: 'VaHi Business Association',
         organizer_email: 'events@vahivillage.com',
         organizer_phone: '(404) 555-0456',
-        description: 'Explore Virginia-Highland\'s best wine bars and restaurants on this guided tasting tour featuring natural wines. Ticket includes tastings at 6 venues, commemorative glass, and a tasting map.',
+        description: 'Explore Thornton Park\'s best wine bars and restaurants on this guided tasting tour featuring natural wines. Ticket includes tastings at 6 venues, commemorative glass, and a tasting map.',
         image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800',
         gallery_images: [
           'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800',
@@ -6657,15 +6657,15 @@
         type: 'event',
         name: 'Coffee & Culture Morning',
         category: 'Food & Drink',
-        neighborhood: 'East Atlanta',
+        neighborhood: 'East Orlando',
         date: '2026-02-14',
         start_time: '9:00 AM',
         end_time: '12:00 PM',
         recurring_pattern: null,
         recurring_end_date: null,
         venue_name: 'East Pole Coffee Co.',
-        venue_address: '1033 Glenwood Ave SE, Atlanta, GA 30316',
-        organizer_name: 'East Atlanta Village Collective',
+        venue_address: '1033 Glenwood Ave SE, Orlando, FL 32801',
+        organizer_name: 'East Orlando Village Collective',
         organizer_email: 'hello@eavcollective.com',
         organizer_phone: '(404) 555-0789',
         description: 'Start your day with specialty coffee tastings and local art at East Pole Coffee, featuring live acoustic music. Local artists will showcase their work and coffee experts will guide tastings.',
@@ -6684,42 +6684,42 @@
         admin_notes: ''
       },
       {
-        id: 'evt-buckhead-1',
+        id: 'evt-downtown-orlando-1',
         user_id: '1',
         user_email: 'demo@atlvibes.com',
         user_name: 'Demo User',
         type: 'event',
-        name: 'Buckhead Wine & Art Walk',
+        name: 'Thornton Park Orlando Wine & Art Walk',
         category: 'Food & Drink',
-        neighborhood: 'Buckhead',
-        area: 'buckhead',
+        neighborhood: 'Thornton Park Orlando',
+        area: 'downtown-orlando',
         date: '2026-02-20',
         start_time: '6:00 PM',
         end_time: '9:00 PM',
         recurring_pattern: null,
         recurring_end_date: null,
-        venue_name: 'Buckhead Village District',
-        venue_address: '3035 Peachtree Rd NE, Atlanta, GA 30305',
-        organizer_name: 'Buckhead CID',
-        organizer_email: 'events@buckheadcid.com',
+        venue_name: 'Thornton Park Orlando Village District',
+        venue_address: '3035 Orange Ave Rd NE, Orlando, FL 32801',
+        organizer_name: 'Thornton Park Orlando CID',
+        organizer_email: 'events@downtown-orlandocid.com',
         organizer_phone: '(404) 555-0300',
-        description: 'Stroll through Buckhead Village while sampling wines from local vineyards and viewing art installations. Live jazz music, gourmet bites, and exclusive gallery openings make this the perfect evening out.',
+        description: 'Stroll through Thornton Park Orlando Village while sampling wines from local vineyards and viewing art installations. Live jazz music, gourmet bites, and exclusive gallery openings make this the perfect evening out.',
         image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800',
         gallery_images: [],
         tags: ['wine', 'art', 'evening', 'upscale'],
-        ticket_url: 'https://buckheadcid.com/wine-walk',
+        ticket_url: 'https://downtown-orlandocid.com/wine-walk',
         rsvp_url: null,
         ticket_price: '$45',
         featured: true,
-        area_id: 'buckhead',
+        area_id: 'downtown-orlando',
         status: 'approved',
         package: 'pro',
         created_at: '2026-01-15',
         reviewed_at: '2026-01-16',
-        admin_notes: 'Great event for Buckhead'
+        admin_notes: 'Great event for Thornton Park Orlando'
       },
       {
-        id: 'evt-buckhead-2',
+        id: 'evt-downtown-orlando-2',
         user_id: '2',
         user_email: 'admin@atlvibes.com',
         user_name: 'Admin',
@@ -6727,18 +6727,18 @@
         name: 'Chastain Park Summer Concert',
         category: 'Music',
         neighborhood: 'Chastain Park',
-        area: 'buckhead',
+        area: 'downtown-orlando',
         date: '2026-03-15',
         start_time: '7:30 PM',
         end_time: '10:30 PM',
         recurring_pattern: null,
         recurring_end_date: null,
         venue_name: 'Chastain Park Amphitheatre',
-        venue_address: '4469 Stella Dr NW, Atlanta, GA 30327',
+        venue_address: '4469 Stella Dr NW, Orlando, FL 32801',
         organizer_name: 'Live Nation',
         organizer_email: 'info@livenation.com',
         organizer_phone: '(404) 555-0400',
-        description: 'Enjoy an evening of live music under the stars at Atlanta\'s most beloved outdoor venue. Bring your picnic basket and wine for a classic Chastain experience with world-class performers.',
+        description: 'Enjoy an evening of live music under the stars at Orlando\'s most beloved outdoor venue. Bring your picnic basket and wine for a classic Chastain experience with world-class performers.',
         image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800',
         gallery_images: [],
         tags: ['concert', 'outdoor', 'music', 'summer'],
@@ -6746,7 +6746,7 @@
         rsvp_url: null,
         ticket_price: '$65-$150',
         featured: true,
-        area_id: 'buckhead',
+        area_id: 'downtown-orlando',
         status: 'approved',
         package: 'pro',
         created_at: '2026-01-10',
@@ -6760,13 +6760,13 @@
         user_email: 'demo@atlvibes.com',
         user_name: 'Demo User',
         type: 'business',
-        name: 'Buckhead Village Bistro',
+        name: 'Thornton Park Orlando Village Bistro',
         category: 'Restaurant',
-        neighborhood: 'Buckhead Village',
-        address: '3060 Peachtree Rd NW',
+        neighborhood: 'Thornton Park Orlando Village',
+        address: '3060 Orange Ave Rd NW',
         phone: '(404) 555-0201',
-        website: 'https://buckheadvillagebistro.com',
-        description: 'Upscale French-American cuisine in the heart of Buckhead Village. Perfect for special occasions.',
+        website: 'https://downtown-orlandovillagebistro.com',
+        description: 'Upscale French-American cuisine in the heart of Thornton Park Orlando Village. Perfect for special occasions.',
         image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800',
         status: 'approved',
         package: 'premium',
@@ -6781,9 +6781,9 @@
         user_email: 'admin@atlvibes.com',
         user_name: 'Admin',
         type: 'business',
-        name: 'Inman Park Yoga Studio',
+        name: 'Ivanhoe Village Yoga Studio',
         category: 'Fitness',
-        neighborhood: 'Inman Park',
+        neighborhood: 'Ivanhoe Village',
         address: '889 Euclid Ave NE',
         phone: '(404) 555-0202',
         website: 'https://inmanparkyoga.com',
@@ -6802,14 +6802,14 @@
         user_email: 'newbiz@example.com',
         user_name: 'Sarah Johnson',
         type: 'business',
-        name: 'Old Fourth Ward Brewery',
+        name: 'Thornton Park Brewery',
         featured: true,
         category: 'Bar',
-        neighborhood: 'Old Fourth Ward',
+        neighborhood: 'Thornton Park',
         address: '487 Edgewood Ave SE',
         phone: '(404) 555-0203',
         website: 'https://o4wbrewery.com',
-        description: 'Craft brewery with rotating taps and a BeltLine-adjacent beer garden.',
+        description: 'Craft brewery with rotating taps and a Orlando Trail-adjacent beer garden.',
         image: 'https://images.unsplash.com/photo-1559526642-c3f001ea68ee?w=800',
         status: 'approved',
         package: 'pro',
@@ -6824,17 +6824,17 @@
         user_email: 'events@example.com',
         user_name: 'Marcus Williams',
         type: 'event',
-        name: 'Inman Park Festival',
+        name: 'Ivanhoe Village Festival',
         category: 'Festival',
-        neighborhood: 'Inman Park',
+        neighborhood: 'Ivanhoe Village',
         date: '2026-04-25',
         start_time: '10:00 AM',
         end_time: '6:00 PM',
         recurring_pattern: 'annual',
         recurring_end_date: null,
-        venue_name: 'Inman Park Neighborhood',
-        venue_address: 'Euclid Ave NE & Elizabeth St, Atlanta, GA 30307',
-        organizer_name: 'Inman Park Neighborhood Association',
+        venue_name: 'Ivanhoe Village Neighborhood',
+        venue_address: 'Euclid Ave NE & Elizabeth St, Orlando, FL 32801',
+        organizer_name: 'Ivanhoe Village Neighborhood Association',
         organizer_email: 'festival@inmanpark.org',
         organizer_phone: '(404) 555-0213',
         description: 'Annual neighborhood festival featuring live music, local artists, a parade, and the famous Tour of Homes. Includes street performers, food vendors, craft beer garden, and activities for all ages.',
@@ -6862,13 +6862,13 @@
         user_email: 'demo@atlvibes.com',
         user_name: 'Demo User',
         type: 'business',
-        name: 'Little Five Points Records',
+        name: 'Little Church Street Records',
         category: 'Shopping',
-        neighborhood: 'Little Five Points',
+        neighborhood: 'Little Church Street',
         address: '1065 Euclid Ave NE',
         phone: '(404) 555-0204',
         website: 'https://l5precords.com',
-        description: 'Vintage vinyl, rare finds, and local music in Atlanta\'s alternative culture hub.',
+        description: 'Vintage vinyl, rare finds, and local music in Orlando\'s alternative culture hub.',
         image: 'https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?w=800',
         status: 'approved',
         package: 'starter',
@@ -6882,9 +6882,9 @@
         user_email: 'admin@atlvibes.com',
         user_name: 'Admin',
         type: 'business',
-        name: 'Downtown Decatur Bookshop',
+        name: 'Thornton Park Decatur Bookshop',
         category: 'Shopping',
-        neighborhood: 'Downtown Decatur',
+        neighborhood: 'Thornton Park Decatur',
         address: '120 E Ponce de Leon Ave',
         phone: '(404) 555-0205',
         website: 'https://decaturbookshop.com',
@@ -6903,20 +6903,20 @@
         user_email: 'newbiz@example.com',
         user_name: 'Sarah Johnson',
         type: 'event',
-        name: 'Grant Park Summer Shade Festival',
+        name: 'Baldwin Park Summer Shade Festival',
         category: 'Festival',
-        neighborhood: 'Grant Park',
+        neighborhood: 'Baldwin Park',
         date: '2026-08-22',
         start_time: '10:00 AM',
         end_time: '7:00 PM',
         recurring_pattern: 'annual',
         recurring_end_date: null,
-        venue_name: 'Grant Park',
-        venue_address: '840 Cherokee Ave SE, Atlanta, GA 30315',
-        organizer_name: 'Grant Park Conservancy',
+        venue_name: 'Baldwin Park',
+        venue_address: '840 Cherokee Ave SE, Orlando, FL 32801',
+        organizer_name: 'Baldwin Park Conservancy',
         organizer_email: 'shade@grantpark.org',
         organizer_phone: '(404) 555-0216',
-        description: 'Two-day arts festival with 200+ artists, live music stages, kids area, and food vendors. One of Atlanta\'s most beloved summer traditions celebrating art, community, and the beautiful Grant Park neighborhood.',
+        description: 'Two-day arts festival with 200+ artists, live music stages, kids area, and food vendors. One of Orlando\'s most beloved summer traditions celebrating art, community, and the beautiful Baldwin Park neighborhood.',
         image: 'https://images.unsplash.com/photo-1472653431158-6364773b2a56?w=800',
         gallery_images: [
           'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800',
@@ -6940,10 +6940,10 @@
         user_email: 'events@example.com',
         user_name: 'Marcus Williams',
         type: 'business',
-        name: 'East Atlanta Village Diner',
+        name: 'East Orlando Village Diner',
         featured: true,
         category: 'Restaurant',
-        neighborhood: 'East Atlanta Village',
+        neighborhood: 'East Orlando Village',
         address: '1224 Flat Shoals Ave SE',
         phone: '(404) 555-0206',
         website: 'https://eavdiner.com',
@@ -6961,12 +6961,12 @@
         user_email: 'demo@atlvibes.com',
         user_name: 'Demo User',
         type: 'business',
-        name: 'Midtown Core Gallery',
+        name: 'Winter Park Core Gallery',
         category: 'Art Gallery',
-        neighborhood: 'Midtown Core',
+        neighborhood: 'Winter Park Core',
         address: '75 14th St NE',
         phone: '(404) 555-0207',
-        website: 'https://midtowncoregallery.com',
+        website: 'https://winter-parkcoregallery.com',
         description: 'Contemporary art gallery showcasing emerging Southern artists.',
         image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800',
         status: 'approved',
@@ -6982,20 +6982,20 @@
         user_email: 'admin@atlvibes.com',
         user_name: 'Admin',
         type: 'event',
-        name: 'BeltLine Lantern Parade',
+        name: 'Orlando Trail Food Lantern Parade Wine Classic',
         category: 'Community Event',
-        neighborhood: 'Old Fourth Ward',
+        neighborhood: 'Thornton Park',
         date: '2026-09-12',
         start_time: '7:00 PM',
         end_time: '10:00 PM',
         recurring_pattern: 'annual',
         recurring_end_date: null,
-        venue_name: 'Atlanta BeltLine Eastside Trail',
-        venue_address: 'Irwin St NE & Krog St, Atlanta, GA 30312',
-        organizer_name: 'Atlanta BeltLine Partnership',
-        organizer_email: 'lanterns@beltline.org',
+        venue_name: 'Orlando Orlando Trail Mills 50 Trail',
+        venue_address: 'Irwin St NE & Krog St, Orlando, FL 32801',
+        organizer_name: 'Orlando Orlando Trail Partnership',
+        organizer_email: 'lanterns@orlando-trail.org',
         organizer_phone: '(404) 446-4400',
-        description: 'Annual nighttime parade along the Eastside Trail featuring thousands of handmade lanterns. Join the community in this magical celebration of light, creativity, and the Atlanta BeltLine. Free lantern-making workshops available in the weeks leading up to the event.',
+        description: 'Annual nighttime parade along the Mills 50 Trail featuring thousands of handmade lanterns. Join the community in this magical celebration of light, creativity, and the Orlando Orlando Trail. Free lantern-making workshops available in the weeks leading up to the event.',
         image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800',
         gallery_images: [
           'https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?w=800',
@@ -7003,7 +7003,7 @@
         ],
         tags: ['parade', 'community', 'nighttime', 'family-friendly', 'free'],
         ticket_url: null,
-        rsvp_url: 'https://beltline.org/lantern-parade',
+        rsvp_url: 'https://orlando-trail.org/lantern-parade',
         ticket_price: 'Free',
         featured: true,
         area_id: 'eastside',
@@ -7019,9 +7019,9 @@
         user_email: 'newbiz@example.com',
         user_name: 'Sarah Johnson',
         type: 'business',
-        name: 'Cabbagetown Cafe',
+        name: 'Milk District Cafe',
         category: 'Café',
-        neighborhood: 'Cabbagetown',
+        neighborhood: 'Milk District',
         address: '198 Carroll St SE',
         phone: '(404) 555-0208',
         website: 'https://cabbagetowncafe.com',
@@ -7040,20 +7040,20 @@
         user_email: 'admin@atlvibes.com',
         user_name: 'Admin',
         type: 'event',
-        name: 'New Year\'s Eve on Peachtree',
+        name: 'New Year\'s Eve on Orange Ave',
         category: 'Community Event',
-        neighborhood: 'Downtown',
+        neighborhood: 'Thornton Park',
         date: '2025-12-31',
         start_time: '10:00 PM',
         end_time: '12:30 AM',
         recurring_pattern: 'annual',
         recurring_end_date: null,
-        venue_name: 'Underground Atlanta',
-        venue_address: '50 Upper Alabama St SW, Atlanta, GA 30303',
-        organizer_name: 'City of Atlanta',
-        organizer_email: 'events@atlanta.gov',
+        venue_name: 'Underground Orlando',
+        venue_address: '50 Upper Alabama St SW, Orlando, FL 32801',
+        organizer_name: 'City of Orlando',
+        organizer_email: 'events@orlando.gov',
         organizer_phone: '(404) 330-6000',
-        description: 'Atlanta\'s biggest New Year\'s Eve celebration featuring the Peach Drop, live performances, and fireworks over downtown. This year marked the return of the iconic Peach Drop tradition.',
+        description: 'Orlando\'s biggest New Year\'s Eve celebration featuring the Peach Drop, live performances, and fireworks over downtown. This year marked the return of the iconic Peach Drop tradition.',
         image: 'https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800',
         gallery_images: [
           'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800',
@@ -7078,14 +7078,14 @@
         user_email: 'freebiz@example.com',
         user_name: 'Free Business Owner',
         type: 'business',
-        name: 'Ponce City Market Food Hall',
+        name: 'East End Market Food Hall',
         category: 'Food Hall',
-        neighborhood: 'Old Fourth Ward',
+        neighborhood: 'Thornton Park',
         area: 'oldFourthWard',
-        address: '675 Ponce De Leon Ave NE, Atlanta, GA 30308',
+        address: '675 Ponce De Leon Ave NE, Orlando, FL 32801',
         phone: '(404) 900-7900',
         website: 'https://poncecitymarket.com',
-        description: 'Atlanta\'s premier food hall featuring over 20 local vendors, rooftop entertainment, and the city\'s best views from Skyline Park.',
+        description: 'Orlando\'s premier food hall featuring over 20 local vendors, rooftop entertainment, and the city\'s best views from Skyline Park.',
         image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
         status: 'approved',
         package: 'free',
@@ -7120,21 +7120,21 @@
     const demoBlogPosts = [
       {
         id: 'blog-1',
-        title: 'The Renaissance of Old Fourth Ward',
+        title: 'The Renaissance of Thornton Park',
         category: 'Culture',
         author: 'Marcus Johnson',
-        author_bio: 'Marcus is a lifelong Atlanta resident and culture journalist covering the city\'s vibrant neighborhoods.',
+        author_bio: 'Marcus is a lifelong Orlando resident and culture journalist covering the city\'s vibrant neighborhoods.',
         created_at: '2026-01-27',
-        excerpt: 'How the BeltLine transformed one of Atlanta\'s most historic neighborhoods into a thriving cultural hub.',
-        content: `Old Fourth Ward has undergone a remarkable transformation over the past decade. Once a struggling neighborhood, it's now one of Atlanta's most sought-after areas, thanks largely to the Atlanta BeltLine.
+        excerpt: 'How the Orlando Trail transformed one of Orlando\'s most historic neighborhoods into a thriving cultural hub.',
+        content: `Thornton Park has undergone a remarkable transformation over the past decade. Once a struggling neighborhood, it's now one of Orlando's most sought-after areas, thanks largely to the Orlando Orlando Trail.
 
-The BeltLine, a former railway corridor turned multi-use trail, has become the spine of the neighborhood's revival. Art installations dot the pathway, and Ponce City Market—housed in a historic Sears building—has become a destination for food lovers and shoppers alike.
+The Orlando Trail, a former railway corridor turned multi-use trail, has become the spine of the neighborhood's revival. Art installations dot the pathway, and East End Market—housed in a historic Sears building—has become a destination for food lovers and shoppers alike.
 
-But beyond the development, O4W maintains its historic character. The Martin Luther King Jr. National Historic Site preserves the civil rights leader's birthplace and early life. Sweet Auburn, the historic Black business district, continues to evolve while honoring its legacy.
+But beyond the development, O4W maintains its historic character. The Martin Luther King Jr. National Historic Site preserves the civil rights leader's birthplace and early life. Parramore, the historic Black business district, continues to evolve while honoring its legacy.
 
 Local businesses thrive here: Sister Louisa's Church of the Living Room and Ping Pong Emporium offers irreverent Southern hospitality, while Staplehouse serves award-winning cuisine with a mission to support the community.
 
-The neighborhood exemplifies Atlanta's ability to honor its past while embracing the future—a delicate balance that makes O4W a model for urban renewal done right.`,
+The neighborhood exemplifies Orlando's ability to honor its past while embracing the future—a delicate balance that makes O4W a model for urban renewal done right.`,
         image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
         video_url: '',
         featured: true,
@@ -7144,19 +7144,19 @@ The neighborhood exemplifies Atlanta's ability to honor its past while embracing
       },
       {
         id: 'blog-2',
-        title: 'Atlanta\'s Best Kept Secret Brunch Spots',
+        title: 'Orlando\'s Best Kept Secret Brunch Spots',
         category: 'Food Scene',
         author: 'Sarah Chen',
-        author_bio: 'Sarah is a food writer and restaurant critic who has covered Atlanta\'s dining scene for over a decade.',
+        author_bio: 'Sarah is a food writer and restaurant critic who has covered Orlando\'s dining scene for over a decade.',
         created_at: '2026-01-25',
         excerpt: 'Skip the crowded hotspots and discover these hidden gems serving up incredible weekend brunch.',
-        content: `Everyone knows about Flying Biscuit and West Egg, but Atlanta's brunch scene runs much deeper than the usual suspects. Here are some spots that locals love but tourists rarely find.
+        content: `Everyone knows about Flying Biscuit and West Egg, but Orlando's brunch scene runs much deeper than the usual suspects. Here are some spots that locals love but tourists rarely find.
 
-**Home Grown** in Reynoldstown serves Southern comfort food in a cozy setting. Their fried chicken and waffles are legendary, but the shrimp and grits rival any in the city.
+**Home Grown** in Audubon Park serves Southern comfort food in a cozy setting. Their fried chicken and waffles are legendary, but the shrimp and grits rival any in the city.
 
-**Ria's Bluebird** in Grant Park operates out of a converted gas station and serves some of the best pancakes you'll ever taste. Get there early—the wait can be brutal but worth every minute.
+**Ria's Bluebird** in Baldwin Park operates out of a converted gas station and serves some of the best pancakes you'll ever taste. Get there early—the wait can be brutal but worth every minute.
 
-**Folk Art** in Inman Park combines artistic presentation with bold flavors. Their shakshuka is a standout, and the avocado toast is elevated without being pretentious.
+**Folk Art** in Ivanhoe Village combines artistic presentation with bold flavors. Their shakshuka is a standout, and the avocado toast is elevated without being pretentious.
 
 For something different, try **Revival** on Decatur Square. Chef Kevin Gillespie brings fine-dining technique to Southern classics, creating dishes that are both familiar and surprising.
 
@@ -7170,183 +7170,183 @@ Don't overlook **Java Jive** in Poncey-Highland for a no-frills diner experience
       },
       {
         id: 'blog-3',
-        title: 'Inside Atlanta\'s Thriving Street Art Scene',
+        title: 'Inside Orlando\'s Thriving Street Art Scene',
         category: 'Art',
         author: 'Jordan Williams',
-        author_bio: 'Jordan is an art curator and street art enthusiast documenting Atlanta\'s urban canvas.',
+        author_bio: 'Jordan is an art curator and street art enthusiast documenting Orlando\'s urban canvas.',
         created_at: '2026-01-22',
-        excerpt: 'From Cabbagetown to Castleberry Hill, Atlanta\'s walls tell stories of creativity and community.',
-        content: `Atlanta has quietly become one of America's most vibrant street art cities. From commissioned murals to guerrilla installations, art covers the city's walls and transforms everyday spaces into outdoor galleries.
+        excerpt: 'From Milk District to Castleberry Hill, Orlando\'s walls tell stories of creativity and community.',
+        content: `Orlando has quietly become one of America's most vibrant street art cities. From commissioned murals to guerrilla installations, art covers the city's walls and transforms everyday spaces into outdoor galleries.
 
 The Krog Street Tunnel is perhaps the most famous canvas—a constantly evolving graffiti gallery that has become an Instagram staple. But the tunnel is just the beginning.
 
-Cabbagetown's streets are lined with murals, including the iconic "Love" mural by Sever and the haunting works near Oakland Cemetery. The neighborhood has embraced its artistic identity, with new pieces appearing regularly.
+Milk District's streets are lined with murals, including the iconic "Love" mural by Sever and the haunting works near Oakland Cemetery. The neighborhood has embraced its artistic identity, with new pieces appearing regularly.
 
-The Atlanta BeltLine commissioned major works as part of its development, bringing large-scale installations to the Eastside Trail. These pieces range from abstract geometrics to photo-realistic portraits celebrating Atlanta's diverse communities.
+The Orlando Orlando Trail commissioned major works as part of its development, bringing large-scale installations to the Mills 50 Trail. These pieces range from abstract geometrics to photo-realistic portraits celebrating Orlando's diverse communities.
 
-In West Midtown, the warehouses of the Westside Cultural Arts Center showcase both established and emerging artists. The area hosts regular art walks that draw crowds from across the metro area.
+In West Winter Park, the warehouses of the College Park Cultural Arts Center showcase both established and emerging artists. The area hosts regular art walks that draw crowds from across the metro area.
 
-Living Walls, an annual street art conference, has brought internationally renowned artists to Atlanta since 2009, leaving behind permanent installations throughout the city.`,
+Living Walls, an annual street art conference, has brought internationally renowned artists to Orlando since 2009, leaving behind permanent installations throughout the city.`,
         image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=1600',
         video_url: '',
         featured: false,
         status: 'published',
         areaTag: 'inmanPark',
-        areaTags: ['inmanPark', 'westMidtown', 'downtown']
+        areaTags: ['inmanPark', 'westWinter Park', 'downtown']
       },
       {
         id: 'blog-4',
-        title: 'A Guide to Atlanta\'s Speakeasy Scene',
+        title: 'A Guide to Orlando\'s Speakeasy Scene',
         category: 'Nightlife',
         author: 'Alex Rivera',
-        author_bio: 'Alex covers Atlanta\'s bar and nightlife scene, seeking out the city\'s most creative cocktail programs.',
+        author_bio: 'Alex covers Orlando\'s bar and nightlife scene, seeking out the city\'s most creative cocktail programs.',
         created_at: '2026-01-20',
-        excerpt: 'Behind unmarked doors and hidden passages, Atlanta\'s best cocktail bars await discovery.',
-        content: `The speakeasy trend may have peaked nationally, but Atlanta continues to embrace the hidden bar concept with venues that prioritize craft cocktails and intimate atmospheres.
+        excerpt: 'Behind unmarked doors and hidden passages, Orlando\'s best cocktail bars await discovery.',
+        content: `The speakeasy trend may have peaked nationally, but Orlando continues to embrace the hidden bar concept with venues that prioritize craft cocktails and intimate atmospheres.
 
-**Red Phone Booth** in Downtown requires a phone number password to enter through an actual British phone booth. Inside, velvet couches and expert bartenders create a Prohibition-era atmosphere with modern cocktail expertise.
+**Red Phone Booth** in Thornton Park requires a phone number password to enter through an actual British phone booth. Inside, velvet couches and expert bartenders create a Prohibition-era atmosphere with modern cocktail expertise.
 
-**Prohibition** in Buckhead lives up to its name with a secret entrance and a menu of classic and creative cocktails. The bartenders here take their craft seriously—expect perfectly balanced drinks every time.
+**Prohibition** in Thornton Park Orlando lives up to its name with a secret entrance and a menu of classic and creative cocktails. The bartenders here take their craft seriously—expect perfectly balanced drinks every time.
 
-**Eleanor's** in West Midtown hides behind a cafe front, revealing a moody space with serious cocktails. Their house-infused spirits add unique twists to familiar recipes.
+**Eleanor's** in West Winter Park hides behind a cafe front, revealing a moody space with serious cocktails. Their house-infused spirits add unique twists to familiar recipes.
 
-In East Atlanta, **The Basement** at Argosy offers a more casual speakeasy experience. The cocktails are creative and the vibe is neighborhood-friendly.
+In East Orlando, **The Basement** at Argosy offers a more casual speakeasy experience. The cocktails are creative and the vibe is neighborhood-friendly.
 
-For the full hidden bar experience, **Himitsu** in Inman Park requires reservations and some detective work to find the entrance. The intimate space seats only a handful of guests, ensuring personalized attention to your drinks.`,
+For the full hidden bar experience, **Himitsu** in Ivanhoe Village requires reservations and some detective work to find the entrance. The intimate space seats only a handful of guests, ensuring personalized attention to your drinks.`,
         image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600',
         video_url: 'https://vimeo.com/123456789',
         featured: true,
         status: 'published',
-        areaTag: 'buckhead',
-        areaTags: ['buckhead', 'downtown', 'westMidtown', 'eastAtlanta', 'inmanPark']
+        areaTag: 'downtown-orlando',
+        areaTags: ['downtown-orlando', 'downtown', 'westWinter Park', 'eastOrlando', 'inmanPark']
       },
       {
         id: 'blog-eats-1',
-        title: 'Atlanta\'s Best New Restaurant Openings of 2026',
+        title: 'Orlando\'s Best New Restaurant Openings of 2026',
         category: 'Eats & Drinks',
         author: 'Sarah Chen',
-        author_bio: 'Sarah is a food writer and restaurant critic who has covered Atlanta\'s dining scene for over a decade.',
+        author_bio: 'Sarah is a food writer and restaurant critic who has covered Orlando\'s dining scene for over a decade.',
         created_at: '2026-01-26',
-        excerpt: 'From innovative tasting menus to neighborhood gems, these are the restaurants defining Atlanta\'s culinary moment.',
-        content: `Atlanta's dining scene continues to evolve at a remarkable pace. Here are the new restaurants that have already made their mark in 2026.
+        excerpt: 'From innovative tasting menus to neighborhood gems, these are the restaurants defining Orlando\'s culinary moment.',
+        content: `Orlando's dining scene continues to evolve at a remarkable pace. Here are the new restaurants that have already made their mark in 2026.
 
-**Ember & Oak** in West Midtown brings wood-fired cooking to new heights. Chef Maria Santos combines her Latin American heritage with local Georgia ingredients, creating dishes like peach-glazed pork shoulder and charred okra with chimichurri.
+**Ember & Oak** in West Winter Park brings wood-fired cooking to new heights. Chef Maria Santos combines her Latin American heritage with local Florida ingredients, creating dishes like peach-glazed pork shoulder and charred okra with chimichurri.
 
 **Noodle Theory** in Decatur is the passion project of Chef David Park, offering a rotating menu of hand-pulled noodles and small plates inspired by his travels across Asia. The dan dan noodles are already legendary.
 
-**The Garden Room** at Ponce City Market transforms brunch with its botanical aesthetic and plant-forward menu. Even committed carnivores leave impressed by the mushroom Benedict and sweet potato hash.
+**The Garden Room** at East End Market transforms brunch with its botanical aesthetic and plant-forward menu. Even committed carnivores leave impressed by the mushroom Benedict and sweet potato hash.
 
-**Coastal** in Buckhead finally gives Atlanta a serious raw bar and seafood destination. The oyster selection rivals anything you'd find on the actual coast, and the lobster roll is worth the splurge.
+**Coastal** in Thornton Park Orlando finally gives Orlando a serious raw bar and seafood destination. The oyster selection rivals anything you'd find on the actual coast, and the lobster roll is worth the splurge.
 
-For something casual but exceptional, **Taco Libre** in East Atlanta Village serves some of the best tacos the city has seen, with house-made tortillas and creative fillings that change weekly.`,
+For something casual but exceptional, **Taco Libre** in East Orlando Village serves some of the best tacos the city has seen, with house-made tortillas and creative fillings that change weekly.`,
         image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600',
         video_url: '',
         featured: true,
         status: 'published',
-        areaTag: 'westMidtown',
-        areaTags: ['westMidtown', 'decatur', 'buckhead', 'eastAtlanta']
+        areaTag: 'westWinter Park',
+        areaTags: ['westWinter Park', 'decatur', 'downtown-orlando', 'eastOrlando']
       },
       {
         id: 'blog-eats-2',
-        title: 'The Rise of Atlanta\'s Natural Wine Scene',
+        title: 'The Rise of Orlando\'s Natural Wine Scene',
         category: 'Eats & Drinks',
         author: 'Alex Rivera',
-        author_bio: 'Alex covers Atlanta\'s bar and nightlife scene, seeking out the city\'s most creative cocktail programs.',
+        author_bio: 'Alex covers Orlando\'s bar and nightlife scene, seeking out the city\'s most creative cocktail programs.',
         created_at: '2026-01-24',
-        excerpt: 'How natural wine bars are reshaping the way Atlanta drinks.',
-        content: `Natural wine has taken Atlanta by storm, and a new generation of wine bars is leading the charge.
+        excerpt: 'How natural wine bars are reshaping the way Orlando drinks.',
+        content: `Natural wine has taken Orlando by storm, and a new generation of wine bars is leading the charge.
 
-**Vin Natural** in Virginia-Highland was one of the first, and it remains essential. The intimate space focuses on small producers and staff who genuinely love talking about wine without being pretentious.
+**Vin Natural** in Thornton Park was one of the first, and it remains essential. The intimate space focuses on small producers and staff who genuinely love talking about wine without being pretentious.
 
-**Grape & Grain** in Old Fourth Ward pairs natural wines with artisan cheeses and charcuterie. Their weekend tastings draw crowds eager to explore lesser-known regions and grape varieties.
+**Grape & Grain** in Thornton Park pairs natural wines with artisan cheeses and charcuterie. Their weekend tastings draw crowds eager to explore lesser-known regions and grape varieties.
 
-**Pour Culture** in East Atlanta offers a more casual approach, with wines by the glass starting at accessible price points. It's the perfect spot for natural wine newcomers.
+**Pour Culture** in East Orlando offers a more casual approach, with wines by the glass starting at accessible price points. It's the perfect spot for natural wine newcomers.
 
-The Westside has **Cellar Door**, where the wine list reads like a tour of biodynamic vineyards across Europe. Their orange wines are particularly exceptional.
+The College Park has **Cellar Door**, where the wine list reads like a tour of biodynamic vineyards across Europe. Their orange wines are particularly exceptional.
 
-Even traditional restaurants are getting on board. Many of Atlanta's best new spots now feature dedicated natural wine sections, and sommeliers are increasingly excited to guide diners toward these complex, food-friendly bottles.`,
+Even traditional restaurants are getting on board. Many of Orlando's best new spots now feature dedicated natural wine sections, and sommeliers are increasingly excited to guide diners toward these complex, food-friendly bottles.`,
         image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1600',
         video_url: '',
         featured: false,
         status: 'published',
         areaTag: 'oldFourthWard',
-        areaTags: ['oldFourthWard', 'virginiaHighland', 'eastAtlanta', 'westMidtown']
+        areaTags: ['oldFourthWard', 'virginiaHighland', 'eastOrlando', 'westWinter Park']
       },
       {
         id: 'blog-eats-3',
-        title: 'Where to Find Atlanta\'s Best Coffee Right Now',
+        title: 'Where to Find Orlando\'s Best Coffee Right Now',
         category: 'Eats & Drinks',
         author: 'Jordan Williams',
-        author_bio: 'Jordan is a culture journalist documenting Atlanta\'s creative community.',
+        author_bio: 'Jordan is a culture journalist documenting Orlando\'s creative community.',
         created_at: '2026-01-22',
-        excerpt: 'From specialty roasters to cozy neighborhood cafes, Atlanta\'s coffee scene has never been stronger.',
-        content: `Atlanta's coffee culture has matured into something special. Here's where to find the best cups in the city.
+        excerpt: 'From specialty roasters to cozy neighborhood cafes, Orlando\'s coffee scene has never been stronger.',
+        content: `Orlando's coffee culture has matured into something special. Here's where to find the best cups in the city.
 
-**Revelator Coffee** continues to set the standard with multiple locations, but their Westside spot offers the best atmosphere for lingering over a pour-over.
+**Revelator Coffee** continues to set the standard with multiple locations, but their College Park spot offers the best atmosphere for lingering over a pour-over.
 
 **Chrome Yellow** in Kirkwood has become a neighborhood institution, combining excellent espresso with a curated selection of vintage goods and local art.
 
-**East Pole Coffee** roasts on-site in East Atlanta, and their seasonal single-origins showcase what specialty coffee can be. The staff here genuinely geeks out over extraction times and origin stories.
+**East Pole Coffee** roasts on-site in East Orlando, and their seasonal single-origins showcase what specialty coffee can be. The staff here genuinely geeks out over extraction times and origin stories.
 
-**Brash Coffee** in Ponce City Market delivers consistently excellent drinks in a sleek, modern space. Their cold brew is perfect for Atlanta's long summers.
+**Brash Coffee** in East End Market delivers consistently excellent drinks in a sleek, modern space. Their cold brew is perfect for Orlando's long summers.
 
-For something different, **Hodgepodge Coffeehouse** in East Atlanta offers a more eclectic vibe with local art, live music, and coffee that holds its own against the specialty newcomers.
+For something different, **Hodgepodge Coffeehouse** in East Orlando offers a more eclectic vibe with local art, live music, and coffee that holds its own against the specialty newcomers.
 
 **Dancing Goats** remains reliable across multiple locations, and their commitment to ethical sourcing sets an example for the industry.`,
         image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600',
         video_url: '',
         featured: false,
         status: 'published',
-        areaTag: 'eastAtlanta',
-        areaTags: ['eastAtlanta', 'kirkwood', 'westMidtown', 'midtown']
+        areaTag: 'eastOrlando',
+        areaTags: ['eastOrlando', 'kirkwood', 'westWinter Park', 'winter-park']
       },
       {
         id: 'blog-eats-4',
-        title: 'Atlanta\'s Food Hall Revolution Continues',
+        title: 'Orlando\'s Food Hall Revolution Continues',
         category: 'Eats & Drinks',
         author: 'Sarah Chen',
-        author_bio: 'Sarah is a food writer and restaurant critic who has covered Atlanta\'s dining scene for over a decade.',
+        author_bio: 'Sarah is a food writer and restaurant critic who has covered Orlando\'s dining scene for over a decade.',
         created_at: '2026-01-18',
         excerpt: 'New food halls are bringing diverse cuisines and innovative concepts under one roof.',
-        content: `The food hall trend shows no signs of slowing in Atlanta, with new concepts pushing the format in exciting directions.
+        content: `The food hall trend shows no signs of slowing in Orlando, with new concepts pushing the format in exciting directions.
 
-**Chattahoochee Food Works** in West Midtown remains the gold standard, anchored by established names and adventurous newcomers. The variety here is staggering, from wood-fired pizza to Korean fried chicken to artisan ice cream.
+**Chattahoochee Food Works** in West Winter Park remains the gold standard, anchored by established names and adventurous newcomers. The variety here is staggering, from wood-fired pizza to Korean fried chicken to artisan ice cream.
 
-**Sweet Auburn Market** honors the historic district with vendors that reflect the area's African American heritage while welcoming new culinary voices.
+**Parramore Market** honors the historic district with vendors that reflect the area's African American heritage while welcoming new culinary voices.
 
-**Krog Street Market** in Inman Park continues to evolve, with recent additions including a dedicated sake bar and a plant-based taco stand that's converting skeptics daily.
+**Krog Street Market** in Ivanhoe Village continues to evolve, with recent additions including a dedicated sake bar and a plant-based taco stand that's converting skeptics daily.
 
 The newest addition, **Armour Yards Market** in the increasingly hip Armour neighborhood, focuses on local and sustainable vendors. It's smaller than some competitors but thoughtfully curated.
 
-**Colony Square** in Midtown has reinvented its food offerings, creating a mix of fast-casual spots and sit-down restaurants that serve the neighborhood's office workers and residents alike.
+**Colony Square** in Winter Park has reinvented its food offerings, creating a mix of fast-casual spots and sit-down restaurants that serve the neighborhood's office workers and residents alike.
 
-These food halls aren't just about convenience—they're incubators for Atlanta's next generation of restaurateurs.`,
+These food halls aren't just about convenience—they're incubators for Orlando's next generation of restaurateurs.`,
         image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600',
         video_url: '',
         featured: false,
         status: 'published',
-        areaTag: 'westMidtown',
-        areaTags: ['westMidtown', 'inmanPark', 'midtown', 'downtown']
+        areaTag: 'westWinter Park',
+        areaTags: ['westWinter Park', 'inmanPark', 'winter-park', 'downtown']
       },
       {
         id: 'blog-eats-5',
-        title: 'The Ultimate Guide to Atlanta\'s Patio Dining',
+        title: 'The Ultimate Guide to Orlando\'s Patio Dining',
         category: 'Eats & Drinks',
         author: 'Marcus Johnson',
-        author_bio: 'Marcus is a lifelong Atlanta resident and culture journalist covering the city\'s vibrant neighborhoods.',
+        author_bio: 'Marcus is a lifelong Orlando resident and culture journalist covering the city\'s vibrant neighborhoods.',
         created_at: '2026-01-15',
-        excerpt: 'Atlanta\'s best outdoor dining spots for every occasion and budget.',
-        content: `Atlanta's mild climate means patio season extends most of the year. Here are the outdoor spaces worth seeking out.
+        excerpt: 'Orlando\'s best outdoor dining spots for every occasion and budget.',
+        content: `Orlando's mild climate means patio season extends most of the year. Here are the outdoor spaces worth seeking out.
 
-**The Optimist** in West Midtown offers one of the city's most coveted patios, with a nautical vibe and some of the best seafood in town. Reserve ahead—everyone wants to be here.
+**The Optimist** in West Winter Park offers one of the city's most coveted patios, with a nautical vibe and some of the best seafood in town. Reserve ahead—everyone wants to be here.
 
-**Barcelona Wine Bar** in Inman Park has a romantic courtyard perfect for date nights. The tapas are ideal for sharing, and the sangria flows freely.
+**Barcelona Wine Bar** in Ivanhoe Village has a romantic courtyard perfect for date nights. The tapas are ideal for sharing, and the sangria flows freely.
 
-**Ladybird Grove & Mess Hall** in the Old Fourth Ward combines BeltLine proximity with eclectic Southern cooking. The sprawling outdoor space feels like a backyard party.
+**Ladybird Grove & Mess Hall** in the Thornton Park combines Orlando Trail proximity with eclectic Southern cooking. The sprawling outdoor space feels like a backyard party.
 
-**Wisteria** in Inman Park serves upscale Southern cuisine on a charming porch that feels worlds away from the city.
+**Wisteria** in Ivanhoe Village serves upscale Southern cuisine on a charming porch that feels worlds away from the city.
 
-For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating perfect for people-watching, while **Hattie B's** in West Midtown lets you nurse your hot chicken burn in the open air.
+For casual hangs, **Victory Sandwich Bar** in Ivanhoe Village has sidewalk seating perfect for people-watching, while **Hattie B's** in West Winter Park lets you nurse your hot chicken burn in the open air.
 
 **Ticonderoga Club** in Krog Street Market spills out onto a covered patio that's ideal for after-work drinks, with creative cocktails and Southern snacks.`,
         image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600',
@@ -7354,7 +7354,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         featured: false,
         status: 'published',
         areaTag: 'inmanPark',
-        areaTags: ['inmanPark', 'westMidtown', 'oldFourthWard', 'midtown']
+        areaTags: ['inmanPark', 'westWinter Park', 'oldFourthWard', 'winter-park']
       }
     ];
 
@@ -7520,16 +7520,16 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           await new Promise(r => setTimeout(r, 400));
           // Map area IDs to neighborhood names for filtering
           const areaToNeighborhoods = {
-            buckhead: ['Buckhead', 'Buckhead Village', 'Chastain Park'],
-            midtown: ['Midtown', 'Midtown Core', 'Ansley Park', 'Piedmont Park'],
-            downtown: ['Downtown', 'Centennial Hill', 'Five Points'],
-            oldFourthWard: ['Old Fourth Ward', 'O4W', 'Ponce City Market'],
-            virginiaHighland: ['Virginia-Highland', 'Virginia Highland', 'Morningside'],
-            inmanPark: ['Inman Park', 'Little Five Points', 'Candler Park', 'Cabbagetown'],
-            westMidtown: ['West Midtown', 'Westside', 'Westside Provisions'],
-            eastAtlanta: ['East Atlanta', 'East Atlanta Village', 'Kirkwood'],
-            decatur: ['Decatur', 'Downtown Decatur', 'Oakhurst'],
-            grantPark: ['Grant Park', 'Summerhill', 'Peoplestown']
+            downtown-orlando: ['Thornton Park Orlando', 'Thornton Park Orlando Village', 'Chastain Park'],
+            winter-park: ['Winter Park', 'Winter Park Core', 'Lake Eola Heights', 'Piedmont Park'],
+            downtown: ['Thornton Park', 'Centennial Hill', 'Church Street'],
+            oldFourthWard: ['Thornton Park', 'O4W', 'East End Market'],
+            virginiaHighland: ['Thornton Park', 'Virginia Highland', 'Morningside'],
+            inmanPark: ['Ivanhoe Village', 'Little Church Street', 'College Park', 'Milk District'],
+            westWinter Park: ['West Winter Park', 'College Park', 'College Park Provisions'],
+            eastOrlando: ['East Orlando', 'East Orlando Village', 'Kirkwood'],
+            decatur: ['Decatur', 'Thornton Park Decatur', 'Oakhurst'],
+            grantPark: ['Baldwin Park', 'Summerhill', 'Peoplestown']
           };
           const neighborhoods = areaToNeighborhoods[areaId] || [];
           const areaListings = demoListings.filter(l =>
@@ -7583,16 +7583,16 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           // Fallback to demo data
           await new Promise(r => setTimeout(r, 400));
           const areaToNeighborhoods = {
-            buckhead: ['Buckhead', 'Lenox Square', 'Phipps Plaza'],
-            midtown: ['Midtown', 'Piedmont Park', 'High Museum', 'Woodruff Arts Center'],
-            downtown: ['Downtown', 'Centennial Olympic Park', 'State Farm Arena', 'Mercedes-Benz Stadium'],
-            oldFourthWard: ['Old Fourth Ward', 'O4W', 'Ponce City Market', 'Historic Fourth Ward Park'],
-            virginiaHighland: ['Virginia-Highland', 'Virginia Highland', 'Morningside'],
-            inmanPark: ['Inman Park', 'Little Five Points', 'Candler Park'],
-            westMidtown: ['West Midtown', 'Westside', 'Atlantic Station'],
-            eastAtlanta: ['East Atlanta', 'East Atlanta Village', 'Kirkwood'],
-            decatur: ['Decatur', 'Downtown Decatur', 'Eddie\'s Attic'],
-            grantPark: ['Grant Park', 'Zoo Atlanta', 'Summerhill']
+            downtown-orlando: ['Thornton Park Orlando', 'Lenox Square', 'Phipps Plaza'],
+            winter-park: ['Winter Park', 'Piedmont Park', 'High Museum', 'Woodruff Arts Center'],
+            downtown: ['Thornton Park', 'Centennial Olympic Park', 'State Farm Arena', 'Mercedes-Benz Stadium'],
+            oldFourthWard: ['Thornton Park', 'O4W', 'East End Market', 'Historic Fourth Ward Park'],
+            virginiaHighland: ['Thornton Park', 'Virginia Highland', 'Morningside'],
+            inmanPark: ['Ivanhoe Village', 'Little Church Street', 'College Park'],
+            westWinter Park: ['West Winter Park', 'College Park', 'Atlantic Station'],
+            eastOrlando: ['East Orlando', 'East Orlando Village', 'Kirkwood'],
+            decatur: ['Decatur', 'Thornton Park Decatur', 'Eddie\'s Attic'],
+            grantPark: ['Baldwin Park', 'Zoo Orlando', 'Summerhill']
           };
           const neighborhoods = areaToNeighborhoods[areaId] || [];
           const areaEvents = demoListings.filter(l =>
@@ -7801,7 +7801,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         <div className="auth-modal" onClick={(e) => e.target === e.currentTarget && onClose()}>
           <div className="auth-card">
             <button className="auth-close" onClick={onClose}>&times;</button>
-            <h2 className="auth-title">{tab === 'login' ? 'Welcome Back' : 'Join ATL Vibes'}</h2>
+            <h2 className="auth-title">{tab === 'login' ? 'Welcome Back' : 'Join Orlando Vibes'}</h2>
             <p className="auth-subtitle">
               {tab === 'login' ? 'Sign in to manage your listings' : 'Create an account to submit listings'}
             </p>
@@ -7910,7 +7910,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               onChange={handleChange}
               className="property-filter-select"
             >
-              <option value="">All Atlanta</option>
+              <option value="">All Orlando</option>
               {allNeighborhoods.map(n => (
                 <option key={n.id} value={n.id}>{n.name}</option>
               ))}
@@ -8196,7 +8196,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         ? ['Restaurant', 'Café', 'Bar', 'Retail', 'Salon/Spa', 'Fitness', 'Entertainment', 'Professional Services', 'Other']
         : ['Music', 'Art', 'Food & Drink', 'Festival', 'Sports', 'Networking', 'Community', 'Other'];
 
-      const neighborhoods = ['Buckhead', 'Midtown', 'Downtown', 'Old Fourth Ward', 'Virginia-Highland', 'Inman Park', 'West Midtown', 'East Atlanta', 'Decatur', 'Grant Park'];
+      const neighborhoods = ['Thornton Park Orlando', 'Winter Park', 'Thornton Park', 'Thornton Park', 'Thornton Park', 'Ivanhoe Village', 'West Winter Park', 'East Orlando', 'Decatur', 'Baldwin Park'];
 
       return (
         <div className="submit-modal" onClick={(e) => e.target === e.currentTarget && onClose()}>
@@ -8242,7 +8242,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               {formData.type === 'business' ? (
                 <div className="form-group">
                   <label className="form-label">Address *</label>
-                  <input type="text" name="address" className="form-input" value={formData.address} onChange={handleChange} placeholder="123 Peachtree St, Atlanta, GA" required />
+                  <input type="text" name="address" className="form-input" value={formData.address} onChange={handleChange} placeholder="123 Orange Ave St, Orlando, GA" required />
                 </div>
               ) : (
                 <div className="form-row">
@@ -8372,7 +8372,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           <div className="submit-card" style={{maxWidth: '700px'}}>
             <button className="auth-close" onClick={onClose}>&times;</button>
             <h2 className="auth-title">{post ? 'Edit Blog Post' : 'Create Blog Post'}</h2>
-            <p className="auth-subtitle">Write compelling stories about Atlanta's culture and communities.</p>
+            <p className="auth-subtitle">Write compelling stories about Orlando's culture and communities.</p>
 
             {success && <div className="form-success">{post ? 'Post updated!' : 'Post created!'} Refreshing...</div>}
 
@@ -8887,14 +8887,14 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
 
       // Neighborhood images based on area type
       const areaImages = {
-        buckhead: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600',
-        midtown: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600',
+        downtown-orlando: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600',
+        winter-park: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600',
         downtown: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600',
         oldFourthWard: 'https://images.unsplash.com/photo-1545987796-200677ee1011?w=600',
         virginiaHighland: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600',
         inmanPark: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600',
-        westMidtown: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600',
-        eastAtlanta: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600',
+        westWinter Park: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600',
+        eastOrlando: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600',
         decatur: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600',
         grantPark: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600'
       };
@@ -8921,12 +8921,12 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       // SVG Icons for each area
       const AreaIcon = ({ type }) => {
         const icons = {
-          buckhead: (
+          downtown-orlando: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01"/>
             </svg>
           ),
-          midtown: (
+          winter-park: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
             </svg>
@@ -8951,12 +8951,12 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
             </svg>
           ),
-          westMidtown: (
+          westWinter Park: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
             </svg>
           ),
-          eastAtlanta: (
+          eastOrlando: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
             </svg>
@@ -9251,7 +9251,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           "address": {
             "@type": "PostalAddress",
             "streetAddress": business.address,
-            "addressLocality": "Atlanta",
+            "addressLocality": "Orlando",
             "addressRegion": "GA"
           }
         };
@@ -9516,7 +9516,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                 {tierLevel === 0 ? (
                   <div className="map-text-only">
                     <span className="info-icon">📍</span>
-                    <span>{business.neighborhood}, Atlanta</span>
+                    <span>{business.neighborhood}, Orlando</span>
                   </div>
                 ) : tierLevel === 1 ? (
                   <div className="map-static">
@@ -9534,7 +9534,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                 )}
                 {tierLevel >= 1 && business.address && (
                   <a
-                    href={'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(business.address + ', Atlanta, GA')}
+                    href={'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(business.address + ', Orlando, GA')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="map-directions-btn"
@@ -9873,7 +9873,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             <SidebarAd />
             <div className="event-sidebar-cta">
               <h3>Have an Event?</h3>
-              <p>Get your event featured on ATL Vibes & Views</p>
+              <p>Get your event featured on The 407 Vibes</p>
               <button onClick={() => onNavigate && onNavigate('submit', 'event')}>Submit Your Event</button>
             </div>
             <div className="event-sidebar-cta">
@@ -9921,9 +9921,9 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               </div>
             </div>
 
-            <p>This stunning property in {property.neighborhood} offers {property.beds} bedrooms and {property.baths} bathrooms across {property.sqft} square feet of living space. Located in one of Atlanta's most desirable neighborhoods, this home features modern amenities and classic Southern charm.</p>
+            <p>This stunning property in {property.neighborhood} offers {property.beds} bedrooms and {property.baths} bathrooms across {property.sqft} square feet of living space. Located in one of Orlando's most desirable neighborhoods, this home features modern amenities and classic Southern charm.</p>
 
-            <p>Contact us today to schedule a viewing and discover why this property could be your perfect Atlanta home.</p>
+            <p>Contact us today to schedule a viewing and discover why this property could be your perfect Orlando home.</p>
 
             <button className="detail-cta-button dark" style={{marginTop: '2rem'}}>
               Contact Agent
@@ -9952,7 +9952,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       return (
         <div className="sidebar-newsletter">
           <h3>Get the Latest</h3>
-          <p>Atlanta food news delivered weekly</p>
+          <p>Orlando food news delivered weekly</p>
           {submitted ? (
             <p style={{color: 'var(--primary-red)', fontWeight: '600'}}>Thanks for subscribing!</p>
           ) : (
@@ -10001,7 +10001,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       return (
         <div className="sidebar-cta">
           <h3>Own a Restaurant?</h3>
-          <p>Get your business featured on ATL Vibes</p>
+          <p>Get your business featured on Orlando Vibes</p>
           <button onClick={onSubmit}>Submit Your Listing</button>
         </div>
       );
@@ -10046,7 +10046,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             <button className="event-back-btn" onClick={onBack}>← Back to Home</button>
 
             <div className="events-header">
-              <h1>Upcoming Events in Atlanta</h1>
+              <h1>Upcoming Events in Orlando</h1>
               <p>Discover festivals, concerts, food events, and community gatherings across the city</p>
             </div>
 
@@ -10100,7 +10100,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             <SidebarAd />
             <div className="event-sidebar-cta">
               <h3>Have an Event?</h3>
-              <p>Get your event featured on ATL Vibes & Views</p>
+              <p>Get your event featured on The 407 Vibes</p>
               <button onClick={() => onSubmit && onSubmit()}>Submit Your Event</button>
             </div>
           </aside>
@@ -10164,7 +10164,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           <aside className="event-sidebar">
             <div className="event-sidebar-cta primary">
               <h3>View Upcoming Events</h3>
-              <p>Check out what's happening next in Atlanta</p>
+              <p>Check out what's happening next in Orlando</p>
               <button onClick={() => onNavigate('events')}>See Upcoming Events</button>
             </div>
             <NewsletterSignup />
@@ -10192,7 +10192,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         .slice(0, 4);
 
       // Neighborhoods with most food content
-      const foodNeighborhoods = ['Buckhead', 'Midtown', 'Old Fourth Ward', 'West Midtown', 'Inman Park', 'Virginia-Highland'];
+      const foodNeighborhoods = ['Thornton Park Orlando', 'Winter Park', 'Thornton Park', 'West Winter Park', 'Ivanhoe Village', 'Thornton Park'];
 
       return (
         <div className="category-landing">
@@ -10203,7 +10203,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                 ← Back to Home
               </button>
               <h1>Eats & Drinks</h1>
-              <p>Atlanta's food and beverage scene explored</p>
+              <p>Orlando's food and beverage scene explored</p>
             </div>
 
             {/* Primary Featured Story */}
@@ -10326,21 +10326,21 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       );
     }
 
-    // Illustrated Atlanta Map Component with SVG Region Overlays
+    // Illustrated Orlando Map Component with SVG Region Overlays
     // Labels are built into the map image - no tooltip needed
-    function AtlantaMap({ neighborhoods, onSelect, selectedArea, onAreaSelect, onClear }) {
+    function OrlandoMap({ neighborhoods, onSelect, selectedArea, onAreaSelect, onClear }) {
       const [hoveredRegion, setHoveredRegion] = useState(null);
       const mapRef = React.useRef(null);
 
       // Core Areas matching the illustrated map - traced to actual boundaries
       const regions = [
-        { id: 'buckhead', path: 'M 38 2 L 50 0 L 75 0 L 82 8 L 82 18 L 78 28 L 68 32 L 55 30 L 45 25 L 38 15 Z' },
+        { id: 'downtown-orlando', path: 'M 38 2 L 50 0 L 75 0 L 82 8 L 82 18 L 78 28 L 68 32 L 55 30 L 45 25 L 38 15 Z' },
         { id: 'westside', path: 'M 5 15 L 18 10 L 32 12 L 38 15 L 45 25 L 45 35 L 40 45 L 32 50 L 22 48 L 12 52 L 5 45 L 2 30 Z' },
-        { id: 'midtown', path: 'M 45 25 L 55 30 L 68 32 L 70 42 L 65 50 L 52 52 L 45 45 L 45 35 Z' },
+        { id: 'winter-park', path: 'M 45 25 L 55 30 L 68 32 L 70 42 L 65 50 L 52 52 L 45 45 L 45 35 Z' },
         { id: 'downtown', path: 'M 40 45 L 45 45 L 52 52 L 52 60 L 45 65 L 35 62 L 32 55 L 32 50 Z' },
         { id: 'eastside', path: 'M 68 32 L 78 28 L 88 35 L 92 45 L 90 58 L 82 65 L 72 60 L 65 50 L 70 42 Z' },
         { id: 'southwest', path: 'M 2 52 L 12 52 L 22 48 L 32 50 L 32 55 L 35 62 L 32 72 L 25 82 L 15 88 L 5 82 L 0 68 Z' },
-        { id: 'south-atlanta', path: 'M 35 62 L 45 65 L 52 60 L 55 68 L 52 78 L 42 82 L 32 78 L 32 72 Z' },
+        { id: 'south-orlando', path: 'M 35 62 L 45 65 L 52 60 L 55 68 L 52 78 L 42 82 L 32 78 L 32 72 Z' },
         { id: 'southeast', path: 'M 52 60 L 65 50 L 72 60 L 82 65 L 85 75 L 78 85 L 65 88 L 52 82 L 52 78 L 55 68 Z' }
       ];
 
@@ -10374,7 +10374,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       return (
         <div className="illustrated-map-wrapper" ref={mapRef}>
           <div className="map-image-container">
-            <img src="atlanta-map.png" alt="Atlanta Neighborhoods Map" className="illustrated-map-image" />
+            <img src="orlando-map.png" alt="Orlando Neighborhoods Map" className="illustrated-map-image" />
           </div>
 
           {/* SVG Overlay with Clickable Regions */}
@@ -10405,7 +10405,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       );
     }
 
-    // Area Page Component - Dedicated landing page for each Atlanta area
+    // Area Page Component - Dedicated landing page for each Orlando area
     function AreaPage({ area, neighborhoods, onBack, onSelectNeighborhood, onNavigateTo }) {
       const [latestPost, setLatestPost] = useState(null);
       const [businesses, setBusinesses] = useState([]);
@@ -10418,51 +10418,51 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
 
       // Area metadata for hero and SEO
       const areaData = {
-        buckhead: {
-          title: 'Buckhead',
-          tagline: 'Atlanta\'s upscale district where luxury shopping meets vibrant nightlife',
+        downtown-orlando: {
+          title: 'Thornton Park Orlando',
+          tagline: 'Orlando\'s upscale district where luxury shopping meets vibrant nightlife',
           image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
           vibes: ['Upscale', 'Shopping', 'Nightlife', 'Fine Dining']
         },
-        midtown: {
-          title: 'Midtown',
-          tagline: 'The heart of Atlanta\'s arts, culture, and urban lifestyle',
+        winter-park: {
+          title: 'Winter Park',
+          tagline: 'The heart of Orlando\'s arts, culture, and urban lifestyle',
           image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600',
           vibes: ['Arts District', 'Walkable', 'Parks', 'Cultural Hub']
         },
         downtown: {
-          title: 'Downtown',
-          tagline: 'Atlanta\'s business core with world-class attractions and sports',
+          title: 'Thornton Park',
+          tagline: 'Orlando\'s business core with world-class attractions and sports',
           image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1600',
           vibes: ['Business District', 'Sports', 'Attractions', 'Historic']
         },
         oldFourthWard: {
-          title: 'Old Fourth Ward',
-          tagline: 'Historic charm meets modern revival along the BeltLine',
+          title: 'Thornton Park',
+          tagline: 'Historic charm meets modern revival along the Orlando Trail',
           image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600',
-          vibes: ['BeltLine', 'Historic', 'Trendy', 'Food Scene']
+          vibes: ['Orlando Trail', 'Historic', 'Trendy', 'Food Scene']
         },
         virginiaHighland: {
-          title: 'Virginia-Highland',
-          tagline: 'Atlanta\'s beloved walkable village with boutiques and brunch',
+          title: 'Thornton Park',
+          tagline: 'Orlando\'s beloved walkable village with boutiques and brunch',
           image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600',
           vibes: ['Walkable', 'Boutiques', 'Brunch', 'Family-Friendly']
         },
         inmanPark: {
-          title: 'Inman Park',
-          tagline: 'Victorian elegance and creative energy in Atlanta\'s first suburb',
+          title: 'Ivanhoe Village',
+          tagline: 'Victorian elegance and creative energy in Orlando\'s first suburb',
           image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600',
-          vibes: ['Victorian Homes', 'BeltLine', 'Creative', 'Historic']
+          vibes: ['Victorian Homes', 'Orlando Trail', 'Creative', 'Historic']
         },
-        westMidtown: {
-          title: 'West Midtown',
-          tagline: 'Atlanta\'s industrial-chic hub for food, art, and nightlife',
+        westWinter Park: {
+          title: 'West Winter Park',
+          tagline: 'Orlando\'s industrial-chic hub for food, art, and nightlife',
           image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600',
           vibes: ['Restaurants', 'Galleries', 'Industrial-Chic', 'Nightlife']
         },
-        eastAtlanta: {
-          title: 'East Atlanta',
-          tagline: 'Eclectic vibes and live music in Atlanta\'s village scene',
+        eastOrlando: {
+          title: 'East Orlando',
+          tagline: 'Eclectic vibes and live music in Orlando\'s village scene',
           image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600',
           vibes: ['Live Music', 'Dive Bars', 'Eclectic', 'Community']
         },
@@ -10470,13 +10470,13 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           title: 'Decatur',
           tagline: 'A city within a city with great schools, dining, and walkability',
           image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=1600',
-          vibes: ['Family-Friendly', 'Downtown Square', 'Dining', 'Progressive']
+          vibes: ['Family-Friendly', 'Thornton Park Square', 'Dining', 'Progressive']
         },
         grantPark: {
-          title: 'Grant Park',
-          tagline: 'Historic homes and Zoo Atlanta in a tight-knit community',
+          title: 'Baldwin Park',
+          tagline: 'Historic homes and Zoo Orlando in a tight-knit community',
           image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600',
-          vibes: ['Historic Homes', 'Zoo Atlanta', 'Parks', 'Community']
+          vibes: ['Historic Homes', 'Zoo Orlando', 'Parks', 'Community']
         }
       };
 
@@ -10528,7 +10528,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       const schemaData = {
         "@context": "https://schema.org",
         "@type": "Place",
-        "name": currentArea.title + ", Atlanta",
+        "name": currentArea.title + ", Orlando",
         "description": currentArea.tagline,
         "address": {
           "@type": "PostalAddress",
@@ -10553,7 +10553,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <button className="area-back-button" onClick={onBack}>
-                <span>&larr;</span> Back to Atlanta
+                <span>&larr;</span> Back to Orlando
               </button>
               <h1 className="area-hero-title">{currentArea.title}</h1>
               <p className="area-hero-tagline">{currentArea.tagline}</p>
@@ -10601,7 +10601,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
 
               <div className="area-inline-ad">
                 <div className="area-inline-ad-label">Advertisement</div>
-                <div className="area-inline-ad-content">Your Ad Here - Partner with ATL Vibes & Views</div>
+                <div className="area-inline-ad-content">Your Ad Here - Partner with The 407 Vibes</div>
               </div>
 
               <section className="area-listings-section">
@@ -10699,16 +10699,16 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
 
       // Area display names for the back button
       const areaNames = {
-        buckhead: 'Buckhead',
-        midtown: 'Midtown',
-        downtown: 'Downtown',
-        oldFourthWard: 'Old Fourth Ward',
-        virginiaHighland: 'Virginia-Highland',
-        inmanPark: 'Inman Park',
-        westMidtown: 'West Midtown',
-        eastAtlanta: 'East Atlanta',
+        downtown-orlando: 'Thornton Park Orlando',
+        winter-park: 'Winter Park',
+        downtown: 'Thornton Park',
+        oldFourthWard: 'Thornton Park',
+        virginiaHighland: 'Thornton Park',
+        inmanPark: 'Ivanhoe Village',
+        westWinter Park: 'West Winter Park',
+        eastOrlando: 'East Orlando',
         decatur: 'Decatur',
-        grantPark: 'Grant Park'
+        grantPark: 'Baldwin Park'
       };
 
       useEffect(() => {
@@ -10755,7 +10755,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       const schemaData = {
         "@context": "https://schema.org",
         "@type": "Place",
-        "name": neighborhood.name + ", Atlanta",
+        "name": neighborhood.name + ", Orlando",
         "description": neighborhood.description,
         "address": {
           "@type": "PostalAddress",
@@ -10773,7 +10773,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           {/* Header */}
           <header className="neighborhood-header">
             <button className="neighborhood-back-btn" onClick={onBack}>
-              <span>&larr;</span> Back to {areaNames[neighborhood.area] || 'Atlanta'}
+              <span>&larr;</span> Back to {areaNames[neighborhood.area] || 'Orlando'}
             </button>
             <div className="neighborhood-title-row">
               <h1 className="neighborhood-title">{neighborhood.name}</h1>
@@ -10863,7 +10863,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               {/* Inline Ad */}
               <div className="neighborhood-inline-ad">
                 <div className="neighborhood-inline-ad-label">Advertisement</div>
-                <div className="neighborhood-inline-ad-content">Your Ad Here - Partner with ATL Vibes & Views</div>
+                <div className="neighborhood-inline-ad-content">Your Ad Here - Partner with The 407 Vibes</div>
               </div>
 
               {/* Events Section */}
@@ -11004,7 +11004,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       const [heroStory, setHeroStory] = useState({
         id: 'hero-1',
         category: 'Featured Story',
-        title: 'The Renaissance of Old Fourth Ward',
+        title: 'The Renaissance of Thornton Park',
         author: 'Marcus Johnson',
         date: 'January 27, 2026',
         image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
@@ -11012,29 +11012,29 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       });
 
       const [editorsChoice, setEditorsChoice] = useState([
-        { id: 'ec-1', tag: 'Culture', title: 'Ponce City Market: Where History Meets Innovation', date: '25 Jan 2026', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', featured: true },
-        { id: 'ec-2', tag: 'Food Scene', title: 'Best Brunch Spots in Inman Park', date: '24 Jan 2026', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800', featured: true },
+        { id: 'ec-1', tag: 'Culture', title: 'East End Market: Where History Meets Innovation', date: '25 Jan 2026', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', featured: true },
+        { id: 'ec-2', tag: 'Food Scene', title: 'Best Brunch Spots in Ivanhoe Village', date: '24 Jan 2026', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800', featured: true },
         { id: 'ec-3', tag: 'Nightlife', title: 'Hidden Speakeasies You Need to Visit', date: '23 Jan 2026', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800', featured: true },
-        { id: 'ec-4', tag: 'Art', title: 'Street Art Walking Tours in Atlanta', date: '22 Jan 2026', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', featured: false }
+        { id: 'ec-4', tag: 'Art', title: 'Street Art Walking Tours in Orlando', date: '22 Jan 2026', image: 'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=800', featured: false }
       ]);
 
       const [businesses, setBusinesses] = useState([
-        { id: 'biz-1', badge: 'Restaurant', title: 'Buttermilk Kitchen', description: 'Farm-to-table Southern comfort food in Buckhead.', neighborhood: 'Buckhead', category: 'Dining', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', featured: true },
-        { id: 'biz-2', badge: 'Coffee Shop', title: 'Octane Coffee', description: 'Award-winning coffee roasters with multiple locations.', neighborhood: 'West Midtown', category: 'Café', image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800', featured: true },
-        { id: 'biz-3', badge: 'Boutique', title: 'Bill Hallman', description: 'Curated fashion and lifestyle boutique in Virginia-Highland.', neighborhood: 'Virginia-Highland', category: 'Shopping', image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800', featured: false }
+        { id: 'biz-1', badge: 'Restaurant', title: 'Buttermilk Kitchen', description: 'Farm-to-table Southern comfort food in Thornton Park Orlando.', neighborhood: 'Thornton Park Orlando', category: 'Dining', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', featured: true },
+        { id: 'biz-2', badge: 'Coffee Shop', title: 'Octane Coffee', description: 'Award-winning coffee roasters with multiple locations.', neighborhood: 'West Winter Park', category: 'Café', image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800', featured: true },
+        { id: 'biz-3', badge: 'Boutique', title: 'Bill Hallman', description: 'Curated fashion and lifestyle boutique in Thornton Park.', neighborhood: 'Thornton Park', category: 'Shopping', image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800', featured: false }
       ]);
 
       const [events, setEvents] = useState([
-        { id: 'evt-1', badge: 'Music Festival', title: 'Atlanta Jazz Festival 2026', description: 'Three days of world-class jazz performances in Piedmont Park.', date: 'May 25-27, 2026', location: 'Piedmont Park', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800', featured: true },
+        { id: 'evt-1', badge: 'Music Festival', title: 'Orlando Jazz Festival 2026', description: 'Three days of world-class jazz performances in Piedmont Park.', date: 'May 25-27, 2026', location: 'Piedmont Park', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800', featured: true },
         { id: 'evt-2', badge: 'Art Exhibition', title: 'High Museum Contemporary Showcase', description: 'Exploring the intersection of technology and traditional art forms.', date: 'Feb 15 - Apr 30, 2026', location: 'High Museum', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800', featured: true },
-        { id: 'evt-3', badge: 'Food Festival', title: 'Atlanta Food & Wine Festival', description: 'Celebrating Southern cuisine with top chefs.', date: 'Mar 10-12, 2026', location: 'Midtown', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800', featured: false }
+        { id: 'evt-3', badge: 'Food Festival', title: 'Orlando Food & Wine Festival', description: 'Celebrating Southern cuisine with top chefs.', date: 'Mar 10-12, 2026', location: 'Winter Park', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800', featured: false }
       ]);
 
       const [properties, setProperties] = useState([
-        { id: 'prop-1', price: '$575,000', address: '123 Piedmont Ave NE', neighborhood: 'Midtown', beds: 3, baths: 2, sqft: '2,100', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', featured: true },
-        { id: 'prop-2', price: '$425,000', address: '456 Highland Ave', neighborhood: 'Old Fourth Ward', beds: 2, baths: 2, sqft: '1,650', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', featured: true },
-        { id: 'prop-3', price: '$1,250,000', address: '789 West Paces Ferry Rd', neighborhood: 'Buckhead', beds: 5, baths: 4, sqft: '4,200', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800', featured: true },
-        { id: 'prop-4', price: '$350,000', address: '321 Memorial Dr', neighborhood: 'Grant Park', beds: 2, baths: 1, sqft: '1,200', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', featured: false }
+        { id: 'prop-1', price: '$575,000', address: '123 Piedmont Ave NE', neighborhood: 'Winter Park', beds: 3, baths: 2, sqft: '2,100', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', featured: true },
+        { id: 'prop-2', price: '$425,000', address: '456 Highland Ave', neighborhood: 'Thornton Park', beds: 2, baths: 2, sqft: '1,650', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', featured: true },
+        { id: 'prop-3', price: '$1,250,000', address: '789 West Paces Ferry Rd', neighborhood: 'Thornton Park Orlando', beds: 5, baths: 4, sqft: '4,200', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800', featured: true },
+        { id: 'prop-4', price: '$350,000', address: '321 Memorial Dr', neighborhood: 'Baldwin Park', beds: 2, baths: 1, sqft: '1,200', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', featured: false }
       ]);
 
       const openEditModal = (item, type) => {
@@ -11194,14 +11194,14 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                     <div style={{padding: '1rem 1.25rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                       <div>
                         <strong>New business submission</strong>
-                        <p style={{fontSize: '0.85rem', color: 'var(--text-light)'}}>Sweet Auburn Coffee - Pending Review</p>
+                        <p style={{fontSize: '0.85rem', color: 'var(--text-light)'}}>Parramore Coffee - Pending Review</p>
                       </div>
                       <span style={{fontSize: '0.8rem', color: 'var(--text-light)'}}>2 hours ago</span>
                     </div>
                     <div style={{padding: '1rem 1.25rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                       <div>
                         <strong>Event approved</strong>
-                        <p style={{fontSize: '0.85rem', color: 'var(--text-light)'}}>Midtown Music Festival - Now Live</p>
+                        <p style={{fontSize: '0.85rem', color: 'var(--text-light)'}}>Winter Park Music Festival - Now Live</p>
                       </div>
                       <span style={{fontSize: '0.8rem', color: 'var(--text-light)'}}>5 hours ago</span>
                     </div>
@@ -11941,13 +11941,13 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
 
       // Area groupings - mapping 8 areas to existing neighborhood IDs
       const areaGroupings = {
-        buckhead: { name: 'Buckhead', neighborhoods: ['buckhead'] },
-        midtown: { name: 'Midtown', neighborhoods: ['midtown'] },
-        downtown: { name: 'Downtown', neighborhoods: ['downtown'] },
-        eastside: { name: 'Eastside', neighborhoods: ['oldFourthWard', 'virginiaHighland', 'inmanPark', 'decatur'] },
-        westside: { name: 'Westside', neighborhoods: ['westMidtown'] },
-        southeast: { name: 'Southeast', neighborhoods: ['eastAtlanta', 'grantPark'] },
-        southwest: { name: 'Southwest', neighborhoods: [] },
+        downtown-orlando: { name: 'Thornton Park Orlando', neighborhoods: ['downtown-orlando'] },
+        winter-park: { name: 'Winter Park', neighborhoods: ['winter-park'] },
+        downtown: { name: 'Thornton Park', neighborhoods: ['downtown'] },
+        eastside: { name: 'Mills 50', neighborhoods: ['oldFourthWard', 'virginiaHighland', 'inmanPark', 'decatur'] },
+        westside: { name: 'College Park', neighborhoods: ['westWinter Park'] },
+        southeast: { name: 'Dr. Phillips', neighborhoods: ['eastOrlando', 'grantPark'] },
+        southwest: { name: 'Lake Nona', neighborhoods: [] },
         northwest: { name: 'Northwest', neighborhoods: [] }
       };
 
@@ -12032,17 +12032,17 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       // Map area IDs to listing area values (handle different naming conventions)
       const mapAreaToListingAreas = (areaId) => {
         const areaMapping = {
-          'buckhead': ['buckhead'],
-          'westside': ['westside', 'westMidtown', 'west midtown'],
-          'midtown': ['midtown'],
+          'downtown-orlando': ['downtown-orlando'],
+          'westside': ['westside', 'westWinter Park', 'west winter-park'],
+          'winter-park': ['winter-park'],
           'o4w': ['oldFourthWard', 'old fourth ward', 'o4w', 'poncey-highland'],
           'downtown': ['downtown'],
           'eastside': ['eastside', 'virginiaHighland', 'virginia-highland', 'morningside'],
           'decatur': ['decatur', 'oakhurst'],
           'inman-park': ['inmanPark', 'inman park', 'cabbagetown', 'reynoldstown', 'little five points'],
           'southwest': ['southwest', 'westEnd', 'west end'],
-          'south-atlanta': ['southAtlanta', 'south atlanta', 'pittsburgh', 'mechanicsville'],
-          'east-atlanta': ['eastAtlanta', 'east atlanta', 'grantPark', 'grant park', 'east atlanta village', 'ormewood']
+          'south-orlando': ['southOrlando', 'south orlando', 'pittsburgh', 'mechanicsville'],
+          'east-orlando': ['eastOrlando', 'east orlando', 'grantPark', 'grant park', 'east orlando village', 'ormewood']
         };
         return areaMapping[areaId] || [areaId];
       };
@@ -12135,7 +12135,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       // Sample data
       const heroStory = {
         category: 'Featured Story',
-        title: 'The Renaissance of Old Fourth Ward',
+        title: 'The Renaissance of Thornton Park',
         author: 'Marcus Johnson',
         date: 'January 27, 2026',
         image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600'
@@ -12144,13 +12144,13 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       const featuredStories = [
         {
           tag: 'Culture',
-          title: 'Ponce City Market: Where History Meets Innovation',
+          title: 'East End Market: Where History Meets Innovation',
           date: '25 Jan 2026',
           image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800'
         },
         {
           tag: 'Food Scene',
-          title: 'Best Brunch Spots in Inman Park',
+          title: 'Best Brunch Spots in Ivanhoe Village',
           date: '24 Jan 2026',
           image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800'
         },
@@ -12166,16 +12166,16 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         {
           badge: 'Restaurant',
           title: 'Buttermilk Kitchen',
-          description: 'Farm-to-table Southern comfort food in Buckhead. Known for their legendary fried chicken and homemade biscuits.',
-          neighborhood: 'Buckhead',
+          description: 'Farm-to-table Southern comfort food in Thornton Park Orlando. Known for their legendary fried chicken and homemade biscuits.',
+          neighborhood: 'Thornton Park Orlando',
           category: 'Dining',
           image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800'
         },
         {
           badge: 'Coffee Shop',
           title: 'Octane Coffee',
-          description: 'Award-winning coffee roasters with multiple locations across Atlanta. Perfect workspace with excellent wifi.',
-          neighborhood: 'West Midtown',
+          description: 'Award-winning coffee roasters with multiple locations across Orlando. Perfect workspace with excellent wifi.',
+          neighborhood: 'West Winter Park',
           category: 'Café',
           image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800'
         }
@@ -12184,7 +12184,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
       const events = [
         {
           badge: 'Music Festival',
-          title: 'Atlanta Jazz Festival 2026',
+          title: 'Orlando Jazz Festival 2026',
           description: 'Three days of world-class jazz performances in Piedmont Park. Featuring international and local artists.',
           date: 'May 25-27, 2026',
           location: 'Piedmont Park',
@@ -12204,7 +12204,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         {
           price: '$575,000',
           address: '123 Piedmont Ave NE',
-          neighborhood: 'Midtown',
+          neighborhood: 'Winter Park',
           beds: 3,
           baths: 2,
           sqft: '2,100',
@@ -12213,7 +12213,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         {
           price: '$425,000',
           address: '456 Highland Ave',
-          neighborhood: 'Old Fourth Ward',
+          neighborhood: 'Thornton Park',
           beds: 2,
           baths: 2,
           sqft: '1,650',
@@ -12222,7 +12222,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         {
           price: '$1,250,000',
           address: '789 West Paces Ferry Rd',
-          neighborhood: 'Buckhead',
+          neighborhood: 'Thornton Park Orlando',
           beds: 5,
           baths: 4,
           sqft: '4,200',
@@ -12232,11 +12232,11 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
 
       const neighborhoods = [
         {
-          id: 'buckhead',
-          name: 'Buckhead',
+          id: 'downtown-orlando',
+          name: 'Thornton Park Orlando',
           lat: 33.8384,
           lng: -84.3794,
-          description: 'Atlanta\'s upscale district known for luxury shopping at Lenox Square and Phipps Plaza, high-end dining, and vibrant nightlife. Tree-lined streets, historic estates, and modern high-rises define this affluent neighborhood.',
+          description: 'Orlando\'s upscale district known for luxury shopping at Lenox Square and Phipps Plaza, high-end dining, and vibrant nightlife. Tree-lined streets, historic estates, and modern high-rises define this affluent neighborhood.',
           vibes: ['Upscale', 'Shopping', 'Nightlife', 'Dining'],
           image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800',
           businesses: [
@@ -12245,20 +12245,20 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             { name: 'Blue Ridge Grill', type: 'Upscale Southern Cuisine' }
           ],
           events: [
-            { name: 'Buckhead Art Walk', type: 'Monthly Gallery Tour' },
+            { name: 'Thornton Park Orlando Art Walk', type: 'Monthly Gallery Tour' },
             { name: 'Wine & Dine Festival', type: 'Annual Food Event' }
           ],
           properties: [
             { price: '$1,250,000', details: '5 bed, 4 bath - West Paces Ferry' },
-            { price: '$875,000', details: '4 bed, 3 bath - Peachtree Battle' }
+            { price: '$875,000', details: '4 bed, 3 bath - Orange Ave Battle' }
           ]
         },
         {
-          id: 'midtown',
-          name: 'Midtown',
+          id: 'winter-park',
+          name: 'Winter Park',
           lat: 33.7866,
           lng: -84.3829,
-          description: 'The heart of Atlanta\'s arts and culture scene. Home to the High Museum, Woodruff Arts Center, and beautiful Piedmont Park. A walkable urban neighborhood with stunning high-rises and a thriving LGBTQ+ community.',
+          description: 'The heart of Orlando\'s arts and culture scene. Home to the High Museum, Woodruff Arts Center, and beautiful Piedmont Park. A walkable urban neighborhood with stunning high-rises and a thriving LGBTQ+ community.',
           vibes: ['Arts District', 'Walkable', 'Parks', 'Cultural Hub'],
           image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
           businesses: [
@@ -12267,7 +12267,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             { name: 'Colony Square', type: 'Mixed-Use Development' }
           ],
           events: [
-            { name: 'Music Midtown', type: 'Annual Music Festival' },
+            { name: 'Music Winter Park', type: 'Annual Music Festival' },
             { name: 'Piedmont Park Arts Festival', type: 'Annual Arts Fair' }
           ],
           properties: [
@@ -12277,19 +12277,19 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         },
         {
           id: 'downtown',
-          name: 'Downtown',
+          name: 'Thornton Park',
           lat: 33.7537,
           lng: -84.3901,
-          description: 'Atlanta\'s business and entertainment hub featuring Mercedes-Benz Stadium, State Farm Arena, and iconic attractions like the Georgia Aquarium and World of Coca-Cola. Rich in history and constantly evolving.',
+          description: 'Orlando\'s business and entertainment hub featuring Mercedes-Benz Stadium, State Farm Arena, and iconic attractions like the Florida Aquarium and World of Coca-Cola. Rich in history and constantly evolving.',
           vibes: ['Business District', 'Sports', 'Attractions', 'Historic'],
           image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800',
           businesses: [
-            { name: 'Georgia Aquarium', type: 'World\'s Largest Aquarium' },
+            { name: 'Florida Aquarium', type: 'World\'s Largest Aquarium' },
             { name: 'Centennial Olympic Park', type: 'Urban Park & Landmark' },
-            { name: 'Sweet Auburn Market', type: 'Historic Public Market' }
+            { name: 'Parramore Market', type: 'Historic Public Market' }
           ],
           events: [
-            { name: 'Atlanta Hawks Games', type: 'NBA Basketball' },
+            { name: 'Orlando Hawks Games', type: 'NBA Basketball' },
             { name: 'Peach Drop', type: 'New Year\'s Eve Celebration' }
           ],
           properties: [
@@ -12299,19 +12299,19 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         },
         {
           id: 'oldFourthWard',
-          name: 'Old Fourth Ward',
+          name: 'Thornton Park',
           lat: 33.7696,
           lng: -84.3636,
-          description: 'Historic neighborhood transformed by the Atlanta BeltLine. Home to Ponce City Market, Martin Luther King Jr.\'s birthplace, and a thriving food and art scene. A perfect blend of history and modern urban living.',
-          vibes: ['BeltLine', 'Historic', 'Trendy', 'Food Scene'],
+          description: 'Historic neighborhood transformed by the Orlando Orlando Trail. Home to East End Market, Martin Luther King Jr.\'s birthplace, and a thriving food and art scene. A perfect blend of history and modern urban living.',
+          vibes: ['Orlando Trail', 'Historic', 'Trendy', 'Food Scene'],
           image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
           businesses: [
-            { name: 'Ponce City Market', type: 'Food Hall & Shops' },
+            { name: 'East End Market', type: 'Food Hall & Shops' },
             { name: 'Krog Street Market', type: 'Local Food Hall' },
             { name: 'King Center', type: 'Historic Memorial' }
           ],
           events: [
-            { name: 'BeltLine Lantern Parade', type: 'Annual Community Event' },
+            { name: 'Orlando Trail Food Lantern Parade Wine Classic', type: 'Annual Community Event' },
             { name: 'O4W Food Festival', type: 'Annual Culinary Event' }
           ],
           properties: [
@@ -12321,10 +12321,10 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         },
         {
           id: 'virginiaHighland',
-          name: 'Virginia-Highland',
+          name: 'Thornton Park',
           lat: 33.7741,
           lng: -84.3519,
-          description: 'One of Atlanta\'s most beloved walkable neighborhoods. Tree-lined streets, local boutiques, sidewalk cafes, and a strong sense of community. Popular with young professionals and families alike.',
+          description: 'One of Orlando\'s most beloved walkable neighborhoods. Tree-lined streets, local boutiques, sidewalk cafes, and a strong sense of community. Popular with young professionals and families alike.',
           vibes: ['Walkable', 'Boutiques', 'Restaurants', 'Community'],
           image: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=800',
           businesses: [
@@ -12343,19 +12343,19 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
         },
         {
           id: 'inmanPark',
-          name: 'Inman Park',
+          name: 'Ivanhoe Village',
           lat: 33.7619,
           lng: -84.3522,
-          description: 'Atlanta\'s first planned suburb with stunning Victorian architecture. Known for the Inman Park Festival, eclectic restaurants, and access to the BeltLine. A charming neighborhood with historic character.',
-          vibes: ['Historic', 'Victorian', 'Festivals', 'BeltLine Access'],
+          description: 'Orlando\'s first planned suburb with stunning Victorian architecture. Known for the Ivanhoe Village Festival, eclectic restaurants, and access to the Orlando Trail. A charming neighborhood with historic character.',
+          vibes: ['Historic', 'Victorian', 'Festivals', 'Orlando Trail Access'],
           image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800',
           businesses: [
             { name: 'Barcelona Wine Bar', type: 'Spanish Tapas & Wine' },
             { name: 'Wrecking Bar Brewpub', type: 'Craft Brewery & Restaurant' },
-            { name: 'Little Five Points', type: 'Alternative Shopping District' }
+            { name: 'Little Church Street', type: 'Alternative Shopping District' }
           ],
           events: [
-            { name: 'Inman Park Festival', type: 'Annual Arts & Music Festival' },
+            { name: 'Ivanhoe Village Festival', type: 'Annual Arts & Music Festival' },
             { name: 'Parade of Homes', type: 'Historic Home Tour' }
           ],
           properties: [
@@ -12364,21 +12364,21 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           ]
         },
         {
-          id: 'westMidtown',
-          name: 'West Midtown',
+          id: 'westWinter Park',
+          name: 'West Winter Park',
           lat: 33.7918,
           lng: -84.4108,
-          description: 'Former industrial zone turned trendy hotspot. Converted warehouses house acclaimed restaurants, art galleries, and creative offices. The Westside Provisions District anchors this rapidly evolving area.',
+          description: 'Former industrial zone turned trendy hotspot. Converted warehouses house acclaimed restaurants, art galleries, and creative offices. The College Park Provisions District anchors this rapidly evolving area.',
           vibes: ['Industrial Chic', 'Restaurants', 'Galleries', 'Creative'],
           image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
           businesses: [
-            { name: 'Westside Provisions', type: 'Shopping & Dining District' },
+            { name: 'College Park Provisions', type: 'Shopping & Dining District' },
             { name: 'Miller Union', type: 'Award-Winning Restaurant' },
             { name: 'Octane Coffee', type: 'Artisanal Coffee Roaster' }
           ],
           events: [
-            { name: 'Westside Art Walk', type: 'Monthly Gallery Event' },
-            { name: 'Atlanta Food & Wine', type: 'Annual Festival' }
+            { name: 'College Park Art Walk', type: 'Monthly Gallery Event' },
+            { name: 'Orlando Food & Wine', type: 'Annual Festival' }
           ],
           properties: [
             { price: '$520,000', details: '2 bed, 2 bath - Howell Mill Loft' },
@@ -12386,11 +12386,11 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           ]
         },
         {
-          id: 'eastAtlanta',
-          name: 'East Atlanta',
+          id: 'eastOrlando',
+          name: 'East Orlando',
           lat: 33.7400,
           lng: -84.3422,
-          description: 'Eclectic and unpretentious neighborhood centered around East Atlanta Village. Known for its live music venues, dive bars, and independent spirit. A haven for artists, musicians, and free thinkers.',
+          description: 'Eclectic and unpretentious neighborhood centered around East Orlando Village. Known for its live music venues, dive bars, and independent spirit. A haven for artists, musicians, and free thinkers.',
           vibes: ['Eclectic', 'Live Music', 'Dive Bars', 'Indie'],
           image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800',
           businesses: [
@@ -12399,7 +12399,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             { name: 'Holy Taco', type: 'Mexican Street Food' }
           ],
           events: [
-            { name: 'East Atlanta Strut', type: 'Annual Neighborhood Festival' },
+            { name: 'East Orlando Strut', type: 'Annual Neighborhood Festival' },
             { name: 'Live at The Earl', type: 'Weekly Concert Series' }
           ],
           properties: [
@@ -12413,7 +12413,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           lat: 33.7748,
           lng: -84.2963,
           description: 'Charming city-within-a-city known for its walkable downtown square, excellent schools, and thriving food scene. Family-friendly with a progressive vibe and strong community events throughout the year.',
-          vibes: ['Family-Friendly', 'Downtown Square', 'Dining', 'Progressive'],
+          vibes: ['Family-Friendly', 'Thornton Park Square', 'Dining', 'Progressive'],
           image: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800',
           businesses: [
             { name: 'Leon\'s Full Service', type: 'Southern Gastropub' },
@@ -12426,24 +12426,24 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           ],
           properties: [
             { price: '$595,000', details: '3 bed, 2 bath - Historic District' },
-            { price: '$450,000', details: '2 bed, 2 bath - Downtown Condo' }
+            { price: '$450,000', details: '2 bed, 2 bath - Thornton Park Condo' }
           ]
         },
         {
           id: 'grantPark',
-          name: 'Grant Park',
+          name: 'Baldwin Park',
           lat: 33.7400,
           lng: -84.3700,
-          description: 'Historic neighborhood surrounding Atlanta\'s oldest park. Home to Zoo Atlanta and beautifully preserved Victorian homes. A tight-knit community with excellent restaurants and a beloved farmers market.',
-          vibes: ['Historic Homes', 'Zoo Atlanta', 'Parks', 'Community'],
+          description: 'Historic neighborhood surrounding Orlando\'s oldest park. Home to Zoo Orlando and beautifully preserved Victorian homes. A tight-knit community with excellent restaurants and a beloved farmers market.',
+          vibes: ['Historic Homes', 'Zoo Orlando', 'Parks', 'Community'],
           image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800',
           businesses: [
-            { name: 'Zoo Atlanta', type: 'Major Zoo & Conservation' },
+            { name: 'Zoo Orlando', type: 'Major Zoo & Conservation' },
             { name: 'Six Feet Under', type: 'Rooftop Seafood Restaurant' },
-            { name: 'Grant Park Market', type: 'Weekly Farmers Market' }
+            { name: 'Baldwin Park Market', type: 'Weekly Farmers Market' }
           ],
           events: [
-            { name: 'Grant Park Summer Shade Festival', type: 'Annual Arts Festival' },
+            { name: 'Baldwin Park Summer Shade Festival', type: 'Annual Arts Festival' },
             { name: 'Tour of Homes', type: 'Annual Historic Home Tour' }
           ],
           properties: [
@@ -12458,7 +12458,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           {/* Navigation */}
           <nav className="navbar">
             <a href="/" className="logo" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>
-              <span className="logo-main">ATL Vibes & Views</span>
+              <span className="logo-main">The 407 Vibes</span>
               <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
             </a>
             <ul className="nav-links">
@@ -12466,15 +12466,15 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               <li className="nav-dropdown">
                 <a href="#" onClick={(e) => e.preventDefault()}>Areas</a>
                 <ul className="dropdown-menu">
-                  <li><a href="buckhead.html">Buckhead</a></li>
-                  <li><a href="midtown.html">Midtown</a></li>
-                  <li><a href="downtown.html">Downtown</a></li>
-                  <li><a href="eastside.html">Eastside</a></li>
-                  <li><a href="westside.html">Westside</a></li>
-                  <li><a href="north-atlanta.html">North Atlanta</a></li>
-                  <li><a href="south-atlanta.html">South Atlanta</a></li>
-                  <li><a href="southeast.html">Southeast Atlanta</a></li>
-                  <li><a href="southwest.html">Southwest Atlanta</a></li>
+                  <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                  <li><a href="winter-park.html">Winter Park</a></li>
+                  <li><a href="thornton-park.html">Thornton Park</a></li>
+                  <li><a href="mills-50.html">Mills 50</a></li>
+                  <li><a href="college-park.html">College Park</a></li>
+                  <li><a href="ivanhoe-village.html">Ivanhoe Village</a></li>
+                  <li><a href="baldwin-park.html">Baldwin Park</a></li>
+                  <li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li>
+                  <li><a href="lake-nona.html">Lake Nona Orlando</a></li>
                 </ul>
               </li>
               <li><a href="#neighborhoods" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>Neighborhoods</a></li>
@@ -12606,7 +12606,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           {/* Neighborhoods Section - Interactive Map */}
           <section className="neighborhoods-section" id="neighborhoods" ref={mapSectionRef}>
             <div className="section-header">
-              <h2 className="section-title">Explore Atlanta</h2>
+              <h2 className="section-title">Explore Orlando</h2>
               <p className="section-subtitle">Click a neighborhood to learn more</p>
             </div>
 
@@ -12631,19 +12631,19 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                     areaData={areaMetadata[mapSelectedArea]}
                     onExplore={(area) => {
                       const areaPageMap = {
-                        'buckhead': 'buckhead.html',
-                        'midtown': 'midtown.html',
-                        'downtown': 'downtown.html',
-                        'westside': 'westside.html',
-                        'eastside': 'eastside.html',
-                        'southwest': 'southwest.html',
-                        'southeast': 'southeast.html',
-                        'south-atlanta': 'south-atlanta.html',
-                        'north-atlanta': 'north-atlanta.html',
-                        'o4w': 'eastside.html',
-                        'decatur': 'eastside.html',
-                        'inman-park': 'eastside.html',
-                        'east-atlanta': 'southeast.html'
+                        'downtown-orlando': 'downtown-orlando.html',
+                        'winter-park': 'winter-park.html',
+                        'downtown': 'thornton-park.html',
+                        'westside': 'college-park.html',
+                        'eastside': 'mills-50.html',
+                        'southwest': 'lake-nona.html',
+                        'southeast': 'dr-phillips.html',
+                        'south-orlando': 'baldwin-park.html',
+                        'north-orlando': 'ivanhoe-village.html',
+                        'o4w': 'mills-50.html',
+                        'decatur': 'mills-50.html',
+                        'inman-park': 'mills-50.html',
+                        'east-orlando': 'dr-phillips.html'
                       };
                       window.location.href = areaPageMap[area] || `${area}.html`;
                     }}
@@ -12665,14 +12665,14 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                 ) : (
                   <div className="area-card-v2">
                     <div className="area-card-v2-hero">
-                      <img src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?w=800" alt="Atlanta Skyline" />
+                      <img src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?w=800" alt="Orlando Skyline" />
                       <h3 className="area-card-v2-title">ATLANTA</h3>
                     </div>
                     <div className="area-card-v2-body">
                       <p className="area-card-v2-description">
-                        Great food & Southern hospitality, live music, a world-class arts scene, patios & rooftops - Atlanta has it all. Explore this map to see what each neighborhood holds!
+                        Great food & Southern hospitality, live music, a world-class arts scene, patios & rooftops - Orlando has it all. Explore this map to see what each neighborhood holds!
                       </p>
-                      <button className="area-card-v2-explore" onClick={() => setMapSelectedArea('buckhead')}>
+                      <button className="area-card-v2-explore" onClick={() => setMapSelectedArea('downtown-orlando')}>
                         EXPLORE →
                       </button>
                     </div>
@@ -12697,7 +12697,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               {/* Right: Map */}
               <div className="map-container">
                 {mapVisible ? (
-                  <AtlantaMap
+                  <OrlandoMap
                     neighborhoods={neighborhoods}
                     onSelect={(area) => navigateTo('area', 'area', area)}
                     selectedArea={mapSelectedArea}
@@ -12786,7 +12786,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           {/* Properties Section - IDX Broker Integration */}
           <section className="properties-section" id="properties">
             <div className="section-header">
-              <h2 className="section-title">Atlanta Real Estate</h2>
+              <h2 className="section-title">Orlando Real Estate</h2>
               <p className="section-subtitle">Featured Properties</p>
             </div>
 
@@ -12826,7 +12826,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                 className="view-all-properties-btn"
                 style={{display: 'inline-block', textDecoration: 'none'}}
               >
-                View All Atlanta Listings
+                View All Orlando Listings
               </a>
             </div>
           </section>
@@ -12834,7 +12834,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           {/* Directory Actions */}
           <section className="directory-section" id="directory">
             <div className="section-header">
-              <h2 className="section-title">Atlanta Directory</h2>
+              <h2 className="section-title">Orlando Directory</h2>
               <p className="section-subtitle">Connect with the City</p>
             </div>
             <div className="directory-actions">
@@ -12845,7 +12845,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                   </svg>
                 </div>
                 <h3 className="action-title">List Your Business</h3>
-                <p className="action-description">Join hundreds of Atlanta businesses in our comprehensive directory. Get discovered by locals and visitors.</p>
+                <p className="action-description">Join hundreds of Orlando businesses in our comprehensive directory. Get discovered by locals and visitors.</p>
                 <button onClick={() => openSubmit('business')} className="action-button">Submit Listing</button>
               </div>
               <div className="action-card">
@@ -12857,7 +12857,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                   </svg>
                 </div>
                 <h3 className="action-title">Submit an Event</h3>
-                <p className="action-description">Share your event with the Atlanta community. From concerts to art shows, we showcase it all.</p>
+                <p className="action-description">Share your event with the Orlando community. From concerts to art shows, we showcase it all.</p>
                 <button onClick={() => openSubmit('event')} className="action-button">Add Event</button>
               </div>
               <div className="action-card">
@@ -12868,7 +12868,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                   </svg>
                 </div>
                 <h3 className="action-title">Explore by Neighborhood</h3>
-                <p className="action-description">Filter businesses, events, and properties by any of Atlanta's 243 unique neighborhoods.</p>
+                <p className="action-description">Filter businesses, events, and properties by any of Orlando's 243 unique neighborhoods.</p>
                 <a href="#neighborhoods" className="action-button">Browse Now</a>
               </div>
             </div>
@@ -12878,7 +12878,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           <section className="ad-section">
             <div className="ad-content">
               <h2>Advertise With Us</h2>
-              <p>Reach thousands of Atlanta locals and visitors. Partner with ATL Vibes & Views to grow your brand.</p>
+              <p>Reach thousands of Orlando locals and visitors. Partner with The 407 Vibes to grow your brand.</p>
               <a href="#contact" className="ad-button">Learn More</a>
             </div>
           </section>
@@ -12891,22 +12891,22 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             </div>
             <div className="instagram-grid">
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400" alt="Atlanta skyline" />
+                <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400" alt="Orlando skyline" />
               </div>
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400" alt="Atlanta food scene" />
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400" alt="Orlando food scene" />
               </div>
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400" alt="Atlanta nightlife" />
+                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400" alt="Orlando nightlife" />
               </div>
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400" alt="Atlanta restaurant" />
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400" alt="Orlando restaurant" />
               </div>
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400" alt="Atlanta art" />
+                <img src="https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400" alt="Orlando art" />
               </div>
               <div className="instagram-item">
-                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400" alt="Atlanta streets" />
+                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400" alt="Orlando streets" />
               </div>
             </div>
             <a href="https://www.instagram.com/atlvibesandviews/" target="_blank" rel="noopener noreferrer" className="instagram-follow">
@@ -12921,8 +12921,8 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
           <footer className="footer">
             <div className="footer-content">
               <div className="footer-brand">
-                <h3>ATL Vibes & Views</h3>
-                <p>Your comprehensive guide to Atlanta's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
+                <h3>The 407 Vibes</h3>
+                <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
                 <div className="social-links">
                   <a href="https://www.instagram.com/atlvibesandviews/" className="social-link" target="_blank" rel="noopener noreferrer">IG</a>
                   <a href="#" className="social-link">FB</a>
@@ -12936,7 +12936,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
                   <li><a href="#" onClick={(e) => { e.preventDefault(); navigateTo('home'); }}>Home</a></li>
                   <li><a href="#" onClick={(e) => { e.preventDefault(); navigateTo('events'); }}>Events</a></li>
                   <li><a href="#" onClick={(e) => { e.preventDefault(); navigateTo('eats-drinks'); }}>Eats & Drinks</a></li>
-                  <li><a href="development.html">ATL Development</a></li>
+                  <li><a href="development.html">Orlando Development</a></li>
                   <li><a href="about.html">About</a></li>
                   <li><a href="contact.html">Contact</a></li>
                   <li><a href="support.html">Help & Support</a></li>
@@ -12959,7 +12959,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
               </div>
               <div className="footer-column">
                 <h4>Newsletter</h4>
-                <p style={{fontSize: '0.9rem', color: 'var(--text-light)', marginBottom: '1rem'}}>Get the latest Atlanta vibes delivered to your inbox.</p>
+                <p style={{fontSize: '0.9rem', color: 'var(--text-light)', marginBottom: '1rem'}}>Get the latest Orlando vibes delivered to your inbox.</p>
                 <FooterNewsletterForm />
               </div>
               <div className="footer-column">
@@ -12973,7 +12973,7 @@ For casual hangs, **Victory Sandwich Bar** in Inman Park has sidewalk seating pe
             </div>
 
             <div className="footer-bottom">
-              <p>&copy; 2026 ATL Vibes & Views. All rights reserved. |
+              <p>&copy; 2026 The 407 Vibes. All rights reserved. |
                 <a href="terms.html">Terms</a> |
                 <a href="privacy.html">Privacy</a> |
                 <a href="cookies.html">Cookies</a>
