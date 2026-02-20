@@ -447,6 +447,119 @@
       transition: color 0.3s;
     }
 
+    /* Story Detail Modal */
+    .story-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .story-modal {
+      background: white;
+      border-radius: 12px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .story-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .story-modal-close:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .story-modal-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .story-modal-body {
+      padding: 2rem;
+    }
+
+    .story-modal-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: white;
+      background: var(--primary-blue);
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .story-modal-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .story-modal-meta {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .story-modal-meta span:first-child {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .story-modal-content {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+
+    .story-modal-content p {
+      margin-bottom: 1rem;
+    }
+
     .explore-link:hover {
       color: var(--primary-gold);
     }
@@ -793,7 +906,7 @@
       author: 'Marcus Johnson',
       date: 'January 28, 2026',
       image: '/api/places?query=Creative+Village+Orlando+FL&maxwidth=1600',
-      neighborhood: 'West End',
+      neighborhood: 'College Park',
       featured: true
     };
 
@@ -805,7 +918,7 @@
         title: 'Winter Park High-Rise Breaks Ground on Orange Avenue',
         neighborhood: 'Winter Park',
         date: '27 Jan 2026',
-        image: '/api/places?query=Orange+Avenue+Orlando+highrise+FL&maxwidth=800'
+        image: '/api/places?query=55+West+Orlando+downtown+tower&maxwidth=800'
       },
       {
         id: 3,
@@ -813,7 +926,7 @@
         title: 'Tech Hub Anchors New College Park Development',
         neighborhood: 'Mills 50',
         date: '25 Jan 2026',
-        image: '/api/places?query=UCF+Downtown+Orlando+campus+FL&maxwidth=800'
+        image: '/api/places?query=UCF+Downtown+campus+Orlando+FL&maxwidth=800'
       },
       {
         id: 4,
@@ -821,7 +934,7 @@
         title: 'Parramore Mixed-Use District Phase 2 Revealed',
         neighborhood: 'Parramore',
         date: '24 Jan 2026',
-        image: '/api/places?query=Parramore+Orlando+FL&maxwidth=800'
+        image: '/api/places?query=Amway+Center+Orlando+FL&maxwidth=800'
       },
       {
         id: 5,
@@ -837,7 +950,7 @@
         title: 'Ivanhoe Village Warehouse Becomes Creative Campus',
         neighborhood: 'Ivanhoe Village',
         date: '20 Jan 2026',
-        image: '/api/places?query=Ivanhoe+Village+Orlando+FL&maxwidth=800'
+        image: '/api/places?query=Ivanhoe+Row+Orlando+FL&maxwidth=800'
       },
       {
         id: 7,
@@ -845,7 +958,7 @@
         title: 'Holden Heights Affordable Housing Project Breaks Record',
         neighborhood: 'Holden Heights',
         date: '18 Jan 2026',
-        image: '/api/places?query=Holden+Heights+Orlando+FL&maxwidth=800'
+        image: '/api/places?query=Orlando+City+Stadium+FL&maxwidth=800'
       }
     ];
 
@@ -853,39 +966,39 @@
     const impactedNeighborhoods = [
       {
         name: 'Parramore',
-        slug: 'parramore',
+        slug: 'downtown-orlando',
         storyCount: 12,
-        image: '/api/places?query=Parramore+Orlando+FL&maxwidth=600'
+        image: '/api/places?query=Amway+Center+Orlando+FL&maxwidth=600'
       },
       {
-        name: 'West End',
-        slug: 'west-end',
+        name: 'College Park',
+        slug: 'college-park',
         storyCount: 9,
-        image: '/api/places?query=Parramore+Orlando+FL&maxwidth=600'
+        image: '/api/places?query=College+Park+Orlando+FL+neighborhood&maxwidth=600'
       },
       {
         name: 'Winter Park',
         slug: 'winter-park',
         storyCount: 15,
-        image: '/api/places?query=Winter+Park+Village+FL&maxwidth=600'
+        image: '/api/places?query=Park+Avenue+Winter+Park+FL&maxwidth=600'
       },
       {
         name: 'Mills 50',
         slug: 'mills-50',
         storyCount: 7,
-        image: '/api/places?query=Mills+50+District+Orlando+FL&maxwidth=600'
+        image: '/api/places?query=Colonial+Drive+Mills+Avenue+Orlando+FL&maxwidth=600'
       },
       {
         name: 'Audubon Park',
-        slug: 'audubon-park',
+        slug: 'east-orlando',
         storyCount: 6,
-        image: '/api/places?query=Audubon+Park+Orlando+FL&maxwidth=600'
+        image: '/api/places?query=Audubon+Park+Garden+District+Orlando+FL&maxwidth=600'
       },
       {
         name: 'Creative Village',
-        slug: 'creative-village',
+        slug: 'downtown-orlando',
         storyCount: 8,
-        image: '/api/places?query=Creative+Village+Orlando+FL&maxwidth=600'
+        image: '/api/places?query=UCF+Downtown+Orlando+FL&maxwidth=600'
       }
     ];
 
@@ -898,17 +1011,62 @@
       { name: 'Mills 50', storyCount: 7 }
     ];
 
-    // Development Hero Component
-    function DevelopmentHero({ story }) {
+    // Generate story body content based on title/neighborhood
+    function getStoryContent(story) {
+      const contents = {
+        1: `<p>The I-4 Creative Corridor continues to reshape Orlando's urban landscape as new mixed-use developments break ground along the College Park Trail. The expansion, which stretches from downtown through the historic West End, will bring over 2,500 residential units, 150,000 square feet of retail space, and new community amenities to the corridor.</p><p>City planners have worked closely with neighborhood associations to ensure the development respects the area's historic character while introducing modern infrastructure. The project includes dedicated affordable housing units, public green spaces, and improved pedestrian connectivity to the SunRail system.</p><p>"This is about building a neighborhood that works for everyone," said Orlando Planning Director Sarah Chen. "We're not just adding density — we're creating community spaces that will serve residents for generations."</p><p>Construction on Phase 1 is expected to begin in Q2 2026, with the first residents moving in by early 2027. The full buildout is projected to take five years and represents a $1.2 billion investment in Orlando's urban core.</p>`,
+        2: `<p>A new 28-story luxury residential tower is officially under construction on Orange Avenue in Winter Park, marking one of the tallest projects in the area's history. The development, known as "The Pinnacle at Park Avenue," will feature 312 residential units ranging from studios to three-bedroom penthouses.</p><p>The project includes ground-floor retail space designed to complement the existing Park Avenue shopping district, along with a rooftop pool, co-working lounge, and electric vehicle charging stations. Developers say the building will target LEED Gold certification.</p><p>Pre-sales have already exceeded expectations, with over 40% of units reserved within the first month of listings going live. Prices range from $450,000 for studios to over $2.5 million for the top-floor penthouses overlooking the chain of lakes.</p>`,
+        3: `<p>A major new technology hub is taking shape in the heart of the Mills 50 district, anchoring a mixed-use development that promises to transform the intersection of Colonial Drive and Mills Avenue. The project will house offices for several Orlando-based tech startups alongside UCF's expanding downtown campus programs.</p><p>The 180,000-square-foot campus will include flexible office space, a startup incubator, and a public innovation lab. Ground-floor retail and restaurant space will activate the street level, while a public plaza will host community events and farmers markets.</p><p>The development signals Orlando's growing reputation as a Southeast tech corridor, with the city's tech sector employment growing 23% over the past three years. Construction is set to complete by mid-2027.</p>`,
+        4: `<p>Phase 2 of the Parramore mixed-use district has been officially unveiled, bringing 800 new residential units, a community health center, and a cultural arts complex to one of Orlando's most historic neighborhoods. The $450 million project builds on the momentum of Creative Village and the Amway Center district.</p><p>The development places a strong emphasis on community equity, with 35% of residential units designated as affordable housing. A new community land trust will ensure long-term affordability protections for existing Parramore residents and businesses.</p><p>Key features include a 15,000-square-foot community center, a fresh food market, and improved connections to the Lymmo bus rapid transit system. The project has received strong support from neighborhood leaders who helped shape the development plan through an 18-month community engagement process.</p>`,
+        5: `<p>Lake Nona is set for another major transformation as plans for a transit-oriented development around the proposed SunRail connection have been unveiled. The 120-acre project will create a walkable, mixed-use district centered on the future commuter rail station.</p><p>The master plan includes 3,000 residential units, 500,000 square feet of office space, a hotel, and a town center with restaurants and retail. A network of trails and greenways will connect the development to Lake Nona's existing Medical City and Town Center.</p><p>Transit officials say the SunRail extension to Lake Nona could be operational by 2029, dramatically reducing commute times for the area's growing workforce. The development is expected to generate over 5,000 permanent jobs and $2 billion in economic impact over the next decade.</p>`,
+        6: `<p>A collection of historic warehouses along Virginia Drive in Ivanhoe Village is being transformed into a vibrant creative campus featuring artist studios, galleries, a performance venue, and craft food and beverage spaces. The adaptive reuse project preserves the industrial character of the 1940s-era buildings while introducing modern amenities.</p><p>The 45,000-square-foot campus will be home to over 30 artist studios, a 200-seat black box theater, and a shared workshop space with woodworking, ceramics, and printmaking equipment. A central courtyard will host outdoor markets and community gatherings.</p><p>The project is backed by a partnership between local arts organizations and private developers, with subsidized studio rates for emerging artists. Grand opening is planned for fall 2026.</p>`,
+        7: `<p>A groundbreaking affordable housing project in the Holden Heights neighborhood has set new records for both scale and community investment in Orlando's south side. The development will deliver 450 affordable and workforce housing units across a 12-acre site near Orlando City Stadium.</p><p>The project, developed through a public-private partnership, includes a mix of one-, two-, and three-bedroom apartments with rents targeted at households earning 60-80% of the area median income. On-site amenities include a community garden, playground, after-school program space, and a job training center.</p><p>Mayor Buddy Dyer called the project "a model for how Orlando can grow inclusively" at the groundbreaking ceremony. Completion is expected in phases through 2027, with the first units available by late 2026.</p>`
+      };
+      return contents[story.id] || `<p>${story.excerpt || story.title}</p>`;
+    }
+
+    // Story Detail Modal
+    function StoryModal({ story, onClose }) {
+      React.useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
+        window.addEventListener('keydown', handleEsc);
+        return () => {
+          document.body.style.overflow = '';
+          window.removeEventListener('keydown', handleEsc);
+        };
+      }, []);
+
       return (
-        <section className="hero">
+        <div className="story-modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+          <div className="story-modal">
+            <button className="story-modal-close" onClick={onClose}>&times;</button>
+            <img src={story.image} alt={story.title} className="story-modal-image" />
+            <div className="story-modal-body">
+              <span className="story-modal-tag">{story.subcategory || story.category}</span>
+              <h2 className="story-modal-title">{story.title}</h2>
+              <div className="story-modal-meta">
+                <span>{story.neighborhood}</span>
+                <span>{story.date}</span>
+              </div>
+              <div className="story-modal-content" dangerouslySetInnerHTML={{ __html: getStoryContent(story) }} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Development Hero Component
+    function DevelopmentHero({ story, onClick }) {
+      return (
+        <section className="hero" onClick={() => onClick(story)} style={{ cursor: 'pointer' }}>
           <img src={story.image} alt={story.title} className="hero-image" />
           <div className="hero-content">
             <div className="hero-text">
               <span className="hero-category">{story.category}</span>
               <h1 className="hero-title">{story.title}</h1>
               <p className="hero-excerpt">{story.excerpt}</p>
-              <p className="hero-meta">By {story.author} | {story.neighborhood} | {story.date}</p>
+              <p className="hero-meta">{story.neighborhood} | {story.date}</p>
             </div>
           </div>
         </section>
@@ -916,7 +1074,7 @@
     }
 
     // Development Grid Component (6 stories)
-    function DevelopmentGrid({ stories }) {
+    function DevelopmentGrid({ stories, onStoryClick }) {
       return (
         <section className="development-section">
           <div className="section-header">
@@ -925,7 +1083,7 @@
           </div>
           <div className="development-grid">
             {stories.map((story) => (
-              <div key={story.id} className="dev-story-card">
+              <div key={story.id} className="dev-story-card" onClick={() => onStoryClick(story)}>
                 <img src={story.image} alt={story.title} className="dev-story-image" />
                 <div className="dev-story-content">
                   <span className="dev-story-tag">{story.subcategory}</span>
@@ -952,14 +1110,14 @@
           </div>
           <div className="neighborhood-grid">
             {neighborhoods.map((neighborhood) => (
-              <div key={neighborhood.slug} className="neighborhood-card">
+              <a key={neighborhood.slug} href={`${neighborhood.slug}.html`} className="neighborhood-card" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <img src={neighborhood.image} alt={neighborhood.name} className="neighborhood-card-image" />
                 <div className="neighborhood-card-overlay">
                   <h3 className="neighborhood-card-name">{neighborhood.name}</h3>
                   <span className="neighborhood-card-count">{neighborhood.storyCount} stories</span>
-                  <a href={`#${neighborhood.slug}`} className="explore-link">Explore &rarr;</a>
+                  <span className="explore-link">Explore &rarr;</span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </section>
@@ -1098,6 +1256,12 @@
 
     // Main App Component
     function App() {
+      const [selectedStory, setSelectedStory] = React.useState(null);
+
+      const handleStoryClick = (story) => {
+        setSelectedStory(story);
+      };
+
       return (
         <>
           {/* Navigation */}
@@ -1118,10 +1282,10 @@
           </nav>
 
           {/* Primary Featured Development Story (Hero) */}
-          <DevelopmentHero story={primaryDevelopmentStory} />
+          <DevelopmentHero story={primaryDevelopmentStory} onClick={handleStoryClick} />
 
           {/* Featured Development Stories Grid (6 stories) */}
-          <DevelopmentGrid stories={featuredDevelopmentStories} />
+          <DevelopmentGrid stories={featuredDevelopmentStories} onStoryClick={handleStoryClick} />
 
           {/* Two-Column Layout (Main + Sidebar) */}
           <div className="content-layout">
@@ -1136,6 +1300,11 @@
 
           {/* Footer */}
           <Footer />
+
+          {/* Story Detail Modal */}
+          {selectedStory && (
+            <StoryModal story={selectedStory} onClose={() => setSelectedStory(null)} />
+          )}
         </>
       );
     }
