@@ -3684,41 +3684,6 @@
       line-height: 1;
     }
 
-    /* Author Bio Section */
-    .author-bio {
-      display: flex;
-      gap: 1.5rem;
-      padding: 2rem;
-      background: #FFFFFF;
-      border-radius: 12px;
-      margin-top: 3rem;
-    }
-
-    .author-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--primary-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary-black);
-      flex-shrink: 0;
-    }
-
-    .author-info h4 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .author-info p {
-      font-size: 0.95rem !important;
-      margin-bottom: 0 !important;
-      color: var(--text-light) !important;
-    }
 
     /* CTA Button */
     .detail-cta-button {
@@ -5080,14 +5045,6 @@
         font-size: 1.8rem;
       }
 
-      .author-bio {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .author-avatar {
-        margin: 0 auto;
-      }
     }
 
     /* ============================================
@@ -8306,18 +8263,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
 
               <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label">Author Name *</label>
-                  <input
-                    type="text"
-                    name="author"
-                    className="form-input"
-                    value={formData.author}
-                    onChange={handleChange}
-                    placeholder="Author name"
-                    required
-                  />
-                </div>
-                <div className="form-group">
                   <label className="form-label">
                     <input
                       type="checkbox"
@@ -8329,18 +8274,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                     Featured Post
                   </label>
                 </div>
-              </div>
-
-              <div className="form-group">
-                <label className="form-label">Author Bio</label>
-                <input
-                  type="text"
-                  name="author_bio"
-                  className="form-input"
-                  value={formData.author_bio}
-                  onChange={handleChange}
-                  placeholder="Brief author description"
-                />
               </div>
 
               <div className="form-group">
@@ -9040,7 +8973,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <span className="detail-category-badge">{post.category}</span>
               <h1 className="detail-title">{post.title}</h1>
               <div className="detail-meta">
-                <span>By {post.author}</span>
                 <span>{post.created_at}</span>
               </div>
             </div>
@@ -9057,17 +8989,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
 
             {formatContent(post.content)}
 
-            {post.author_bio && (
-              <div className="author-bio">
-                <div className="author-avatar">
-                  {post.author.charAt(0)}
-                </div>
-                <div className="author-info">
-                  <h4>{post.author}</h4>
-                  <p>{post.author_bio}</p>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       );
@@ -10110,7 +10031,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                   <h2 className="primary-story-title">{featuredStory.title}</h2>
                   <p className="primary-story-excerpt">{featuredStory.excerpt}</p>
                   <div className="primary-story-meta">
-                    <span>By {featuredStory.author}</span>
                     <span>{featuredStory.created_at}</span>
                   </div>
                 </div>
@@ -10464,7 +10384,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                       <h3 className="area-featured-post-title">{latestPost.title}</h3>
                       <p className="area-featured-post-excerpt">{latestPost.excerpt}</p>
                       <div className="area-featured-post-meta">
-                        <span>By {latestPost.author}</span>
                         <span>{latestPost.created_at}</span>
                       </div>
                     </div>
@@ -10690,7 +10609,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                 <h2 className="neighborhood-featured-title">{featuredPost.title}</h2>
                 <p className="neighborhood-featured-excerpt">{featuredPost.excerpt}</p>
                 <div className="neighborhood-featured-meta">
-                  <span>By {featuredPost.author}</span>
                   <span>{featuredPost.created_at}</span>
                 </div>
               </div>
@@ -11130,7 +11048,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                           <h3 className="cms-card-title">{post.title}</h3>
                           <p className="cms-card-desc">{post.excerpt}</p>
                           <p style={{fontSize: '0.8rem', color: 'var(--text-light)', marginTop: '0.5rem'}}>
-                            ✍️ {post.author} • 📅 {post.created_at}
+                            📅 {post.created_at}
                             {post.video_url && ' • 🎬 Has Video'}
                           </p>
                         </div>
@@ -11181,7 +11099,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                     <div className="cms-hero-overlay">
                       <span className="cms-hero-category">{heroStory.category}</span>
                       <h2 className="cms-hero-title">{heroStory.title}</h2>
-                      <p className="cms-hero-meta">By {heroStory.author} • {heroStory.date}</p>
+                      <p className="cms-hero-meta">{heroStory.date}</p>
                     </div>
                   </div>
 
@@ -11194,7 +11112,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                           <span className="cms-card-featured">Currently Featured</span>
                         </div>
                         <h3 className="cms-card-title">{heroStory.title}</h3>
-                        <p className="cms-card-desc">By {heroStory.author} • {heroStory.date}</p>
+                        <p className="cms-card-desc">{heroStory.date}</p>
                       </div>
                     </div>
                     <div className="cms-card-actions">
@@ -11448,25 +11366,14 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                               onChange={(e) => setEditItem({...editItem, category: e.target.value})}
                             />
                           </div>
-                          <div className="form-row">
-                            <div className="form-group">
-                              <label className="form-label">Author</label>
-                              <input
-                                type="text"
-                                className="form-input"
-                                value={editItem.author}
-                                onChange={(e) => setEditItem({...editItem, author: e.target.value})}
-                              />
-                            </div>
-                            <div className="form-group">
-                              <label className="form-label">Date</label>
-                              <input
-                                type="text"
-                                className="form-input"
-                                value={editItem.date}
-                                onChange={(e) => setEditItem({...editItem, date: e.target.value})}
-                              />
-                            </div>
+                          <div className="form-group">
+                            <label className="form-label">Date</label>
+                            <input
+                              type="text"
+                              className="form-input"
+                              value={editItem.date}
+                              onChange={(e) => setEditItem({...editItem, date: e.target.value})}
+                            />
                           </div>
                         </>
                       )}
@@ -12434,7 +12341,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <div className="hero-text">
                 <span className="hero-category">{heroStory.category}</span>
                 <h1 className="hero-title">{heroStory.title}</h1>
-                <p className="hero-meta">By {heroStory.author} • {heroStory.date}</p>
+                <p className="hero-meta">{heroStory.date}</p>
               </div>
             </div>
           </section>
