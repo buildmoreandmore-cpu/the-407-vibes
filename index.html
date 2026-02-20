@@ -212,6 +212,61 @@
       width: 100%;
     }
 
+    /* Nav Search */
+    .nav-search-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      padding: 0.4rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-search-bar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 1rem 5%;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      gap: 0.75rem;
+      z-index: 999;
+    }
+
+    .nav-search-bar input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .nav-search-bar input:focus {
+      border-color: var(--primary-blue);
+    }
+
+    .nav-search-bar button {
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
     /* Areas Dropdown */
     .nav-dropdown {
       position: relative;
@@ -10991,6 +11046,10 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       const [showSubmit, setShowSubmit] = useState(false);
       const [submitType, setSubmitType] = useState('business');
 
+      // Search state
+      const [searchOpen, setSearchOpen] = useState(false);
+      const [searchQuery, setSearchQuery] = useState('');
+
       // Mobile menu state
       const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
       const [mobileDropdownOpen, setMobileDropdownOpen] = useState(null);
@@ -11423,7 +11482,69 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <li><a href="directory.html">Directory</a></li>
               <li><a onClick={() => { navigateTo('events'); }} style={{cursor: 'pointer'}}>Events</a></li>
             </ul>
+            <div className="nav-right">
+              <button className="nav-search-toggle" onClick={() => setSearchOpen(!searchOpen)} aria-label="Search">
+                {searchOpen ? '\u2715' : '\uD83D\uDD0D'}
+              </button>
+              <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Menu">
+                {mobileMenuOpen ? '\u2715' : '\u2630'}
+              </button>
+            </div>
+            {searchOpen && (
+              <div className="nav-search-bar">
+                <input
+                  type="text"
+                  placeholder="Search Orlando neighborhoods, restaurants, events..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && searchQuery.trim()) {
+                      window.location.href = 'directory.html?q=' + encodeURIComponent(searchQuery.trim());
+                    }
+                  }}
+                  autoFocus
+                />
+                <button onClick={() => {
+                  if (searchQuery.trim()) {
+                    window.location.href = 'directory.html?q=' + encodeURIComponent(searchQuery.trim());
+                  }
+                }}>Search</button>
+              </div>
+            )}
           </nav>
+
+          {/* Mobile Navigation Overlay */}
+          <div className={'mobile-nav' + (mobileMenuOpen ? ' open' : '')}>
+            <div className="mobile-nav-header">
+              <span className="logo-main" style={{fontSize: '1.5rem'}}>Orlando Vibes</span>
+              <button className="mobile-nav-close" onClick={closeMobileMenu}>{'\u2715'}</button>
+            </div>
+            <ul className="mobile-nav-links">
+              <li><a href="#" onClick={(e) => { e.preventDefault(); closeMobileMenu(); navigateTo('home'); }}>Home</a></li>
+              <li>
+                <button onClick={() => toggleMobileDropdown('areas')}>
+                  Areas <span className={'mobile-dropdown-arrow' + (mobileDropdownOpen === 'areas' ? ' open' : '')}>{'\u25BC'}</span>
+                </button>
+                <div className={'mobile-dropdown-content' + (mobileDropdownOpen === 'areas' ? ' open' : '')}>
+                  <a href="downtown-orlando.html" onClick={closeMobileMenu}>Downtown Orlando</a>
+                  <a href="winter-park.html" onClick={closeMobileMenu}>Winter Park</a>
+                  <a href="thornton-park.html" onClick={closeMobileMenu}>Thornton Park / SoDo</a>
+                  <a href="mills-50.html" onClick={closeMobileMenu}>Mills 50</a>
+                  <a href="college-park.html" onClick={closeMobileMenu}>College Park / Edgewater</a>
+                  <a href="international-drive.html" onClick={closeMobileMenu}>International Drive</a>
+                  <a href="dr-phillips.html" onClick={closeMobileMenu}>Dr. Phillips / Restaurant Row</a>
+                  <a href="east-orlando.html" onClick={closeMobileMenu}>East Orlando / UCF</a>
+                  <a href="north-orlando.html" onClick={closeMobileMenu}>North Orlando / Maitland</a>
+                </div>
+              </li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); closeMobileMenu(); navigateTo('eats-drinks'); }}>Eats & Drinks</a></li>
+              <li><a href="development.html" onClick={closeMobileMenu}>Development</a></li>
+              <li><a href="directory.html" onClick={closeMobileMenu}>Directory</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); closeMobileMenu(); navigateTo('events'); }}>Events</a></li>
+              <li><a href="about.html" onClick={closeMobileMenu}>About</a></li>
+              <li><a href="contact.html" onClick={closeMobileMenu}>Contact</a></li>
+            </ul>
+          </div>
 
           {currentView === 'detail' && viewItemType === 'blog' && viewItem ? (
             <BlogPostDetail post={viewItem} onBack={() => navigateTo('home')} />
