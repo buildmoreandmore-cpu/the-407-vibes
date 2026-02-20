@@ -1,11 +1,11 @@
-# The 407 Vibes - Robots.txt
-# https://the407vibes.com
+# Orlando Vibes - Robots.txt
+# https://orlvibes.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://the407vibes.com/sitemap.xml
+Sitemap: https://orlvibes.com/sitemap.xml
 
 # Block access to API endpoints (they're for internal use)
 Disallow: /api/

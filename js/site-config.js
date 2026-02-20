@@ -10,12 +10,12 @@ const SiteConfig = {
   // SITE IDENTITY
   // ============================================
   site: {
-    name: 'The 407 Vibes',
+    name: 'Orlando Vibes',
     tagline: 'Culture Blog & Vlog Magazine',
-    domain: 'the407vibes.com',
-    logoText: 'The 407 Vibes',
+    domain: 'orlvibes.com',
+    logoText: 'Orlando Vibes',
     description: 'Your guide to Orlando\'s neighborhoods, businesses, events, and culture.',
-    email: 'hello@the407vibes.com'
+    email: 'hello@orlvibes.com'
   },
 
   // ============================================

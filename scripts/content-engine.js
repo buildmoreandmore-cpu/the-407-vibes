@@ -1,5 +1,5 @@
 /**
- * 407 Vibes Content Engine
+ * Orlando Vibes Content Engine
  * Powered by MiniMax M2.5
  * 
  * Generates and ingests Orlando-focused content:
@@ -16,7 +16,7 @@ const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || "";
 const MINIMAX_ENDPOINT = "https://api.minimax.io/v1/chat/completions";
 const MINIMAX_MODEL = "MiniMax-M2.5";
 
-const SITE_URL = process.env.SITE_URL || "https://the-407-vibes.vercel.app";
+const SITE_URL = process.env.SITE_URL || "https://orlando-vibes.vercel.app";
 const INGEST_API_KEY = process.env.INGEST_API_KEY || "";
 
 // Orlando areas and their IDs (must match Supabase)
@@ -91,7 +91,7 @@ async function ingestContent(contentType, source, data) {
   return res.json();
 }
 
-const SYSTEM_PROMPT = `You are a local Orlando, Florida journalist and storyteller for "The 407 Vibes" — a premium city media platform. You write with:
+const SYSTEM_PROMPT = `You are a local Orlando, Florida journalist and storyteller for "Orlando Vibes" — a premium city media platform. You write with:
 
 - Deep local knowledge of Orlando neighborhoods, culture, and development
 - A voice that's warm, smart, and proud of the city — NOT generic tourism copy
@@ -109,19 +109,19 @@ async function generateArticle(area) {
 
   const prompts = {
     neighborhood_spotlight: `Write a neighborhood spotlight article about ${area.name}, Orlando. Return JSON:
-{"title": "compelling headline", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags)", "excerpt": "one compelling sentence", "category": "Neighborhoods", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "The 407 Vibes"}`,
+{"title": "compelling headline", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags)", "excerpt": "one compelling sentence", "category": "Neighborhoods", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "Orlando Vibes"}`,
 
     business_discovery: `Imagine a compelling local business that would thrive in ${area.name}, Orlando. Create a realistic business spotlight article about it. Return JSON:
-{"title": "headline about the business", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags) about this business, what makes it special, why locals love it", "excerpt": "one sentence hook", "category": "Local Business", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "The 407 Vibes"}`,
+{"title": "headline about the business", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags) about this business, what makes it special, why locals love it", "excerpt": "one sentence hook", "category": "Local Business", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "Orlando Vibes"}`,
 
     development_update: `Write about real estate development and growth happening in or near ${area.name}, Orlando. Cover new construction, rezoning, mixed-use developments, or neighborhood transformation. Return JSON:
-{"title": "headline", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags)", "excerpt": "one sentence", "category": "Development", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "The 407 Vibes"}`,
+{"title": "headline", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags)", "excerpt": "one sentence", "category": "Development", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "Orlando Vibes"}`,
 
     culture_story: `Write a culture/community story about ${area.name}, Orlando. Cover local art, music, food culture, community events, or the people who make the neighborhood special. Return JSON:
-{"title": "headline", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags)", "excerpt": "one sentence", "category": "Culture", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "The 407 Vibes"}`,
+{"title": "headline", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags)", "excerpt": "one sentence", "category": "Culture", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "Orlando Vibes"}`,
 
     hidden_gem: `Write about a hidden gem in ${area.name}, Orlando — a place, experience, or tradition that only locals know about. Return JSON:
-{"title": "headline", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags)", "excerpt": "one sentence", "category": "Hidden Gems", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "The 407 Vibes"}`,
+{"title": "headline", "slug": "url-slug", "content": "full HTML article (3-4 paragraphs, use <p> tags)", "excerpt": "one sentence", "category": "Hidden Gems", "area_id": ${area.id}, "tags": ["array", "of", "tags"], "author_name": "Orlando Vibes"}`,
   };
 
   console.log(`Generating ${type} for ${area.name}...`);
@@ -143,7 +143,7 @@ async function generateArticle(area) {
 }
 
 async function run() {
-  console.log("🎯 407 Vibes Content Engine — Starting content generation");
+  console.log("🎯 Orlando Vibes Content Engine — Starting content generation");
   console.log(`Site: ${SITE_URL}`);
   console.log(`Areas: ${ORLANDO_AREAS.length}`);
 

@@ -1,5 +1,5 @@
 -- ============================================================
--- The 407 Vibes - Seed Data (Orlando, FL)
+-- Orlando Vibes - Seed Data (Orlando, FL)
 -- ============================================================
 -- Populates areas, neighborhoods, and spotlight_properties
 -- from site-config.js and neighborhoods-data.js

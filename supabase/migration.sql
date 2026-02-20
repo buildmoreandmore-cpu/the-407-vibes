@@ -1,5 +1,5 @@
 -- ============================================================
--- The 407 Vibes - Complete Supabase Schema Migration
+-- Orlando Vibes - Complete Supabase Schema Migration
 -- ============================================================
 -- 9 tables, indexes, RLS policies, triggers, and auto-newsletter
 -- ============================================================
