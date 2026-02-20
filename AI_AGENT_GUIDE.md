@@ -123,11 +123,11 @@ Inserts into the `events` table with `status: pending`.
   "city": "Orlando",
   "state": "Florida",
   "zip": "32803",
-  "ticket_url": "https://atlfoodandwine.com/tickets",
+  "ticket_url": "https://orlandofoodandwine.com/tickets",
   "price": "$75-$250",
   "image_url": "https://example.com/event.jpg",
   "organizer_name": "Orlando Food Events LLC",
-  "organizer_email": "info@atlfoodandwine.com"
+  "organizer_email": "info@orlandofoodandwine.com"
 }
 ```
 
@@ -333,10 +333,10 @@ async function ingestBusiness(business) {
 
 // Usage
 const result = await ingestBusiness({
-  name: 'Staplehouse',
+  name: 'Kadence',
   category: 'Restaurant',
   area_id: 4,
-  street: '541 Edgewood Ave SE',
+  street: '1809 Winter Park Rd',
   city: 'Orlando',
   state: 'Florida',
   zip: '32801',

@@ -3,18 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<<< HEAD:baldwin-park.html
-  <title>Baldwin Park - The 407 Vibes | Baldwin Park, Zoo Orlando & Summerhill</title>
-  <meta name="description" content="Explore Baldwin Park including Baldwin Park, Zoo Orlando, and Summerhill. Historic homes, parks, and tight-knit communities.">
-  <link rel="canonical" href="https://the-407-vibes.vercel.app/baldwin-park.html">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://the-407-vibes.vercel.app/baldwin-park.html">
-  <meta property="og:title" content="Baldwin Park - Baldwin Park, Zoo Orlando & Summerhill | The 407 Vibes">
-  <meta property="og:description" content="Explore Baldwin Park including Baldwin Park, Zoo Orlando, and Summerhill. Historic homes and tight-knit communities.">
-  <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
-========
   <title>International Drive - The 407 Vibes | Entertainment & Tourism</title>
   <meta name="description" content="Explore International Drive, Orlando's world-famous entertainment corridor with theme parks, ICON Park, dining, and the Convention Center.">
   <link rel="canonical" href="https://the407vibes.com/international-drive.html">
@@ -25,20 +13,13 @@
   <meta property="og:title" content="International Drive - Entertainment & Tourism | The 407 Vibes">
   <meta property="og:description" content="Explore International Drive, Orlando's world-famous entertainment corridor with theme parks, ICON Park, dining, and the Convention Center.">
   <meta property="og:image" content="https://the407vibes.com/orlando-map.png">
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
   <meta property="og:site_name" content="The 407 Vibes">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-<<<<<<<< HEAD:baldwin-park.html
-  <meta name="twitter:title" content="Baldwin Park - Baldwin Park, Zoo Orlando & Summerhill | The 407 Vibes">
-  <meta name="twitter:description" content="Explore Baldwin Park including Baldwin Park, Zoo Orlando, and Summerhill.">
-  <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
-========
   <meta name="twitter:title" content="International Drive - Entertainment & Tourism | The 407 Vibes">
   <meta name="twitter:description" content="Explore International Drive, Orlando's world-famous entertainment corridor with theme parks and ICON Park.">
   <meta name="twitter:image" content="https://the407vibes.com/orlando-map.png">
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -240,15 +221,6 @@
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
-<<<<<<<< HEAD:baldwin-park.html
-    const areaData = { id: 'south-orlando', name: 'Baldwin Park', tagline: "Historic homes and Zoo Orlando in tight-knit communities", image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600', vibes: ['Historic Homes', 'Zoo Orlando', 'Parks', 'Community'], stats: { neighborhoods: 18, businesses: 78, events: 22 } };
-    const neighborhoodGroups = [
-      { id: 'grant-park-area', name: 'Baldwin Park Area', description: 'Zoo Orlando & Victorian homes', neighborhoods: [
-        { id: 'grant-park', name: 'Baldwin Park' }, { id: 'summerhill', name: 'Summerhill' }, { id: 'peoplestown', name: 'Peoplestown' }, { id: 'chosewood-park', name: 'Chosewood Park' }
-      ]},
-      { id: 'orlando-trail-south', name: 'Orlando Trail South', description: 'Trail-connected neighborhoods', neighborhoods: [
-        { id: 'pittsburgh', name: 'Pittsburgh' }, { id: 'mechanicsville', name: 'Mechanicsville' }, { id: 'capitol-view', name: 'Capitol View' }, { id: 'lakewood-heights', name: 'Lakewood Heights' }
-========
     const areaData = { id: 'international-drive', name: 'International Drive', tagline: "Orlando's world-famous entertainment corridor with theme parks, ICON Park, and dining", image: '/api/places?query=ICON+Park+Orlando+FL&maxwidth=1600', vibes: ['Theme Parks', 'ICON Park', 'Dining', 'Convention Center'], stats: { neighborhoods: 10, businesses: 320, events: 52 } };
     const neighborhoodGroups = [
       { id: 'north-idrive', name: 'North I-Drive', description: 'ICON Park & entertainment', neighborhoods: [
@@ -256,7 +228,6 @@
       ]},
       { id: 'convention', name: 'Convention Center Area', description: 'Business & events hub', neighborhoods: [
         { id: 'convention-center', name: 'Orange County Convention Center' }, { id: 'pointe-orlando', name: 'Pointe Orlando' }, { id: 'beachline-corridor', name: 'Beachline Corridor' }
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
       ]},
       { id: 'south-idrive', name: 'South I-Drive', description: 'SeaWorld & attractions', neighborhoods: [
         { id: 'seaworld-area', name: 'SeaWorld Area' }, { id: 'aquatica', name: 'Aquatica District' }, { id: 'south-idrive', name: 'South International Drive' }
@@ -265,21 +236,6 @@
     const neighborhoods = neighborhoodGroups.flatMap(g => g.neighborhoods);
     // Fallback Demo Businesses
     const demoBusinesses = [
-<<<<<<<< HEAD:baldwin-park.html
-      { id: 1, name: 'Zoo Orlando', category: 'Attraction', description: 'Major zoo and conservation center with giant pandas.', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=800', neighborhood: 'Baldwin Park', featured: true },
-      { id: 2, name: 'Six Feet Under', category: 'Restaurant', description: 'Rooftop seafood restaurant with skyline views.', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', neighborhood: 'Baldwin Park', featured: true },
-      { id: 3, name: 'Baldwin Park Market', category: 'Farmers Market', description: 'Weekly farmers market with local produce.', image: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800', neighborhood: 'Baldwin Park', featured: false }
-    ];
-    // Fallback Demo Events
-    const demoEvents = [
-      { id: 1, title: 'Baldwin Park Summer Shade Festival', category: 'Festival', description: 'Annual arts and music festival in the park.', image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800', date: 'August 2026', location: 'Baldwin Park', featured: true },
-      { id: 2, title: 'Baldwin Park Tour of Homes', category: 'Home Tour', description: 'Annual tour of historic Victorian homes.', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', date: 'September 2026', location: 'Baldwin Park', featured: false }
-    ];
-    // Fallback Demo Properties
-    const demoProperties = [
-      { id: 1, price: '$675,000', address: '456 Cherokee Ave SE', neighborhood: 'Baldwin Park', beds: 4, baths: 2, sqft: '2,400', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', featured: true },
-      { id: 2, price: '$425,000', address: '123 Boulevard SE', neighborhood: 'Baldwin Park', beds: 3, baths: 2, sqft: '1,800', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', featured: false }
-========
       { id: 1, name: 'ICON Park', category: 'Entertainment', description: 'Entertainment complex featuring The Wheel, SEA LIFE Aquarium, and dining.', image: '/api/places?query=ICON+Park+Orlando+FL', neighborhood: 'ICON Park Area', featured: true },
       { id: 2, name: 'Pointe Orlando', category: 'Shopping & Dining', description: 'Open-air shopping and dining complex on International Drive.', image: '/api/places?query=Pointe+Orlando+International+Drive+FL', neighborhood: 'Pointe Orlando', featured: true }
     ];
@@ -290,7 +246,6 @@
     // Fallback Demo Properties
     const demoProperties = [
       { id: 1, price: '$350,000', address: '8500 International Dr #1204', neighborhood: 'ICON Park Area', beds: 2, baths: 2, sqft: '1,200', image: '/api/places?query=8500+International+Dr+Orlando+FL', featured: true }
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
     ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
@@ -348,11 +303,7 @@
             <ul className="nav-links">
               <li><a href="index.html">Home</a></li>
               <li className="nav-dropdown"><a href="#">Areas</a>
-<<<<<<<< HEAD:baldwin-park.html
-                <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul>
-========
                 <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul>
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
               </li>
               <li><a href="development.html">Development</a></li>
             </ul>
@@ -445,13 +396,8 @@
           <footer className="footer">
             <div className="footer-grid">
               <div className="footer-brand"><div className="logo"><span className="logo-main">The 407 Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Orlando's neighborhoods.</p></div>
-<<<<<<<< HEAD:baldwin-park.html
-              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li></ul></div>
-              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul></div>
-========
               <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li></ul></div>
               <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul></div>
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
               <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="index.html#directory">Business Directory</a></li><li><a href="index.html#events">Events Calendar</a></li><li><a href="development.html">Development News</a></li></ul></div>
             </div>
             <div className="footer-bottom"><p>&copy; 2026 The 407 Vibes. All rights reserved.</p></div>
