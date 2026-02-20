@@ -3,18 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<<< HEAD:ivanhoe-village.html
-  <title>Ivanhoe Village - Orlando Vibes | Sandy Springs, Dunwoody & Perimeter</title>
-  <meta name="description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee. Business centers, diverse dining, and suburban amenities.">
-  <link rel="canonical" href="https://orlando-vibes.vercel.app/ivanhoe-village.html">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://orlando-vibes.vercel.app/ivanhoe-village.html">
-  <meta property="og:title" content="Ivanhoe Village - Sandy Springs, Dunwoody & Perimeter | Orlando Vibes">
-  <meta property="og:description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee.">
-  <meta property="og:image" content="https://orlando-vibes.vercel.app/orlando-map.png">
-========
   <title>East Orlando / UCF - Orlando Vibes | College & Growth</title>
   <meta name="description" content="Explore East Orlando and the UCF corridor, a rapidly growing area with Waterford Lakes, Avalon Park, Lake Nona medical city, and student life.">
   <link rel="canonical" href="https://orlvibes.com/east-orlando.html">
@@ -25,20 +13,25 @@
   <meta property="og:title" content="East Orlando / UCF - College & Growth | Orlando Vibes">
   <meta property="og:description" content="Explore East Orlando and the UCF corridor, a rapidly growing area with Waterford Lakes, Avalon Park, Lake Nona medical city, and student life.">
   <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):east-orlando.html
   <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-<<<<<<<< HEAD:ivanhoe-village.html
-  <meta name="twitter:title" content="Ivanhoe Village - Sandy Springs, Dunwoody & Perimeter | Orlando Vibes">
-  <meta name="twitter:description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee.">
-  <meta name="twitter:image" content="https://orlando-vibes.vercel.app/orlando-map.png">
-========
   <meta name="twitter:title" content="East Orlando / UCF - College & Growth | Orlando Vibes">
   <meta name="twitter:description" content="Explore East Orlando and the UCF corridor with Waterford Lakes, Avalon Park, and Lake Nona.">
   <meta name="twitter:image" content="https://orlvibes.com/orlando-map.png">
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):east-orlando.html
+
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <!-- Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -46,8 +39,88 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Orlando Vibes",
+      "url": "https://orlvibes.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "East Orlando / UCF",
+    "description": "A rapidly growing corridor with UCF, Waterford Lakes, Avalon Park, and Lake Nona medical city in Orlando, Florida.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.6024,
+      "longitude": -81.2001
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orlvibes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Areas", "item": "https://orlvibes.com/#areas" },
+      { "@type": "ListItem", "position": 3, "name": "East Orlando / UCF", "item": "https://orlvibes.com/east-orlando.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is East Orlando known for?",
+        "acceptedAnswer": { "@type": "Answer", "text": "East Orlando is known for the University of Central Florida (UCF), the Lake Nona Medical City innovation district, master-planned communities like Waterford Lakes and Avalon Park, and a rapidly growing dining and entertainment scene." }
+      },
+      {
+        "@type": "Question",
+        "name": "Best restaurants in East Orlando?",
+        "acceptedAnswer": { "@type": "Answer", "text": "East Orlando offers diverse dining at Waterford Lakes Town Center, Avalon Park's local eateries, Lake Nona Town Center restaurants, and UCF-area favorites along University Boulevard and Alafaya Trail." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is East Orlando a good place to live?",
+        "acceptedAnswer": { "@type": "Answer", "text": "East Orlando is one of the fastest-growing areas in Central Florida, offering affordable new construction homes, top-rated schools, family-friendly master-planned communities, and proximity to UCF and Lake Nona's medical hub." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the cost of living in East Orlando?",
+        "acceptedAnswer": { "@type": "Answer", "text": "East Orlando offers a range of housing options from student-friendly apartments near UCF to upscale homes in Lake Nona. Median home prices range from $300K-$550K depending on the neighborhood, generally more affordable than Winter Park or Downtown Orlando." }
+      },
+      {
+        "@type": "Question",
+        "name": "Things to do in East Orlando this weekend?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Weekend activities include shopping at Waterford Lakes Town Center, visiting the Avalon Park farmers market, exploring Lake Nona's trails and parks, catching UCF Knights games, and dining at the growing restaurant scene along Narcoossee Road." }
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root { --primary-gold: #FF6B35; --primary-blue: #1E293B; --primary-black: #0A0A0A; --primary-white: #FFFFFF; --secondary-gold: #FFF5F0; --text-dark: #1A1A1A; --text-light: #6B6B6B; --border-color: #E5E5E5; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,7 +144,11 @@
     .dropdown-menu li { list-style: none; }
     .dropdown-menu a { display: block; padding: 0.75rem 1.5rem; font-size: 0.85rem; text-transform: none; }
     .dropdown-menu a:hover { background: var(--secondary-gold); }
-    .area-hero { margin-top: 80px; position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .breadcrumb { margin-top: 80px; padding: 1rem 5%; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb a { color: var(--primary-gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.5rem; }
+    .area-hero { position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .area-hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .area-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); }
     .area-hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 2rem; max-width: 800px; }
@@ -84,6 +161,8 @@
     .area-stat { text-align: center; }
     .area-stat-value { font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 600; display: block; }
     .area-stat-label { font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; }
+    .area-intro { padding: 3rem 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+    .area-intro p { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; }
     .area-content { padding: 4rem 5%; max-width: 1400px; margin: 0 auto; }
     .area-section { margin-bottom: 4rem; }
     .area-section-header { margin-bottom: 2rem; }
@@ -145,6 +224,18 @@
     .property-card-price { font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-blue); }
     .property-card-address { font-weight: 600; margin-bottom: 0.5rem; }
     .property-card-specs { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-light); }
+    .faq-section { padding: 3rem 0; }
+    .faq-item { border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+    .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; background: white; cursor: pointer; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); }
+    .faq-question:hover { background: var(--secondary-gold); }
+    .faq-answer { display: none; padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.7; }
+    .faq-answer.open { display: block; }
+    .related-neighborhoods { padding: 3rem 0; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+    .related-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-dark); transition: all 0.3s; }
+    .related-card:hover { border-color: var(--primary-gold); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .related-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.9rem; color: var(--text-light); }
     .newsletter-section { background: var(--primary-black); color: white; padding: 4rem 5%; text-align: center; }
     .newsletter-title { font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
     .newsletter-subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; }
@@ -240,11 +331,7 @@
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
-<<<<<<<< HEAD:ivanhoe-village.html
-    const areaData = { id: 'north-orlando', name: 'Ivanhoe Village', tagline: "Business centers, diverse dining, and suburban living at the Perimeter", image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600', vibes: ['Business', 'Diverse Dining', 'Shopping', 'Suburban'], stats: { neighborhoods: 18, businesses: 287, events: 45 } };
-========
     const areaData = { id: 'east-orlando', name: 'East Orlando / UCF', tagline: "A rapidly growing corridor with UCF, Waterford Lakes, Avalon Park, and Lake Nona", image: '/api/places?query=University+of+Central+Florida+Orlando+FL&maxwidth=1600', vibes: ['UCF', 'Lake Nona', 'Growth', 'Student Life'], stats: { neighborhoods: 12, businesses: 210, events: 35 } };
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):east-orlando.html
     const neighborhoodGroups = [
       { id: 'ucf-area', name: 'UCF & Surrounding', description: 'University of Central Florida & student life', neighborhoods: [
         { id: 'ucf-campus', name: 'UCF Campus Area' }, { id: 'oviedo', name: 'Oviedo' }, { id: 'university-park', name: 'University Park' }, { id: 'research-park', name: 'Research Park' }
@@ -259,36 +346,40 @@
     const neighborhoods = neighborhoodGroups.flatMap(g => g.neighborhoods);
     // Fallback Demo Businesses
     const demoBusinesses = [
-<<<<<<<< HEAD:ivanhoe-village.html
-      { id: 1, name: 'Perimeter Mall', category: 'Shopping', description: 'Premier shopping destination in Ivanhoe Village.', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800', neighborhood: 'Dunwoody', featured: true },
-      { id: 2, name: 'Buford Highway Food Corridor', category: 'Dining', description: 'Diverse international restaurants along Buford Highway.', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', neighborhood: 'Chamblee', featured: true },
-      { id: 3, name: 'Chattahoochee River National Recreation Area', category: 'Parks', description: 'Beautiful river trails and outdoor activities.', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800', neighborhood: 'Sandy Springs', featured: false }
-========
       { id: 1, name: 'Lake Nona Town Center', category: 'Mixed Use', description: 'Innovative town center with dining, shopping, and community events.', image: '/api/places?query=Lake+Nona+Town+Center+Orlando+FL&maxwidth=800', neighborhood: 'Lake Nona', featured: true },
       { id: 2, name: 'Waterford Lakes Town Center', category: 'Shopping', description: 'Major shopping center with restaurants and entertainment.', image: '/api/places?query=Waterford+Lakes+Town+Center+Orlando+FL&maxwidth=800', neighborhood: 'Waterford Lakes', featured: true },
       { id: 3, name: 'Avalon Park Town Center', category: 'Community', description: 'Walkable town center with weekly farmers market and local shops.', image: '/api/places?query=Avalon+Park+Town+Center+Orlando+FL&maxwidth=800', neighborhood: 'Avalon Park', featured: false }
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):east-orlando.html
     ];
     // Fallback Demo Events
     const demoEvents = [
       { id: 1, title: 'Lake Nona Food & Wine Festival', category: 'Food & Wine', description: 'Annual culinary celebration at Lake Nona Town Center.', image: '/api/places?query=Lake+Nona+Town+Center+Orlando+FL&maxwidth=800', date: 'November 2026', location: 'Lake Nona', featured: true },
       { id: 2, title: 'UCF Homecoming', category: 'College', description: 'Annual UCF homecoming celebration with parade and festivities.', image: '/api/places?query=UCF+Spectrum+Stadium+Orlando+FL&maxwidth=800', date: 'October 2026', location: 'UCF Campus Area', featured: false }
     ];
-    // Fallback Demo Properties
-    const demoProperties = [
-      { id: 1, price: '$525,000', address: '456 Laureate Blvd', neighborhood: 'Lake Nona', beds: 4, baths: 3, sqft: '2,400', image: '/api/places?query=456+Laureate+Blvd+Lake+Nona+Orlando+FL&maxwidth=800', featured: true },
-      { id: 2, price: '$375,000', address: '123 Avalon Park Blvd', neighborhood: 'Avalon Park', beds: 3, baths: 2, sqft: '1,800', image: '/api/places?query=123+Avalon+Park+Blvd+Orlando+FL&maxwidth=800', featured: false }
+    const faqData = [
+      { q: "What is East Orlando known for?", a: "East Orlando is known for the University of Central Florida (UCF), the Lake Nona Medical City innovation district, master-planned communities like Waterford Lakes and Avalon Park, and a rapidly growing dining and entertainment scene." },
+      { q: "Best restaurants in East Orlando?", a: "East Orlando offers diverse dining at Waterford Lakes Town Center, Avalon Park's local eateries, Lake Nona Town Center restaurants, and UCF-area favorites along University Boulevard and Alafaya Trail." },
+      { q: "Is East Orlando a good place to live?", a: "East Orlando is one of the fastest-growing areas in Central Florida, offering affordable new construction homes, top-rated schools, family-friendly master-planned communities, and proximity to UCF and Lake Nona's medical hub." },
+      { q: "What is the cost of living in East Orlando?", a: "East Orlando offers a range of housing options from student-friendly apartments near UCF to upscale homes in Lake Nona. Median home prices range from $300K-$550K depending on the neighborhood, generally more affordable than Winter Park or Downtown Orlando." },
+      { q: "Things to do in East Orlando this weekend?", a: "Weekend activities include shopping at Waterford Lakes Town Center, visiting the Avalon Park farmers market, exploring Lake Nona's trails and parks, catching UCF Knights games, and dining at the growing restaurant scene along Narcoossee Road." }
     ];
+
+    const relatedAreas = [
+      { name: 'Downtown Orlando', href: 'downtown-orlando.html', desc: 'Urban core with Lake Eola, nightlife, and cultural venues' },
+      { name: 'Winter Park', href: 'winter-park.html', desc: 'Upscale dining, Park Avenue shopping, and Rollins College' },
+      { name: 'North Orlando / Maitland', href: 'north-orlando.html', desc: 'Suburban communities with corporate hubs and SunRail access' },
+      { name: 'Thornton Park / SoDo', href: 'thornton-park.html', desc: 'Walkable neighborhood with boutiques and brunch spots' }
+    ];
+
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
       const [email, setEmail] = useState('');
       const [subscribed, setSubscribed] = useState(false);
       const [businesses, setBusinesses] = useState(demoBusinesses);
       const [events, setEvents] = useState(demoEvents);
-      const properties = demoProperties;
 
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
       const [expandedSections, setExpandedSections] = useState(['ucf-area']);
+      const [openFaq, setOpenFaq] = useState(null);
       const toggleSection = (id) => setExpandedSections(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]);
 
       const filterByNeighborhood = (items, neighborhoodId) => {
@@ -301,7 +392,6 @@
 
       const filteredBusinesses = filterByNeighborhood(businesses, selectedNeighborhood);
       const filteredEvents = filterByNeighborhood(events, selectedNeighborhood);
-      const filteredProperties = filterByNeighborhood(properties, selectedNeighborhood);
 
       const getSelectedNeighborhoodName = () => {
         const found = neighborhoods.find(n => n.id === selectedNeighborhood);
@@ -335,21 +425,23 @@
             <ul className="nav-links">
               <li><a href="index.html">Home</a></li>
               <li className="nav-dropdown"><a href="#">Areas</a>
-<<<<<<<< HEAD:ivanhoe-village.html
-                <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul>
-========
                 <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul>
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):east-orlando.html
               </li>
               <li><a href="development.html">Development</a></li>
             </ul>
           </nav>
+
+          {/* Breadcrumb */}
+          <div className="breadcrumb">
+            <a href="index.html">Home</a><span>&rsaquo;</span><a href="index.html#areas">Areas</a><span>&rsaquo;</span>East Orlando / UCF
+          </div>
+
           <section className="area-hero">
-            <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
+            <img src={areaData.image} alt="East Orlando UCF campus and Lake Nona skyline in Orlando Florida" className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Orlando</a>
-              <h1 className="area-hero-title">{areaData.name}</h1>
+              <h1 className="area-hero-title">East Orlando / UCF — College Life, Lake Nona & Rapid Growth</h1>
               <p className="area-hero-tagline">{areaData.tagline}</p>
               <div className="area-vibe-tags">{areaData.vibes.map((vibe, i) => (<span key={i} className="area-vibe-tag">{vibe}</span>))}</div>
               <div className="area-stats">
@@ -359,9 +451,15 @@
               </div>
             </div>
           </section>
+
+          {/* Area Introduction */}
+          <div className="area-intro">
+            <p>East Orlando is one of Orlando's fastest-growing corridors, anchored by the University of Central Florida and the nationally recognized Lake Nona Medical City. From the student energy around UCF to the family-friendly master-planned communities of Waterford Lakes and Avalon Park, East Orlando offers something for everyone. Whether you're looking for new construction homes, diverse dining, weekend farmers markets, or innovation-driven living in Lake Nona, this part of Orlando is booming with opportunity.</p>
+          </div>
+
           <div className="area-content">
             <section className="area-section">
-              <div className="area-section-header"><h2 className="area-section-title">Explore {areaData.name} Neighborhoods</h2></div>
+              <div className="area-section-header"><h2 className="area-section-title">Explore East Orlando Neighborhoods</h2></div>
               <div className="neighborhood-accordions">
                 {neighborhoodGroups.map((group) => (
                   <div key={group.id} className="accordion-section">
@@ -399,13 +497,13 @@
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title={`Map of ${areaData.name}`}
+                  title="Map of East Orlando and UCF area in Central Florida"
                 />
               </div>
             </section>
 
             <section className="area-section">
-              <div className="area-section-header"><h2 className="area-section-title">Discover {areaData.name}</h2></div>
+              <div className="area-section-header"><h2 className="area-section-title">Discover East Orlando</h2></div>
               {selectedNeighborhood && (
                 <div className="filter-indicator">
                   <div className="filter-indicator-text">Showing results for: <span>{getSelectedNeighborhoodName()}</span></div>
@@ -415,31 +513,51 @@
               <div className="content-tabs">
                 <button className={`content-tab ${activeTab === 'businesses' ? 'active' : ''}`} onClick={() => setActiveTab('businesses')}>Businesses</button>
                 <button className={`content-tab ${activeTab === 'events' ? 'active' : ''}`} onClick={() => setActiveTab('events')}>Events</button>
-                <button className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')}>Properties</button>
               </div>
               <div className="content-grid">
-                {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
-                {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
-                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
+                {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={`${item.name} in East Orlando`} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
+                {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={`${item.title} event in East Orlando`} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
+              </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="area-section faq-section">
+              <div className="area-section-header"><h2 className="area-section-title">East Orlando FAQs</h2></div>
+              {faqData.map((faq, i) => (
+                <div key={i} className="faq-item">
+                  <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                    {faq.q}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{transform: openFaq === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s'}}><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <div className={`faq-answer ${openFaq === i ? 'open' : ''}`}>{faq.a}</div>
+                </div>
+              ))}
+            </section>
+
+            {/* Related Neighborhoods */}
+            <section className="area-section related-neighborhoods">
+              <div className="area-section-header"><h2 className="area-section-title">Explore Nearby Areas</h2></div>
+              <div className="related-grid">
+                {relatedAreas.map((area, i) => (
+                  <a key={i} href={area.href} className="related-card">
+                    <h3>{area.name}</h3>
+                    <p>{area.desc}</p>
+                  </a>
+                ))}
               </div>
             </section>
           </div>
           <section className="newsletter-section">
-            <h2 className="newsletter-title">Stay Connected with {areaData.name}</h2>
+            <h2 className="newsletter-title">Stay Connected with East Orlando</h2>
             <p className="newsletter-subtitle">Get the latest news and events delivered to your inbox.</p>
             {!subscribed ? (<form className="newsletter-form" onSubmit={handleSubscribe}><input type="email" className="newsletter-input" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required /><button type="submit" className="newsletter-btn">Subscribe</button></form>) : (<p style={{color: 'var(--primary-gold)'}}>Thanks for subscribing!</p>)}
           </section>
           <footer className="footer">
             <div className="footer-grid">
               <div className="footer-brand"><div className="logo"><span className="logo-main">Orlando Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Orlando's neighborhoods.</p></div>
-<<<<<<<< HEAD:ivanhoe-village.html
-              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li></ul></div>
-              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul></div>
-========
               <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li></ul></div>
               <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul></div>
->>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):east-orlando.html
-              <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="index.html#directory">Business Directory</a></li><li><a href="index.html#events">Events Calendar</a></li><li><a href="development.html">Development News</a></li></ul></div>
+              <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="directory.html">Business Directory</a></li><li><a href="events.html">Events Calendar</a></li><li><a href="development.html">Development News</a></li></ul></div>
             </div>
             <div className="footer-bottom"><p>&copy; 2026 Orlando Vibes. All rights reserved.</p></div>
           </footer>

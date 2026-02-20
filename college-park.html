@@ -14,6 +14,7 @@
   <meta property="og:description" content="Explore College Park and Edgewater, Orlando's trendy neighborhoods with craft breweries, local eateries, and a strong sense of community.">
   <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
   <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -21,14 +22,134 @@
   <meta name="twitter:description" content="Explore College Park and Edgewater, Orlando's trendy neighborhoods with craft breweries and local eateries.">
   <meta name="twitter:image" content="https://orlvibes.com/orlando-map.png">
 
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <!-- Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Orlando Vibes",
+      "url": "https://orlvibes.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "College Park / Edgewater",
+    "description": "Explore College Park and Edgewater, Orlando's trendy neighborhoods with craft breweries, local eateries, and a strong sense of community.",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.5700,
+      "longitude": -81.4000
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://orlvibes.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Areas",
+        "item": "https://orlvibes.com/#areas"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "College Park / Edgewater",
+        "item": "https://orlvibes.com/college-park.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is College Park Orlando known for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "College Park is known for its tree-lined streets, historic bungalows, and the vibrant Edgewater Drive corridor filled with independent shops, local coffee roasters, and family-owned restaurants. The neighborhood has a strong sense of community with walkable streets and a charming small-town feel within Orlando."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the best restaurants in College Park Orlando?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "College Park is home to acclaimed dining spots including The Ravenous Pig gastropub, Sushi & Noodle on Edgewater Drive, and numerous local favorites along the Edgewater corridor. The neighborhood offers everything from craft coffee shops to award-winning farm-to-table cuisine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is College Park a good neighborhood to live in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "College Park is one of Orlando's most desirable neighborhoods, known for its family-friendly atmosphere, historic charm, excellent walkability, and strong community engagement. With tree-canopied streets, proximity to downtown, and a thriving local business scene, it consistently ranks among Orlando's top neighborhoods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the cost of living in College Park Orlando?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "College Park features a mix of historic bungalows and renovated homes, with home prices generally ranging from the mid-$400s to over $1 million for larger properties. The area offers a range of housing options from charming cottages to spacious family homes, making it accessible to various budgets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are things to do in College Park this weekend?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "College Park offers weekend activities including browsing independent shops on Edgewater Drive, enjoying brunch at local cafes, visiting Dubsdread Golf Course, exploring the Ivanhoe Village art district, kayaking on local lakes, and attending community events and farmers markets."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root { --primary-gold: #FF6B35; --primary-blue: #1E293B; --primary-black: #0A0A0A; --primary-white: #FFFFFF; --secondary-gold: #FFF5F0; --text-dark: #1A1A1A; --text-light: #6B6B6B; --border-color: #E5E5E5; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -166,6 +287,25 @@
     .accordion-item-name { font-weight: 600; color: var(--text-dark); font-size: 0.95rem; }
     .accordion-item-arrow { margin-left: auto; opacity: 0; transition: opacity 0.2s; }
     .accordion-item:hover .accordion-item-arrow { opacity: 1; }
+    /* Breadcrumb, FAQ, Related Neighborhoods */
+    .breadcrumb { margin-top: 80px; padding: 1rem 5%; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb a { color: var(--primary-gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.5rem; }
+    .area-intro { padding: 3rem 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+    .area-intro p { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; }
+    .faq-section { padding: 3rem 0; }
+    .faq-item { border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+    .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; background: white; cursor: pointer; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); }
+    .faq-question:hover { background: var(--secondary-gold); }
+    .faq-answer { display: none; padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.7; }
+    .faq-answer.open { display: block; }
+    .related-neighborhoods { padding: 3rem 0; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+    .related-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-dark); transition: all 0.3s; }
+    .related-card:hover { border-color: var(--primary-gold); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .related-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.9rem; color: var(--text-light); }
     /* Enhanced Mobile Responsiveness */
     @media (max-width: 768px) {
       .area-hero-title { font-size: 2.2rem; }
@@ -223,6 +363,22 @@
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
+
+    const faqData = [
+      { q: "What is College Park Orlando known for?", a: "College Park is known for its tree-lined streets, historic bungalows, and the vibrant Edgewater Drive corridor filled with independent shops, local coffee roasters, and family-owned restaurants. The neighborhood has a strong sense of community with walkable streets and a charming small-town feel within Orlando." },
+      { q: "What are the best restaurants in College Park Orlando?", a: "College Park is home to acclaimed dining spots including The Ravenous Pig gastropub, Sushi & Noodle on Edgewater Drive, and numerous local favorites along the Edgewater corridor. The neighborhood offers everything from craft coffee shops to award-winning farm-to-table cuisine." },
+      { q: "Is College Park a good neighborhood to live in?", a: "College Park is one of Orlando's most desirable neighborhoods, known for its family-friendly atmosphere, historic charm, excellent walkability, and strong community engagement. With tree-canopied streets, proximity to downtown, and a thriving local business scene, it consistently ranks among Orlando's top neighborhoods." },
+      { q: "What is the cost of living in College Park Orlando?", a: "College Park features a mix of historic bungalows and renovated homes, with home prices generally ranging from the mid-$400s to over $1 million for larger properties. The area offers a range of housing options from charming cottages to spacious family homes, making it accessible to various budgets." },
+      { q: "What are things to do in College Park this weekend?", a: "College Park offers weekend activities including browsing independent shops on Edgewater Drive, enjoying brunch at local cafes, visiting Dubsdread Golf Course, exploring the Ivanhoe Village art district, kayaking on local lakes, and attending community events and farmers markets." }
+    ];
+
+    const relatedAreas = [
+      { name: 'Downtown Orlando', href: 'downtown-orlando.html', desc: 'Urban core with Lake Eola, nightlife, and arts districts.' },
+      { name: 'Mills 50', href: 'mills-50.html', desc: 'Eclectic dining, Vietnamese cuisine, and vibrant murals.' },
+      { name: 'Winter Park', href: 'winter-park.html', desc: 'Upscale boutiques, Park Avenue, and Rollins College.' },
+      { name: 'Dr. Phillips / Restaurant Row', href: 'dr-phillips.html', desc: 'World-class dining and upscale living near theme parks.' }
+    ];
+
     const areaData = { id: 'college-park', name: 'College Park / Edgewater', tagline: "Orlando's trendy neighborhoods with craft breweries, local eateries, and community vibes", image: '/api/places?query=College+Park+Orlando+FL&maxwidth=1600', vibes: ['Craft Beer', 'Local Eats', 'Community', 'Trendy'], stats: { neighborhoods: 10, businesses: 145, events: 28 } };
     const neighborhoodGroups = [
       { id: 'college-park-core', name: 'College Park', description: 'Tree-lined streets & local restaurants', neighborhoods: [
@@ -246,19 +402,15 @@
     const demoEvents = [
       { id: 1, title: 'Ivanhoe Village Art Walk', category: 'Art', description: 'Monthly gallery hop featuring local artists along Ivanhoe Village.', image: '/api/places?query=Ivanhoe+Village+Orlando+FL', date: 'First Friday Monthly', location: 'Ivanhoe Village', featured: true }
     ];
-    // Fallback Demo Properties
-    const demoProperties = [
-      { id: 1, price: '$520,000', address: '456 Edgewater Dr', neighborhood: 'Edgewater Drive', beds: 3, baths: 2, sqft: '1,650', image: '/api/places?query=456+Edgewater+Dr+Orlando+FL', featured: true }
-    ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
       const [email, setEmail] = useState('');
       const [subscribed, setSubscribed] = useState(false);
       const [businesses, setBusinesses] = useState(demoBusinesses);
       const [events, setEvents] = useState(demoEvents);
-      const properties = demoProperties;
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
       const [expandedSections, setExpandedSections] = useState(['college-park-core']);
+      const [openFaq, setOpenFaq] = useState(null);
       const toggleSection = (id) => setExpandedSections(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]);
 
       const filterByNeighborhood = (items, neighborhoodId) => {
@@ -271,8 +423,6 @@
 
       const filteredBusinesses = filterByNeighborhood(businesses, selectedNeighborhood);
       const filteredEvents = filterByNeighborhood(events, selectedNeighborhood);
-      const filteredProperties = filterByNeighborhood(properties, selectedNeighborhood);
-
       const getSelectedNeighborhoodName = () => {
         const found = neighborhoods.find(n => n.id === selectedNeighborhood);
         return found ? found.name : selectedNeighborhood;
@@ -310,6 +460,9 @@
               <li><a href="development.html">Development</a></li>
             </ul>
           </nav>
+          <div className="breadcrumb">
+            <a href="index.html">Home</a><span>/</span><a href="index.html#areas">Areas</a><span>/</span>College Park / Edgewater
+          </div>
           <section className="area-hero">
             <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
@@ -325,6 +478,10 @@
               </div>
             </div>
           </section>
+          <div className="area-intro">
+            <h1>College Park &amp; Edgewater, Orlando — Historic Bungalows &amp; Local Charm</h1>
+            <p>Welcome to College Park and Edgewater, two of Orlando's most beloved neighborhoods where tree-canopied streets meet a thriving local scene. Stroll down Edgewater Drive and discover historic bungalows, independent shops, and family-owned coffee shops that give this area its signature charm. Known for its family-friendly atmosphere, walkable sidewalks, and strong community spirit, College Park offers the perfect blend of small-town warmth and big-city convenience.</p>
+          </div>
           <div className="area-content">
             <section className="area-section">
               <div className="area-section-header"><h2 className="area-section-title">Explore {areaData.name} Neighborhoods</h2></div>
@@ -374,25 +531,49 @@
               <div className="area-section-header"><h2 className="area-section-title">Discover {areaData.name}</h2></div>
               {selectedNeighborhood && (
                 <div className="filter-indicator">
-                  <div className="filter-indicator-text">Showing {activeTab === 'businesses' ? filteredBusinesses.length : activeTab === 'events' ? filteredEvents.length : filteredProperties.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span></div>
+                  <div className="filter-indicator-text">Showing {activeTab === 'businesses' ? filteredBusinesses.length : filteredEvents.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span></div>
                   <button className="filter-clear-btn" onClick={clearFilter}>Show All {areaData.name}</button>
                 </div>
               )}
               <div className="content-tabs">
                 <button className={`content-tab ${activeTab === 'businesses' ? 'active' : ''}`} onClick={() => setActiveTab('businesses')}>Businesses</button>
                 <button className={`content-tab ${activeTab === 'events' ? 'active' : ''}`} onClick={() => setActiveTab('events')}>Events</button>
-                <button className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')}>Properties</button>
               </div>
               <div className="content-grid">
                 {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
                 {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
-                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
-                {selectedNeighborhood && ((activeTab === 'businesses' && filteredBusinesses.length === 0) || (activeTab === 'events' && filteredEvents.length === 0) || (activeTab === 'properties' && filteredProperties.length === 0)) && (
+                {selectedNeighborhood && ((activeTab === 'businesses' && filteredBusinesses.length === 0) || (activeTab === 'events' && filteredEvents.length === 0)) && (
                   <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-light)'}}>
                     <p style={{fontSize: '1.1rem', marginBottom: '1rem'}}>No {activeTab} found in {getSelectedNeighborhoodName()}</p>
                     <button onClick={clearFilter} style={{background: 'var(--primary-gold)', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer'}}>Show All {areaData.name} {activeTab}</button>
                   </div>
                 )}
+              </div>
+            </section>
+            {/* FAQ Section */}
+            <section className="area-section faq-section">
+              <div className="area-section-header"><h2 className="area-section-title">Frequently Asked Questions</h2></div>
+              {faqData.map((faq, i) => (
+                <div key={i} className="faq-item">
+                  <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                    {faq.q}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s'}}><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <div className={`faq-answer ${openFaq === i ? 'open' : ''}`}>{faq.a}</div>
+                </div>
+              ))}
+            </section>
+
+            {/* Related Neighborhoods */}
+            <section className="area-section related-neighborhoods">
+              <div className="area-section-header"><h2 className="area-section-title">Related Neighborhoods</h2></div>
+              <div className="related-grid">
+                {relatedAreas.map((area, i) => (
+                  <a key={i} href={area.href} className="related-card">
+                    <h3>{area.name}</h3>
+                    <p>{area.desc}</p>
+                  </a>
+                ))}
               </div>
             </section>
           </div>

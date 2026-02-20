@@ -14,6 +14,7 @@
   <meta property="og:description" content="Explore Dr. Phillips and Restaurant Row, Orlando's premier dining destination with upscale restaurants, Bay Hill, and Windermere living.">
   <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
   <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -21,14 +22,134 @@
   <meta name="twitter:description" content="Explore Dr. Phillips and Restaurant Row, Orlando's premier dining destination with upscale restaurants and Bay Hill.">
   <meta name="twitter:image" content="https://orlvibes.com/orlando-map.png">
 
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <!-- Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Orlando Vibes",
+      "url": "https://orlvibes.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "Dr. Phillips / Restaurant Row",
+    "description": "Explore Dr. Phillips and Restaurant Row, Orlando's premier dining destination with upscale restaurants, Bay Hill, and Windermere living.",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.4500,
+      "longitude": -81.5000
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://orlvibes.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Areas",
+        "item": "https://orlvibes.com/#areas"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dr. Phillips / Restaurant Row",
+        "item": "https://orlvibes.com/dr-phillips.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Dr Phillips Orlando known for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dr. Phillips is best known for Restaurant Row along Sand Lake Road, one of Orlando's premier dining destinations featuring diverse cuisines from around the world. The area is also known for its upscale residential communities, proximity to theme parks, and the Dr. Phillips Center for the Performing Arts downtown."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the best restaurants on Restaurant Row Orlando?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Restaurant Row on Sand Lake Road features Michelin-worthy dining including Christner's Prime Steak & Lobster, Dragonfly Robata Grill, Hawkers Asian Street Food, and dozens of international restaurants offering Thai, Vietnamese, Korean, Japanese, Indian, and Brazilian cuisine. It is widely considered Orlando's most diverse dining corridor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Dr Phillips a good place to live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dr. Phillips is one of Orlando's most desirable residential areas, offering upscale homes, excellent schools, safe neighborhoods, and convenient access to Restaurant Row dining, shopping, and theme parks. Communities like Bay Hill, Windermere, and Phillips Crossing provide a range of luxury living options."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Dr Phillips compare to Winter Park?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are upscale Orlando neighborhoods, but they offer different vibes. Dr. Phillips is known for its diverse international dining scene on Restaurant Row and proximity to theme parks, while Winter Park features a historic downtown with Park Avenue boutiques, Rollins College, and a more walkable village atmosphere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are things to do in the Dr Phillips area?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Dr. Phillips area offers world-class dining on Restaurant Row, golfing at Bay Hill Club & Lodge (home of the Arnold Palmer Invitational), shopping at Mall at Millenia nearby, easy access to Universal and SeaWorld, lakefront recreation, and a variety of family-friendly activities."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root { --primary-gold: #FF6B35; --primary-blue: #1E293B; --primary-black: #0A0A0A; --primary-white: #FFFFFF; --secondary-gold: #FFF5F0; --text-dark: #1A1A1A; --text-light: #6B6B6B; --border-color: #E5E5E5; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -164,6 +285,25 @@
     .accordion-item-name { font-weight: 600; color: var(--text-dark); font-size: 0.95rem; }
     .accordion-item-arrow { margin-left: auto; opacity: 0; transition: opacity 0.2s; }
     .accordion-item:hover .accordion-item-arrow { opacity: 1; }
+    /* Breadcrumb, FAQ, Related Neighborhoods */
+    .breadcrumb { margin-top: 80px; padding: 1rem 5%; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb a { color: var(--primary-gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.5rem; }
+    .area-intro { padding: 3rem 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+    .area-intro p { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; }
+    .faq-section { padding: 3rem 0; }
+    .faq-item { border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+    .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; background: white; cursor: pointer; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); }
+    .faq-question:hover { background: var(--secondary-gold); }
+    .faq-answer { display: none; padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.7; }
+    .faq-answer.open { display: block; }
+    .related-neighborhoods { padding: 3rem 0; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+    .related-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-dark); transition: all 0.3s; }
+    .related-card:hover { border-color: var(--primary-gold); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .related-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.9rem; color: var(--text-light); }
     /* Enhanced Mobile Responsiveness */
     @media (max-width: 768px) {
       .area-hero-title { font-size: 2.2rem; }
@@ -221,6 +361,22 @@
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
+
+    const faqData = [
+      { q: "What is Dr Phillips Orlando known for?", a: "Dr. Phillips is best known for Restaurant Row along Sand Lake Road, one of Orlando's premier dining destinations featuring diverse cuisines from around the world. The area is also known for its upscale residential communities, proximity to theme parks, and the Dr. Phillips Center for the Performing Arts downtown." },
+      { q: "What are the best restaurants on Restaurant Row Orlando?", a: "Restaurant Row on Sand Lake Road features Michelin-worthy dining including Christner's Prime Steak & Lobster, Dragonfly Robata Grill, Hawkers Asian Street Food, and dozens of international restaurants offering Thai, Vietnamese, Korean, Japanese, Indian, and Brazilian cuisine. It is widely considered Orlando's most diverse dining corridor." },
+      { q: "Is Dr Phillips a good place to live?", a: "Dr. Phillips is one of Orlando's most desirable residential areas, offering upscale homes, excellent schools, safe neighborhoods, and convenient access to Restaurant Row dining, shopping, and theme parks. Communities like Bay Hill, Windermere, and Phillips Crossing provide a range of luxury living options." },
+      { q: "How does Dr Phillips compare to Winter Park?", a: "Both are upscale Orlando neighborhoods, but they offer different vibes. Dr. Phillips is known for its diverse international dining scene on Restaurant Row and proximity to theme parks, while Winter Park features a historic downtown with Park Avenue boutiques, Rollins College, and a more walkable village atmosphere." },
+      { q: "What are things to do in the Dr Phillips area?", a: "The Dr. Phillips area offers world-class dining on Restaurant Row, golfing at Bay Hill Club & Lodge (home of the Arnold Palmer Invitational), shopping at Mall at Millenia nearby, easy access to Universal and SeaWorld, lakefront recreation, and a variety of family-friendly activities." }
+    ];
+
+    const relatedAreas = [
+      { name: 'International Drive', href: 'international-drive.html', desc: 'Entertainment corridor with ICON Park and attractions.' },
+      { name: 'College Park / Edgewater', href: 'college-park.html', desc: 'Historic bungalows, local shops, and community charm.' },
+      { name: 'Downtown Orlando', href: 'downtown-orlando.html', desc: 'Urban core with Lake Eola, nightlife, and arts districts.' },
+      { name: 'Winter Park', href: 'winter-park.html', desc: 'Upscale boutiques, Park Avenue, and Rollins College.' }
+    ];
+
     const areaData = { id: 'dr-phillips', name: 'Dr. Phillips / Restaurant Row', tagline: "Orlando's premier dining destination with upscale restaurants and lakefront living", image: '/api/places?query=Restaurant+Row+Dr+Phillips+Orlando+FL&maxwidth=1600', vibes: ['Fine Dining', 'Restaurant Row', 'Bay Hill', 'Upscale'], stats: { neighborhoods: 10, businesses: 185, events: 28 } };
     const neighborhoodGroups = [
       { id: 'restaurant-row', name: 'Restaurant Row', description: 'Fine dining & international cuisine', neighborhoods: [
@@ -244,20 +400,16 @@
     const demoEvents = [
       { id: 1, title: 'Restaurant Row Wine & Dine', category: 'Food & Wine', description: 'Annual culinary showcase featuring Restaurant Row\'s best chefs.', image: '/api/places?query=Restaurant+Row+Sand+Lake+Road+Orlando+FL&maxwidth=800', date: 'October 2026', location: 'Restaurant Row', featured: true }
     ];
-    // Fallback Demo Properties
-    const demoProperties = [
-      { id: 1, price: '$650,000', address: '8200 Bay Hill Blvd', neighborhood: 'Bay Hill', beds: 4, baths: 3, sqft: '2,800', image: '/api/places?query=8200+Bay+Hill+Blvd+Orlando+FL&maxwidth=800', featured: true }
-    ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
       const [email, setEmail] = useState('');
       const [subscribed, setSubscribed] = useState(false);
       const [businesses, setBusinesses] = useState(demoBusinesses);
       const [events, setEvents] = useState(demoEvents);
-      const properties = demoProperties;
 
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
       const [expandedSections, setExpandedSections] = useState(['restaurant-row']);
+      const [openFaq, setOpenFaq] = useState(null);
       const toggleSection = (id) => setExpandedSections(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]);
 
       const filterByNeighborhood = (items, neighborhoodId) => {
@@ -270,7 +422,6 @@
 
       const filteredBusinesses = filterByNeighborhood(businesses, selectedNeighborhood);
       const filteredEvents = filterByNeighborhood(events, selectedNeighborhood);
-      const filteredProperties = filterByNeighborhood(properties, selectedNeighborhood);
 
       const getSelectedNeighborhoodName = () => {
         const found = neighborhoods.find(n => n.id === selectedNeighborhood);
@@ -309,6 +460,9 @@
               <li><a href="development.html">Development</a></li>
             </ul>
           </nav>
+          <div className="breadcrumb">
+            <a href="index.html">Home</a><span>/</span><a href="index.html#areas">Areas</a><span>/</span>Dr. Phillips / Restaurant Row
+          </div>
           <section className="area-hero">
             <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
@@ -324,6 +478,10 @@
               </div>
             </div>
           </section>
+          <div className="area-intro">
+            <h1>Dr. Phillips &amp; Restaurant Row, Orlando — Fine Dining &amp; Upscale Living</h1>
+            <p>Welcome to Dr. Phillips and Restaurant Row, Orlando's premier destination for world-class dining and upscale living. Centered along Sand Lake Road, Restaurant Row is home to an extraordinary collection of diverse cuisines ranging from Michelin-worthy steakhouses to authentic Asian, Latin, and Mediterranean fare. Beyond the dining scene, Dr. Phillips offers beautiful residential communities with proximity to Orlando's major theme parks, making it the ideal blend of sophistication and convenience.</p>
+          </div>
           <div className="area-content">
             <section className="area-section">
               <div className="area-section-header"><h2 className="area-section-title">Explore {areaData.name} Neighborhoods</h2></div>
@@ -380,12 +538,37 @@
               <div className="content-tabs">
                 <button className={`content-tab ${activeTab === 'businesses' ? 'active' : ''}`} onClick={() => setActiveTab('businesses')}>Businesses</button>
                 <button className={`content-tab ${activeTab === 'events' ? 'active' : ''}`} onClick={() => setActiveTab('events')}>Events</button>
-                <button className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')}>Properties</button>
               </div>
               <div className="content-grid">
                 {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
                 {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
-                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
+              </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="area-section faq-section">
+              <div className="area-section-header"><h2 className="area-section-title">Frequently Asked Questions</h2></div>
+              {faqData.map((faq, i) => (
+                <div key={i} className="faq-item">
+                  <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                    {faq.q}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s'}}><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <div className={`faq-answer ${openFaq === i ? 'open' : ''}`}>{faq.a}</div>
+                </div>
+              ))}
+            </section>
+
+            {/* Related Neighborhoods */}
+            <section className="area-section related-neighborhoods">
+              <div className="area-section-header"><h2 className="area-section-title">Related Neighborhoods</h2></div>
+              <div className="related-grid">
+                {relatedAreas.map((area, i) => (
+                  <a key={i} href={area.href} className="related-card">
+                    <h3>{area.name}</h3>
+                    <p>{area.desc}</p>
+                  </a>
+                ))}
               </div>
             </section>
           </div>

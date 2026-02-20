@@ -3,14 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orlando Directory - Orlando Vibes | Businesses, Events & Properties</title>
-  <meta name="description" content="Explore Orlando's comprehensive directory of local businesses, upcoming events, and real estate listings across 243 neighborhoods.">
+  <title>Orlando Business Directory | Orlando Vibes - Best Restaurants & Shops</title>
+  <meta name="description" content="Explore Orlando's comprehensive directory of local businesses, restaurants, shops, and services across 243 neighborhoods. Find the best of Orlando.">
   <link rel="canonical" href="https://orlvibes.com/directory.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://orlvibes.com/directory.html">
+  <meta property="og:title" content="Orlando Business Directory | Orlando Vibes">
+  <meta property="og:description" content="Explore Orlando's local businesses, restaurants, shops, and services across 243 neighborhoods.">
+  <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
+  <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Orlando Business Directory | Orlando Vibes">
+  <meta name="twitter:description" content="Find the best Orlando businesses, restaurants, and services.">
+  <meta name="twitter:image" content="https://orlvibes.com/orlando-map.png">
+
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "Orlando Vibes", "url": "https://orlvibes.com", "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture", "publisher": { "@type": "Organization", "name": "Orlando Vibes", "url": "https://orlvibes.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orlvibes.com/" }, { "@type": "ListItem", "position": 2, "name": "Directory", "item": "https://orlvibes.com/directory.html" } ] }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
   <style>
     :root {
       --primary-gold: #FF6B35;
@@ -1037,7 +1067,6 @@
       <li><a href="index.html#neighborhoods">Neighborhoods</a></li>
       <li><a href="directory.html" class="active">Directory</a></li>
       <li><a href="events.html">Events</a></li>
-      <li><a href="properties.html">Properties</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
   </nav>
@@ -1046,7 +1075,7 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Orlando Directory</h1>
-      <p>Discover the best businesses, events, and properties across Orlando's 243 unique neighborhoods</p>
+      <p>Discover the best businesses and events across Orlando's 243 unique neighborhoods</p>
       <div class="search-container">
         <div class="search-bar">
           <input type="text" placeholder="Search businesses, events, or neighborhoods...">
@@ -1083,7 +1112,6 @@
     <div class="category-tabs">
       <a href="#businesses" class="category-tab active">Businesses</a>
       <a href="#events" class="category-tab">Events</a>
-      <a href="properties.html" class="category-tab">Properties</a>
       <a href="#restaurants" class="category-tab">Restaurants</a>
       <a href="#nightlife" class="category-tab">Nightlife</a>
       <a href="#arts" class="category-tab">Arts & Culture</a>
@@ -1295,7 +1323,6 @@
         <ul class="footer-links">
           <li><a href="directory.html">All Businesses</a></li>
           <li><a href="events.html">Events</a></li>
-          <li><a href="properties.html">Properties</a></li>
           <li><a href="advertise.html">Advertise</a></li>
         </ul>
       </div>
@@ -1316,7 +1343,7 @@
   </footer>
 
   <!-- RSS Restaurant/Food News -->
-  <script src="/js/rss-feed.js"></script>
+  <script defer src="/js/rss-feed.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Add RSS section before footer

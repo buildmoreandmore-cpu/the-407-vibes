@@ -28,6 +28,54 @@
   <meta name="author" content="Orlando Vibes">
   <meta name="geo.region" content="US-FL">
   <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <!-- Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Orlando Vibes",
+      "url": "https://orlvibes.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "logo": "https://orlvibes.com/orlando-map.png",
+    "description": "Orlando's premier hyperlocal culture blog and vlog magazine covering neighborhoods, businesses, events, development, and culture.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://orlvibes.com/contact.html"
+    },
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orlvibes.com/" }
+    ]
+  }
+  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -36,8 +84,8 @@
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
   <style>
     :root {
       --primary-gold: #FF6B35;
@@ -55,6 +103,18 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     body {
@@ -2054,316 +2114,6 @@
       }
     }
 
-    /* Properties Section */
-    .properties-section {
-      padding: 6rem 5%;
-      background: var(--primary-black);
-      color: white;
-    }
-
-    .properties-section .section-title {
-      color: white;
-    }
-
-    .properties-section .section-title::after {
-      background: var(--primary-blue);
-    }
-
-    .properties-section .section-subtitle {
-      color: rgba(255,255,255,0.7);
-    }
-
-    .properties-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .property-card {
-      background: #1A1A1A;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: all 0.3s;
-      border: 2px solid transparent;
-    }
-
-    .property-card:hover {
-      border-color: var(--primary-gold);
-      transform: translateY(-5px);
-    }
-
-    .property-image {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .property-details {
-      padding: 1.5rem;
-    }
-
-    .property-price {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary-gold);
-      margin-bottom: 0.5rem;
-    }
-
-    .property-address {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .property-specs {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.7);
-    }
-
-
-    /* Property Search Filter Bar */
-    .property-search-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      margin-bottom: 2rem;
-    }
-
-    .property-filter-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      flex: 1;
-      min-width: 180px;
-    }
-
-    .property-filter-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-light);
-      font-weight: 600;
-    }
-
-    .property-filter-select,
-    .property-filter-input {
-      padding: 0.75rem 1rem;
-      border: 2px solid var(--border-color);
-      border-radius: 6px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.95rem;
-      background: white;
-      cursor: pointer;
-      transition: border-color 0.3s;
-    }
-
-    .property-filter-select:focus,
-    .property-filter-input:focus {
-      border-color: var(--primary-gold);
-      outline: none;
-    }
-
-    .property-filter-button {
-      padding: 0.75rem 2rem;
-      background: var(--primary-blue);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      cursor: pointer;
-      transition: background 0.3s;
-      align-self: flex-end;
-    }
-
-    .property-filter-button:hover {
-      background: var(--accent-blue);
-    }
-
-    .property-filter-clear {
-      padding: 0.75rem 1.5rem;
-      background: transparent;
-      color: var(--text-light);
-      border: 2px solid var(--border-color);
-      border-radius: 4px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-      align-self: flex-end;
-    }
-
-    .property-filter-clear:hover {
-      border-color: var(--primary-black);
-      color: var(--primary-black);
-    }
-
-    /* View All Properties Button */
-    .view-all-properties-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 1rem 3rem;
-      background: var(--primary-blue);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .view-all-properties-btn:hover {
-      background: var(--accent-blue);
-      transform: translateY(-2px);
-    }
-
-    /* Property Lead Form Modal */
-    .property-lead-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      padding: 2rem;
-    }
-
-    .property-lead-card {
-      background: white;
-      border-radius: 12px;
-      padding: 2.5rem;
-      max-width: 500px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    .property-lead-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
-      color: var(--primary-black);
-      margin-bottom: 0.5rem;
-    }
-
-    .property-lead-subtitle {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
-
-    .property-lead-property-preview {
-      display: flex;
-      gap: 1rem;
-      padding: 1rem;
-      background: var(--secondary-gold);
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-    }
-
-    .property-lead-property-preview img {
-      width: 80px;
-      height: 60px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    .property-lead-property-info {
-      flex: 1;
-    }
-
-    .property-lead-property-price {
-      font-weight: 700;
-      color: var(--primary-black);
-    }
-
-    .property-lead-property-address {
-      font-size: 0.9rem;
-      color: var(--text-light);
-    }
-
-
-    /* MLS Compliance Footer */
-    .mls-compliance {
-      background: #FFFFFF;
-      border-top: 1px solid var(--border-color);
-      padding: 2rem 5%;
-      margin-top: 0;
-    }
-
-    .mls-compliance-content {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .mls-logo {
-      height: 50px;
-      width: auto;
-    }
-
-    .mls-disclaimer {
-      flex: 1;
-      font-size: 0.75rem;
-      color: var(--text-light);
-      line-height: 1.5;
-    }
-
-    .mls-disclaimer p {
-      margin-bottom: 0.5rem;
-    }
-
-    .mls-disclaimer p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Responsive IDX Overrides */
-    @media (max-width: 968px) {
-      .property-search-filters {
-        flex-direction: column;
-      }
-
-      .property-filter-group {
-        min-width: 100%;
-      }
-
-      .property-filter-button,
-      .property-filter-clear {
-        width: 100%;
-        text-align: center;
-      }
-
-      .mls-compliance-content {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .property-lead-card {
-        padding: 1.5rem;
-        margin: 1rem;
-      }
-
-      .property-lead-title {
-        font-size: 1.5rem;
-      }
-
-    }
-
     /* Directory Section */
     .directory-section {
       padding: 6rem 5%;
@@ -2757,7 +2507,6 @@
     /* Responsive */
     @media (max-width: 968px) {
       .featured-grid,
-      .properties-grid,
       .directory-actions {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -2785,7 +2534,6 @@
 
     @media (max-width: 640px) {
       .featured-grid,
-      .properties-grid,
       .directory-actions {
         grid-template-columns: 1fr;
       }
@@ -3596,63 +3344,6 @@
 
     .contact-card-value a:hover {
       text-decoration: underline;
-    }
-
-    /* Property Detail Styles */
-    .property-detail-page {
-      background: var(--primary-black);
-      color: white;
-    }
-
-    .property-detail-page .detail-content {
-      background: var(--primary-black);
-    }
-
-    .property-detail-page .detail-content p {
-      color: rgba(255,255,255,0.85);
-    }
-
-    .property-specs-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin: 2rem 0;
-      padding: 2rem;
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-    }
-
-    .property-spec {
-      text-align: center;
-    }
-
-    .property-spec-value {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: var(--primary-gold);
-    }
-
-    .property-spec-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.6);
-      margin-top: 0.25rem;
-    }
-
-    .property-price-badge {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      background: var(--primary-gold);
-      color: var(--primary-black);
-      padding: 1rem 2rem;
-      font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      border-radius: 8px;
-      z-index: 10;
     }
 
     /* Event Detail Date Badge */
@@ -5033,16 +4724,6 @@
       .detail-hero {
         height: 40vh;
         min-height: 300px;
-      }
-
-      .property-specs-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        padding: 1.5rem;
-      }
-
-      .property-spec-value {
-        font-size: 1.8rem;
       }
 
     }
@@ -7699,308 +7380,8 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
     }
 
 
-    // Property Search Filters Component
-    function PropertySearchFilters({ neighborhoods, onFilterChange, onSearch }) {
-      const [filters, setFilters] = React.useState({
-        neighborhood: '',
-        minPrice: '',
-        maxPrice: '',
-        beds: '',
-        baths: '',
-        propertyType: ''
-      });
-
-      // Flatten all neighborhoods for dropdown
-      const allNeighborhoods = React.useMemo(() => {
-        return Object.entries(neighborhoods).flatMap(([area, hoods]) =>
-          hoods.map(h => ({ ...h, areaId: area }))
-        );
-      }, [neighborhoods]);
-
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        const newFilters = { ...filters, [name]: value };
-        setFilters(newFilters);
-
-        onFilterChange && onFilterChange(newFilters);
-      };
-
-      const handleSearch = () => {
-        onSearch && onSearch(filters);
-      };
-
-      const handleClear = () => {
-        const clearedFilters = {
-          neighborhood: '',
-          minPrice: '',
-          maxPrice: '',
-          beds: '',
-          baths: '',
-          propertyType: ''
-        };
-        setFilters(clearedFilters);
-        onFilterChange && onFilterChange(clearedFilters);
-      };
-
-      const priceOptions = [
-        { value: '', label: 'Any' },
-        { value: '100000', label: '$100,000' },
-        { value: '200000', label: '$200,000' },
-        { value: '300000', label: '$300,000' },
-        { value: '400000', label: '$400,000' },
-        { value: '500000', label: '$500,000' },
-        { value: '750000', label: '$750,000' },
-        { value: '1000000', label: '$1,000,000' },
-        { value: '1500000', label: '$1,500,000' },
-        { value: '2000000', label: '$2,000,000+' }
-      ];
-
-      return (
-        <div className="property-search-filters">
-          <div className="property-filter-group">
-            <label className="property-filter-label">Neighborhood</label>
-            <select
-              name="neighborhood"
-              value={filters.neighborhood}
-              onChange={handleChange}
-              className="property-filter-select"
-            >
-              <option value="">All Orlando</option>
-              {allNeighborhoods.map(n => (
-                <option key={n.id} value={n.id}>{n.name}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="property-filter-group">
-            <label className="property-filter-label">Min Price</label>
-            <select
-              name="minPrice"
-              value={filters.minPrice}
-              onChange={handleChange}
-              className="property-filter-select"
-            >
-              {priceOptions.map(opt => (
-                <option key={`min-${opt.value}`} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="property-filter-group">
-            <label className="property-filter-label">Max Price</label>
-            <select
-              name="maxPrice"
-              value={filters.maxPrice}
-              onChange={handleChange}
-              className="property-filter-select"
-            >
-              {priceOptions.map(opt => (
-                <option key={`max-${opt.value}`} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="property-filter-group">
-            <label className="property-filter-label">Beds</label>
-            <select
-              name="beds"
-              value={filters.beds}
-              onChange={handleChange}
-              className="property-filter-select"
-            >
-              <option value="">Any</option>
-              <option value="1">1+</option>
-              <option value="2">2+</option>
-              <option value="3">3+</option>
-              <option value="4">4+</option>
-              <option value="5">5+</option>
-            </select>
-          </div>
-
-          <div className="property-filter-group">
-            <label className="property-filter-label">Baths</label>
-            <select
-              name="baths"
-              value={filters.baths}
-              onChange={handleChange}
-              className="property-filter-select"
-            >
-              <option value="">Any</option>
-              <option value="1">1+</option>
-              <option value="2">2+</option>
-              <option value="3">3+</option>
-              <option value="4">4+</option>
-            </select>
-          </div>
-
-          <button className="property-filter-button" onClick={handleSearch}>
-            Search
-          </button>
-          <button className="property-filter-clear" onClick={handleClear}>
-            Clear
-          </button>
-        </div>
-      );
-    }
-
-    // Property Lead Form Modal Component
-    function PropertyLeadForm({ isOpen, onClose, property, user }) {
-      const [formData, setFormData] = React.useState({
-        name: user?.name || '',
-        email: user?.email || '',
-        phone: '',
-        message: property ? `I'm interested in ${property.address || 'this property'}` : ''
-      });
-      const [loading, setLoading] = React.useState(false);
-      const [success, setSuccess] = React.useState(false);
-      const [error, setError] = React.useState(null);
-
-      React.useEffect(() => {
-        if (user) {
-          setFormData(prev => ({
-            ...prev,
-            name: user.name || '',
-            email: user.email || ''
-          }));
-        }
-      }, [user]);
-
-      React.useEffect(() => {
-        if (property) {
-          setFormData(prev => ({
-            ...prev,
-            message: `I'm interested in ${property.address || 'this property'}`
-          }));
-        }
-      }, [property]);
-
-      if (!isOpen) return null;
-
-      const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-      };
-
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError(null);
-
-        try {
-          // Save to Supabase (mock for demo)
-          const leadData = {
-            ...formData,
-            property_id: property?.id,
-            property_address: property?.address,
-            property_price: property?.price,
-            source: 'property_inquiry',
-            created_at: new Date().toISOString()
-          };
-
-          console.log('Form submitted:', leadData);
-
-          setSuccess(true);
-          setTimeout(() => {
-            onClose();
-            setSuccess(false);
-            setFormData({ name: '', email: '', phone: '', message: '' });
-          }, 2000);
-        } catch (err) {
-          setError('Unable to submit your request. Please try again.');
-        } finally {
-          setLoading(false);
-        }
-      };
-
-      return (
-        <div className="property-lead-modal" onClick={(e) => e.target === e.currentTarget && onClose()}>
-          <div className="property-lead-card">
-            <button className="auth-close" onClick={onClose}>&times;</button>
-            <h2 className="property-lead-title">Request Information</h2>
-            <p className="property-lead-subtitle">Get more details about this property</p>
-
-            {property && (
-              <div className="property-lead-property-preview">
-                {property.image && (
-                  <img src={property.image} alt={property.address} />
-                )}
-                <div className="property-lead-property-info">
-                  <div className="property-lead-property-price">{property.price}</div>
-                  <div className="property-lead-property-address">{property.address}</div>
-                </div>
-              </div>
-            )}
-
-            {success && (
-              <div className="form-success" style={{marginBottom: '1rem'}}>
-                Thank you! A real estate professional will contact you shortly.
-              </div>
-            )}
-
-            {error && (
-              <div className="form-error" style={{marginBottom: '1rem', padding: '0.75rem', background: '#F8D7DA', borderRadius: '6px'}}>
-                {error}
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label className="form-label">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  className="form-input"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label className="form-label">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  className="form-input"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="you@example.com"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label className="form-label">Phone</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  className="form-input"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="(407) 555-0000"
-                />
-              </div>
-              <div className="form-group">
-                <label className="form-label">Message</label>
-                <textarea
-                  name="message"
-                  className="form-input"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us what you're looking for..."
-                  rows="3"
-                />
-              </div>
-              <button type="submit" className="btn-primary" disabled={loading}>
-                {loading ? 'Sending...' : 'Send Request'}
-              </button>
-            </form>
-          </div>
-        </div>
-      );
-    }
-
-
     // Submit Listing Modal Component
-    function SubmitModal({ isOpen, onClose, user, type = 'business' }) {
+    function SubmitModal({ isOpen, onClose, type = 'business' }) {
       const [formData, setFormData] = useState({
         type: type,
         name: '',
@@ -8011,10 +7392,13 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
         description: '',
         phone: '',
         website: '',
-        image: ''
+        image: '',
+        contactName: '',
+        contactEmail: ''
       });
       const [loading, setLoading] = useState(false);
       const [success, setSuccess] = useState(false);
+      const [error, setError] = useState('');
 
       useEffect(() => {
         setFormData(prev => ({ ...prev, type }));
@@ -8029,21 +7413,44 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
 
-        const { data, error } = await mockSupabase.listings.create({
-          ...formData,
-          user_id: user.id,
-          image: formData.image || '/api/places?query=Orlando+restaurant+FL&maxwidth=800'
-        });
+        try {
+          const response = await fetch('/api/forms', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              formType: formData.type === 'business' ? 'business' : 'event',
+              name: formData.name,
+              category: formData.category,
+              neighborhood: formData.neighborhood,
+              address: formData.address,
+              date: formData.date,
+              description: formData.description,
+              phone: formData.phone,
+              website: formData.website,
+              image: formData.image,
+              contactName: formData.contactName,
+              email: formData.contactEmail
+            })
+          });
 
-        setLoading(false);
-        if (!error) {
+          const result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.error || 'Submission failed');
+          }
+
+          setLoading(false);
           setSuccess(true);
           setTimeout(() => {
             onClose();
             setSuccess(false);
-            setFormData({ type: 'business', name: '', category: '', neighborhood: '', address: '', date: '', description: '', phone: '', website: '', image: '' });
+            setFormData({ type: 'business', name: '', category: '', neighborhood: '', address: '', date: '', description: '', phone: '', website: '', image: '', contactName: '', contactEmail: '' });
           }, 2000);
+        } catch (err) {
+          setLoading(false);
+          setError(err.message || 'Something went wrong. Please try again.');
         }
       };
 
@@ -8060,7 +7467,8 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             <h2 className="auth-title">Submit {formData.type === 'business' ? 'Business' : 'Event'}</h2>
             <p className="auth-subtitle">Fill out the details below. Submissions are reviewed before publishing.</p>
 
-            {success && <div className="form-success">Submitted successfully! Your listing is pending review.</div>}
+            {success && <div className="form-success">Submitted successfully! We'll review your listing and get back to you.</div>}
+            {error && <div className="form-error" style={{marginBottom: '1rem', padding: '0.75rem', background: '#F8D7DA', color: '#721c24', borderRadius: '6px'}}>{error}</div>}
 
             <div className="auth-tabs">
               <button className={`auth-tab ${formData.type === 'business' ? 'active' : ''}`} onClick={() => setFormData({...formData, type: 'business'})}>
@@ -8132,7 +7540,21 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <div className="form-group">
                 <label className="form-label">Image URL</label>
                 <input type="url" name="image" className="form-input" value={formData.image} onChange={handleChange} placeholder="https://..." />
-                <p className="form-hint">Paste a link to your best photo. We'll add image uploads in the future.</p>
+                <p className="form-hint">Paste a link to your best photo (optional)</p>
+              </div>
+
+              <div style={{borderTop: '1px solid var(--border-color)', margin: '1.5rem 0', paddingTop: '1.5rem'}}>
+                <p style={{fontSize: '0.85rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-dark)'}}>Your Contact Info (not published)</p>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label">Your Name *</label>
+                    <input type="text" name="contactName" className="form-input" value={formData.contactName} onChange={handleChange} placeholder="Your full name" required />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Your Email *</label>
+                    <input type="email" name="contactEmail" className="form-input" value={formData.contactEmail} onChange={handleChange} placeholder="you@email.com" required />
+                  </div>
+                </div>
               </div>
 
               <button type="submit" className="btn-primary" disabled={loading}>
@@ -8220,7 +7642,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
         }, 1500);
       };
 
-      const categories = ['Culture', 'Food Scene', 'Art', 'Nightlife', 'Real Estate', 'Events', 'Neighborhoods', 'Lifestyle'];
+      const categories = ['Culture', 'Food Scene', 'Art', 'Nightlife', 'Events', 'Neighborhoods', 'Lifestyle'];
 
       return (
         <div className="submit-modal" onClick={(e) => e.target === e.currentTarget && onClose()}>
@@ -8872,7 +8294,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             </div>
 
             <div className="filter-footer">
-              <p>Click a neighborhood to explore businesses, events & properties</p>
+              <p>Click a neighborhood to explore businesses, events & culture</p>
             </div>
           </div>
         </div>
@@ -8930,17 +8352,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                 </ul>
               </div>
 
-              <div className="modal-section">
-                <h3 className="modal-section-title">Sample Properties</h3>
-                <ul className="modal-list">
-                  {neighborhood.properties.map((prop, i) => (
-                    <li key={i}>
-                      <strong>{prop.price}</strong>
-                      <span>{prop.details}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -8971,7 +8382,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             <img src={post.image} alt={post.title} className="detail-hero-image" />
             <div className="detail-hero-overlay">
               <span className="detail-category-badge">{post.category}</span>
-              <h1 className="detail-title">{post.title}</h1>
+              <h2 className="detail-title">{post.title}</h2>
               <div className="detail-meta">
                 <span>{post.created_at}</span>
               </div>
@@ -9145,7 +8556,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                 {tierLevel >= 2 && <span className="business-tier-badge featured">Featured</span>}
                 {tierLevel >= 3 && <span className="business-tier-badge premium">Premium</span>}
               </div>
-              <h1 className="business-detail-title">{business.title}</h1>
+              <h2 className="business-detail-title">{business.title}</h2>
               <div className="business-detail-meta">
                 <span>{business.neighborhood}</span>
                 <span>{getPriceDisplay(business.price_range)}</span>
@@ -9462,7 +8873,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             </div>
             <div className="detail-hero-overlay">
               <span className="detail-category-badge">{event.badge}</span>
-              <h1 className="detail-title">{event.title}</h1>
+              <h2 className="detail-title">{event.title}</h2>
               <div className="detail-meta">
                 <span>📅 {event.date}</span>
                 <span>📍 {event.location}</span>
@@ -9562,7 +8973,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                     <span className="event-recurring-badge">{getRecurringText(event.recurring_pattern)}</span>
                   )}
                 </div>
-                <h1 className="event-hero-title">{event.name || event.title}</h1>
+                <h2 className="event-hero-title">{event.name || event.title}</h2>
                 <p className="event-hero-neighborhood">{event.neighborhood}</p>
               </div>
             </div>
@@ -9699,53 +9110,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       );
     }
 
-    // Property Detail Page
-    function PropertyDetail({ property, onBack }) {
-      return (
-        <div className="detail-page property-detail-page">
-          <div className="detail-hero">
-            <img src={property.image} alt={property.address} className="detail-hero-image" />
-            <div className="property-price-badge">{property.price}</div>
-            <div className="detail-hero-overlay">
-              <h1 className="detail-title">{property.address}</h1>
-              <div className="detail-meta">
-                <span>📍 {property.neighborhood}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="detail-content">
-            <button className="back-button" onClick={onBack} style={{background: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.3)', color: 'white'}}>
-              ← Back to Properties
-            </button>
-
-            <div className="property-specs-grid">
-              <div className="property-spec">
-                <div className="property-spec-value">{property.beds}</div>
-                <div className="property-spec-label">Bedrooms</div>
-              </div>
-              <div className="property-spec">
-                <div className="property-spec-value">{property.baths}</div>
-                <div className="property-spec-label">Bathrooms</div>
-              </div>
-              <div className="property-spec">
-                <div className="property-spec-value">{property.sqft}</div>
-                <div className="property-spec-label">Square Feet</div>
-              </div>
-            </div>
-
-            <p>This stunning property in {property.neighborhood} offers {property.beds} bedrooms and {property.baths} bathrooms across {property.sqft} square feet of living space. Located in one of Orlando's most desirable neighborhoods, this home features modern amenities and classic Southern charm.</p>
-
-            <p>Contact us today to schedule a viewing and discover why this property could be your perfect Orlando home.</p>
-
-            <button className="detail-cta-button dark" style={{marginTop: '2rem'}}>
-              Contact Agent
-            </button>
-          </div>
-        </div>
-      );
-    }
-
     // ============================================
     // CATEGORY LANDING PAGE COMPONENTS
     // ============================================
@@ -9859,7 +9223,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             <button className="event-back-btn" onClick={onBack}>← Back to Home</button>
 
             <div className="events-header">
-              <h1>Upcoming Events in Orlando</h1>
+              <h2>Upcoming Events in Orlando</h2>
               <p>Discover festivals, concerts, food events, and community gatherings across the city</p>
             </div>
 
@@ -9947,7 +9311,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             <button className="event-back-btn" onClick={onBack}>← Back to Events</button>
 
             <div className="events-header">
-              <h1>Past Events</h1>
+              <h2>Past Events</h2>
               <p>Browse events that have already taken place</p>
             </div>
 
@@ -10015,7 +9379,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <button className="category-back-btn" onClick={onBack}>
                 ← Back to Home
               </button>
-              <h1>Eats & Drinks</h1>
+              <h2>Eats & Drinks</h2>
               <p>Orlando's food and beverage scene explored</p>
             </div>
 
@@ -10362,7 +9726,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <button className="area-back-button" onClick={onBack}>
                 <span>&larr;</span> Back to Orlando
               </button>
-              <h1 className="area-hero-title">{currentArea.title}</h1>
+              <h2 className="area-hero-title">{currentArea.title}</h2>
               <p className="area-hero-tagline">{currentArea.tagline}</p>
               <div className="area-vibe-tags">
                 {currentArea.vibes.map((vibe, i) => (
@@ -10483,7 +9847,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                 <div className="area-quick-link" onClick={onBack}><div className="area-quick-link-icon">🗺️</div><span>View All Areas</span></div>
                 <div className="area-quick-link" onClick={() => window.location.hash = '#directory'}><div className="area-quick-link-icon">🏪</div><span>Business Directory</span></div>
                 <div className="area-quick-link" onClick={() => window.location.hash = '#events'}><div className="area-quick-link-icon">📅</div><span>All Events</span></div>
-                <div className="area-quick-link" onClick={() => window.location.hash = '#properties'}><div className="area-quick-link-icon">🏡</div><span>Real Estate</span></div>
               </div>
             </aside>
           </div>
@@ -10581,7 +9944,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <span>&larr;</span> Back to {areaNames[neighborhood.area] || 'Orlando'}
             </button>
             <div className="neighborhood-title-row">
-              <h1 className="neighborhood-title">{neighborhood.name}</h1>
+              <h2 className="neighborhood-title">{neighborhood.name}</h2>
               {neighborhood.vibes && neighborhood.vibes.length > 0 && (
                 <div className="neighborhood-vibe-tags">
                   {neighborhood.vibes.map((vibe, i) => (
@@ -10834,13 +10197,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
         { id: 'evt-3', badge: 'Food Festival', title: 'Orlando Food & Wine Festival', description: 'Celebrating Southern cuisine with top chefs.', date: 'Mar 10-12, 2026', location: 'Winter Park', image: '/api/places?query=Orlando+Food+Wine+Festival+Winter+Park+FL&maxwidth=800', featured: false }
       ]);
 
-      const [properties, setProperties] = useState([
-        { id: 'prop-1', price: '$575,000', address: '123 Lake Eola Dr', neighborhood: 'Winter Park', beds: 3, baths: 2, sqft: '2,100', image: '/api/places?query=123+Lake+Eola+Dr+Winter+Park+FL&maxwidth=800', featured: true },
-        { id: 'prop-2', price: '$425,000', address: '456 Mills Ave', neighborhood: 'Mills 50', beds: 2, baths: 2, sqft: '1,650', image: '/api/places?query=456+Mills+Ave+Orlando+FL&maxwidth=800', featured: true },
-        { id: 'prop-3', price: '$1,250,000', address: '789 Park Ave', neighborhood: 'Downtown Orlando', beds: 5, baths: 4, sqft: '4,200', image: '/api/places?query=789+Park+Ave+Downtown+Orlando+FL&maxwidth=800', featured: true },
-        { id: 'prop-4', price: '$350,000', address: '321 Orange Ave', neighborhood: 'College Park', beds: 2, baths: 1, sqft: '1,200', image: '/api/places?query=321+Orange+Ave+College+Park+Orlando+FL&maxwidth=800', featured: false }
-      ]);
-
       const openEditModal = (item, type) => {
         setEditItem({...item});
         setEditType(type);
@@ -10856,8 +10212,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           setBusinesses(prev => prev.map(b => b.id === editItem.id ? editItem : b));
         } else if (editType === 'event') {
           setEvents(prev => prev.map(e => e.id === editItem.id ? editItem : e));
-        } else if (editType === 'property') {
-          setProperties(prev => prev.map(p => p.id === editItem.id ? editItem : p));
         }
         setShowEditModal(false);
         setEditItem(null);
@@ -10870,8 +10224,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           setBusinesses(prev => prev.map(b => b.id === id ? {...b, featured: !b.featured} : b));
         } else if (type === 'event') {
           setEvents(prev => prev.map(e => e.id === id ? {...e, featured: !e.featured} : e));
-        } else if (type === 'property') {
-          setProperties(prev => prev.map(p => p.id === id ? {...p, featured: !p.featured} : p));
         }
       };
 
@@ -10882,7 +10234,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
         { id: 'stories', icon: '📰', label: "Editor's Choice" },
         { id: 'businesses', icon: '🏪', label: 'Featured Business' },
         { id: 'events', icon: '📅', label: 'Upcoming Events' },
-        { id: 'properties', icon: '🏠', label: 'Featured Properties' },
         { id: 'integrations', icon: '🔗', label: 'Integrations' }
       ];
 
@@ -10919,7 +10270,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       const stats = {
         totalViews: '24,582',
         submissions: '47',
-        featured: editorsChoice.filter(s => s.featured).length + businesses.filter(b => b.featured).length + events.filter(e => e.featured).length + properties.filter(p => p.featured).length,
+        featured: editorsChoice.filter(s => s.featured).length + businesses.filter(b => b.featured).length + events.filter(e => e.featured).length,
         formSubmissions: '156'
       };
 
@@ -10929,8 +10280,8 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           <div className="cms-header">
             <div className="cms-header-content">
               <div>
-                <h1>Content Management</h1>
-                <p>Manage your featured content, businesses, events, and properties</p>
+                <h2>Content Management</h2>
+                <p>Manage your featured content, businesses, and events</p>
               </div>
               <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
                 <span className="cms-demo-badge">Demo Mode</span>
@@ -11239,50 +10590,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                           onClick={() => toggleFeatured(event.id, 'event')}
                         >
                           {event.featured ? 'Unfeature' : 'Feature'}
-                        </button>
-                        <button className="cms-action-btn delete">Delete</button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Properties Tab */}
-              {activeTab === 'properties' && (
-                <div className="cms-section">
-                  <div className="cms-section-header">
-                    <div>
-                      <h2 className="cms-section-title">Featured Properties</h2>
-                      <p className="cms-section-subtitle">Real estate listings on homepage ({properties.filter(p => p.featured).length} featured)</p>
-                    </div>
-                    <button className="cms-btn-add">+ Add Property</button>
-                  </div>
-
-                  {properties.map(property => (
-                    <div key={property.id} className="cms-card">
-                      <div className="cms-card-header">
-                        <img src={property.image} alt={property.address} className="cms-card-image" />
-                        <div className="cms-card-info">
-                          <div className="cms-card-meta">
-                            <span className="cms-card-badge">{property.price}</span>
-                            {property.featured && <span className="cms-card-featured">Featured</span>}
-                          </div>
-                          <h3 className="cms-card-title">{property.address}</h3>
-                          <p className="cms-card-desc">
-                            🛏️ {property.beds} beds • 🛁 {property.baths} baths • 📏 {property.sqft} sq ft
-                          </p>
-                          <p style={{fontSize: '0.8rem', color: 'var(--text-light)', marginTop: '0.5rem'}}>
-                            📍 {property.neighborhood}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="cms-card-actions">
-                        <button className="cms-action-btn" onClick={() => openEditModal(property, 'property')}>Edit</button>
-                        <button
-                          className={`cms-action-btn ${property.featured ? 'unfeature' : 'feature'}`}
-                          onClick={() => toggleFeatured(property.id, 'property')}
-                        >
-                          {property.featured ? 'Unfeature' : 'Feature'}
                         </button>
                         <button className="cms-action-btn delete">Delete</button>
                       </div>
@@ -11706,13 +11013,8 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       const [activeSection, setActiveSection] = useState('home');
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
       const [selectedArea, setSelectedArea] = useState(null);
-      const [user, setUser] = useState(null);
-      const [showAuth, setShowAuth] = useState(false);
       const [showSubmit, setShowSubmit] = useState(false);
       const [submitType, setSubmitType] = useState('business');
-      const [showDashboard, setShowDashboard] = useState(false);
-      const [showUserMenu, setShowUserMenu] = useState(false);
-      const [showCMS, setShowCMS] = useState(false);
 
       // Mobile menu state
       const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11759,31 +11061,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       };
 
       const isItemSaved = (type, id) => savedItems[type].includes(id);
-
-      // IDX Broker / Property state
-      const [propertyFilters, setPropertyFilters] = useState({});
-      const [showPropertySearch, setShowPropertySearch] = useState(false);
-      const [showPropertyLead, setShowPropertyLead] = useState(false);
-      const [showPropertyDetail, setShowPropertyDetail] = useState(false);
-      const [selectedProperty, setSelectedProperty] = useState(null);
-
-      const handlePropertyFilterChange = (filters) => {
-        setPropertyFilters(filters);
-      };
-
-      const handlePropertySearch = (filters) => {
-        console.log('Property search:', filters);
-      };
-
-      const handlePropertyClick = (property) => {
-        setSelectedProperty(property);
-        setShowPropertyDetail(true);
-      };
-
-      const handlePropertyInquiry = (property) => {
-        setSelectedProperty(property);
-        setShowPropertyLead(true);
-      };
 
       // Homepage Map System V1 - Area selection state for filtering
       const [mapSelectedArea, setMapSelectedArea] = useState(null);
@@ -11903,25 +11180,9 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
         window.scrollTo(0, 0);
       };
 
-      const handleLogin = (userData) => {
-        setUser(userData);
-        setShowAuth(false);
-      };
-
-      const handleLogout = async () => {
-        await mockSupabase.auth.signOut();
-        setUser(null);
-        setShowUserMenu(false);
-        setShowDashboard(false);
-      };
-
       const openSubmit = (type) => {
-        if (!user) {
-          setShowAuth(true);
-        } else {
-          setSubmitType(type);
-          setShowSubmit(true);
-        }
+        setSubmitType(type);
+        setShowSubmit(true);
       };
 
       // Sample data
@@ -11992,36 +11253,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
         }
       ];
 
-      const properties = [
-        {
-          price: '$575,000',
-          address: '123 Lake Eola Dr',
-          neighborhood: 'Winter Park',
-          beds: 3,
-          baths: 2,
-          sqft: '2,100',
-          image: '/api/places?query=123+Lake+Eola+Dr+Winter+Park+FL&maxwidth=800'
-        },
-        {
-          price: '$425,000',
-          address: '456 Mills Ave',
-          neighborhood: 'Mills 50',
-          beds: 2,
-          baths: 2,
-          sqft: '1,650',
-          image: '/api/places?query=456+Mills+Ave+Orlando+FL&maxwidth=800'
-        },
-        {
-          price: '$1,250,000',
-          address: '789 Park Ave',
-          neighborhood: 'Downtown Orlando',
-          beds: 5,
-          baths: 4,
-          sqft: '4,200',
-          image: '/api/places?query=789+Park+Ave+Downtown+Orlando+FL&maxwidth=800'
-        }
-      ];
-
       const neighborhoods = [
         {
           id: 'downtown-orlando',
@@ -12039,10 +11270,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'Downtown Orlando Art Walk', type: 'Monthly Gallery Tour' },
             { name: 'Wine & Dine Festival', type: 'Annual Food Event' }
-          ],
-          properties: [
-            { price: '$1,250,000', details: '5 bed, 4 bath - Winter Park Village' },
-            { price: '$875,000', details: '4 bed, 3 bath - Park Avenue Estate' }
           ]
         },
         {
@@ -12061,10 +11288,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'Winter Park Sidewalk Art Festival', type: 'Annual Arts Fair' },
             { name: 'Winter Park Boat Tour', type: 'Scenic Chain of Lakes Tour' }
-          ],
-          properties: [
-            { price: '$575,000', details: '3 bed, 2 bath - Park Avenue Area' },
-            { price: '$425,000', details: '2 bed, 2 bath - Baldwin Park' }
           ]
         },
         {
@@ -12083,10 +11306,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'Thornton Park Wine Walk', type: 'Monthly Wine Tasting' },
             { name: 'SoDo Art Walk', type: 'Quarterly Gallery Event' }
-          ],
-          properties: [
-            { price: '$395,000', details: '2 bed, 2 bath - Thornton Park Condo' },
-            { price: '$625,000', details: '3 bed, 2 bath - Delaney Park' }
           ]
         },
         {
@@ -12105,10 +11324,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'Mills 50 Street Festival', type: 'Annual Community Event' },
             { name: 'Milk District Beer Festival', type: 'Annual Craft Beer Event' }
-          ],
-          properties: [
-            { price: '$350,000', details: '2 bed, 1 bath - Colonialtown Bungalow' },
-            { price: '$475,000', details: '3 bed, 2 bath - Mills Ave' }
           ]
         },
         {
@@ -12127,10 +11342,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'College Park Jazz Fest', type: 'Annual Music Festival' },
             { name: 'Edgewater Farmers Market', type: 'Weekly Market' }
-          ],
-          properties: [
-            { price: '$425,000', details: '3 bed, 2 bath - College Park Bungalow' },
-            { price: '$550,000', details: '4 bed, 2 bath - Edgewater Dr' }
           ]
         },
         {
@@ -12149,10 +11360,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'I-Drive Block Party', type: 'Monthly Entertainment Event' },
             { name: 'Convention Center Events', type: 'Year-Round Conventions' }
-          ],
-          properties: [
-            { price: '$325,000', details: '2 bed, 2 bath - Resort-Style Condo' },
-            { price: '$475,000', details: '3 bed, 2 bath - Sand Lake Area' }
           ]
         },
         {
@@ -12171,10 +11378,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'Restaurant Row Food Tour', type: 'Guided Tasting Event' },
             { name: 'Wine & Dine Festival', type: 'Annual Food Event' }
-          ],
-          properties: [
-            { price: '$520,000', details: '3 bed, 2 bath - Bay Hill Estate' },
-            { price: '$785,000', details: '4 bed, 3 bath - Dr. Phillips Blvd' }
           ]
         },
         {
@@ -12193,10 +11396,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'UCF Homecoming', type: 'Annual University Event' },
             { name: 'Lake Nona Food Festival', type: 'Annual Culinary Event' }
-          ],
-          properties: [
-            { price: '$375,000', details: '3 bed, 2 bath - Waterford Lakes' },
-            { price: '$485,000', details: '4 bed, 2 bath - Avalon Park' }
           ]
         },
         {
@@ -12215,10 +11414,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
           events: [
             { name: 'Maitland Art Festival', type: 'Annual Arts Fair' },
             { name: 'Enzian Film Festival', type: 'Annual Film Event' }
-          ],
-          properties: [
-            { price: '$595,000', details: '4 bed, 3 bath - Maitland Lakefront' },
-            { price: '$450,000', details: '3 bed, 2 bath - Winter Springs' }
           ]
         }
       ];
@@ -12227,12 +11422,12 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
         <>
           {/* Navigation */}
           <nav className="navbar">
-            <a href="/" className="logo" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>
+            <a href="/" className="logo" onClick={() => { navigateTo('home'); }}>
               <span className="logo-main">Orlando Vibes</span>
               <span className="logo-tagline">Culture Blog & Vlog Magazine</span>
             </a>
             <ul className="nav-links">
-              <li><a href="#home" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>Home</a></li>
+              <li><a href="#home" onClick={() => { navigateTo('home'); }}>Home</a></li>
               <li className="nav-dropdown">
                 <a href="#" onClick={(e) => e.preventDefault()}>Areas</a>
                 <ul className="dropdown-menu">
@@ -12247,55 +11442,21 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                   <li><a href="north-orlando.html">North Orlando / Maitland</a></li>
                 </ul>
               </li>
-              <li><a href="#neighborhoods" onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('home'); }}>Neighborhoods</a></li>
-              <li><a onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('eats-drinks'); }} style={{cursor: 'pointer', whiteSpace: 'nowrap'}}>Eats & Drinks</a></li>
+              <li><a href="#neighborhoods" onClick={() => { navigateTo('home'); }}>Neighborhoods</a></li>
+              <li><a onClick={() => { navigateTo('eats-drinks'); }} style={{cursor: 'pointer', whiteSpace: 'nowrap'}}>Eats & Drinks</a></li>
               <li><a href="development.html">Development</a></li>
               <li><a href="directory.html">Directory</a></li>
-              <li><a onClick={() => { setShowDashboard(false); setShowCMS(false); navigateTo('events'); }} style={{cursor: 'pointer'}}>Events</a></li>
-              <li><a href="properties.html">Properties</a></li>
-              {user && (
-                <>
-                  <li><button onClick={() => openSubmit('business')} className="submit-btn">Submit Listing</button></li>
-                  <li className="user-menu">
-                    <div className="user-avatar" onClick={() => setShowUserMenu(!showUserMenu)}>
-                      {user.name.charAt(0).toUpperCase()}
-                    </div>
-                    {showUserMenu && (
-                      <div className="user-dropdown">
-                        <button className="user-dropdown-item" onClick={() => { setShowDashboard(true); setShowUserMenu(false); setShowCMS(false); }}>
-                          My Dashboard
-                        </button>
-                        <button className="user-dropdown-item" onClick={() => { openSubmit('business'); setShowUserMenu(false); }}>
-                          Add Business
-                        </button>
-                        <button className="user-dropdown-item" onClick={() => { openSubmit('event'); setShowUserMenu(false); }}>
-                          Add Event
-                        </button>
-                        <div className="user-dropdown-divider"></div>
-                        <button className="user-dropdown-item" onClick={handleLogout}>
-                          Sign Out
-                        </button>
-                      </div>
-                    )}
-                  </li>
-                </>
-              )}
+              <li><a onClick={() => { navigateTo('events'); }} style={{cursor: 'pointer'}}>Events</a></li>
+              <li><button onClick={() => openSubmit('business')} className="submit-btn">Submit Listing</button></li>
             </ul>
           </nav>
 
-          {/* CMS Portal */}
-          {showCMS ? (
-            <CMSPortal onClose={() => setShowCMS(false)} />
-          ) : showDashboard && user ? (
-            <Dashboard user={user} onClose={() => setShowDashboard(false)} />
-          ) : currentView === 'detail' && viewItemType === 'blog' && viewItem ? (
+          {currentView === 'detail' && viewItemType === 'blog' && viewItem ? (
             <BlogPostDetail post={viewItem} onBack={() => navigateTo('home')} />
           ) : currentView === 'detail' && viewItemType === 'business' && viewItem ? (
             <BusinessDetail business={viewItem} onBack={() => navigateTo('home')} onNavigateTo={navigateTo} />
           ) : currentView === 'detail' && viewItemType === 'event' && viewItem ? (
             <EventDetailV2 event={viewItem} onBack={() => navigateTo('events')} onNavigate={navigateTo} />
-          ) : currentView === 'detail' && viewItemType === 'property' && viewItem ? (
-            <PropertyDetail property={viewItem} onBack={() => navigateTo('home')} />
           ) : currentView === 'detail' && viewItemType === 'neighborhood' && viewItem ? (
             <NeighborhoodPage
               neighborhood={viewItem}
@@ -12329,6 +11490,9 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             />
           ) : (
           <>
+          {/* SEO H1 - visually hidden but accessible */}
+          <h1 className="sr-only">Orlando Vibes — Your Guide to Orlando's Neighborhoods, Culture & Community</h1>
+
           {/* Hero Section */}
           <section
             className="hero"
@@ -12336,11 +11500,11 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             onClick={() => demoBlogPosts[0] && navigateTo('detail', 'blog', demoBlogPosts[0])}
             style={{cursor: 'pointer'}}
           >
-            <img src={heroStory.image} alt="Hero" className="hero-image" />
+            <img src={heroStory.image} alt={`${heroStory.title} - Orlando Vibes featured story`} className="hero-image" />
             <div className="hero-content">
               <div className="hero-text">
                 <span className="hero-category">{heroStory.category}</span>
-                <h1 className="hero-title">{heroStory.title}</h1>
+                <h2 className="hero-title">{heroStory.title}</h2>
                 <p className="hero-meta">{heroStory.date}</p>
               </div>
             </div>
@@ -12433,7 +11597,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                 ) : (
                   <div className="area-card-v2">
                     <div className="area-card-v2-hero">
-                      <img src="/api/places?query=Orlando+Skyline+Downtown+FL&maxwidth=800" alt="Orlando Skyline" />
+                      <img src="/api/places?query=Orlando+Skyline+Downtown+FL&maxwidth=800" alt="Orlando downtown skyline with Lake Eola fountain at sunset" />
                       <h3 className="area-card-v2-title">ORLANDO</h3>
                     </div>
                     <div className="area-card-v2-body">
@@ -12552,54 +11716,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             </div>
           </section>
 
-          {/* Properties Section - IDX Broker Integration */}
-          <section className="properties-section" id="properties">
-            <div className="section-header">
-              <h2 className="section-title">Orlando Real Estate</h2>
-              <p className="section-subtitle">Featured Properties</p>
-            </div>
-
-            {/* Property Search Filters */}
-            <PropertySearchFilters
-              neighborhoods={demoNeighborhoods}
-              onFilterChange={handlePropertyFilterChange}
-              onSearch={handlePropertySearch}
-            />
-
-            <div className="properties-grid">
-              {properties.map((property, index) => (
-                <div
-                  key={index}
-                  className="property-card"
-                  onClick={() => handlePropertyInquiry(property)}
-                  style={{cursor: 'pointer'}}
-                >
-                  <img src={property.image} alt={property.address} className="property-image" />
-                  <div className="property-details">
-                    <div className="property-price">{property.price}</div>
-                    <div className="property-address">{property.address}</div>
-                    <div className="property-specs">
-                      <span>🛏️ {property.beds} beds</span>
-                      <span>🛁 {property.baths} baths</span>
-                      <span>📏 {property.sqft} sq ft</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* View All Properties CTA */}
-            <div style={{textAlign: 'center'}}>
-              <a
-                href="properties.html"
-                className="view-all-properties-btn"
-                style={{display: 'inline-block', textDecoration: 'none'}}
-              >
-                View All Orlando Listings
-              </a>
-            </div>
-          </section>
-
           {/* Directory Actions */}
           <section className="directory-section" id="directory">
             <div className="section-header">
@@ -12637,7 +11753,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
                   </svg>
                 </div>
                 <h3 className="action-title">Explore by Neighborhood</h3>
-                <p className="action-description">Filter businesses, events, and properties by any of Orlando's 243 unique neighborhoods.</p>
+                <p className="action-description">Filter businesses and events by any of Orlando's 243 unique neighborhoods.</p>
                 <a href="#neighborhoods" className="action-button">Browse Now</a>
               </div>
             </div>
@@ -12674,7 +11790,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             <div className="footer-content">
               <div className="footer-brand">
                 <h3>Orlando Vibes</h3>
-                <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
+                <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and community. Discover what makes each corner of our city special.</p>
                 <div className="social-links">
                   <a href="https://www.instagram.com/orlvibes/" className="social-link" target="_blank" rel="noopener noreferrer">IG</a>
                   <a href="#" className="social-link">FB</a>
@@ -12746,19 +11862,11 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             />
           )}
 
-          {/* Auth Modal */}
-          <AuthModal
-            isOpen={showAuth}
-            onClose={() => setShowAuth(false)}
-            onLogin={handleLogin}
-          />
-
           {/* Submit Modal */}
-          {user && (
+          {(
             <SubmitModal
               isOpen={showSubmit}
               onClose={() => setShowSubmit(false)}
-              user={user}
               type={submitType}
             />
           )}
@@ -12771,7 +11879,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               setSelectedProperty(null);
             }}
             property={selectedProperty}
-            user={user}
+            user={null}
           />
 
 
@@ -12782,7 +11890,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
     ReactDOM.render(<App />, document.getElementById('root'));
   </script>
 
-  <script src="/js/rss-feed.js"></script>
+  <script defer src="/js/rss-feed.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof RSSFeed !== 'undefined') {

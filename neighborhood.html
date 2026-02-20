@@ -4,15 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neighborhood - Orlando Vibes</title>
-  <meta name="description" content="Explore this Orlando neighborhood - local businesses, events, stories, and real estate.">
+  <meta name="description" content="Explore this Orlando neighborhood - local businesses, events, stories, and culture.">
   <link rel="canonical" href="https://orlvibes.com/neighborhood.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://orlvibes.com/neighborhood.html">
   <meta property="og:title" content="Neighborhood - Orlando Vibes">
-  <meta property="og:description" content="Explore this Orlando neighborhood - local businesses, events, stories, and real estate.">
+  <meta property="og:description" content="Explore this Orlando neighborhood - local businesses, events, stories, and culture.">
   <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
   <meta property="og:site_name" content="Orlando Vibes">
 
   <!-- Twitter -->
@@ -29,8 +35,8 @@
   <script src="/js/neighborhoods-data.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
   <style>
     :root {
       --primary-gold: #FF6B35;
@@ -249,15 +255,6 @@
       { id: 4, title: 'Historic Building Gets New Life', category: 'History', image: '/api/places?query=Church+Street+Station+Orlando+FL&maxwidth=800' }
     ];
 
-    const demoProperties = [
-      { id: 1, price: '$485,000', address: '123 Main Street', beds: 3, baths: 2, sqft: '1,850', image: '/api/places?query=Baldwin+Park+homes+Orlando+FL&maxwidth=800', featured: true },
-      { id: 2, price: '$675,000', address: '456 Oak Avenue', beds: 4, baths: 3, sqft: '2,400', image: '/api/places?query=Winter+Park+homes+FL&maxwidth=800', featured: true },
-      { id: 3, price: '$325,000', address: '789 Park Lane #204', beds: 2, baths: 2, sqft: '1,200', image: '/api/places?query=Downtown+Orlando+condos+FL&maxwidth=800', featured: false },
-      { id: 4, price: '$895,000', address: '321 Forest Drive', beds: 5, baths: 4, sqft: '3,200', image: '/api/places?query=Dr+Phillips+Orlando+homes+FL&maxwidth=800', featured: false },
-      { id: 5, price: '$550,000', address: '555 Garden Way', beds: 3, baths: 2, sqft: '2,100', image: '/api/places?query=Lake+Nona+Orlando+homes+FL&maxwidth=800', featured: false },
-      { id: 6, price: '$425,000', address: '777 Hillside Ct', beds: 3, baths: 2, sqft: '1,750', image: '/api/places?query=College+Park+Orlando+homes+FL&maxwidth=800', featured: false }
-    ];
-
     function NeighborhoodPage() {
       const [loading, setLoading] = useState(true);
       const [neighborhood, setNeighborhood] = useState(null);
@@ -410,9 +407,6 @@
                   <button className={`content-tab ${activeTab === 'stories' ? 'active' : ''}`} onClick={() => setActiveTab('stories')}>
                     Stories
                   </button>
-                  <button className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')}>
-                    Properties
-                  </button>
                 </div>
 
                 {/* Businesses Tab */}
@@ -465,25 +459,6 @@
                   </div>
                 )}
 
-                {/* Properties Tab */}
-                {activeTab === 'properties' && (
-                  <div className="content-grid">
-                    {demoProperties.slice(0, 6).map((item) => (
-                      <div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}>
-                        <img src={item.image} alt={item.address} className="content-card-image" />
-                        <div className="content-card-body">
-                          <div className="property-card-price">{item.price}</div>
-                          <div className="property-card-address">{item.address}</div>
-                          <div className="property-card-specs">
-                            <span>{item.beds} beds</span>
-                            <span>{item.baths} baths</span>
-                            <span>{item.sqft} sq ft</span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </section>
 
               {/* Inline Ad */}
@@ -573,7 +548,6 @@
             <li><a href="development.html">Development</a></li>
             <li><a href="index.html#directory">Directory</a></li>
             <li><a href="index.html#events">Events</a></li>
-            <li><a href="index.html#properties">Properties</a></li>
           </ul>
         </nav>
       );
@@ -591,7 +565,7 @@
               </div>
               <p>
                 Your guide to Orlando's neighborhoods, culture, and lifestyle.
-                Discover local businesses, events, and real estate across the city.
+                Discover local businesses, events, and community across the city.
               </p>
             </div>
             <div>
@@ -618,7 +592,6 @@
               <ul className="footer-links">
                 <li><a href="index.html#directory">Business Directory</a></li>
                 <li><a href="index.html#events">Events Calendar</a></li>
-                <li><a href="index.html#properties">Real Estate</a></li>
                 <li><a href="development.html">Development News</a></li>
               </ul>
             </div>

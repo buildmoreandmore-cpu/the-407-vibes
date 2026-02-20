@@ -3,12 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orlando Vibes - Visual Reference Guide</title>
+  <title>Visual Reference Guide | Orlando Vibes - Brand & Design Standards</title>
+  <meta name="description" content="Orlando Vibes visual reference guide. Brand colors, typography, design patterns, and component library for the Orlando culture platform.">
+  <link rel="canonical" href="https://orlvibes.com/visual-reference.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://orlvibes.com/visual-reference.html">
+  <meta property="og:title" content="Visual Reference Guide | Orlando Vibes">
+  <meta property="og:description" content="Orlando Vibes brand colors, typography, and design standards.">
+  <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
+  <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <!-- Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture",
+    "publisher": { "@type": "Organization", "name": "Orlando Vibes", "url": "https://orlvibes.com" }
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
   <style>
     :root {
       --primary-gold: #FF6B35;
@@ -360,7 +395,7 @@
     <div class="container">
       <div class="section-number">01 / Overview</div>
       <h2 class="section-title">Brand & Site Summary</h2>
-      <p class="section-intro">Orlando Vibes is Orlando's premier hyperlocal media platform covering culture, development, real estate, and community across 243 neighborhoods.</p>
+      <p class="section-intro">Orlando Vibes is Orlando's premier hyperlocal media platform covering culture, development, and community across 243 neighborhoods.</p>
 
       <div class="stats-grid">
         <div class="stat-card">
@@ -470,19 +505,6 @@
         </div>
       </div>
 
-      <!-- Properties -->
-      <div class="page-preview">
-        <div class="page-header">
-          <h3>Properties</h3>
-          <span class="page-url">properties.html</span>
-        </div>
-        <p class="page-description">Real estate listings page with IDX integration for MLS property search across Orlando neighborhoods.</p>
-        <div class="iframe-container">
-          <iframe src="properties.html" loading="lazy"></iframe>
-          <div class="iframe-overlay" onclick="window.open('properties.html', '_blank')"></div>
-        </div>
-      </div>
-
       <!-- Events -->
       <div class="page-preview">
         <div class="page-header">
@@ -565,7 +587,6 @@
             <li>about.html</li>
             <li>contact.html</li>
             <li>events.html</li>
-            <li>properties.html</li>
             <li>directory.html</li>
           </ul>
         </div>

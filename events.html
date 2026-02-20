@@ -3,17 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orlando Events | Orlando Vibes</title>
-  <meta name="description" content="Discover upcoming events in Orlando - concerts, art exhibitions, food festivals, and community gatherings across all neighborhoods.">
+  <title>Orlando Events This Weekend | Orlando Vibes - Local Events Guide</title>
+  <meta name="description" content="Discover upcoming events in Orlando - concerts, art exhibitions, food festivals, and community gatherings across all neighborhoods. Updated weekly.">
   <link rel="canonical" href="https://orlvibes.com/events.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://orlvibes.com/events.html">
+  <meta property="og:title" content="Orlando Events This Weekend | Orlando Vibes">
+  <meta property="og:description" content="Discover upcoming Orlando events - concerts, food festivals, art shows, and community gatherings.">
+  <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
+  <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Orlando Events This Weekend | Orlando Vibes">
+  <meta name="twitter:description" content="Discover upcoming Orlando events across all neighborhoods.">
+  <meta name="twitter:image" content="https://orlvibes.com/orlando-map.png">
+
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "Orlando Vibes", "url": "https://orlvibes.com", "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture", "publisher": { "@type": "Organization", "name": "Orlando Vibes", "url": "https://orlvibes.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "ItemList", "name": "Orlando Events", "description": "Upcoming events in Orlando, Florida", "url": "https://orlvibes.com/events.html" }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orlvibes.com/" }, { "@type": "ListItem", "position": 2, "name": "Events", "item": "https://orlvibes.com/events.html" } ] }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
   <style>
     :root {
       --primary-gold: #FF6B35;
@@ -1979,7 +2012,7 @@
   </script>
 
   <!-- RSS Events Feed -->
-  <script src="/js/rss-feed.js"></script>
+  <script defer src="/js/rss-feed.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {

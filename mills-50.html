@@ -14,6 +14,7 @@
   <meta property="og:description" content="Explore Mills 50, Orlando's creative district blending Vietnamese cuisine, indie galleries, vintage shops, Audubon Park, and the Milk District.">
   <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
   <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -21,14 +22,71 @@
   <meta name="twitter:description" content="Explore Mills 50, Orlando's creative district blending Vietnamese cuisine, indie galleries, and vintage shops.">
   <meta name="twitter:image" content="https://orlvibes.com/orlando-map.png">
 
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <!-- Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Orlando Vibes",
+      "url": "https://orlvibes.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "Mills 50",
+    "description": "Orlando's creative district blending Vietnamese cuisine, indie galleries, vintage shops, Audubon Park, and the Milk District.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.5580,
+      "longitude": -81.3650
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orlvibes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Areas", "item": "https://orlvibes.com/index.html#areas" },
+      { "@type": "ListItem", "position": 3, "name": "Mills 50", "item": "https://orlvibes.com/mills-50.html" }
+    ]
+  }
+  </script>
+
   <style>
     :root { --primary-gold: #FF6B35; --primary-blue: #1E293B; --primary-black: #0A0A0A; --primary-white: #FFFFFF; --secondary-gold: #FFF5F0; --accent-blue: #E8530E; --text-dark: #1A1A1A; --text-light: #6B6B6B; --border-color: #E5E5E5; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -52,7 +110,7 @@
     .dropdown-menu li { list-style: none; }
     .dropdown-menu a { display: block; padding: 0.75rem 1.5rem; font-size: 0.85rem; text-transform: none; }
     .dropdown-menu a:hover { background: var(--secondary-gold); }
-    .area-hero { margin-top: 80px; position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .area-hero { position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .area-hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .area-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); }
     .area-hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 2rem; max-width: 800px; }
@@ -217,12 +275,56 @@
       .filter-indicator { flex-direction: column; text-align: center; }
       .filter-clear-btn { margin-left: 0; }
     }
+
+    /* Breadcrumb */
+    .breadcrumb { margin-top: 80px; padding: 1rem 5%; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb a { color: var(--primary-gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.5rem; }
+
+    /* Area Intro */
+    .area-intro { padding: 3rem 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+    .area-intro p { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; }
+
+    /* FAQ Section */
+    .faq-section { padding: 3rem 0; }
+    .faq-item { border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+    .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; background: white; cursor: pointer; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); }
+    .faq-question:hover { background: var(--secondary-gold); }
+    .faq-answer { display: none; padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.7; }
+    .faq-answer.open { display: block; }
+
+    /* Related Neighborhoods */
+    .related-neighborhoods { padding: 3rem 0; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+    .related-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-dark); transition: all 0.3s; }
+    .related-card:hover { border-color: var(--primary-gold); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .related-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.9rem; color: var(--text-light); }
   </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
+
+    // FAQ Data
+    const faqData = [
+      { q: 'What is Mills 50 Orlando known for?', a: 'Mills 50 is known as Orlando\'s cultural melting pot and food scene, especially its concentration of Vietnamese restaurants, banh mi shops, and pho houses along Mills Avenue and Colonial Drive. The district also features indie art galleries, vintage shops, murals, the Audubon Park Garden District, and the eclectic Milk District. It is one of Orlando\'s most diverse and creative neighborhoods.' },
+      { q: 'What are the best restaurants in Mills 50?', a: 'Mills 50 is a food lover\'s paradise. Must-try spots include Pho 88 and Anh Hong for authentic Vietnamese cuisine, Hunger Street Tacos for gourmet tacos, East End Market in Audubon Park for artisan food vendors, Hawker\'s Asian Street Food for pan-Asian dishes, and The Milk Bar in the Milk District. The area has one of the densest concentrations of independently owned restaurants in Orlando.' },
+      { q: 'Is Mills 50 safe?', a: 'Mills 50 has seen significant investment and revitalization in recent years, with new businesses, improved streetscaping, and growing foot traffic making the area feel vibrant and welcoming. Like any urban neighborhood, it is wise to be aware of your surroundings, especially at night. The district\'s active business association and community events contribute to a strong sense of neighborhood safety and engagement.' },
+      { q: 'What are things to do in Mills 50?', a: 'In Mills 50 you can explore the Vietnamese food corridor along Colonial Drive, browse vintage shops and indie boutiques on Mills Avenue, visit murals and street art throughout the district, shop at East End Market in Audubon Park, catch live music at The Milk Bar, attend the quarterly Mills 50 Night Market, or stroll the Audubon Park Garden District for walkable dining and local shops.' },
+      { q: 'Where is the best Vietnamese food in Orlando?', a: 'The best Vietnamese food in Orlando is concentrated in the Mills 50 district along Mills Avenue and East Colonial Drive. Pho 88 is an iconic destination for pho and banh mi, while Anh Hong, Little Saigon, and Shin Jung also draw dedicated followings. The area is often called Orlando\'s "Little Vietnam" and offers the most authentic Vietnamese dining experience in Central Florida.' }
+    ];
+
+    // Related Areas
+    const relatedAreas = [
+      { name: 'Downtown Orlando', href: 'downtown-orlando.html', desc: 'Orlando\'s urban core with Lake Eola, Wall Street nightlife, and Amway Center.' },
+      { name: 'Thornton Park / SoDo', href: 'thornton-park.html', desc: 'Brick-street dining, local boutiques, and emerging SoDo development.' },
+      { name: 'Winter Park', href: 'winter-park.html', desc: 'Upscale charm with Park Avenue boutiques and Rollins College culture.' },
+      { name: 'College Park / Edgewater', href: 'college-park.html', desc: 'Tree-lined streets with local cafes and a relaxed neighborhood vibe.' }
+    ];
+
     const areaData = { id: 'mills-50', name: 'Mills 50', tagline: "Orlando's creative district blending Vietnamese cuisine, indie galleries, and vintage shops", image: '/api/places?query=Mills+50+District+Orlando+FL&maxwidth=1600', vibes: ['Vietnamese Food', 'Indie Galleries', 'Vintage Shops', 'Creative'], stats: { neighborhoods: 12, businesses: 280, events: 45 } };
     const neighborhoodGroups = [
       { id: 'mills-50-core', name: 'Mills 50 Core', description: 'Vietnamese cuisine & creative shops', neighborhoods: [
@@ -247,20 +349,15 @@
       { id: 1, title: 'Mills 50 Night Market', category: 'Festival', description: 'Quarterly night market with Vietnamese street food, live music, and local art.', image: '/api/places?query=Mills+50+Night+Market+Orlando+FL', date: 'Quarterly 2026', location: 'Mills Avenue Corridor', featured: true },
       { id: 2, title: 'Audubon Park Garden Fest', category: 'Community', description: 'Annual garden festival with plant sales, local food, and live music.', image: '/api/places?query=Audubon+Park+Garden+District+Orlando+FL', date: 'April 2026', location: 'Audubon Park', featured: true }
     ];
-    // Fallback Demo Properties
-    const demoProperties = [
-      { id: 1, price: '$425,000', address: '456 Mills Ave', neighborhood: 'Colonial Town', beds: 3, baths: 2, sqft: '1,650', image: '/api/places?query=456+Mills+Ave+Orlando+FL', featured: true },
-      { id: 2, price: '$575,000', address: '123 Corrine Dr', neighborhood: 'Audubon Park', beds: 3, baths: 2, sqft: '1,900', image: '/api/places?query=123+Corrine+Dr+Orlando+FL', featured: false }
-    ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
       const [email, setEmail] = useState('');
       const [subscribed, setSubscribed] = useState(false);
       const [businesses, setBusinesses] = useState(demoBusinesses);
       const [events, setEvents] = useState(demoEvents);
-      const properties = demoProperties;
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
       const [expandedSections, setExpandedSections] = useState(['mills-50-core']);
+      const [openFaq, setOpenFaq] = useState(null);
 
       const toggleSection = (sectionId) => {
         setExpandedSections(prev =>
@@ -280,8 +377,6 @@
 
       const filteredBusinesses = filterByNeighborhood(businesses, selectedNeighborhood);
       const filteredEvents = filterByNeighborhood(events, selectedNeighborhood);
-      const filteredProperties = filterByNeighborhood(properties, selectedNeighborhood);
-
       const getSelectedNeighborhoodName = () => {
         const found = neighborhoods.find(n => n.id === selectedNeighborhood);
         return found ? found.name : selectedNeighborhood;
@@ -321,12 +416,17 @@
               <li><a href="development.html">Development</a></li>
             </ul>
           </nav>
+          {/* Breadcrumb */}
+          <div className="breadcrumb">
+            <a href="index.html">Home</a><span>&rsaquo;</span><a href="index.html#areas">Areas</a><span>&rsaquo;</span>Mills 50
+          </div>
+
           <section className="area-hero">
-            <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
+            <img src={areaData.image} alt="Mills 50 District in Orlando with Vietnamese restaurants, colorful murals, and diverse storefronts along Colonial Drive" className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Orlando</a>
-              <h1 className="area-hero-title">{areaData.name}</h1>
+              <h1 className="area-hero-title">Mills 50, Orlando &mdash; Orlando's Cultural Melting Pot &amp; Food Scene</h1>
               <p className="area-hero-tagline">{areaData.tagline}</p>
               <div className="area-vibe-tags">{areaData.vibes.map((vibe, i) => (<span key={i} className="area-vibe-tag">{vibe}</span>))}</div>
               <div className="area-stats">
@@ -336,6 +436,14 @@
               </div>
             </div>
           </section>
+
+          {/* Area Intro */}
+          <div className="area-intro">
+            <p>
+              Mills 50 is Orlando's cultural melting pot and one of the city's most exciting food destinations. Anchored by the Vietnamese restaurant corridor along Mills Avenue and East Colonial Drive, this diverse district is home to some of the best pho, banh mi, and Asian cuisine in Central Florida. Beyond the food scene, Mills 50 pulses with indie art galleries, vintage shops, colorful street murals, and a thriving creative community. The adjacent Audubon Park Garden District offers walkable dining and local shops, while the eclectic Milk District brings live music and artistic energy. Whether you're hunting for the best Vietnamese food in Orlando or exploring the arts scene, Mills 50 is where Orlando's diversity shines brightest.
+            </p>
+          </div>
+
           <div className="area-content">
             <section className="area-section">
               <div className="area-section-header"><h2 className="area-section-title">Explore {areaData.name} Neighborhoods</h2></div>
@@ -392,25 +500,50 @@
               <div className="area-section-header"><h2 className="area-section-title">Discover {areaData.name}</h2></div>
               {selectedNeighborhood && (
                 <div className="filter-indicator">
-                  <div className="filter-indicator-text">Showing {activeTab === 'businesses' ? filteredBusinesses.length : activeTab === 'events' ? filteredEvents.length : filteredProperties.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span></div>
+                  <div className="filter-indicator-text">Showing {activeTab === 'businesses' ? filteredBusinesses.length : filteredEvents.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span></div>
                   <button className="filter-clear-btn" onClick={clearFilter}>Show All {areaData.name}</button>
                 </div>
               )}
               <div className="content-tabs">
                 <button className={`content-tab ${activeTab === 'businesses' ? 'active' : ''}`} onClick={() => setActiveTab('businesses')}>Businesses</button>
                 <button className={`content-tab ${activeTab === 'events' ? 'active' : ''}`} onClick={() => setActiveTab('events')}>Events</button>
-                <button className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')}>Properties</button>
               </div>
               <div className="content-grid">
                 {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
                 {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
-                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
-                {selectedNeighborhood && ((activeTab === 'businesses' && filteredBusinesses.length === 0) || (activeTab === 'events' && filteredEvents.length === 0) || (activeTab === 'properties' && filteredProperties.length === 0)) && (
+                {selectedNeighborhood && ((activeTab === 'businesses' && filteredBusinesses.length === 0) || (activeTab === 'events' && filteredEvents.length === 0)) && (
                   <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-light)'}}>
                     <p style={{fontSize: '1.1rem', marginBottom: '1rem'}}>No {activeTab} found in {getSelectedNeighborhoodName()}</p>
                     <button onClick={clearFilter} style={{background: 'var(--primary-gold)', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer'}}>Show All {areaData.name} {activeTab}</button>
                   </div>
                 )}
+              </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="area-section faq-section">
+              <div className="area-section-header"><h2 className="area-section-title">Mills 50 FAQs</h2></div>
+              {faqData.map((faq, i) => (
+                <div key={i} className="faq-item">
+                  <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                    {faq.q}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{transform: openFaq === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s'}}><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <div className={`faq-answer ${openFaq === i ? 'open' : ''}`}>{faq.a}</div>
+                </div>
+              ))}
+            </section>
+
+            {/* Related Neighborhoods */}
+            <section className="area-section related-neighborhoods">
+              <div className="area-section-header"><h2 className="area-section-title">Explore Nearby Areas</h2></div>
+              <div className="related-grid">
+                {relatedAreas.map((area, i) => (
+                  <a key={i} href={area.href} className="related-card">
+                    <h3>{area.name}</h3>
+                    <p>{area.desc}</p>
+                  </a>
+                ))}
               </div>
             </section>
           </div>
@@ -434,5 +567,19 @@
     ReactDOM.createRoot(document.getElementById('root')).render(<AreaPage />);
   </script>
 
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is Mills 50 Orlando known for?", "acceptedAnswer": { "@type": "Answer", "text": "Mills 50 is known as Orlando's cultural melting pot, especially its concentration of Vietnamese restaurants, banh mi shops, and pho houses along Mills Avenue and Colonial Drive. The district also features indie art galleries, vintage shops, murals, the Audubon Park Garden District, and the eclectic Milk District." }},
+      { "@type": "Question", "name": "What are the best restaurants in Mills 50?", "acceptedAnswer": { "@type": "Answer", "text": "Must-try spots include Pho 88 and Anh Hong for authentic Vietnamese cuisine, Hunger Street Tacos for gourmet tacos, East End Market in Audubon Park for artisan food vendors, Hawker's Asian Street Food for pan-Asian dishes, and The Milk Bar in the Milk District." }},
+      { "@type": "Question", "name": "Is Mills 50 safe?", "acceptedAnswer": { "@type": "Answer", "text": "Mills 50 has seen significant investment and revitalization in recent years, with new businesses, improved streetscaping, and growing foot traffic making the area feel vibrant and welcoming. The district's active business association and community events contribute to a strong sense of neighborhood safety." }},
+      { "@type": "Question", "name": "What are things to do in Mills 50?", "acceptedAnswer": { "@type": "Answer", "text": "You can explore the Vietnamese food corridor along Colonial Drive, browse vintage shops and indie boutiques on Mills Avenue, visit murals and street art, shop at East End Market in Audubon Park, catch live music at The Milk Bar, attend the quarterly Mills 50 Night Market, or stroll the Audubon Park Garden District." }},
+      { "@type": "Question", "name": "Where is the best Vietnamese food in Orlando?", "acceptedAnswer": { "@type": "Answer", "text": "The best Vietnamese food in Orlando is concentrated in the Mills 50 district along Mills Avenue and East Colonial Drive. Pho 88 is an iconic destination for pho and banh mi, while Anh Hong, Little Saigon, and Shin Jung also draw dedicated followings. The area is often called Orlando's Little Vietnam." }}
+    ]
+  }
+  </script>
 </body>
 </html>

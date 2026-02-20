@@ -14,6 +14,7 @@
   <meta property="og:description" content="Explore Downtown Orlando, the vibrant urban core anchored by Lake Eola. Discover nightlife on Wall Street, arts venues, restaurants, and lakeside living.">
   <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
   <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -21,14 +22,71 @@
   <meta name="twitter:description" content="Explore Downtown Orlando, the vibrant urban core anchored by Lake Eola. Nightlife on Wall Street, arts venues, and lakeside living.">
   <meta name="twitter:image" content="https://orlvibes.com/orlando-map.png">
 
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <!-- Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Orlando Vibes",
+      "url": "https://orlvibes.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "Downtown Orlando",
+    "description": "Orlando's vibrant urban core anchored by Lake Eola, Wall Street nightlife, Dr. Phillips Center for the Performing Arts, and Amway Center.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.5383,
+      "longitude": -81.3789
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orlvibes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Areas", "item": "https://orlvibes.com/index.html#areas" },
+      { "@type": "ListItem", "position": 3, "name": "Downtown Orlando", "item": "https://orlvibes.com/downtown-orlando.html" }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --primary-gold: #FF6B35;
@@ -247,7 +305,6 @@
 
     /* Area Hero */
     .area-hero {
-      margin-top: 80px;
       position: relative;
       height: 50vh;
       min-height: 400px;
@@ -1101,6 +1158,32 @@
       .filter-indicator { flex-direction: column; text-align: center; }
       .filter-clear-btn { margin-left: 0; }
     }
+
+    /* Breadcrumb */
+    .breadcrumb { margin-top: 80px; padding: 1rem 5%; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb a { color: var(--primary-gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.5rem; }
+
+    /* Area Intro */
+    .area-intro { padding: 3rem 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+    .area-intro p { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; }
+
+    /* FAQ Section */
+    .faq-section { padding: 3rem 0; }
+    .faq-item { border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+    .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; background: white; cursor: pointer; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); }
+    .faq-question:hover { background: var(--secondary-gold); }
+    .faq-answer { display: none; padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.7; }
+    .faq-answer.open { display: block; }
+
+    /* Related Neighborhoods */
+    .related-neighborhoods { padding: 3rem 0; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+    .related-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-dark); transition: all 0.3s; }
+    .related-card:hover { border-color: var(--primary-gold); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .related-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.9rem; color: var(--text-light); }
   </style>
 </head>
 <body>
@@ -1108,6 +1191,23 @@
 
   <script type="text/babel">
     const { useState, useEffect } = React;
+
+    // FAQ Data
+    const faqData = [
+      { q: 'What is Downtown Orlando known for?', a: 'Downtown Orlando is known for its stunning Lake Eola Park with the iconic fountain, Wall Street nightlife district, the Amway Center (home of the Orlando Magic), the Dr. Phillips Center for the Performing Arts, Church Street dining, and a growing skyline of residential high-rises. It is the cultural and entertainment hub of Central Florida.' },
+      { q: 'What are the best restaurants in Downtown Orlando?', a: 'Downtown Orlando offers diverse dining from upscale options like The Boheme at the Grand Bohemian Hotel and Kres Chophouse to casual favorites like Tin & Taco and Hamburger Mary\'s. The Church Street and South Eola areas are especially popular for brunch, cocktails, and international cuisine.' },
+      { q: 'Is Downtown Orlando walkable?', a: 'Yes, Downtown Orlando is one of the most walkable areas in Central Florida. Lake Eola Park, Wall Street Plaza, Church Street, and the Amway Center are all within walking distance of each other. The SunRail commuter train and LYMMO free bus system make car-free living easy for residents and visitors.' },
+      { q: 'What is the cost of living in Downtown Orlando?', a: 'The cost of living in Downtown Orlando varies depending on the neighborhood. Luxury condos near Lake Eola range from $300,000 to over $1 million, while studio and one-bedroom apartments start around $1,500 per month. Dining and entertainment costs are moderate compared to other major US cities.' },
+      { q: 'What are things to do in Downtown Orlando this weekend?', a: 'On any given weekend you can stroll Lake Eola Park, catch a show at Dr. Phillips Center, explore the Orlando Farmers Market on Sundays, enjoy nightlife on Wall Street Plaza, watch an Orlando Magic game at Amway Center, or discover live music at one of many bars along Church Street and Orange Avenue.' }
+    ];
+
+    // Related Areas
+    const relatedAreas = [
+      { name: 'Winter Park', href: 'winter-park.html', desc: 'Upscale charm with Park Avenue boutiques and Rollins College culture.' },
+      { name: 'Thornton Park / SoDo', href: 'thornton-park.html', desc: 'Brick-street dining, local boutiques, and emerging SoDo development.' },
+      { name: 'Mills 50', href: 'mills-50.html', desc: 'Vietnamese food corridor, indie galleries, and eclectic arts scene.' },
+      { name: 'College Park / Edgewater', href: 'college-park.html', desc: 'Tree-lined streets with local cafes and a relaxed neighborhood feel.' }
+    ];
 
     // Area Data
     const areaData = {
@@ -1236,43 +1336,6 @@
       }
     ];
 
-    // Fallback Demo Properties (real estate - not from GeoDirectory)
-    const demoProperties = [
-      {
-        id: 1,
-        price: '$750,000',
-        address: '200 S Orange Ave #2501',
-        neighborhood: 'Lake Eola Heights',
-        beds: 3,
-        baths: 2,
-        sqft: '2,200',
-        image: '/api/places?query=200+South+Orange+Avenue+Orlando+FL&maxwidth=800',
-        featured: true
-      },
-      {
-        id: 2,
-        price: '$525,000',
-        address: '101 S Eola Dr #1205',
-        neighborhood: 'South Eola',
-        beds: 2,
-        baths: 2,
-        sqft: '1,600',
-        image: '/api/places?query=South+Eola+Drive+Orlando+FL&maxwidth=800',
-        featured: false
-      },
-      {
-        id: 3,
-        price: '$385,000',
-        address: '55 W Church St #1004',
-        neighborhood: 'Church Street District',
-        beds: 1,
-        baths: 1,
-        sqft: '950',
-        image: '/api/places?query=Church+Street+Station+Orlando+FL&maxwidth=800',
-        featured: false
-      }
-    ];
-
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
       const [email, setEmail] = useState('');
@@ -1282,6 +1345,7 @@
       const [loading, setLoading] = useState(true);
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
       const [expandedSections, setExpandedSections] = useState(['lake-eola']);
+      const [openFaq, setOpenFaq] = useState(null);
 
       const toggleSection = (sectionId) => {
         setExpandedSections(prev =>
@@ -1302,8 +1366,6 @@
 
       const filteredBusinesses = filterByNeighborhood(businesses, selectedNeighborhood);
       const filteredEvents = filterByNeighborhood(events, selectedNeighborhood);
-      const filteredProperties = filterByNeighborhood(demoProperties, selectedNeighborhood);
-
       const getSelectedNeighborhoodName = () => {
         const found = neighborhoods.find(n => n.id === selectedNeighborhood);
         return found ? found.name : selectedNeighborhood;
@@ -1351,19 +1413,6 @@
         setSubscribed(true);
       };
 
-      const getContent = () => {
-        switch (activeTab) {
-          case 'businesses':
-            return businesses;
-          case 'events':
-            return events;
-          case 'properties':
-            return demoProperties;
-          default:
-            return businesses;
-        }
-      };
-
       return (
         <>
           {/* Navigation */}
@@ -1400,19 +1449,23 @@
               <li><a href="development.html">Development</a></li>
               <li><a href="index.html#directory">Directory</a></li>
               <li><a href="index.html#events">Events</a></li>
-              <li><a href="index.html#properties">Properties</a></li>
             </ul>
           </nav>
 
+          {/* Breadcrumb */}
+          <div className="breadcrumb">
+            <a href="index.html">Home</a><span>&rsaquo;</span><a href="index.html#areas">Areas</a><span>&rsaquo;</span>Downtown Orlando
+          </div>
+
           {/* Area Hero */}
           <section className="area-hero">
-            <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
+            <img src={areaData.image} alt="Aerial view of Downtown Orlando skyline and Lake Eola Park fountain at sunset" className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <a href="index.html" className="area-back-link">
                 <span>&larr;</span> Back to Orlando
               </a>
-              <h1 className="area-hero-title">{areaData.name}</h1>
+              <h1 className="area-hero-title">Downtown Orlando &mdash; Lake Eola, Nightlife &amp; Urban Culture</h1>
               <p className="area-hero-tagline">{areaData.tagline}</p>
               <div className="area-vibe-tags">
                 {areaData.vibes.map((vibe, i) => (
@@ -1435,6 +1488,13 @@
               </div>
             </div>
           </section>
+
+          {/* Area Intro */}
+          <div className="area-intro">
+            <p>
+              Downtown Orlando is the beating heart of Central Florida, anchored by the iconic Lake Eola Park and its landmark fountain. From the buzzing nightlife on Wall Street Plaza to world-class performances at the Dr. Phillips Center for the Performing Arts and Orlando Magic games at Amway Center, downtown offers something for everyone. Stroll Church Street for eclectic dining, explore South Eola's lakeside condos, or discover Creative Village's innovation hub. Whether you're looking for things to do this weekend or considering urban living, Downtown Orlando delivers walkable culture, vibrant events, and an ever-evolving skyline.
+            </p>
+          </div>
 
           {/* Main Content */}
           <div className="area-content">
@@ -1510,7 +1570,7 @@
               {selectedNeighborhood && (
                 <div className="filter-indicator">
                   <div className="filter-indicator-text">
-                    Showing {activeTab === 'businesses' ? filteredBusinesses.length : activeTab === 'events' ? filteredEvents.length : filteredProperties.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span>
+                    Showing {activeTab === 'businesses' ? filteredBusinesses.length : filteredEvents.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span>
                   </div>
                   <button className="filter-clear-btn" onClick={clearFilter}>
                     Show All {areaData.name}
@@ -1530,12 +1590,6 @@
                   onClick={() => setActiveTab('events')}
                 >
                   Events
-                </button>
-                <button
-                  className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('properties')}
-                >
-                  Properties
                 </button>
               </div>
 
@@ -1569,29 +1623,11 @@
                   </div>
                 ))}
 
-                {activeTab === 'properties' && filteredProperties.map((item) => (
-                  <div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}>
-                    <img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} />
-                    <div className="content-card-body">
-                      <div className="property-card-price">{item.price}</div>
-                      <div className="property-card-address">{item.address}</div>
-                      <div className="property-card-specs">
-                        <span>{item.beds} beds</span>
-                        <span>{item.baths} baths</span>
-                        <span>{item.sqft} sq ft</span>
-                      </div>
-                      <div className="content-card-meta" style={{marginTop: '0.75rem'}}>
-                        <span>{item.neighborhood}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
 
                 {/* No results message */}
                 {selectedNeighborhood && (
                   (activeTab === 'businesses' && filteredBusinesses.length === 0) ||
-                  (activeTab === 'events' && filteredEvents.length === 0) ||
-                  (activeTab === 'properties' && filteredProperties.length === 0)
+                  (activeTab === 'events' && filteredEvents.length === 0)
                 ) && (
                   <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-light)'}}>
                     <p style={{fontSize: '1.1rem', marginBottom: '1rem'}}>No {activeTab} found in {getSelectedNeighborhoodName()}</p>
@@ -1600,6 +1636,33 @@
                     </button>
                   </div>
                 )}
+              </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="area-section faq-section">
+              <div className="area-section-header"><h2 className="area-section-title">Downtown Orlando FAQs</h2></div>
+              {faqData.map((faq, i) => (
+                <div key={i} className="faq-item">
+                  <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                    {faq.q}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{transform: openFaq === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s'}}><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <div className={`faq-answer ${openFaq === i ? 'open' : ''}`}>{faq.a}</div>
+                </div>
+              ))}
+            </section>
+
+            {/* Related Neighborhoods */}
+            <section className="area-section related-neighborhoods">
+              <div className="area-section-header"><h2 className="area-section-title">Explore Nearby Areas</h2></div>
+              <div className="related-grid">
+                {relatedAreas.map((area, i) => (
+                  <a key={i} href={area.href} className="related-card">
+                    <h3>{area.name}</h3>
+                    <p>{area.desc}</p>
+                  </a>
+                ))}
               </div>
             </section>
           </div>
@@ -1639,7 +1702,7 @@
                 </div>
                 <p>
                   Your guide to Orlando's neighborhoods, culture, and lifestyle.
-                  Discover local businesses, events, and real estate across the city.
+                  Discover local businesses, events, and community across the city.
                 </p>
               </div>
               <div>
@@ -1666,7 +1729,6 @@
                 <ul className="footer-links">
                   <li><a href="index.html#directory">Business Directory</a></li>
                   <li><a href="index.html#events">Events Calendar</a></li>
-                  <li><a href="index.html#properties">Real Estate</a></li>
                   <li><a href="development.html">Development News</a></li>
                 </ul>
               </div>
@@ -1683,26 +1745,18 @@
     root.render(<AreaPage />);
   </script>
 
-
-  <!-- Schema.org Structured Data -->
+  <!-- FAQPage Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Place",
-    "name": "Downtown Orlando, Florida",
-    "description": "Orlando's vibrant urban core anchored by Lake Eola, Wall Street nightlife, Dr. Phillips Center for the Performing Arts, and Amway Center.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Orlando",
-      "addressRegion": "FL",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 28.5383,
-      "longitude": -81.3792
-    },
-    "image": "/api/places?query=Lake+Eola+Park+Orlando+FL&maxwidth=1600"
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is Downtown Orlando known for?", "acceptedAnswer": { "@type": "Answer", "text": "Downtown Orlando is known for its stunning Lake Eola Park with the iconic fountain, Wall Street nightlife district, the Amway Center (home of the Orlando Magic), the Dr. Phillips Center for the Performing Arts, Church Street dining, and a growing skyline of residential high-rises. It is the cultural and entertainment hub of Central Florida." }},
+      { "@type": "Question", "name": "What are the best restaurants in Downtown Orlando?", "acceptedAnswer": { "@type": "Answer", "text": "Downtown Orlando offers diverse dining from upscale options like The Boheme at the Grand Bohemian Hotel and Kres Chophouse to casual favorites like Tin & Taco and Hamburger Mary's. The Church Street and South Eola areas are especially popular for brunch, cocktails, and international cuisine." }},
+      { "@type": "Question", "name": "Is Downtown Orlando walkable?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, Downtown Orlando is one of the most walkable areas in Central Florida. Lake Eola Park, Wall Street Plaza, Church Street, and the Amway Center are all within walking distance of each other. The SunRail commuter train and LYMMO free bus system make car-free living easy for residents and visitors." }},
+      { "@type": "Question", "name": "What is the cost of living in Downtown Orlando?", "acceptedAnswer": { "@type": "Answer", "text": "The cost of living in Downtown Orlando varies depending on the neighborhood. Luxury condos near Lake Eola range from $300,000 to over $1 million, while studio and one-bedroom apartments start around $1,500 per month. Dining and entertainment costs are moderate compared to other major US cities." }},
+      { "@type": "Question", "name": "What are things to do in Downtown Orlando this weekend?", "acceptedAnswer": { "@type": "Answer", "text": "On any given weekend you can stroll Lake Eola Park, catch a show at Dr. Phillips Center, explore the Orlando Farmers Market on Sundays, enjoy nightlife on Wall Street Plaza, watch an Orlando Magic game at Amway Center, or discover live music at one of many bars along Church Street and Orange Avenue." }}
+    ]
   }
   </script>
 </body>

@@ -8,6 +8,56 @@ const CORS_HEADERS = {
 
 const VALID_FORM_TYPES = ['contact', 'newsletter', 'business', 'event', 'support'];
 
+const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'hello@orlvibes.com';
+
+/**
+ * Send an email notification via Resend API when a form is submitted.
+ * Requires RESEND_API_KEY env var. Silently skips if not configured.
+ */
+async function sendEmailNotification(formType, data) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return; // Skip if no API key configured
+
+  const subjectMap = {
+    contact: `New Contact Form: ${data.name || 'Unknown'}`,
+    business: `New Business Submission: ${data.name || data.businessName || 'Unknown'}`,
+    event: `New Event Submission: ${data.name || data.eventName || 'Unknown'}`,
+    support: `Support Request: ${data.name || 'Unknown'}`,
+    newsletter: `New Newsletter Subscriber: ${data.email || 'Unknown'}`,
+  };
+
+  const lines = Object.entries(data)
+    .filter(([key]) => key !== 'page_uri')
+    .map(([key, value]) => `<strong>${key.replace(/_/g, ' ')}:</strong> ${String(value)}`)
+    .join('<br>');
+
+  const html = `
+    <h2>New ${formType} submission on Orlando Vibes</h2>
+    <p>${lines}</p>
+    <hr>
+    <p style="color:#999;font-size:12px;">Submitted via orlvibes.com</p>
+  `;
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'Orlando Vibes <notifications@orlvibes.com>',
+      to: [NOTIFICATION_EMAIL],
+      subject: subjectMap[formType] || `New ${formType} submission`,
+      html: html,
+    }),
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`Resend API error: ${response.status} - ${err}`);
+  }
+}
+
 const SUCCESS_MESSAGES = {
   contact: 'Thank you for reaching out. We will get back to you shortly.',
   newsletter: 'You have been subscribed to our newsletter.',
@@ -82,6 +132,11 @@ module.exports = async function handler(req, res) {
         // Non-blocking: still return success for the form submission
       }
     }
+
+    // Send email notification if RESEND_API_KEY is configured
+    await sendEmailNotification(formType, data).catch(err =>
+      console.error('Email notification error (non-blocking):', err.message)
+    );
 
     return res.status(200).json({
       success: true,

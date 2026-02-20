@@ -14,6 +14,7 @@
   <meta property="og:description" content="Explore Winter Park, Orlando's upscale enclave with Park Avenue boutiques, Rollins College, the Charles Hosmer Morse Museum, and tree-canopied streets.">
   <meta property="og:image" content="https://orlvibes.com/orlando-map.png">
   <meta property="og:site_name" content="Orlando Vibes">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -21,14 +22,71 @@
   <meta name="twitter:description" content="Explore Winter Park, Orlando's upscale enclave with Park Avenue boutiques, Rollins College, and tree-canopied streets.">
   <meta name="twitter:image" content="https://orlvibes.com/orlando-map.png">
 
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Orlando">
+  <meta name="geo.position" content="28.5383;-81.3792">
+  <meta name="ICBM" content="28.5383, -81.3792">
+
+  <!-- Preconnect Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
-  <script src="/js/platform-api.js"></script>
-  <script src="/js/google-places.js"></script>
+  <script defer src="/js/platform-api.js"></script>
+  <script defer src="/js/google-places.js"></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Orlando Vibes",
+    "url": "https://orlvibes.com",
+    "description": "Orlando's culture blog covering neighborhoods, businesses, events, and culture",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Orlando Vibes",
+      "url": "https://orlvibes.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "Winter Park",
+    "description": "Orlando's upscale enclave with Park Avenue boutiques, Rollins College, the Charles Hosmer Morse Museum, and tree-canopied streets.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.5999,
+      "longitude": -81.3393
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orlvibes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Areas", "item": "https://orlvibes.com/index.html#areas" },
+      { "@type": "ListItem", "position": 3, "name": "Winter Park", "item": "https://orlvibes.com/winter-park.html" }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --primary-gold: #FF6B35;
@@ -62,7 +120,7 @@
     .dropdown-menu li { list-style: none; }
     .dropdown-menu a { display: block; padding: 0.75rem 1.5rem; font-size: 0.85rem; text-transform: none; letter-spacing: 0; }
     .dropdown-menu a:hover { background: var(--secondary-gold); }
-    .area-hero { margin-top: 80px; position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .area-hero { position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .area-hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .area-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); }
     .area-hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 2rem; max-width: 800px; }
@@ -229,12 +287,56 @@
       .filter-indicator { flex-direction: column; text-align: center; }
       .filter-clear-btn { margin-left: 0; }
     }
+
+    /* Breadcrumb */
+    .breadcrumb { margin-top: 80px; padding: 1rem 5%; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb a { color: var(--primary-gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.5rem; }
+
+    /* Area Intro */
+    .area-intro { padding: 3rem 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+    .area-intro p { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; }
+
+    /* FAQ Section */
+    .faq-section { padding: 3rem 0; }
+    .faq-item { border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+    .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; background: white; cursor: pointer; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); }
+    .faq-question:hover { background: var(--secondary-gold); }
+    .faq-answer { display: none; padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.7; }
+    .faq-answer.open { display: block; }
+
+    /* Related Neighborhoods */
+    .related-neighborhoods { padding: 3rem 0; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+    .related-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-dark); transition: all 0.3s; }
+    .related-card:hover { border-color: var(--primary-gold); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .related-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .related-card p { font-size: 0.9rem; color: var(--text-light); }
   </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
+
+    // FAQ Data
+    const faqData = [
+      { q: 'What is Winter Park FL known for?', a: 'Winter Park is known for its charming Park Avenue lined with upscale boutiques and restaurants, Rollins College (one of Florida\'s top liberal arts colleges), the Charles Hosmer Morse Museum of American Art featuring the world\'s largest collection of Tiffany glass, scenic boat tours through its chain of lakes, and the annual Winter Park Sidewalk Art Festival, one of the most prestigious outdoor art events in the nation.' },
+      { q: 'What are the best restaurants in Winter Park?', a: 'Winter Park boasts outstanding dining along Park Avenue and Hannibal Square. Favorites include Prato for Italian cuisine, The Ravenous Pig for creative gastropub fare, Luma on Park for contemporary American dishes, Hillstone for upscale casual dining, and Hamilton\'s Kitchen at The Alfond Inn. Hannibal Square also offers diverse options like The Briar Patch for breakfast and Briarpatch Restaurant.' },
+      { q: 'Is Winter Park expensive?', a: 'Winter Park is one of the more affluent communities in the Orlando metro area. Home prices typically range from $400,000 for condos to several million for lakefront estates. Rent averages $1,800 to $3,000+ per month. Dining and shopping on Park Avenue lean upscale, but there are also affordable options throughout the area, especially in Hannibal Square and along Fairbanks Avenue.' },
+      { q: 'What is the difference between Winter Park and Orlando?', a: 'Winter Park is an independent city adjacent to Orlando with its own government, police, and distinct character. It is known for a more walkable, small-town feel with tree-canopied streets, historic homes, and cultural attractions, while Orlando offers a larger urban experience. Winter Park tends to be more upscale and residential, while Orlando\'s downtown has more nightlife and high-rise development.' },
+      { q: 'What are things to do in Winter Park this weekend?', a: 'On weekends you can browse Park Avenue boutiques, take a scenic boat tour through the chain of lakes, visit the Morse Museum or Cornell Fine Arts Museum, explore the Winter Park Farmers Market at the train depot, enjoy brunch at Hannibal Square, walk through Central Park, or attend one of the many community events and art festivals held throughout the year.' }
+    ];
+
+    // Related Areas
+    const relatedAreas = [
+      { name: 'Downtown Orlando', href: 'downtown-orlando.html', desc: 'Orlando\'s urban core with Lake Eola, Wall Street nightlife, and Amway Center.' },
+      { name: 'Mills 50', href: 'mills-50.html', desc: 'Orlando\'s creative district with Vietnamese cuisine and indie galleries.' },
+      { name: 'College Park / Edgewater', href: 'college-park.html', desc: 'Tree-lined streets with local cafes and a relaxed neighborhood vibe.' },
+      { name: 'North Orlando / Maitland', href: 'north-orlando.html', desc: 'Suburban charm with lakes, parks, and family-friendly communities.' }
+    ];
+
     const areaData = {
       id: 'winter-park',
       name: 'Winter Park',
@@ -266,20 +368,15 @@
       { id: 1, title: 'Winter Park Sidewalk Art Festival', category: 'Art', description: 'One of the nation\'s oldest and most prestigious outdoor art festivals.', image: '/api/places?query=Winter+Park+Sidewalk+Art+Festival+FL&maxwidth=800', date: 'March 2026', location: 'Central Park', featured: true },
       { id: 2, title: 'Park Avenue Fashion Week', category: 'Fashion', description: 'Annual fashion showcase along Park Avenue boutiques.', image: '/api/places?query=Park+Avenue+Winter+Park+FL&maxwidth=800', date: 'October 2026', location: 'Park Avenue District', featured: true }
     ];
-    // Fallback Demo Properties
-    const demoProperties = [
-      { id: 1, price: '$875,000', address: '300 S Interlachen Ave', neighborhood: 'Park Avenue District', beds: 3, baths: 2, sqft: '2,100', image: '/api/places?query=300+South+Interlachen+Avenue+Winter+Park+FL&maxwidth=800', featured: true },
-      { id: 2, price: '$650,000', address: '456 Via Tuscany', neighborhood: 'Via Tuscany', beds: 4, baths: 3, sqft: '2,450', image: '/api/places?query=Via+Tuscany+Winter+Park+FL&maxwidth=800', featured: false }
-    ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
       const [email, setEmail] = useState('');
       const [subscribed, setSubscribed] = useState(false);
       const [businesses, setBusinesses] = useState(demoBusinesses);
       const [events, setEvents] = useState(demoEvents);
-      const properties = demoProperties;
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
       const [expandedSections, setExpandedSections] = useState(['park-avenue']);
+      const [openFaq, setOpenFaq] = useState(null);
 
       const toggleSection = (sectionId) => {
         setExpandedSections(prev =>
@@ -300,8 +397,6 @@
 
       const filteredBusinesses = filterByNeighborhood(businesses, selectedNeighborhood);
       const filteredEvents = filterByNeighborhood(events, selectedNeighborhood);
-      const filteredProperties = filterByNeighborhood(properties, selectedNeighborhood);
-
       const getSelectedNeighborhoodName = () => {
         const found = neighborhoods.find(n => n.id === selectedNeighborhood);
         return found ? found.name : selectedNeighborhood;
@@ -353,12 +448,17 @@
               <li><a href="index.html#events">Events</a></li>
             </ul>
           </nav>
+          {/* Breadcrumb */}
+          <div className="breadcrumb">
+            <a href="index.html">Home</a><span>&rsaquo;</span><a href="index.html#areas">Areas</a><span>&rsaquo;</span>Winter Park
+          </div>
+
           <section className="area-hero">
-            <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
+            <img src={areaData.image} alt="Park Avenue in Winter Park FL with tree-canopied streets and boutique storefronts" className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Orlando</a>
-              <h1 className="area-hero-title">{areaData.name}</h1>
+              <h1 className="area-hero-title">Winter Park, Orlando &mdash; Upscale Charm, Park Avenue &amp; Culture</h1>
               <p className="area-hero-tagline">{areaData.tagline}</p>
               <div className="area-vibe-tags">{areaData.vibes.map((vibe, i) => (<span key={i} className="area-vibe-tag">{vibe}</span>))}</div>
               <div className="area-stats">
@@ -368,6 +468,14 @@
               </div>
             </div>
           </section>
+
+          {/* Area Intro */}
+          <div className="area-intro">
+            <p>
+              Winter Park is Orlando's most charming upscale enclave, where tree-canopied streets meet world-class culture. Stroll Park Avenue for boutique shopping and fine dining, explore the renowned Charles Hosmer Morse Museum of American Art, or take a scenic boat tour through the chain of lakes. Home to Rollins College and the prestigious Winter Park Sidewalk Art Festival, this walkable community blends historic elegance with a vibrant modern food and arts scene. Whether you're discovering Hannibal Square's diverse dining or browsing the Saturday farmers market at the train depot, Winter Park delivers a refined Orlando experience unlike any other.
+            </p>
+          </div>
+
           <div className="area-content">
             <section className="area-section">
               <div className="area-section-header"><h2 className="area-section-title">Explore {areaData.name} Neighborhoods</h2></div>
@@ -424,25 +532,50 @@
               <div className="area-section-header"><h2 className="area-section-title">Discover {areaData.name}</h2></div>
               {selectedNeighborhood && (
                 <div className="filter-indicator">
-                  <div className="filter-indicator-text">Showing {activeTab === 'businesses' ? filteredBusinesses.length : activeTab === 'events' ? filteredEvents.length : filteredProperties.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span></div>
+                  <div className="filter-indicator-text">Showing {activeTab === 'businesses' ? filteredBusinesses.length : filteredEvents.length} {activeTab} in <span>{getSelectedNeighborhoodName()}</span></div>
                   <button className="filter-clear-btn" onClick={clearFilter}>Show All {areaData.name}</button>
                 </div>
               )}
               <div className="content-tabs">
                 <button className={`content-tab ${activeTab === 'businesses' ? 'active' : ''}`} onClick={() => setActiveTab('businesses')}>Businesses</button>
                 <button className={`content-tab ${activeTab === 'events' ? 'active' : ''}`} onClick={() => setActiveTab('events')}>Events</button>
-                <button className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')}>Properties</button>
               </div>
               <div className="content-grid">
                 {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
                 {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
-                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div><div className="content-card-meta" style={{marginTop: '0.75rem'}}><span>{item.neighborhood}</span></div></div></div>))}
-                {selectedNeighborhood && ((activeTab === 'businesses' && filteredBusinesses.length === 0) || (activeTab === 'events' && filteredEvents.length === 0) || (activeTab === 'properties' && filteredProperties.length === 0)) && (
+                {selectedNeighborhood && ((activeTab === 'businesses' && filteredBusinesses.length === 0) || (activeTab === 'events' && filteredEvents.length === 0)) && (
                   <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-light)'}}>
                     <p style={{fontSize: '1.1rem', marginBottom: '1rem'}}>No {activeTab} found in {getSelectedNeighborhoodName()}</p>
                     <button onClick={clearFilter} style={{background: 'var(--primary-gold)', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer'}}>Show All {areaData.name} {activeTab}</button>
                   </div>
                 )}
+              </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="area-section faq-section">
+              <div className="area-section-header"><h2 className="area-section-title">Winter Park FAQs</h2></div>
+              {faqData.map((faq, i) => (
+                <div key={i} className="faq-item">
+                  <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                    {faq.q}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{transform: openFaq === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s'}}><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <div className={`faq-answer ${openFaq === i ? 'open' : ''}`}>{faq.a}</div>
+                </div>
+              ))}
+            </section>
+
+            {/* Related Neighborhoods */}
+            <section className="area-section related-neighborhoods">
+              <div className="area-section-header"><h2 className="area-section-title">Explore Nearby Areas</h2></div>
+              <div className="related-grid">
+                {relatedAreas.map((area, i) => (
+                  <a key={i} href={area.href} className="related-card">
+                    <h3>{area.name}</h3>
+                    <p>{area.desc}</p>
+                  </a>
+                ))}
               </div>
             </section>
           </div>
@@ -456,7 +589,7 @@
               <div className="footer-brand"><div className="logo"><span className="logo-main">Orlando Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Orlando's neighborhoods, culture, and lifestyle.</p></div>
               <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li></ul></div>
               <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul></div>
-              <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="index.html#directory">Business Directory</a></li><li><a href="index.html#events">Events Calendar</a></li><li><a href="index.html#properties">Real Estate</a></li><li><a href="development.html">Development News</a></li></ul></div>
+              <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="index.html#directory">Business Directory</a></li><li><a href="index.html#events">Events Calendar</a></li><li><a href="development.html">Development News</a></li></ul></div>
             </div>
             <div className="footer-bottom"><p>&copy; 2026 Orlando Vibes. All rights reserved.</p></div>
           </footer>
@@ -466,6 +599,20 @@
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<AreaPage />);
   </script>
-  <script type="application/ld+json">{"@context": "https://schema.org","@type": "Place","name": "Winter Park, Florida","description": "Orlando's upscale enclave with Park Avenue boutiques, Rollins College, the Charles Hosmer Morse Museum, and tree-canopied streets.","address": {"@type": "PostalAddress","addressLocality": "Winter Park","addressRegion": "FL","addressCountry": "US"},"geo": {"@type": "GeoCoordinates","latitude": 28.5999,"longitude": -81.3392}}</script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is Winter Park FL known for?", "acceptedAnswer": { "@type": "Answer", "text": "Winter Park is known for its charming Park Avenue lined with upscale boutiques and restaurants, Rollins College, the Charles Hosmer Morse Museum of American Art featuring the world's largest collection of Tiffany glass, scenic boat tours through its chain of lakes, and the annual Winter Park Sidewalk Art Festival." }},
+      { "@type": "Question", "name": "What are the best restaurants in Winter Park?", "acceptedAnswer": { "@type": "Answer", "text": "Winter Park boasts outstanding dining along Park Avenue and Hannibal Square. Favorites include Prato for Italian cuisine, The Ravenous Pig for creative gastropub fare, Luma on Park for contemporary American dishes, Hillstone for upscale casual dining, and Hamilton's Kitchen at The Alfond Inn." }},
+      { "@type": "Question", "name": "Is Winter Park expensive?", "acceptedAnswer": { "@type": "Answer", "text": "Winter Park is one of the more affluent communities in the Orlando metro area. Home prices typically range from $400,000 for condos to several million for lakefront estates. Rent averages $1,800 to $3,000+ per month." }},
+      { "@type": "Question", "name": "What is the difference between Winter Park and Orlando?", "acceptedAnswer": { "@type": "Answer", "text": "Winter Park is an independent city adjacent to Orlando with its own government, police, and distinct character. It is known for a more walkable, small-town feel with tree-canopied streets, historic homes, and cultural attractions, while Orlando offers a larger urban experience." }},
+      { "@type": "Question", "name": "What are things to do in Winter Park this weekend?", "acceptedAnswer": { "@type": "Answer", "text": "On weekends you can browse Park Avenue boutiques, take a scenic boat tour through the chain of lakes, visit the Morse Museum, explore the Winter Park Farmers Market, enjoy brunch at Hannibal Square, walk through Central Park, or attend community events and art festivals." }}
+    ]
+  }
+  </script>
 </body>
 </html>

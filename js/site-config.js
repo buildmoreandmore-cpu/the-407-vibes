@@ -162,7 +162,6 @@ const SiteConfig = {
       { label: 'Areas', href: '#areas', dropdown: true },
       { label: 'Events', href: 'events.html' },
       { label: 'Directory', href: 'directory.html' },
-      { label: 'Properties', href: 'properties.html' },
       { label: 'Development', href: 'development.html' },
       { label: 'Submit', href: 'submit.html' }
     ],
@@ -185,7 +184,7 @@ const SiteConfig = {
     'Restaurant', 'Bar & Lounge', 'Cafe & Coffee', 'Retail & Shopping',
     'Health & Wellness', 'Beauty & Salon', 'Fitness & Gym', 'Entertainment',
     'Professional Services', 'Home Services', 'Automotive', 'Education',
-    'Real Estate', 'Technology', 'Arts & Culture', 'Non-Profit', 'Other'
+    'Technology', 'Arts & Culture', 'Non-Profit', 'Other'
   ],
 
   // ============================================
@@ -197,11 +196,6 @@ const SiteConfig = {
     'Family & Kids', 'Nightlife', 'Festivals', 'Markets & Fairs',
     'Tech & Innovation', 'Charity & Fundraising', 'Other'
   ],
-
-  // ============================================
-  // SPOTLIGHT PROPERTIES (admin-managed)
-  // ============================================
-  spotlightProperties: [],
 
   // ============================================
   // RSS FEED SOURCES
