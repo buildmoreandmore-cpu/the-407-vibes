@@ -2504,85 +2504,6 @@
       letter-spacing: 0.1em;
     }
 
-    /* Instagram Section */
-    .instagram-section {
-      padding: 5rem 5%;
-      background: var(--primary-white);
-      text-align: center;
-    }
-
-    .instagram-section .section-title {
-      margin-bottom: 0.5rem;
-    }
-
-    .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0.5rem;
-      margin-top: 3rem;
-    }
-
-    .instagram-item {
-      position: relative;
-      aspect-ratio: 1;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .instagram-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .instagram-item:hover img {
-      transform: scale(1.1);
-    }
-
-    .instagram-item::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      transition: background 0.3s ease;
-    }
-
-    .instagram-item:hover::after {
-      background: rgba(0,0,0,0.2);
-    }
-
-    .instagram-follow {
-      display: inline-block;
-      margin-top: 2.5rem;
-      padding: 1rem 3rem;
-      background: var(--primary-black);
-      color: white;
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      transition: all 0.3s;
-    }
-
-    .instagram-follow:hover {
-      background: var(--primary-blue);
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 968px) {
-      .instagram-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .instagram-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     .footer-brand p {
       color: rgba(255,255,255,0.7);
       line-height: 1.7;
@@ -12843,36 +12764,6 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
             </div>
           </section>
 
-          {/* Instagram Section */}
-          <section className="instagram-section">
-            <div className="section-header">
-              <h2 className="section-title">Follow the Vibes</h2>
-              <p className="section-subtitle">@the407vibes on Instagram</p>
-            </div>
-            <div className="instagram-grid">
-              <div className="instagram-item">
-                <img src="/api/places?query=Lake+Eola+Park+Orlando+FL&maxwidth=400" alt="Orlando skyline" />
-              </div>
-              <div className="instagram-item">
-                <img src="/api/places?query=East+End+Market+Orlando+FL&maxwidth=400" alt="Orlando food scene" />
-              </div>
-              <div className="instagram-item">
-                <img src="/api/places?query=Wall+Street+Plaza+Orlando+FL&maxwidth=400" alt="Orlando nightlife" />
-              </div>
-              <div className="instagram-item">
-                <img src="/api/places?query=Buttermilk+Kitchen+Orlando+FL&maxwidth=400" alt="Orlando restaurant" />
-              </div>
-              <div className="instagram-item">
-                <img src="/api/places?query=Orlando+Museum+of+Art+FL&maxwidth=400" alt="Orlando art" />
-              </div>
-              <div className="instagram-item">
-                <img src="/api/places?query=Park+Avenue+Winter+Park+FL&maxwidth=400" alt="Orlando streets" />
-              </div>
-            </div>
-            <a href="https://www.instagram.com/the407vibes/" target="_blank" rel="noopener noreferrer" className="instagram-follow">
-              Follow @the407vibes
-            </a>
-          </section>
 
           </>
           )}
