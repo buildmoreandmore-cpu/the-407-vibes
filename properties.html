@@ -1237,40 +1237,40 @@
     <div class="filter-bar">
       <div class="filter-group">
         <span class="filter-label">Price Range</span>
-        <select class="filter-select">
-          <option>Any Price</option>
-          <option>Under $300K</option>
-          <option>$300K - $500K</option>
-          <option>$500K - $750K</option>
-          <option>$750K - $1M</option>
-          <option>$1M+</option>
+        <select class="filter-select" id="price-filter" onchange="filterProperties()">
+          <option value="">Any Price</option>
+          <option value="300000">Under $300K</option>
+          <option value="300000-500000">$300K - $500K</option>
+          <option value="500000-750000">$500K - $750K</option>
+          <option value="750000-1000000">$750K - $1M</option>
+          <option value="1000000+">$1M+</option>
         </select>
       </div>
       <div class="filter-group">
         <span class="filter-label">Bedrooms</span>
-        <select class="filter-select">
-          <option>Any</option>
-          <option>1+</option>
-          <option>2+</option>
-          <option>3+</option>
-          <option>4+</option>
-          <option>5+</option>
+        <select class="filter-select" id="beds-filter" onchange="filterProperties()">
+          <option value="">Any</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+          <option value="5">5+</option>
         </select>
       </div>
       <div class="filter-group">
         <span class="filter-label">Property Type</span>
-        <select class="filter-select">
-          <option>All Types</option>
-          <option>Single Family</option>
-          <option>Condo</option>
-          <option>Townhouse</option>
-          <option>Multi-Family</option>
+        <select class="filter-select" id="type-filter" onchange="filterProperties()">
+          <option value="">All Types</option>
+          <option value="Single Family">Single Family</option>
+          <option value="Condo">Condo</option>
+          <option value="Townhouse">Townhouse</option>
+          <option value="Multi-Family">Multi-Family</option>
         </select>
       </div>
       <div class="filter-group">
         <span class="filter-label">Neighborhood</span>
-        <select class="filter-select" id="neighborhood-filter">
-          <option>All Neighborhoods</option>
+        <select class="filter-select" id="neighborhood-filter" onchange="filterProperties()">
+          <option value="">All Neighborhoods</option>
           <option>Downtown Orlando</option>
           <option>Winter Park</option>
           <option>Thornton Park</option>
@@ -1283,11 +1283,10 @@
       </div>
       <div class="filter-group">
         <span class="filter-label">Sort By</span>
-        <select class="filter-select">
-          <option>Newest</option>
-          <option>Price: Low to High</option>
-          <option>Price: High to Low</option>
-          <option>Sq Ft: Large to Small</option>
+        <select class="filter-select" id="sort-filter" onchange="filterProperties()">
+          <option value="newest">Newest</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
         </select>
       </div>
     </div>
@@ -1311,7 +1310,7 @@
 
     <div class="properties-grid">
       <!-- Property 1 -->
-      <div class="property-card">
+      <div class="property-card" data-price="1250000" data-beds="5" data-type="Single Family" data-neighborhood="Thornton Park">
         <div class="property-image" style="background-image: url('/api/places?query=Thornton+Park+homes+Orlando+FL&maxwidth=800')">
           <span class="property-badge featured">Featured</span>
           <div class="property-favorite">
@@ -1362,7 +1361,7 @@
       </div>
 
       <!-- Property 2 -->
-      <div class="property-card">
+      <div class="property-card" data-price="875000" data-beds="4" data-type="Single Family" data-neighborhood="Winter Park">
         <div class="property-image" style="background-image: url('/api/places?query=Winter+Park+homes+FL&maxwidth=800')">
           <span class="property-badge new">New Listing</span>
           <div class="property-favorite">
@@ -1413,7 +1412,7 @@
       </div>
 
       <!-- Property 3 -->
-      <div class="property-card">
+      <div class="property-card" data-price="525000" data-beds="3" data-type="Single Family" data-neighborhood="College Park">
         <div class="property-image" style="background-image: url('/api/places?query=College+Park+Orlando+homes+FL&maxwidth=800')">
           <div class="property-favorite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -1463,7 +1462,7 @@
       </div>
 
       <!-- Property 4 -->
-      <div class="property-card">
+      <div class="property-card" data-price="2100000" data-beds="6" data-type="Single Family" data-neighborhood="Dr. Phillips">
         <div class="property-image" style="background-image: url('/api/places?query=Isleworth+Windermere+Orlando+FL&maxwidth=800')">
           <span class="property-badge">Open House</span>
           <div class="property-favorite">
@@ -1514,7 +1513,7 @@
       </div>
 
       <!-- Property 5 -->
-      <div class="property-card">
+      <div class="property-card" data-price="450000" data-beds="2" data-type="Single Family" data-neighborhood="Mills 50">
         <div class="property-image" style="background-image: url('/api/places?query=Colonialtown+North+Orlando+FL&maxwidth=800')">
           <div class="property-favorite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -1564,7 +1563,7 @@
       </div>
 
       <!-- Property 6 -->
-      <div class="property-card">
+      <div class="property-card" data-price="725000" data-beds="4" data-type="Townhouse" data-neighborhood="Lake Nona">
         <div class="property-image" style="background-image: url('/api/places?query=Lake+Nona+Orlando+FL&maxwidth=800')">
           <span class="property-badge new">New Listing</span>
           <div class="property-favorite">
@@ -1790,6 +1789,85 @@
       } catch (err) {
         // Spotlight is optional — fail silently
       }
+    }
+
+    // Property filtering
+    function filterProperties() {
+      const priceVal = document.getElementById('price-filter').value;
+      const bedsVal = document.getElementById('beds-filter').value;
+      const typeVal = document.getElementById('type-filter').value;
+      const neighborhoodVal = document.getElementById('neighborhood-filter').value;
+      const sortVal = document.getElementById('sort-filter').value;
+
+      const grid = document.querySelector('.properties-grid:not(#spotlight-grid)');
+      const cards = Array.from(grid.querySelectorAll('.property-card'));
+      let visible = 0;
+
+      cards.forEach(card => {
+        const price = parseInt(card.dataset.price) || 0;
+        const beds = parseInt(card.dataset.beds) || 0;
+        const type = card.dataset.type || '';
+        const neighborhood = card.dataset.neighborhood || '';
+        let show = true;
+
+        // Price filter
+        if (priceVal) {
+          if (priceVal.includes('+')) {
+            const min = parseInt(priceVal);
+            if (price < min) show = false;
+          } else if (priceVal.includes('-')) {
+            const [min, max] = priceVal.split('-').map(Number);
+            if (price < min || price > max) show = false;
+          } else {
+            const max = parseInt(priceVal);
+            if (price >= max) show = false;
+          }
+        }
+
+        // Beds filter
+        if (bedsVal && beds < parseInt(bedsVal)) show = false;
+
+        // Type filter
+        if (typeVal && type !== typeVal) show = false;
+
+        // Neighborhood filter
+        if (neighborhoodVal && neighborhood !== neighborhoodVal) show = false;
+
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      // Sort visible cards
+      const visibleCards = cards.filter(c => c.style.display !== 'none');
+      if (sortVal === 'price-asc') {
+        visibleCards.sort((a, b) => (parseInt(a.dataset.price) || 0) - (parseInt(b.dataset.price) || 0));
+      } else if (sortVal === 'price-desc') {
+        visibleCards.sort((a, b) => (parseInt(b.dataset.price) || 0) - (parseInt(a.dataset.price) || 0));
+      }
+      visibleCards.forEach(card => grid.appendChild(card));
+
+      // Show "no results" message
+      let noResults = grid.querySelector('.no-results');
+      if (visible === 0) {
+        if (!noResults) {
+          noResults = document.createElement('div');
+          noResults.className = 'no-results';
+          noResults.style.cssText = 'grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-light);';
+          noResults.innerHTML = '<p style="font-size: 1.1rem;">No properties match your filters.</p><button onclick="resetFilters()" style="margin-top: 1rem; padding: 0.5rem 1.5rem; background: var(--primary-gold); color: white; border: none; border-radius: 6px; cursor: pointer;">Reset Filters</button>';
+          grid.appendChild(noResults);
+        }
+      } else if (noResults) {
+        noResults.remove();
+      }
+    }
+
+    function resetFilters() {
+      document.getElementById('price-filter').value = '';
+      document.getElementById('beds-filter').value = '';
+      document.getElementById('type-filter').value = '';
+      document.getElementById('neighborhood-filter').value = '';
+      document.getElementById('sort-filter').value = 'newest';
+      filterProperties();
     }
 
     document.addEventListener('DOMContentLoaded', loadSpotlight);
