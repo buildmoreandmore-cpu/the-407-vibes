@@ -1,8 +1,8 @@
 {
-  "name": "city-vibes-views",
+  "name": "the-407-vibes",
   "version": "2.0.0",
   "private": true,
-  "description": "City-agnostic AI-ready content platform",
+  "description": "Orlando city culture platform - The 407 Vibes",
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
     "axios": "^1.13.5",

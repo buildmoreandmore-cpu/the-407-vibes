@@ -4,17 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brand Activation - The 407 Vibes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -27,14 +28,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.1;
     }
@@ -61,7 +62,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -74,6 +75,7 @@
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -93,7 +95,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* Hero */
@@ -118,7 +120,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600') center/cover;
+      background: url('/api/places?query=Orlando+event+venue&maxwidth=1600') center/cover;
       opacity: 0.3;
     }
 
@@ -156,7 +158,7 @@
 
     .hero-cta {
       display: inline-block;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       padding: 1rem 2.5rem;
       text-decoration: none;
@@ -227,7 +229,7 @@
 
     .stat-item h3 {
       font-size: 3.5rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       margin-bottom: 0.5rem;
     }
 
@@ -263,7 +265,7 @@
     }
 
     .tier-card.featured {
-      border-color: var(--primary-yellow);
+      border-color: var(--primary-gold);
       border-width: 2px;
     }
 
@@ -273,7 +275,7 @@
       top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       padding: 0.35rem 1rem;
       font-size: 0.7rem;
@@ -286,7 +288,7 @@
     .tier-icon {
       width: 70px;
       height: 70px;
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -359,11 +361,11 @@
     }
 
     .tier-cta:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     .tier-card.featured .tier-cta {
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
     }
 
@@ -373,7 +375,7 @@
 
     /* Activation Types */
     .types-section {
-      background: #f8f8f8;
+      background: #FFFFFF;
     }
 
     .types-grid {
@@ -417,7 +419,7 @@
     }
 
     .type-link {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
@@ -431,7 +433,7 @@
 
     /* CTA Section */
     .cta-section {
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       padding: 5rem 5%;
       text-align: center;
     }
@@ -464,7 +466,7 @@
     }
 
     .cta-button:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       transform: translateY(-2px);
     }
 
@@ -482,7 +484,7 @@
     }
 
     .footer a {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       text-decoration: none;
     }
 
@@ -607,7 +609,7 @@
           <li><span class="check">✓</span> Basic analytics dashboard</li>
           <li><span class="check">✓</span> Neighborhood spotlight eligibility</li>
         </ul>
-        <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Starter Package Inquiry" class="tier-cta">Get Started</a>
+        <a href="mailto:partnerships@the407vibes.com?subject=Starter Package Inquiry" class="tier-cta">Get Started</a>
       </div>
 
       <!-- Growth -->
@@ -624,7 +626,7 @@
           <li><span class="check">✓</span> Event promotion (2/month)</li>
           <li><span class="check">✓</span> Advanced analytics & reporting</li>
         </ul>
-        <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Growth Package Inquiry" class="tier-cta">Get Started</a>
+        <a href="mailto:partnerships@the407vibes.com?subject=Growth Package Inquiry" class="tier-cta">Get Started</a>
       </div>
 
       <!-- Enterprise -->
@@ -641,7 +643,7 @@
           <li><span class="check">✓</span> Dedicated account manager</li>
           <li><span class="check">✓</span> Custom integration options</li>
         </ul>
-        <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Enterprise Partnership Inquiry" class="tier-cta">Contact Us</a>
+        <a href="mailto:partnerships@the407vibes.com?subject=Enterprise Partnership Inquiry" class="tier-cta">Contact Us</a>
       </div>
     </div>
   </section>
@@ -655,38 +657,38 @@
 
     <div class="types-grid">
       <div class="type-card">
-        <div class="type-image" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600')"></div>
+        <div class="type-image" style="background-image: url('/api/places?query=Orlando+event+venue&maxwidth=600')"></div>
         <div class="type-content">
           <h3>Event Sponsorship</h3>
           <p>Sponsor neighborhood events, food festivals, art walks, and community gatherings. Get your brand in front of engaged local audiences.</p>
-          <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Event Sponsorship" class="type-link">Learn More →</a>
+          <a href="mailto:partnerships@the407vibes.com?subject=Event Sponsorship" class="type-link">Learn More →</a>
         </div>
       </div>
 
       <div class="type-card">
-        <div class="type-image" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600')"></div>
+        <div class="type-image" style="background-image: url('/api/places?query=Orlando+creative+studio&maxwidth=600')"></div>
         <div class="type-content">
           <h3>Content Partnership</h3>
           <p>Collaborate on editorial content that tells your brand's story authentically within the context of Orlando's culture and neighborhoods.</p>
-          <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Content Partnership" class="type-link">Learn More →</a>
+          <a href="mailto:partnerships@the407vibes.com?subject=Content Partnership" class="type-link">Learn More →</a>
         </div>
       </div>
 
       <div class="type-card">
-        <div class="type-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600')"></div>
+        <div class="type-image" style="background-image: url('/api/places?query=Thornton+Park+Orlando&maxwidth=600')"></div>
         <div class="type-content">
           <h3>Neighborhood Takeover</h3>
-          <p>Become the exclusive brand partner for a specific Orlando neighborhood. Own the conversation in Thornton Park Orlando, Winter Park, or any of our 243 areas.</p>
-          <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Neighborhood Takeover" class="type-link">Learn More →</a>
+          <p>Become the exclusive brand partner for a specific Orlando neighborhood. Own the conversation in Downtown Orlando, Winter Park, or any of our 243 areas.</p>
+          <a href="mailto:partnerships@the407vibes.com?subject=Neighborhood Takeover" class="type-link">Learn More →</a>
         </div>
       </div>
 
       <div class="type-card">
-        <div class="type-image" style="background-image: url('https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600')"></div>
+        <div class="type-image" style="background-image: url('/api/places?query=Mills+50+Orlando+district&maxwidth=600')"></div>
         <div class="type-content">
           <h3>Social Amplification</h3>
           <p>Leverage our engaged social following across Instagram, Facebook, and YouTube to amplify your message to Orlando's tastemakers.</p>
-          <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Social Amplification" class="type-link">Learn More →</a>
+          <a href="mailto:partnerships@the407vibes.com?subject=Social Amplification" class="type-link">Learn More →</a>
         </div>
       </div>
     </div>
@@ -696,7 +698,7 @@
   <section class="cta-section">
     <h2>Ready to Activate?</h2>
     <p>Let's discuss how The 407 Vibes can help your brand connect with Orlando's most engaged audiences.</p>
-    <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Partnership Inquiry" class="cta-button">Start the Conversation</a>
+    <a href="mailto:partnerships@the407vibes.com?subject=Partnership Inquiry" class="cta-button">Start the Conversation</a>
   </section>
 
   <!-- Footer -->

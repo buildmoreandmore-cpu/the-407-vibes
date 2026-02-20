@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media Kit - The 407 Vibes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-red: #8B1538;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
+      --primary-white: #FFFFFF;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --accent-gold: #C9A962;
@@ -29,14 +30,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.1;
     }
@@ -58,7 +59,7 @@
     }
 
     .logo {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -84,7 +85,7 @@
     }
 
     .download-btn {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       padding: 0.75rem 1.5rem;
       border: none;
@@ -113,7 +114,7 @@
     }
 
     .hero-content {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       padding: 6rem 5rem;
       display: flex;
@@ -178,7 +179,7 @@
     }
 
     .hero-image {
-      background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200') center/cover;
+      background: url('/api/places?query=Orlando+restaurant+dining&maxwidth=1200') center/cover;
       position: relative;
     }
 
@@ -186,7 +187,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, var(--primary-red) 0%, transparent 30%);
+      background: linear-gradient(to right, var(--primary-blue) 0%, transparent 30%);
     }
 
     /* Section Styles */
@@ -200,7 +201,7 @@
     }
 
     .section-light {
-      background: #f5f5f5;
+      background: #FFFFFF;
     }
 
     .section-header {
@@ -244,7 +245,7 @@
 
     .feature-card h3 {
       font-size: 1.4rem;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -273,11 +274,11 @@
       content: '•';
       position: absolute;
       left: 0;
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
-    /* Orlando Experience */
-    .atl-experience {
+    /* 407 Experience */
+    .orl-experience {
       background: var(--primary-black);
       color: white;
       padding: 3rem;
@@ -288,7 +289,7 @@
       margin-right: auto;
     }
 
-    .atl-experience h3 {
+    .orl-experience h3 {
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
@@ -296,7 +297,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .atl-experience h4 {
+    .orl-experience h4 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
@@ -327,7 +328,7 @@
       content: '•';
       position: absolute;
       left: 0;
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .partners-note {
@@ -359,10 +360,10 @@
     }
 
     .demo-stat .value {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 3.5rem;
       font-weight: 600;
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .demo-details {
@@ -377,9 +378,9 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       margin-bottom: 1rem;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 700;
     }
 
@@ -468,7 +469,7 @@
     }
 
     .partnership-name {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2rem;
       font-style: italic;
       color: var(--primary-black);
@@ -478,7 +479,7 @@
     .partnership-tagline {
       font-size: 1.1rem;
       font-weight: 600;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       margin-bottom: 1rem;
     }
 
@@ -552,7 +553,7 @@
       text-transform: uppercase;
       letter-spacing: 0.15em;
       margin-bottom: 1rem;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 700;
     }
 
@@ -651,10 +652,10 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar">
-    <a href="index.html" class="logo">Orlando VIBES & VIEWS</a>
+    <a href="index.html" class="logo">THE 407 VIBES</a>
     <div class="nav-actions">
       <a href="index.html" class="back-link">Back to Site</a>
-      <a href="https://atlvibesandviews.hflip.co/36036a0e90.html" target="_blank" class="download-btn">
+      <a href="https://the407vibes.hflip.co/36036a0e90.html" target="_blank" class="download-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
         </svg>
@@ -666,7 +667,7 @@
   <!-- Hero / Introduction -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-logo">Orlando VIBES & VIEWS</div>
+      <div class="hero-logo">THE 407 VIBES</div>
       <div class="hero-divider"></div>
       <h1 class="hero-title">INTRODUCTION</h1>
       <p class="hero-lead">The 407 Vibes is a hyperlocal media platform shaping how Orlando's culture, development, and businesses are discovered.</p>
@@ -730,10 +731,10 @@
       </div>
     </div>
 
-    <div class="atl-experience">
+    <div class="orl-experience">
       <h3>Editorial Format</h3>
-      <h4>The Orlando Experience</h4>
-      <p style="color: rgba(255,255,255,0.85); margin-bottom: 1.5rem;">The Orlando Experience is our editorial framework for producing and distributing Orlando stories across written, visual, and social channels — shaping how culture, community, and city life are documented and shared.</p>
+      <h4>The 407 Experience</h4>
+      <p style="color: rgba(255,255,255,0.85); margin-bottom: 1.5rem;">The 407 Experience is our editorial framework for producing and distributing Orlando stories across written, visual, and social channels — shaping how culture, community, and city life are documented and shared.</p>
       <ul style="list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
         <li style="color: rgba(255,255,255,0.7);">• Editorial features and reporting</li>
         <li style="color: rgba(255,255,255,0.7);">• On-the-ground coverage</li>
@@ -802,7 +803,7 @@
       </div>
     </div>
 
-    <div class="atl-experience" style="margin-top: 4rem;">
+    <div class="orl-experience" style="margin-top: 4rem;">
       <h3>Top Platforms</h3>
       <h4>Primary Distribution</h4>
       <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Primary distribution across short-form video and owned media channels</p>
@@ -836,7 +837,7 @@
 
     <div class="calendar-grid">
       <div class="calendar-item">
-        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600" alt="Business">
+        <img src="/api/places?query=Orlando+business+district&maxwidth=600" alt="Business">
         <div class="calendar-content">
           <p class="calendar-months">January / February</p>
           <h3 class="calendar-theme">Black Excellence & Business</h3>
@@ -845,7 +846,7 @@
       </div>
 
       <div class="calendar-item">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" alt="Homeownership">
+        <img src="/api/places?query=Orlando+neighborhood+homes&maxwidth=600" alt="Homeownership">
         <div class="calendar-content">
           <p class="calendar-months">March / April</p>
           <h3 class="calendar-theme">Roots of the City</h3>
@@ -854,7 +855,7 @@
       </div>
 
       <div class="calendar-item">
-        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600" alt="Festival">
+        <img src="/api/places?query=Orlando+festival+events&maxwidth=600" alt="Festival">
         <div class="calendar-content">
           <p class="calendar-months">May / June</p>
           <h3 class="calendar-theme">Culture in Bloom</h3>
@@ -863,7 +864,7 @@
       </div>
 
       <div class="calendar-item">
-        <img src="https://images.unsplash.com/photo-1496843916299-590492c751f4?w=600" alt="Summer">
+        <img src="/api/places?query=Orlando+summer+outdoor&maxwidth=600" alt="Summer">
         <div class="calendar-content">
           <p class="calendar-months">July / August</p>
           <h3 class="calendar-theme">The Heat of the City</h3>
@@ -872,7 +873,7 @@
       </div>
 
       <div class="calendar-item">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600" alt="Innovation">
+        <img src="/api/places?query=Orlando+innovation+technology&maxwidth=600" alt="Innovation">
         <div class="calendar-content">
           <p class="calendar-months">September / October</p>
           <h3 class="calendar-theme">Innovation & Influence</h3>
@@ -881,7 +882,7 @@
       </div>
 
       <div class="calendar-item">
-        <img src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600" alt="Holidays">
+        <img src="/api/places?query=Orlando+holiday+celebration&maxwidth=600" alt="Holidays">
         <div class="calendar-content">
           <p class="calendar-months">November / December</p>
           <h3 class="calendar-theme">407ish: Holiday Edition</h3>
@@ -899,7 +900,7 @@
     </div>
 
     <div class="partnership-card">
-      <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600" alt="NextUp 407" class="partnership-image">
+      <img src="/api/places?query=Orlando+entrepreneurs+coworking&maxwidth=600" alt="NextUp 407" class="partnership-image">
       <div class="partnership-content">
         <h3 class="partnership-name">NextUp 407</h3>
         <p class="partnership-tagline">Empowering Orlando's next generation of entrepreneurs.</p>
@@ -909,7 +910,7 @@
     </div>
 
     <div class="partnership-card">
-      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" alt="Brick by Brick" class="partnership-image">
+      <img src="/api/places?query=College+Park+Orlando+homes&maxwidth=600" alt="Brick by Brick" class="partnership-image">
       <div class="partnership-content">
         <h3 class="partnership-name">Brick by Brick</h3>
         <p class="partnership-tagline">Building stronger communities through homeownership.</p>
@@ -919,9 +920,9 @@
     </div>
 
     <div class="partnership-card">
-      <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600" alt="Joy The Orlando Way" class="partnership-image">
+      <img src="/api/places?query=Orlando+community+giving&maxwidth=600" alt="Joy The 407 Way" class="partnership-image">
       <div class="partnership-content">
-        <h3 class="partnership-name" style="font-family: 'Playfair Display', serif;">Joy The Orlando Way</h3>
+        <h3 class="partnership-name" style="font-family: 'Poppins', sans-serif;">Joy The 407 Way</h3>
         <p class="partnership-tagline">Spreading joy, connection, and kindness throughout Orlando.</p>
         <p class="partnership-desc">A seasonal giving initiative bringing together local businesses and sponsors to support families and children during the holidays.</p>
         <p class="partnership-fit"><strong>Partner fit:</strong> consumer brands and sponsors supporting community impact and seasonal activations.</p>
@@ -931,10 +932,10 @@
 
   <!-- Contact -->
   <section class="contact-section" id="contact">
-    <p class="contact-logo">Orlando VIBES & VIEWS</p>
+    <p class="contact-logo">THE 407 VIBES</p>
 
     <h3 class="contact-title">CONTACT</h3>
-    <a href="mailto:hello@the-407-vibes.vercel.app" class="contact-email">hello@the-407-vibes.vercel.app</a>
+    <a href="mailto:hello@the407vibes.com" class="contact-email">hello@the407vibes.com</a>
 
     <h2 class="contact-cta">FOR PARTNERSHIP INQUIRIES</h2>
     <p class="contact-note">Please include a brief overview of your brand or activation when reaching out.</p>
@@ -943,10 +944,10 @@
 
     <div class="contact-address">
       <h4>Mailing Address</h4>
-      <p>Orlando VIBES & VIEWS<br>3355 Lenox Rd, Ste 750<br>Orlando, FL 32801</p>
+      <p>THE 407 VIBES<br>200 S Orange Ave, Ste 1200<br>Orlando, FL 32801</p>
     </div>
 
-    <p class="contact-footer">The City · The Culture · The Conversation · www.the-407-vibes.vercel.app</p>
+    <p class="contact-footer">The City · The Culture · The Conversation · www.the407vibes.com</p>
     <p style="margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
       <a href="terms.html" style="color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 0.5rem;">Terms</a> |
       <a href="privacy.html" style="color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 0.5rem;">Privacy</a> |

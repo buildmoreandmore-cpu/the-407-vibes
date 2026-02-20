@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cookie Policy - The 407 Vibes</title>
   <meta name="description" content="Cookie Policy for The 407 Vibes. Learn about the cookies we use and how to manage your cookie preferences.">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -29,14 +30,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.2;
     }
@@ -63,7 +64,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -76,6 +77,7 @@
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -96,7 +98,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* Hero */
@@ -143,7 +145,7 @@
       margin-bottom: 1rem;
       color: var(--primary-black);
       padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--primary-yellow);
+      border-bottom: 2px solid var(--primary-gold);
       display: inline-block;
     }
 
@@ -164,7 +166,7 @@
     }
 
     .section a {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       text-decoration: none;
     }
 
@@ -193,7 +195,7 @@
     .cookie-table th {
       background: var(--primary-black);
       color: white;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.1rem;
       font-weight: 600;
     }
@@ -203,7 +205,7 @@
     }
 
     .cookie-table tr:hover td {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
     }
 
     .cookie-type {
@@ -213,7 +215,7 @@
 
     .cookie-required {
       display: inline-block;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       font-size: 0.7rem;
       padding: 0.2rem 0.5rem;
@@ -250,10 +252,10 @@
     }
 
     .footer-brand h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
     }
 
@@ -272,7 +274,7 @@
     .social-link {
       width: 36px;
       height: 36px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       display: flex;
       align-items: center;
@@ -285,16 +287,16 @@
     }
 
     .social-link:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       transform: translateY(-2px);
     }
 
     .footer-column h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.1rem;
       margin-bottom: 1.25rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
     }
 
@@ -314,7 +316,7 @@
     }
 
     .footer-links a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-bottom {
@@ -332,7 +334,7 @@
     }
 
     .footer-bottom a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     /* Responsive */
@@ -403,7 +405,7 @@
 
   <!-- Content -->
   <main class="content">
-    <p class="intro">This Cookie Policy explains how The 407 Vibes ("we," "us," or "our") uses cookies and similar tracking technologies when you visit our website the-407-vibes.vercel.app. This policy should be read alongside our <a href="privacy.html">Privacy Policy</a>.</p>
+    <p class="intro">This Cookie Policy explains how The 407 Vibes ("we," "us," or "our") uses cookies and similar tracking technologies when you visit our website the407vibes.com. This policy should be read alongside our <a href="privacy.html">Privacy Policy</a>.</p>
 
     <section class="section">
       <h2>What Are Cookies?</h2>
@@ -499,9 +501,9 @@
       <h2>Contact Us</h2>
       <p>If you have any questions about our use of cookies or this Cookie Policy, please contact us:</p>
       <p><strong>The 407 Vibes</strong><br>
-      3355 Lenox Rd, Ste 750<br>
+      101 S Orange Ave, Suite 300<br>
       Orlando, FL 32801<br>
-      Email: <a href="mailto:hello@the-407-vibes.vercel.app">hello@the-407-vibes.vercel.app</a></p>
+      Email: <a href="mailto:hello@the407vibes.com">hello@the407vibes.com</a></p>
     </section>
   </main>
 
@@ -512,7 +514,7 @@
         <h3>The 407 Vibes</h3>
         <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
         <div class="social-links">
-          <a href="https://www.instagram.com/atlvibesandviews/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
+          <a href="https://www.instagram.com/the407vibes/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
           <a href="#" class="social-link">FB</a>
           <a href="#" class="social-link">TW</a>
           <a href="#" class="social-link">YT</a>

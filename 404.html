@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found - The 407 Vibes</title>
   <meta name="description" content="The page you're looking for couldn't be found. Return to The 407 Vibes homepage.">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -29,7 +30,7 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
@@ -39,7 +40,7 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.2;
     }
@@ -61,7 +62,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -74,6 +75,7 @@
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -94,7 +96,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* 404 Content */
@@ -112,7 +114,7 @@
     }
 
     .error-code {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 12rem;
       font-weight: 700;
       line-height: 1;
@@ -129,7 +131,7 @@
       transform: translateX(-50%);
       width: 200px;
       height: 4px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
     }
 
     .error-title {
@@ -165,12 +167,12 @@
     }
 
     .error-btn.primary {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
     }
 
     .error-btn.primary:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
     }
 
@@ -216,7 +218,7 @@
     }
 
     .suggestion-links a {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
@@ -224,7 +226,7 @@
     }
 
     .suggestion-links a:hover {
-      color: var(--accent-red);
+      color: var(--accent-blue);
       text-decoration: underline;
     }
 
@@ -248,7 +250,7 @@
     }
 
     .footer a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     /* Responsive */

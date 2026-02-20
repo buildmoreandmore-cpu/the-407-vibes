@@ -1,11 +1,11 @@
-# ATL Vibes & Views - Robots.txt
-# https://atlvibesandviews.com
+# The 407 Vibes - Robots.txt
+# https://the407vibes.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://atlvibesandviews.com/sitemap.xml
+Sitemap: https://the407vibes.com/sitemap.xml
 
 # Block access to API endpoints (they're for internal use)
 Disallow: /api/

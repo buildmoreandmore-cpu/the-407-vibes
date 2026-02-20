@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - The 407 Vibes</title>
   <meta name="description" content="Learn about The 407 Vibes, Orlando's premier hyperlocal media platform covering culture, development, and community across 243 neighborhoods.">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -29,14 +30,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.2;
     }
@@ -63,7 +64,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -76,6 +77,7 @@
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -96,7 +98,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* Hero */
@@ -120,7 +122,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?w=1600') center/cover;
+      background: url('/api/places?query=Orlando+downtown+skyline&maxwidth=1600') center/cover;
       filter: brightness(0.4);
     }
 
@@ -170,7 +172,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 2px;
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     .section-subtitle {
@@ -210,7 +212,7 @@
     }
 
     .mission-quote blockquote {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.2rem;
       font-weight: 400;
       font-style: italic;
@@ -221,7 +223,7 @@
     .mission-quote cite {
       font-size: 1rem;
       font-style: normal;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       text-transform: uppercase;
       letter-spacing: 0.15em;
     }
@@ -251,7 +253,7 @@
     .coverage-icon {
       width: 70px;
       height: 70px;
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -274,7 +276,7 @@
 
     /* Team */
     .team-section {
-      background: #f8f8f8;
+      background: #FFFFFF;
     }
 
     .team-grid {
@@ -315,7 +317,7 @@
     }
 
     .team-title {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       font-weight: 600;
       font-size: 0.85rem;
       text-transform: uppercase;
@@ -331,7 +333,7 @@
 
     /* Stats */
     .stats-section {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       padding: 4rem 5%;
     }
@@ -360,7 +362,7 @@
 
     /* CTA */
     .cta-section {
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       padding: 5rem 5%;
       text-align: center;
     }
@@ -404,7 +406,7 @@
     }
 
     .cta-button.primary:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       transform: translateY(-2px);
     }
 
@@ -434,10 +436,10 @@
     }
 
     .footer-brand h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
     }
 
@@ -456,7 +458,7 @@
     .social-link {
       width: 36px;
       height: 36px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       display: flex;
       align-items: center;
@@ -469,16 +471,16 @@
     }
 
     .social-link:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       transform: translateY(-2px);
     }
 
     .footer-column h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.1rem;
       margin-bottom: 1.25rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
     }
 
@@ -498,7 +500,7 @@
     }
 
     .footer-links a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-bottom {
@@ -516,7 +518,7 @@
     }
 
     .footer-bottom a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     /* Responsive */
@@ -589,6 +591,267 @@
         text-align: center;
       }
     }
+
+    /* Extra-small devices (phones in portrait) */
+    @media (max-width: 480px) {
+      /* Hero */
+      .hero {
+        min-height: 350px;
+        height: 50vh;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .hero-content {
+        padding: 0 1rem;
+      }
+
+      /* Section */
+      .section {
+        padding: 3rem 4%;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+      }
+
+      /* Story */
+      .story-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      /* Mission */
+      .mission-quote blockquote {
+        font-size: 1.3rem;
+        line-height: 1.4;
+      }
+
+      .mission-quote cite {
+        font-size: 0.85rem;
+      }
+
+      /* Coverage grid - single column */
+      .coverage-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .coverage-card {
+        padding: 1rem;
+      }
+
+      .coverage-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .coverage-card p {
+        font-size: 0.9rem;
+      }
+
+      .coverage-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Team grid - single column */
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: 1.5rem;
+      }
+
+      .team-photo {
+        height: 220px;
+        font-size: 3rem;
+      }
+
+      .team-info {
+        padding: 1rem;
+      }
+
+      .team-name {
+        font-size: 1.3rem;
+      }
+
+      .team-bio {
+        font-size: 0.9rem;
+      }
+
+      /* Stats */
+      .stats-section {
+        padding: 3rem 4%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+
+      .stat-item h3 {
+        font-size: 2rem;
+      }
+
+      .stat-item p {
+        font-size: 0.8rem;
+      }
+
+      /* CTA */
+      .cta-section {
+        padding: 3rem 4%;
+      }
+
+      .cta-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .cta-section p {
+        font-size: 0.95rem;
+      }
+
+      .cta-button {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.85rem;
+      }
+
+      .cta-buttons {
+        gap: 0.75rem;
+      }
+
+      /* Footer - single column, centered */
+      .footer {
+        padding: 3rem 4% 1.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-brand h3 {
+        font-size: 1.4rem;
+      }
+
+      .footer-brand p {
+        font-size: 0.9rem;
+      }
+
+      .social-links {
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 0.85rem;
+      }
+
+      .footer-column h4 {
+        font-size: 1rem;
+      }
+
+      .footer-links a {
+        font-size: 0.9rem;
+        display: inline-block;
+        padding: 0.25rem 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-bottom {
+        padding-top: 1.5rem;
+        font-size: 0.8rem;
+      }
+
+      .footer-bottom a {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+      }
+
+      /* Logo */
+      .logo-main {
+        font-size: 1.4rem;
+      }
+
+      .logo-tagline {
+        font-size: 0.5rem;
+      }
+
+      .navbar {
+        padding: 1rem 4%;
+      }
+    }
+
+    /* Touch-friendly enhancements */
+    @media (hover: none) and (pointer: coarse) {
+      .nav-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+
+      .cta-button {
+        min-height: 48px;
+        padding: 0.875rem 2rem;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-links a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .footer-bottom a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 0.5rem;
+      }
+
+      .coverage-card,
+      .team-card {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .coverage-card:hover,
+      .team-card:hover {
+        transform: none;
+      }
+
+      .coverage-card:active {
+        transform: scale(0.98);
+      }
+    }
   </style>
 </head>
 <body>
@@ -622,7 +885,7 @@
     </div>
     <div class="story-content">
       <p>The 407 Vibes began with a simple belief: Orlando's story deserves to be told by those who know it best. Founded by local journalists and community advocates, we set out to create a media platform that goes beyond headlines to capture the authentic pulse of our city.</p>
-      <p>From the historic streets of Parramore to the emerging neighborhoods along the Orlando Trail, Orlando is a city of constant evolution. We document the businesses opening their doors, the artists making their mark, the developers reshaping skylines, and the community members who make each neighborhood unique.</p>
+      <p>From the historic streets of Parramore to the emerging neighborhoods along the I-4 corridor, Orlando is a city of constant evolution. We document the businesses opening their doors, the artists making their mark, the developers reshaping skylines, and the community members who make each neighborhood unique.</p>
       <p>What started as a passion project has grown into Orlando's go-to source for hyperlocal coverage. Today, we reach over 50,000 engaged readers monthly, covering 243 neighborhoods and partnering with hundreds of local businesses to tell their stories.</p>
       <p>Our commitment remains the same: to inform, connect, and inspire the communities shaping what's next for Orlando.</p>
     </div>
@@ -739,7 +1002,7 @@
         <h3>The 407 Vibes</h3>
         <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
         <div class="social-links">
-          <a href="https://www.instagram.com/atlvibesandviews/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
+          <a href="https://www.instagram.com/the407vibes/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
           <a href="#" class="social-link">FB</a>
           <a href="#" class="social-link">TW</a>
           <a href="#" class="social-link">YT</a>

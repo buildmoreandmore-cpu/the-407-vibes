@@ -83,11 +83,11 @@ Inserts into the `businesses` table with `status: pending`.
   "category": "Restaurant",
   "area_id": 1,
   "neighborhood_id": 5,
-  "street": "255 E Paces Ferry Rd NE",
-  "city": "Atlanta",
-  "state": "Georgia",
-  "zip": "30305",
-  "phone": "(404) 262-1162",
+  "street": "255 S Orange Ave",
+  "city": "Orlando",
+  "state": "Florida",
+  "zip": "32789",
+  "phone": "(407) 262-1162",
   "email": "info@example.com",
   "website": "https://thecapitalgrille.com",
   "image_url": "https://example.com/photo.jpg",
@@ -110,7 +110,7 @@ Inserts into the `events` table with `status: pending`.
 **Recommended fields:**
 ```json
 {
-  "title": "Atlanta Food & Wine Festival",
+  "title": "Orlando Food & Wine Festival",
   "description": "Annual culinary celebration featuring 150+ chefs.",
   "category": "Food & Drink",
   "area_id": 2,
@@ -118,15 +118,15 @@ Inserts into the `events` table with `status: pending`.
   "end_date": "2026-06-17",
   "start_time": "12:00",
   "end_time": "22:00",
-  "venue": "Piedmont Park",
+  "venue": "Lake Eola Park",
   "street": "400 Park Dr NE",
-  "city": "Atlanta",
-  "state": "Georgia",
-  "zip": "30309",
+  "city": "Orlando",
+  "state": "Florida",
+  "zip": "32803",
   "ticket_url": "https://atlfoodandwine.com/tickets",
   "price": "$75-$250",
   "image_url": "https://example.com/event.jpg",
-  "organizer_name": "ATL Food Events LLC",
+  "organizer_name": "Orlando Food Events LLC",
   "organizer_email": "info@atlfoodandwine.com"
 }
 ```
@@ -141,13 +141,13 @@ Inserts into the `articles` table with `status: pending`.
 **Recommended fields:**
 ```json
 {
-  "title": "10 Best Brunch Spots in Buckhead",
-  "slug": "best-brunch-buckhead",
+  "title": "10 Best Brunch Spots in Downtown Orlando",
+  "slug": "best-brunch-downtown-orlando",
   "content": "<p>Full HTML article content here...</p>",
-  "excerpt": "Our curated guide to the best brunch destinations in Buckhead.",
+  "excerpt": "Our curated guide to the best brunch destinations in Downtown Orlando.",
   "category": "Food",
   "area_id": 1,
-  "tags": ["brunch", "restaurants", "buckhead"],
+  "tags": ["brunch", "restaurants", "downtown-orlando"],
   "image_url": "https://example.com/brunch.jpg",
   "author_name": "City Content AI"
 }
@@ -264,11 +264,11 @@ response = requests.post(f"{API_URL}/api/ingest", json={
         "name": "Bones Restaurant",
         "category": "Restaurant",
         "area_id": 1,
-        "street": "3130 Piedmont Rd NE",
-        "city": "Atlanta",
-        "state": "Georgia",
-        "zip": "30305",
-        "phone": "(404) 237-2663",
+        "street": "3130 E Colonial Dr",
+        "city": "Orlando",
+        "state": "Florida",
+        "zip": "32789",
+        "phone": "(407) 237-2663",
         "price_range": "$$$$"
     }
 }, headers=headers)
@@ -285,7 +285,7 @@ response = requests.post(f"{API_URL}/api/ingest-batch", json={
             "data": {
                 "title": "Jazz in the Park",
                 "start_date": "2026-03-15",
-                "venue": "Piedmont Park",
+                "venue": "Lake Eola Park",
                 "area_id": 2,
                 "price": "Free"
             }
@@ -294,10 +294,10 @@ response = requests.post(f"{API_URL}/api/ingest-batch", json={
             "content_type": "event",
             "source": "eventbrite_scraper",
             "data": {
-                "title": "Atlanta Tech Week",
+                "title": "Orlando Tech Week",
                 "start_date": "2026-04-01",
                 "end_date": "2026-04-05",
-                "venue": "Georgia World Congress Center",
+                "venue": "Florida World Congress Center",
                 "area_id": 3,
                 "price": "$50-$200"
             }
@@ -337,9 +337,9 @@ const result = await ingestBusiness({
   category: 'Restaurant',
   area_id: 4,
   street: '541 Edgewood Ave SE',
-  city: 'Atlanta',
-  state: 'Georgia',
-  zip: '30312',
+  city: 'Orlando',
+  state: 'Florida',
+  zip: '32801',
   price_range: '$$$',
   rating: 4.7,
 });

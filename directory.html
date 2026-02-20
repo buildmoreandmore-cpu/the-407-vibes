@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orlando Directory - The 407 Vibes | Businesses, Events & Properties</title>
   <meta name="description" content="Explore Orlando's comprehensive directory of local businesses, upcoming events, and real estate listings across 243 neighborhoods.">
-  <link rel="canonical" href="https://the-407-vibes.vercel.app/directory.html">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://the407vibes.com/directory.html">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -30,14 +31,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.2;
     }
@@ -64,7 +65,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -77,6 +78,7 @@
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -97,11 +99,11 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .nav-links a.active {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* Hero */
@@ -125,7 +127,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1600') center/cover;
+      background: url('/api/places?query=Church+Street+Station+Orlando+FL&maxwidth=1600') center/cover;
       filter: brightness(0.35);
     }
 
@@ -174,7 +176,7 @@
 
     .search-bar button {
       padding: 1.2rem 2rem;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       border: none;
       font-weight: 600;
@@ -183,7 +185,7 @@
     }
 
     .search-bar button:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
     }
 
     /* Section */
@@ -211,7 +213,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 2px;
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     .section-subtitle {
@@ -243,8 +245,8 @@
     }
 
     .category-tab:hover, .category-tab.active {
-      background: var(--primary-red);
-      border-color: var(--primary-red);
+      background: var(--primary-blue);
+      border-color: var(--primary-blue);
       color: white;
     }
 
@@ -281,7 +283,7 @@
       position: absolute;
       top: 1rem;
       left: 1rem;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       padding: 0.4rem 1rem;
       border-radius: 20px;
@@ -296,7 +298,7 @@
 
     .directory-card-category {
       font-size: 0.75rem;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 0.5rem;
@@ -331,7 +333,7 @@
     }
 
     .directory-tag {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       color: var(--text-dark);
       padding: 0.3rem 0.8rem;
       border-radius: 15px;
@@ -355,14 +357,14 @@
     }
 
     .directory-card-link {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       font-weight: 600;
       text-decoration: none;
       transition: color 0.3s;
     }
 
     .directory-card-link:hover {
-      color: var(--accent-red);
+      color: var(--accent-blue);
     }
 
     /* Stats Bar */
@@ -385,10 +387,10 @@
     }
 
     .stat-number {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 3rem;
       font-weight: 600;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       margin-bottom: 0.5rem;
     }
 
@@ -401,7 +403,7 @@
 
     /* CTA Section */
     .cta-section {
-      background: linear-gradient(135deg, var(--secondary-yellow) 0%, white 100%);
+      background: linear-gradient(135deg, var(--secondary-gold) 0%, white 100%);
       text-align: center;
     }
 
@@ -437,12 +439,12 @@
     }
 
     .cta-btn-primary {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
     }
 
     .cta-btn-primary:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
     }
 
@@ -453,8 +455,8 @@
     }
 
     .cta-btn-secondary:hover {
-      border-color: var(--primary-red);
-      color: var(--primary-red);
+      border-color: var(--primary-blue);
+      color: var(--primary-blue);
     }
 
     /* Filter Sidebar */
@@ -512,7 +514,7 @@
     .filter-option input {
       width: 18px;
       height: 18px;
-      accent-color: var(--primary-red);
+      accent-color: var(--primary-blue);
     }
 
     .filter-option label {
@@ -565,13 +567,13 @@
     }
 
     .footer-social a:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     .footer-title {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-links {
@@ -621,7 +623,20 @@
 
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-content {
+        padding: 0 5%;
+      }
+
+      .hero {
+        min-height: 320px;
+        height: 40vh;
       }
 
       .nav-links {
@@ -630,14 +645,382 @@
 
       .directory-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
 
       .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer {
+        padding: 3rem 5% 1.5rem;
+      }
+
+      .section {
+        padding: 3rem 5%;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+      }
+
+      /* Filter sidebar: normal flow on tablet */
+      .filter-sidebar {
+        position: static;
+        border-radius: 12px;
+      }
+
+      .directory-layout {
+        gap: 2rem;
+      }
+
+      /* Touch-friendly elements */
+      .category-tab {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 1.5rem;
+      }
+
+      .search-bar input {
+        min-height: 44px;
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .search-bar button {
+        min-height: 44px;
+        padding: 1rem 1.5rem;
+      }
+
+      .cta-btn {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .directory-card-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .directory-card {
+        margin-bottom: 0.5rem;
+      }
+
+      .filter-option {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+
+      .filter-option input {
+        width: 20px;
+        height: 20px;
+      }
+
+      .footer-social a {
+        width: 44px;
+        height: 44px;
+      }
+
+      /* Search bar responsive */
+      .search-container {
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+
+      .search-bar {
+        border-radius: 12px;
+      }
+
+      .cta-title {
+        font-size: 2rem;
+      }
+
+      .cta-text {
+        font-size: 1rem;
+      }
+    }
+
+    /* Small phone breakpoint */
+    @media (max-width: 480px) {
+      .hero {
+        height: 35vh;
+        min-height: 280px;
+        margin-top: 70px;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-content {
+        padding: 0 4%;
+      }
+
+      .navbar {
+        padding: 1rem 4%;
+      }
+
+      .logo-main {
+        font-size: 1.4rem;
+      }
+
+      .logo-tagline {
+        font-size: 0.5rem;
+      }
+
+      /* Section adjustments */
+      .section {
+        padding: 2.5rem 4%;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      /* Category tabs */
+      .category-tabs {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .category-tab {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        min-height: 44px;
+      }
+
+      /* Card adjustments */
+      .directory-card-content {
+        padding: 1rem;
+      }
+
+      .directory-card-title {
+        font-size: 1.25rem;
+      }
+
+      .directory-card-description {
+        font-size: 0.9rem;
+      }
+
+      .directory-card-category {
+        font-size: 0.7rem;
+      }
+
+      .directory-card-location {
+        font-size: 0.85rem;
+      }
+
+      .directory-card-image {
+        height: 170px;
+      }
+
+      .directory-card {
+        margin-bottom: 0.25rem;
+        border-radius: 12px;
+      }
+
+      .directory-tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+      }
+
+      .directory-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .directory-card-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .directory-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      /* Stats: 2-column grid */
+      .stats-bar {
+        padding: 2rem 4%;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .stat-label {
+        font-size: 0.75rem;
+      }
+
+      /* Search bar compact */
+      .search-container {
+        padding: 0;
+      }
+
+      .search-bar {
+        flex-direction: column;
+        border-radius: 12px;
+      }
+
+      .search-bar input {
+        border-radius: 12px 12px 0 0;
+        padding: 1rem;
+        min-height: 44px;
+        font-size: 0.9rem;
+      }
+
+      .search-bar button {
+        border-radius: 0 0 12px 12px;
+        min-height: 44px;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* CTA section compact */
+      .cta-title {
+        font-size: 1.6rem;
+      }
+
+      .cta-text {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .cta-btn {
+        min-height: 44px;
+        padding: 0.875rem 2rem;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Filter sidebar compact */
+      .filter-sidebar {
+        padding: 1.25rem;
+        border-radius: 12px;
+      }
+
+      .filter-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .filter-group-title {
+        font-size: 0.85rem;
+      }
+
+      .filter-option label {
+        font-size: 0.9rem;
+      }
+
+      .filter-option {
+        min-height: 44px;
+        padding: 0.25rem 0;
+      }
+
+      .filter-option input {
+        width: 22px;
+        height: 22px;
+      }
+
+      /* Footer single column centered */
+      .footer {
+        padding: 2.5rem 4% 1.5rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-brand {
+        text-align: center;
+      }
+
+      .footer-brand .logo-main {
+        font-size: 1.4rem;
+      }
+
+      .footer-description {
+        font-size: 0.9rem;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+
+      .footer-social a {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-title {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        font-size: 0.9rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.4rem;
+      }
+
+      .footer-bottom {
+        font-size: 0.8rem;
+        padding-top: 1.5rem;
       }
     }
   </style>
@@ -710,7 +1093,7 @@
     <div class="directory-grid" id="businesses">
       <!-- Business 1 -->
       <div class="directory-card">
-        <div class="directory-card-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600')">
+        <div class="directory-card-image" style="background-image: url('/api/places?query=fine+dining+restaurant+Downtown+Orlando+FL&maxwidth=600')">
           <span class="directory-card-badge">Featured</span>
         </div>
         <div class="directory-card-content">
@@ -718,7 +1101,7 @@
           <h3 class="directory-card-title">Bones Restaurant</h3>
           <div class="directory-card-location">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Thornton Park Orlando
+            Downtown Orlando
           </div>
           <p class="directory-card-description">Orlando's legendary steakhouse serving prime cuts and classic American cuisine since 1979.</p>
           <div class="directory-card-tags">
@@ -738,14 +1121,14 @@
 
       <!-- Business 2 -->
       <div class="directory-card">
-        <div class="directory-card-image" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600')">
+        <div class="directory-card-image" style="background-image: url('/api/places?query=East+End+Market+Orlando+FL&maxwidth=600')">
         </div>
         <div class="directory-card-content">
           <div class="directory-card-category">Cocktail Bar</div>
           <h3 class="directory-card-title">Ticonderoga Club</h3>
           <div class="directory-card-location">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Krog Street Market
+            East End Market
           </div>
           <p class="directory-card-description">Award-winning cocktail bar with creative drinks and a speakeasy atmosphere.</p>
           <div class="directory-card-tags">
@@ -764,7 +1147,7 @@
 
       <!-- Business 3 -->
       <div class="directory-card">
-        <div class="directory-card-image" style="background-image: url('https://images.unsplash.com/photo-1594741158704-5a784b8e59fb?w=600')">
+        <div class="directory-card-image" style="background-image: url('/api/places?query=Orlando+Museum+of+Art+FL&maxwidth=600')">
           <span class="directory-card-badge">New</span>
         </div>
         <div class="directory-card-content">
@@ -792,14 +1175,14 @@
 
       <!-- Business 4 -->
       <div class="directory-card">
-        <div class="directory-card-image" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600')">
+        <div class="directory-card-image" style="background-image: url('/api/places?query=Ravenous+Pig+Winter+Park+Orlando+FL&maxwidth=600')">
         </div>
         <div class="directory-card-content">
           <div class="directory-card-category">Restaurant</div>
           <h3 class="directory-card-title">Staplehouse</h3>
           <div class="directory-card-location">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Thornton Park
+            Old Fourth Ward
           </div>
           <p class="directory-card-description">James Beard Award-winning restaurant serving innovative American cuisine with Southern roots.</p>
           <div class="directory-card-tags">
@@ -818,7 +1201,7 @@
 
       <!-- Business 5 -->
       <div class="directory-card">
-        <div class="directory-card-image" style="background-image: url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600')">
+        <div class="directory-card-image" style="background-image: url('/api/places?query=SEA+LIFE+Orlando+Aquarium+FL&maxwidth=600')">
         </div>
         <div class="directory-card-content">
           <div class="directory-card-category">Entertainment</div>
@@ -844,7 +1227,7 @@
 
       <!-- Business 6 -->
       <div class="directory-card">
-        <div class="directory-card-image" style="background-image: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600')">
+        <div class="directory-card-image" style="background-image: url('/api/places?query=Se7en+Bites+Orlando+FL&maxwidth=600')">
           <span class="directory-card-badge">Popular</span>
         </div>
         <div class="directory-card-content">
@@ -889,7 +1272,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="logo-main">The 407 Vibes</span>
-        <p class="footer-description">Your comprehensive guide to Orlando's culture, neighborhoods, and lifestyle. Discover what makes the Orlando special.</p>
+        <p class="footer-description">Your comprehensive guide to Orlando's culture, neighborhoods, and lifestyle. Discover what makes Orlando special.</p>
         <div class="footer-social">
           <a href="#">IG</a>
           <a href="#">FB</a>
@@ -900,7 +1283,7 @@
       <div>
         <h4 class="footer-title">Explore</h4>
         <ul class="footer-links">
-          <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+          <li><a href="downtown-orlando.html">Downtown Orlando</a></li>
           <li><a href="winter-park.html">Winter Park</a></li>
           <li><a href="thornton-park.html">Thornton Park</a></li>
           <li><a href="mills-50.html">Mills 50</a></li>
@@ -928,8 +1311,25 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2025 The 407 Vibes. All rights reserved.
+      &copy; 2026 The 407 Vibes. All rights reserved.
     </div>
   </footer>
+
+  <!-- RSS Restaurant/Food News -->
+  <script src="/js/rss-feed.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add RSS section before footer
+      var footer = document.querySelector('.footer');
+      if (footer && typeof RSSFeed !== 'undefined') {
+        var section = document.createElement('section');
+        section.className = 'section';
+        section.style.padding = '3rem 5%';
+        section.innerHTML = '<h2 style="font-family:Poppins,serif;font-size:2rem;margin-bottom:1.5rem;">Orlando Food & Restaurant News</h2><div id="rss-restaurants"></div>';
+        footer.parentNode.insertBefore(section, footer);
+        RSSFeed.load('rss-restaurants', 'restaurants');
+      }
+    });
+  </script>
 </body>
 </html>

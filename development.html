@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orlando Development | The 407 Vibes</title>
-  <meta name="description" content="Editorial development stories and neighborhood impact in Orlando. Stay informed about the Orlando Trail, mixed-use developments, and urban transformation.">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>407 Development | The 407 Vibes</title>
+  <meta name="description" content="Editorial development stories and neighborhood impact in Orlando. Stay informed about the I-4 Creative Corridor, mixed-use developments, and urban transformation.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -32,7 +33,7 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
@@ -40,7 +41,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.1;
     }
@@ -69,7 +70,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -79,12 +80,13 @@
     }
 
     .logo-tagline {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 0.65rem;
       font-weight: 400;
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
       margin-top: 4px;
     }
 
@@ -113,12 +115,12 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       transition: width 0.3s;
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .nav-links a:hover::after {
@@ -126,7 +128,7 @@
     }
 
     .nav-links a.active {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .nav-links a.active::after {
@@ -134,7 +136,7 @@
     }
 
     .submit-btn {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       padding: 0.7rem 1.5rem;
       border-radius: 4px;
@@ -148,7 +150,7 @@
     }
 
     .submit-btn:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
     }
 
@@ -196,7 +198,7 @@
 
     .hero-category {
       display: inline-block;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       padding: 0.5rem 1.5rem;
       font-size: 0.7rem;
@@ -207,7 +209,7 @@
     }
 
     .hero-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 4rem;
       margin-bottom: 1.5rem;
       font-weight: 500;
@@ -256,7 +258,7 @@
     }
 
     .section-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.5rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
@@ -272,7 +274,7 @@
       left: 0;
       width: 60px;
       height: 2px;
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     .section-header:not(.left-align) .section-title::after {
@@ -284,7 +286,7 @@
       font-size: 0.85rem;
       color: var(--text-light);
       font-weight: 400;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin-top: 1.5rem;
@@ -337,14 +339,14 @@
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: white;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       padding: 0.25rem 0.75rem;
       margin-bottom: 0.75rem;
       font-weight: 600;
     }
 
     .dev-story-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
       line-height: 1.3;
@@ -361,7 +363,7 @@
     }
 
     .dev-story-neighborhood {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       font-weight: 600;
     }
 
@@ -421,7 +423,7 @@
     }
 
     .neighborhood-card-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
@@ -429,7 +431,7 @@
 
     .neighborhood-card-count {
       font-size: 0.75rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
@@ -446,7 +448,7 @@
     }
 
     .explore-link:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     /* Sidebar */
@@ -464,12 +466,12 @@
     }
 
     .sidebar-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 1rem;
       padding-bottom: 0.75rem;
-      border-bottom: 2px solid var(--primary-yellow);
+      border-bottom: 2px solid var(--primary-gold);
     }
 
     /* Newsletter Form */
@@ -491,17 +493,17 @@
       border: 1px solid var(--border-color);
       border-radius: 4px;
       font-size: 0.95rem;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       transition: border-color 0.3s;
     }
 
     .newsletter-input:focus {
       outline: none;
-      border-color: var(--primary-red);
+      border-color: var(--primary-blue);
     }
 
     .newsletter-btn {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       border: none;
       padding: 0.875rem 1.5rem;
@@ -515,7 +517,7 @@
     }
 
     .newsletter-btn:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
     }
 
@@ -553,7 +555,7 @@
     }
 
     .neighborhood-list-item:hover {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       margin: 0 -1rem;
       padding-left: 1rem;
       padding-right: 1rem;
@@ -567,20 +569,20 @@
     }
 
     .neighborhood-list-item a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .neighborhood-list-count {
       font-size: 0.75rem;
       color: var(--text-light);
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
     }
 
     /* See All CTA Banner */
     .see-all-cta {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       padding: 4rem 5%;
       text-align: center;
     }
@@ -591,7 +593,7 @@
     }
 
     .see-all-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.5rem;
       color: white;
       margin-bottom: 1rem;
@@ -607,7 +609,7 @@
     .see-all-btn {
       display: inline-block;
       background: white;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       padding: 1rem 2.5rem;
       text-decoration: none;
       font-size: 0.85rem;
@@ -639,10 +641,10 @@
     }
 
     .footer-brand h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
       letter-spacing: 0.1em;
     }
@@ -661,7 +663,7 @@
     .social-link {
       width: 40px;
       height: 40px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       display: flex;
       align-items: center;
@@ -673,16 +675,16 @@
     }
 
     .social-link:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       transform: translateY(-3px);
     }
 
     .footer-column h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
       letter-spacing: 0.1em;
     }
@@ -703,7 +705,7 @@
     }
 
     .footer-links a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-bottom {
@@ -786,12 +788,12 @@
       id: 1,
       category: 'Development',
       subcategory: 'Mixed-Use',
-      title: "The Orlando Trail's Next Chapter: College Park Trail Expansion Transforms College Park",
-      excerpt: 'New mixed-use developments along the College Park Trail are reshaping Orlando\'s historic College Park neighborhood, bringing thousands of residential units, retail spaces, and community amenities while sparking conversations about equitable development.',
+      title: "The I-4 Creative Corridor's Next Chapter: College Park Trail Expansion Transforms West End",
+      excerpt: 'New mixed-use developments along the College Park Trail are reshaping Orlando\'s historic West End neighborhood, bringing thousands of residential units, retail spaces, and community amenities while sparking conversations about equitable development.',
       author: 'Marcus Johnson',
       date: 'January 28, 2026',
-      image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600',
-      neighborhood: 'College Park',
+      image: '/api/places?query=Creative+Village+Orlando+FL&maxwidth=1600',
+      neighborhood: 'West End',
       featured: true
     };
 
@@ -800,10 +802,10 @@
       {
         id: 2,
         subcategory: 'Residential',
-        title: 'Winter Park High-Rise Breaks Ground on Orange Ave',
+        title: 'Winter Park High-Rise Breaks Ground on Orange Avenue',
         neighborhood: 'Winter Park',
         date: '27 Jan 2026',
-        image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800'
+        image: '/api/places?query=Orange+Avenue+Orlando+highrise+FL&maxwidth=800'
       },
       {
         id: 3,
@@ -811,15 +813,15 @@
         title: 'Tech Hub Anchors New College Park Development',
         neighborhood: 'English Avenue',
         date: '25 Jan 2026',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800'
+        image: '/api/places?query=UCF+Downtown+Orlando+campus+FL&maxwidth=800'
       },
       {
         id: 4,
         subcategory: 'Mixed-Use',
         title: 'East End Market Phase 2 Revealed',
-        neighborhood: 'Thornton Park',
+        neighborhood: 'Old Fourth Ward',
         date: '24 Jan 2026',
-        image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800'
+        image: '/api/places?query=East+End+Market+Orlando+FL&maxwidth=800'
       },
       {
         id: 5,
@@ -827,7 +829,7 @@
         title: 'SunRail Station Development Plans Unveiled',
         neighborhood: 'East Point',
         date: '22 Jan 2026',
-        image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800'
+        image: '/api/places?query=SunRail+Orlando+station+FL&maxwidth=800'
       },
       {
         id: 6,
@@ -835,7 +837,7 @@
         title: 'Historic Warehouse Becomes Creative Campus',
         neighborhood: 'Castleberry Hill',
         date: '20 Jan 2026',
-        image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800'
+        image: '/api/places?query=Ivanhoe+Village+Orlando+FL&maxwidth=800'
       },
       {
         id: 7,
@@ -843,55 +845,55 @@
         title: 'Affordable Housing Project Breaks Record',
         neighborhood: 'Pittsburgh',
         date: '18 Jan 2026',
-        image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800'
+        image: '/api/places?query=Parramore+Orlando+neighborhood+FL&maxwidth=800'
       }
     ];
 
     // Neighborhoods with development activity
     const impactedNeighborhoods = [
       {
-        name: 'Thornton Park',
+        name: 'Old Fourth Ward',
         slug: 'old-fourth-ward',
         storyCount: 12,
-        image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600'
+        image: '/api/places?query=Thornton+Park+District+Orlando+FL&maxwidth=600'
       },
       {
-        name: 'College Park',
+        name: 'West End',
         slug: 'west-end',
         storyCount: 9,
-        image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600'
+        image: '/api/places?query=Parramore+Orlando+FL&maxwidth=600'
       },
       {
         name: 'Winter Park',
         slug: 'winter-park',
         storyCount: 15,
-        image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600'
+        image: '/api/places?query=Winter+Park+Village+FL&maxwidth=600'
       },
       {
         name: 'English Avenue',
         slug: 'english-avenue',
         storyCount: 7,
-        image: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=600'
+        image: '/api/places?query=Mills+50+District+Orlando+FL&maxwidth=600'
       },
       {
-        name: 'Audubon Park',
+        name: 'Reynoldstown',
         slug: 'reynoldstown',
         storyCount: 6,
-        image: 'https://images.unsplash.com/photo-1464938050520-ef2571d1b858?w=600'
+        image: '/api/places?query=Audubon+Park+Orlando+FL&maxwidth=600'
       },
       {
         name: 'Summerhill',
         slug: 'summerhill',
         storyCount: 8,
-        image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600'
+        image: '/api/places?query=Lake+Nona+Medical+City+FL&maxwidth=600'
       }
     ];
 
     // Popular neighborhoods for sidebar
     const popularNeighborhoods = [
       { name: 'Winter Park', storyCount: 15 },
-      { name: 'Thornton Park', storyCount: 12 },
-      { name: 'College Park', storyCount: 9 },
+      { name: 'Old Fourth Ward', storyCount: 12 },
+      { name: 'West End', storyCount: 9 },
       { name: 'Summerhill', storyCount: 8 },
       { name: 'English Avenue', storyCount: 7 }
     ];
@@ -1042,7 +1044,7 @@
               <h3>The 407 Vibes</h3>
               <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
               <div className="social-links">
-                <a href="https://www.instagram.com/atlvibesandviews/" className="social-link" target="_blank" rel="noopener noreferrer">IG</a>
+                <a href="https://www.instagram.com/the407vibes/" className="social-link" target="_blank" rel="noopener noreferrer">IG</a>
                 <a href="#" className="social-link">FB</a>
                 <a href="#" className="social-link">TW</a>
                 <a href="#" className="social-link">YT</a>
@@ -1139,6 +1141,25 @@
     }
 
     ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+
+  <!-- RSS Development News Feed -->
+  <script src="/js/rss-feed.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        var root = document.getElementById('root');
+        if (root && typeof RSSFeed !== 'undefined') {
+          var section = document.createElement('section');
+          section.style.cssText = 'padding:3rem 5%;max-width:1400px;margin:0 auto;';
+          section.innerHTML = '<h2 style="font-family:Poppins,serif;font-size:2rem;margin-bottom:1.5rem;">Latest Orlando Development News</h2><div id="rss-development"></div>';
+          var footer = root.querySelector('footer');
+          if (footer) root.insertBefore(section, footer);
+          else root.appendChild(section);
+          RSSFeed.load('rss-development', 'development');
+        }
+      }, 500);
+    });
   </script>
 </body>
 </html>

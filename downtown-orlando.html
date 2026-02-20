@@ -3,39 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thornton Park Orlando - The 407 Vibes | Orlando's Upscale District</title>
-  <meta name="description" content="Explore Thornton Park Orlando, Orlando's upscale district known for luxury shopping, fine dining, and vibrant nightlife. Discover neighborhoods, businesses, events, and real estate.">
-  <link rel="canonical" href="https://the-407-vibes.vercel.app/downtown-orlando.html">
+  <title>Downtown Orlando - The 407 Vibes | Urban Core & Lake Eola</title>
+  <meta name="description" content="Explore Downtown Orlando, the vibrant urban core anchored by Lake Eola. Discover nightlife on Wall Street, arts venues, restaurants, and lakeside living.">
+  <link rel="canonical" href="https://the407vibes.com/downtown-orlando.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://the-407-vibes.vercel.app/downtown-orlando.html">
-  <meta property="og:title" content="Thornton Park Orlando - Orlando's Upscale District | The 407 Vibes">
-  <meta property="og:description" content="Explore Thornton Park Orlando, Orlando's upscale district known for luxury shopping, fine dining, and vibrant nightlife. Discover neighborhoods, businesses, events, and real estate.">
-  <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta property="og:url" content="https://the407vibes.com/downtown-orlando.html">
+  <meta property="og:title" content="Downtown Orlando - Urban Core & Lake Eola | The 407 Vibes">
+  <meta property="og:description" content="Explore Downtown Orlando, the vibrant urban core anchored by Lake Eola. Discover nightlife on Wall Street, arts venues, restaurants, and lakeside living.">
+  <meta property="og:image" content="https://the407vibes.com/orlando-map.png">
   <meta property="og:site_name" content="The 407 Vibes">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Thornton Park Orlando - Orlando's Upscale District | The 407 Vibes">
-  <meta name="twitter:description" content="Explore Thornton Park Orlando, Orlando's upscale district known for luxury shopping, fine dining, and vibrant nightlife.">
-  <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta name="twitter:title" content="Downtown Orlando - Urban Core & Lake Eola | The 407 Vibes">
+  <meta name="twitter:description" content="Explore Downtown Orlando, the vibrant urban core anchored by Lake Eola. Nightlife on Wall Street, arts venues, and lakeside living.">
+  <meta name="twitter:image" content="https://the407vibes.com/orlando-map.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -48,7 +49,7 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
@@ -56,7 +57,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.1;
     }
@@ -85,7 +86,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -95,12 +96,13 @@
     }
 
     .logo-tagline {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 0.65rem;
       font-weight: 400;
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
       margin-top: 4px;
     }
 
@@ -117,21 +119,21 @@
       flex: 1;
       padding: 0.6rem 0;
       border: none;
-      border-bottom: 2px solid #5BA4A4;
+      border-bottom: 2px solid #FF6B35;
       background: transparent;
       font-size: 1rem;
-      color: #5BA4A4;
+      color: #FF6B35;
       outline: none;
       transition: border-color 0.3s;
     }
 
     .navbar-search input::placeholder {
-      color: #5BA4A4;
+      color: #FF6B35;
       font-weight: 500;
     }
 
     .navbar-search input:focus {
-      border-bottom-color: var(--primary-red);
+      border-bottom-color: var(--primary-blue);
     }
 
     .navbar-search button {
@@ -147,12 +149,12 @@
     .navbar-search button svg {
       width: 22px;
       height: 22px;
-      stroke: #5BA4A4;
+      stroke: #FF6B35;
       transition: stroke 0.3s;
     }
 
     .navbar-search button:hover svg {
-      stroke: var(--primary-red);
+      stroke: var(--primary-blue);
     }
 
     .nav-links {
@@ -180,12 +182,12 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       transition: width 0.3s;
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .nav-links a:hover::after {
@@ -236,7 +238,7 @@
     }
 
     .dropdown-menu a:hover {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
     }
 
     .dropdown-menu a::after {
@@ -301,7 +303,7 @@
     }
 
     .area-hero-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 4rem;
       font-weight: 600;
       margin-bottom: 1rem;
@@ -323,9 +325,9 @@
     }
 
     .area-vibe-tag {
-      background: rgba(255, 217, 90, 0.2);
-      border: 1px solid rgba(255, 217, 90, 0.5);
-      color: var(--primary-yellow);
+      background: rgba(255, 107, 53, 0.2);
+      border: 1px solid rgba(255, 107, 53, 0.5);
+      color: var(--primary-gold);
       padding: 0.5rem 1rem;
       border-radius: 50px;
       font-size: 0.75rem;
@@ -345,7 +347,7 @@
     }
 
     .area-stat-value {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.5rem;
       font-weight: 600;
       display: block;
@@ -377,13 +379,13 @@
     }
 
     .area-section-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.5rem;
       font-weight: 600;
     }
 
     .area-section-link {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
@@ -405,7 +407,7 @@
 
     .neighborhood-map-wrapper {
       position: relative;
-      background: #f5f5f5;
+      background: #FFFFFF;
       border-radius: 12px;
       overflow: hidden;
       aspect-ratio: 4/3;
@@ -417,7 +419,7 @@
     }
 
     .neighborhood-region {
-      fill: rgba(255, 217, 90, 0.2);
+      fill: rgba(255, 107, 53, 0.2);
       stroke: var(--primary-black);
       stroke-width: 1;
       cursor: pointer;
@@ -426,13 +428,13 @@
 
     .neighborhood-region:hover,
     .neighborhood-region.active {
-      fill: rgba(255, 217, 90, 0.5);
+      fill: rgba(255, 107, 53, 0.5);
       filter: drop-shadow(0 0 8px rgba(255, 215, 90, 0.5));
     }
 
     .neighborhood-region.selected {
-      fill: rgba(255, 217, 90, 0.7);
-      stroke: var(--primary-yellow);
+      fill: rgba(255, 107, 53, 0.7);
+      stroke: var(--primary-gold);
       stroke-width: 2;
       filter: drop-shadow(0 0 12px rgba(255, 215, 90, 0.8));
     }
@@ -451,7 +453,7 @@
       align-items: center;
       gap: 1rem;
       padding: 1rem 1.5rem;
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       border-radius: 8px;
       margin-bottom: 2rem;
     }
@@ -462,7 +464,7 @@
     }
 
     .filter-indicator-text span {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .filter-clear-btn {
@@ -479,7 +481,7 @@
     }
 
     .filter-clear-btn:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     /* Neighborhood Accordion Sections */
@@ -511,16 +513,16 @@
     }
 
     .accordion-header:hover {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
     }
 
     .accordion-header.active {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       border-bottom: 1px solid var(--border-color);
     }
 
     .accordion-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.35rem;
       font-weight: 600;
       color: var(--text-dark);
@@ -532,7 +534,7 @@
     .accordion-count {
       background: var(--primary-black);
       color: white;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 0.75rem;
       padding: 0.25rem 0.6rem;
       border-radius: 50px;
@@ -552,7 +554,7 @@
     .accordion-content {
       display: none;
       padding: 1.5rem;
-      background: #fafafa;
+      background: #FFFFFF;
     }
 
     .accordion-content.open {
@@ -584,15 +586,15 @@
     }
 
     .accordion-item:hover {
-      border-color: var(--primary-yellow);
-      background: var(--secondary-yellow);
+      border-color: var(--primary-gold);
+      background: var(--secondary-gold);
       transform: translateX(4px);
     }
 
     .accordion-item.selected {
-      border-color: var(--primary-yellow);
-      background: var(--secondary-yellow);
-      box-shadow: 0 0 0 2px var(--primary-yellow);
+      border-color: var(--primary-gold);
+      background: var(--secondary-gold);
+      box-shadow: 0 0 0 2px var(--primary-gold);
     }
 
     .accordion-item-name {
@@ -614,8 +616,8 @@
 
     /* Neighborhood Card Selected State */
     .neighborhood-card.selected {
-      border: 3px solid var(--primary-yellow);
-      box-shadow: 0 0 20px rgba(255, 217, 90, 0.4);
+      border: 3px solid var(--primary-gold);
+      box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
     }
 
     /* Map Click Hint */
@@ -691,7 +693,7 @@
     }
 
     .neighborhood-card-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
@@ -772,8 +774,8 @@
     }
 
     .content-tab.active {
-      color: var(--primary-red);
-      border-bottom-color: var(--primary-red);
+      color: var(--primary-blue);
+      border-bottom-color: var(--primary-blue);
     }
 
     /* Content Grid */
@@ -798,7 +800,7 @@
     }
 
     .content-card.featured {
-      border: 2px solid var(--primary-yellow);
+      border: 2px solid var(--primary-gold);
     }
 
     .content-card-image {
@@ -813,7 +815,7 @@
 
     .content-card-badge {
       display: inline-block;
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       color: var(--text-dark);
       padding: 0.25rem 0.75rem;
       border-radius: 50px;
@@ -825,7 +827,7 @@
     }
 
     .content-card-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
@@ -851,10 +853,10 @@
 
     /* Property Cards */
     .property-card-price {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.75rem;
       font-weight: 700;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       margin-bottom: 0.25rem;
     }
 
@@ -879,7 +881,7 @@
     }
 
     .newsletter-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
@@ -909,7 +911,7 @@
     }
 
     .newsletter-btn {
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       padding: 1rem 2rem;
       border: none;
@@ -923,7 +925,7 @@
     }
 
     .newsletter-btn:hover {
-      background: #FFE580;
+      background: #FF8C5A;
       transform: translateY(-2px);
     }
 
@@ -958,13 +960,13 @@
     }
 
     .footer-title {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 1.5rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-links {
@@ -1048,6 +1050,57 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .area-hero-title { font-size: 2.2rem; }
+      .area-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .area-stat { flex: 0 0 auto; min-width: 80px; }
+      .area-stat-value { font-size: 2rem; }
+      .content-tabs { flex-wrap: wrap; }
+      .content-tab { padding: 0.75rem 1.25rem; font-size: 0.8rem; }
+      .content-grid { grid-template-columns: 1fr; }
+      .neighborhoods-grid { grid-template-columns: 1fr; }
+      .accordion-grid { grid-template-columns: 1fr; }
+      .dropdown-grid { grid-template-columns: 1fr; }
+      .area-section-title { font-size: 1.8rem; }
+      .area-section-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .neighborhood-map-container { grid-template-columns: 1fr; }
+      .navbar-search { flex: 0 1 100%; margin: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .area-hero-title { font-size: 1.6rem; }
+      .area-hero-tagline { font-size: 0.9rem; }
+      .area-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .area-stat-value { font-size: 1.75rem; }
+      .area-section-title { font-size: 1.3rem; }
+      .content-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; scrollbar-width: none; }
+      .content-tabs::-webkit-scrollbar { display: none; }
+      .content-tab { min-height: 44px; white-space: nowrap; padding: 0.6rem 1rem; font-size: 0.75rem; }
+      .content-card-body { padding: 1rem; }
+      .accordion-header { min-height: 44px; padding: 1rem; }
+      .accordion-content { padding: 1rem; }
+      .accordion-item { min-height: 44px; }
+      .filter-clear-btn { min-height: 44px; }
+      .newsletter-btn { min-height: 44px; }
+      .view-all-btn { min-height: 44px; }
+      .logo-main { font-size: 1.4rem; }
+      .area-content { padding: 2rem 4%; }
+      .newsletter-section { padding: 3rem 4%; }
+      .footer { padding: 3rem 4% 2rem; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand { text-align: center; }
+      .footer-links { text-align: center; }
+      .footer-bottom { font-size: 0.8rem; }
+      .area-hero { min-height: 350px; }
+      .area-hero-content { padding: 1.25rem; }
+      .area-vibe-tag { padding: 0.4rem 0.75rem; font-size: 0.65rem; }
+      .navbar { padding: 0.75rem 4%; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.8rem; }
+      .filter-indicator { flex-direction: column; text-align: center; }
+      .filter-clear-btn { margin-left: 0; }
+    }
   </style>
 </head>
 <body>
@@ -1059,81 +1112,59 @@
     // Area Data
     const areaData = {
       id: 'downtown-orlando',
-      name: 'Thornton Park Orlando',
-      tagline: "Orlando's upscale district where luxury shopping meets vibrant nightlife",
-      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600',
-      vibes: ['Upscale', 'Shopping', 'Nightlife', 'Fine Dining'],
+      name: 'Downtown Orlando',
+      tagline: "Orlando's vibrant urban core anchored by Lake Eola and Wall Street nightlife",
+      image: '/api/places?query=Lake+Eola+Park+Orlando+FL&maxwidth=1600',
+      vibes: ['Urban Core', 'Nightlife', 'Lake Eola', 'Arts & Culture'],
       stats: {
-        neighborhoods: 26,
-        businesses: 156,
-        events: 24
+        neighborhoods: 14,
+        businesses: 210,
+        events: 38
       }
     };
 
     // Neighborhoods grouped by sub-area
     const neighborhoodGroups = [
       {
-        id: 'central-downtown-orlando',
-        name: 'Central Thornton Park Orlando',
-        description: 'Shopping, dining & entertainment hub',
+        id: 'lake-eola',
+        name: 'Lake Eola & Central Core',
+        description: 'Lakeside living, dining & entertainment',
         neighborhoods: [
-          { id: 'downtown-orlando-village', name: 'Thornton Park Orlando Village' },
-          { id: 'lenox', name: 'Lenox' },
-          { id: 'orange-ave-battle', name: 'Orange Ave Battle' },
-          { id: 'garden-hills', name: 'Garden Hills' },
-          { id: 'orange-ave-hills', name: 'Orange Ave Hills' },
-          { id: 'brookwood', name: 'Brookwood' },
-          { id: 'brookwood-hills', name: 'Brookwood Hills' }
+          { id: 'lake-eola-heights', name: 'Lake Eola Heights' },
+          { id: 'church-street', name: 'Church Street District' },
+          { id: 'wall-street-plaza', name: 'Wall Street Plaza' },
+          { id: 'south-eola', name: 'South Eola' }
         ]
       },
       {
-        id: 'north-downtown-orlando',
-        name: 'North Thornton Park Orlando',
-        description: 'Parks, family neighborhoods & nature',
+        id: 'creative-village',
+        name: 'Creative Village & North Quarter',
+        description: 'Innovation hub & mixed-use development',
         neighborhoods: [
-          { id: 'chastain-park', name: 'Chastain Park' },
-          { id: 'north-downtown-orlando-area', name: 'North Thornton Park Orlando' },
-          { id: 'kingswood', name: 'Kingswood' },
-          { id: 'castlewood', name: 'Castlewood' },
-          { id: 'pine-hills', name: 'Pine Hills' },
-          { id: 'ridgewood-heights', name: 'Ridgewood Heights' },
-          { id: 'nancy-creek', name: 'Nancy Creek' }
+          { id: 'creative-village', name: 'Creative Village' },
+          { id: 'north-quarter', name: 'North Quarter' },
+          { id: 'parramore', name: 'Parramore' },
+          { id: 'amway-center', name: 'Amway Center District' }
         ]
       },
       {
-        id: 'west-downtown-orlando',
-        name: 'West Thornton Park Orlando',
-        description: 'Historic estates & luxury living',
+        id: 'performing-arts',
+        name: 'Performing Arts & Convention',
+        description: 'Cultural venues & event spaces',
         neighborhoods: [
-          { id: 'tuxedo-park', name: 'Tuxedo Park' },
-          { id: 'paces', name: 'Paces' },
-          { id: 'west-paces-ferry', name: 'West Paces Ferry' },
-          { id: 'argonne-forest', name: 'Argonne Forest' },
-          { id: 'whitewater-creek', name: 'Whitewater Creek' },
-          { id: 'wildwood', name: 'Wildwood' }
+          { id: 'dr-phillips-center', name: 'Dr. Phillips Center Area' },
+          { id: 'heritage-square', name: 'Heritage Square' },
+          { id: 'rosalind-ave', name: 'Rosalind Avenue Corridor' }
         ]
       },
       {
-        id: 'east-downtown-orlando',
-        name: 'East Thornton Park Orlando',
-        description: 'Historic homes & tree-lined streets',
+        id: 'south-downtown',
+        name: 'South Downtown',
+        description: 'Emerging neighborhoods & SunRail access',
         neighborhoods: [
-          { id: 'orange-ave-heights-east', name: 'Orange Ave Heights East' },
-          { id: 'orange-ave-heights-west', name: 'Orange Ave Heights West' },
-          { id: 'haynes-manor', name: 'Haynes Manor' },
-          { id: 'brandon', name: 'Brandon' },
-          { id: 'lindridge-martin-manor', name: 'Lindridge/Martin Manor' },
-          { id: 'springlake', name: 'Springlake' }
-        ]
-      },
-      {
-        id: 'south-downtown-orlando',
-        name: 'South Thornton Park Orlando',
-        description: 'Near Piedmont & Bobby Jones Golf',
-        neighborhoods: [
-          { id: 'collier-hills', name: 'Collier Hills' },
-          { id: 'ardmore', name: 'Ardmore' },
-          { id: 'margaret-mitchell', name: 'Margaret Mitchell' }
+          { id: 'sodo', name: 'SoDo District' },
+          { id: 'signal-hill', name: 'Signal Hill' },
+          { id: 'delaney-park', name: 'Delaney Park' }
         ]
       }
     ];
@@ -1145,38 +1176,38 @@
     const demoBusinesses = [
       {
         id: 1,
-        name: 'Bones Restaurant',
+        name: 'The Boheme Restaurant',
         category: 'Fine Dining',
-        description: 'Orlando\'s premier steakhouse serving prime cuts since 1979.',
-        image: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800',
-        neighborhood: 'Thornton Park Orlando Village',
+        description: 'Upscale dining at the Grand Bohemian Hotel overlooking downtown Orlando.',
+        image: '/api/places?query=Boheme+Restaurant+Grand+Bohemian+Orlando+FL&maxwidth=800',
+        neighborhood: 'Lake Eola Heights',
         featured: true
       },
       {
         id: 2,
-        name: 'Lenox Square',
-        category: 'Shopping',
-        description: 'Premier luxury shopping destination with over 250 stores.',
-        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800',
-        neighborhood: 'Lenox',
+        name: 'Wall Street Plaza',
+        category: 'Nightlife',
+        description: 'Orlando\'s premier nightlife block with bars, clubs, and live music.',
+        image: '/api/places?query=Wall+Street+Plaza+Orlando+FL&maxwidth=800',
+        neighborhood: 'Wall Street Plaza',
         featured: true
       },
       {
         id: 3,
-        name: 'Phipps Plaza',
-        category: 'Shopping',
-        description: 'Upscale mall featuring high-end retailers and dining.',
-        image: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800',
-        neighborhood: 'Lenox',
+        name: 'Dr. Phillips Center for the Performing Arts',
+        category: 'Arts & Culture',
+        description: 'World-class performing arts center hosting Broadway, concerts, and ballet.',
+        image: '/api/places?query=Dr+Phillips+Center+Performing+Arts+Orlando+FL&maxwidth=800',
+        neighborhood: 'Dr. Phillips Center Area',
         featured: false
       },
       {
         id: 4,
-        name: 'Chastain Park Amphitheatre',
+        name: 'Amway Center',
         category: 'Entertainment',
-        description: 'Iconic outdoor venue for concerts and performances.',
-        image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800',
-        neighborhood: 'Chastain Park',
+        description: 'Home of the Orlando Magic and major concerts and events.',
+        image: '/api/places?query=Amway+Center+Orlando+FL&maxwidth=800',
+        neighborhood: 'Amway Center District',
         featured: false
       }
     ];
@@ -1185,22 +1216,22 @@
     const demoEvents = [
       {
         id: 1,
-        title: 'Thornton Park Orlando Art & Wine Festival',
+        title: 'Lake Eola Art Festival',
         category: 'Festival',
-        description: 'Annual celebration of art, wine, and local cuisine.',
-        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
+        description: 'Annual celebration of art, live music, and local cuisine along Lake Eola.',
+        image: '/api/places?query=Lake+Eola+Park+Festival+Orlando+FL&maxwidth=800',
         date: 'March 15-17, 2026',
-        location: 'Thornton Park Orlando Village',
+        location: 'Lake Eola Park',
         featured: true
       },
       {
         id: 2,
-        title: 'Chastain Park Summer Concert Series',
+        title: 'Downtown Orlando Concert Series',
         category: 'Music',
-        description: 'Weekly outdoor concerts featuring top artists.',
-        image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800',
+        description: 'Weekly outdoor concerts at Lake Eola featuring top artists.',
+        image: '/api/places?query=Lake+Eola+Park+Amphitheater+Orlando+FL&maxwidth=800',
         date: 'June - August 2026',
-        location: 'Chastain Park Amphitheatre',
+        location: 'Lake Eola Park Amphitheater',
         featured: true
       }
     ];
@@ -1209,35 +1240,35 @@
     const demoProperties = [
       {
         id: 1,
-        price: '$1,250,000',
-        address: '789 West Paces Ferry Rd',
-        neighborhood: 'Tuxedo Park',
-        beds: 5,
-        baths: 4,
-        sqft: '4,200',
-        image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800',
+        price: '$750,000',
+        address: '200 S Orange Ave #2501',
+        neighborhood: 'Lake Eola Heights',
+        beds: 3,
+        baths: 2,
+        sqft: '2,200',
+        image: '/api/places?query=200+South+Orange+Avenue+Orlando+FL&maxwidth=800',
         featured: true
       },
       {
         id: 2,
-        price: '$875,000',
-        address: '456 Habersham Rd NW',
-        neighborhood: 'Garden Hills',
-        beds: 4,
-        baths: 3,
-        sqft: '3,100',
-        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800',
+        price: '$525,000',
+        address: '101 S Eola Dr #1205',
+        neighborhood: 'South Eola',
+        beds: 2,
+        baths: 2,
+        sqft: '1,600',
+        image: '/api/places?query=South+Eola+Drive+Orlando+FL&maxwidth=800',
         featured: false
       },
       {
         id: 3,
-        price: '$525,000',
-        address: '123 Orange Ave Rd NE #1502',
-        neighborhood: 'Lenox',
-        beds: 2,
-        baths: 2,
-        sqft: '1,800',
-        image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800',
+        price: '$385,000',
+        address: '55 W Church St #1004',
+        neighborhood: 'Church Street District',
+        beds: 1,
+        baths: 1,
+        sqft: '950',
+        image: '/api/places?query=Church+Street+Station+Orlando+FL&maxwidth=800',
         featured: false
       }
     ];
@@ -1250,7 +1281,7 @@
       const [events, setEvents] = useState(demoEvents);
       const [loading, setLoading] = useState(true);
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
-      const [expandedSections, setExpandedSections] = useState(['central-downtown-orlando']);
+      const [expandedSections, setExpandedSections] = useState(['lake-eola']);
 
       const toggleSection = (sectionId) => {
         setExpandedSections(prev =>
@@ -1355,15 +1386,15 @@
               <li className="nav-dropdown">
                 <a href="#">Areas</a>
                 <ul className="dropdown-menu">
-                  <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                  <li><a href="downtown-orlando.html">Downtown Orlando</a></li>
                   <li><a href="winter-park.html">Winter Park</a></li>
-                  <li><a href="thornton-park.html">Thornton Park</a></li>
+                  <li><a href="thornton-park.html">Thornton Park / SoDo</a></li>
                   <li><a href="mills-50.html">Mills 50</a></li>
-                  <li><a href="college-park.html">College Park</a></li>
-                  <li><a href="lake-nona.html">Lake Nona Orlando</a></li>
-                  <li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li>
-                  <li><a href="baldwin-park.html">Baldwin Park</a></li>
-                  <li><a href="ivanhoe-village.html">Ivanhoe Village</a></li>
+                  <li><a href="college-park.html">College Park / Edgewater</a></li>
+                  <li><a href="international-drive.html">International Drive</a></li>
+                  <li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li>
+                  <li><a href="east-orlando.html">East Orlando / UCF</a></li>
+                  <li><a href="north-orlando.html">North Orlando / Maitland</a></li>
                 </ul>
               </li>
               <li><a href="development.html">Development</a></li>
@@ -1375,7 +1406,7 @@
 
           {/* Area Hero */}
           <section className="area-hero">
-            <img src={areaData.image} alt={areaData.name} className="area-hero-image" />
+            <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <a href="index.html" className="area-back-link">
@@ -1450,6 +1481,25 @@
                 </div>
             </section>
 
+            {/* Interactive Map */}
+            <section className="area-section">
+              <div className="area-section-header">
+                <h2 className="area-section-title">Explore the Map</h2>
+              </div>
+              <div className="neighborhood-map-wrapper">
+                <iframe
+                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyB1Et0TpTJaGLD8I6_XB7T4zs0o0y6H5cA&q=Downtown+Orlando+FL&zoom=14`}
+                  width="100%"
+                  height="100%"
+                  style={{border: 0, borderRadius: '12px'}}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Map of ${areaData.name}`}
+                />
+              </div>
+            </section>
+
             {/* Tabbed Content Section */}
             <section className="area-section">
               <div className="area-section-header">
@@ -1492,7 +1542,7 @@
               <div className="content-grid">
                 {activeTab === 'businesses' && filteredBusinesses.map((item) => (
                   <div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}>
-                    <img src={item.image} alt={item.name} className="content-card-image" />
+                    <img src={item.image} alt={item.name} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} />
                     <div className="content-card-body">
                       <span className="content-card-badge">{item.category}</span>
                       <h3 className="content-card-title">{item.name}</h3>
@@ -1506,7 +1556,7 @@
 
                 {activeTab === 'events' && filteredEvents.map((item) => (
                   <div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}>
-                    <img src={item.image} alt={item.title} className="content-card-image" />
+                    <img src={item.image} alt={item.title} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} />
                     <div className="content-card-body">
                       <span className="content-card-badge">{item.category}</span>
                       <h3 className="content-card-title">{item.title}</h3>
@@ -1521,7 +1571,7 @@
 
                 {activeTab === 'properties' && filteredProperties.map((item) => (
                   <div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}>
-                    <img src={item.image} alt={item.address} className="content-card-image" />
+                    <img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} />
                     <div className="content-card-body">
                       <div className="property-card-price">{item.price}</div>
                       <div className="property-card-address">{item.address}</div>
@@ -1545,7 +1595,7 @@
                 ) && (
                   <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-light)'}}>
                     <p style={{fontSize: '1.1rem', marginBottom: '1rem'}}>No {activeTab} found in {getSelectedNeighborhoodName()}</p>
-                    <button onClick={clearFilter} style={{background: 'var(--primary-yellow)', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer'}}>
+                    <button onClick={clearFilter} style={{background: 'var(--primary-gold)', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer'}}>
                       Show All {areaData.name} {activeTab}
                     </button>
                   </div>
@@ -1573,7 +1623,7 @@
                 <button type="submit" className="newsletter-btn">Subscribe</button>
               </form>
             ) : (
-              <p style={{color: 'var(--primary-yellow)', fontSize: '1.1rem'}}>
+              <p style={{color: 'var(--primary-gold)', fontSize: '1.1rem'}}>
                 Thanks for subscribing! Check your inbox soon.
               </p>
             )}
@@ -1595,20 +1645,20 @@
               <div>
                 <h4 className="footer-title">Areas</h4>
                 <ul className="footer-links">
-                  <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                  <li><a href="downtown-orlando.html">Downtown Orlando</a></li>
                   <li><a href="winter-park.html">Winter Park</a></li>
-                  <li><a href="thornton-park.html">Thornton Park</a></li>
+                  <li><a href="thornton-park.html">Thornton Park / SoDo</a></li>
                   <li><a href="mills-50.html">Mills 50</a></li>
-                  <li><a href="college-park.html">College Park</a></li>
+                  <li><a href="college-park.html">College Park / Edgewater</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="footer-title">More Areas</h4>
                 <ul className="footer-links">
-                  <li><a href="lake-nona.html">Lake Nona Orlando</a></li>
-                  <li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li>
-                  <li><a href="baldwin-park.html">Baldwin Park</a></li>
-                  <li><a href="ivanhoe-village.html">Ivanhoe Village</a></li>
+                  <li><a href="international-drive.html">International Drive</a></li>
+                  <li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li>
+                  <li><a href="east-orlando.html">East Orlando / UCF</a></li>
+                  <li><a href="north-orlando.html">North Orlando / Maitland</a></li>
                 </ul>
               </div>
               <div>
@@ -1639,20 +1689,20 @@
   {
     "@context": "https://schema.org",
     "@type": "Place",
-    "name": "Thornton Park Orlando, Orlando",
-    "description": "Orlando's upscale district known for luxury shopping at Lenox Square and Phipps Plaza, high-end dining, and vibrant nightlife.",
+    "name": "Downtown Orlando, Florida",
+    "description": "Orlando's vibrant urban core anchored by Lake Eola, Wall Street nightlife, Dr. Phillips Center for the Performing Arts, and Amway Center.",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Thornton Park Orlando",
-      "addressRegion": "GA",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
       "addressCountry": "US"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 33.8384,
-      "longitude": -84.3794
+      "latitude": 28.5383,
+      "longitude": -81.3792
     },
-    "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600"
+    "image": "/api/places?query=Lake+Eola+Park+Orlando+FL&maxwidth=1600"
   }
   </script>
 </body>

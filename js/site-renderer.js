@@ -26,10 +26,10 @@ const SiteRenderer = {
     const root = document.documentElement;
 
     if (colors) {
-      root.style.setProperty('--primary-yellow', colors.primaryYellow);
-      root.style.setProperty('--primary-red', colors.primaryRed);
-      root.style.setProperty('--accent-red', colors.accentRed);
-      root.style.setProperty('--secondary-yellow', colors.secondaryYellow);
+      root.style.setProperty('--primary-gold', colors.primaryGold);
+      root.style.setProperty('--primary-blue', colors.primaryBlue);
+      root.style.setProperty('--accent-blue', colors.accentBlue);
+      root.style.setProperty('--secondary-gold', colors.secondaryGold);
       root.style.setProperty('--text-dark', colors.textDark);
       root.style.setProperty('--text-light', colors.textLight);
       root.style.setProperty('--border-color', colors.borderColor);

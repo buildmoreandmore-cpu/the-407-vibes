@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Community - The 407 Vibes | Orlando Weekly Newsletter</title>
+  <meta name="description" content="Subscribe to The 407 Vibes weekly newsletter. Get Orlando business openings, development updates, neighborhood news, events, and culture delivered to your inbox.">
+  <link rel="canonical" href="https://the407vibes.com/join-the-community.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://the407vibes.com/join-the-community.html">
+  <meta property="og:title" content="Join the Community | The 407 Vibes Orlando Newsletter">
+  <meta property="og:description" content="A free weekly newsletter covering Orlando businesses, new openings, development, and neighborhood updates.">
+  <meta property="og:image" content="https://the407vibes.com/orlando-map.png">
+  <meta property="og:site_name" content="The 407 Vibes">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Join the Community | The 407 Vibes Orlando Newsletter">
+  <meta name="twitter:description" content="A free weekly newsletter covering Orlando businesses, new openings, development, and neighborhood updates.">
+  <meta name="twitter:image" content="https://the407vibes.com/orlando-map.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="/js/site-config.js"></script>
+  <script src="/js/site-renderer.js"></script>
+  <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
+  <style>
+    :root {
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
+      --primary-black: #0A0A0A;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
+      --text-dark: #1A1A1A;
+      --text-light: #6B6B6B;
+      --border-color: #E5E5E5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--primary-white);
+      z-index: 1000;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .logo-main {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-black);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .logo-tagline {
+      font-size: 0.6rem;
+      color: var(--text-light);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--primary-blue); }
+
+    /* Hero */
+    .hero {
+      margin-top: 90px;
+      background: linear-gradient(135deg, var(--primary-black) 0%, #1A2D5E 50%, var(--primary-black) 100%);
+      color: white;
+      padding: 6rem 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('/api/places?query=Orlando+city+beautiful+skyline&maxwidth=1600') center/cover;
+      opacity: 0.15;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      color: var(--primary-gold);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* Benefits */
+    .benefits {
+      padding: 5rem 5%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .benefits h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .benefit-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .benefit-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--secondary-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .benefit-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* Signup Section */
+    .signup-section {
+      background: var(--primary-black);
+      color: white;
+      padding: 5rem 5%;
+    }
+
+    .signup-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .signup-inner h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .signup-inner h2 span {
+      color: var(--primary-gold);
+    }
+
+    .signup-inner p {
+      opacity: 0.8;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .form-row input {
+      flex: 1;
+    }
+
+    .signup-form input,
+    .signup-form select {
+      padding: 1rem 1.25rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s;
+    }
+
+    .signup-form input::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .signup-form input:focus,
+    .signup-form select:focus {
+      outline: none;
+      border-color: var(--primary-gold);
+    }
+
+    .signup-form select {
+      cursor: pointer;
+    }
+
+    .signup-form select option {
+      background: var(--primary-black);
+      color: white;
+    }
+
+    .signup-btn {
+      padding: 1rem 2rem;
+      background: var(--primary-gold);
+      color: var(--primary-black);
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .signup-btn:hover {
+      background: var(--primary-blue);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .signup-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      opacity: 0.5;
+      margin-top: 1rem;
+    }
+
+    .form-success {
+      display: none;
+      padding: 2rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 2px solid rgba(16, 185, 129, 0.4);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .form-success h3 {
+      color: #10B981;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* What You Get */
+    .what-you-get {
+      padding: 5rem 5%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .what-you-get h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .newsletter-preview {
+      background: white;
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    .preview-header {
+      background: var(--primary-black);
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .preview-header h3 {
+      font-size: 1.2rem;
+      color: var(--primary-gold);
+    }
+
+    .preview-body {
+      padding: 2rem;
+    }
+
+    .preview-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border-color);
+      align-items: flex-start;
+    }
+
+    .preview-item:last-child {
+      border-bottom: none;
+    }
+
+    .preview-badge {
+      background: var(--secondary-gold);
+      color: var(--accent-blue);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .preview-text h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .preview-text p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Social Proof */
+    .social-proof {
+      background: var(--secondary-gold);
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .social-proof h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .proof-stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .proof-stat {
+      text-align: center;
+    }
+
+    .proof-stat .number {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--primary-blue);
+    }
+
+    .proof-stat .label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-black);
+      color: rgba(255,255,255,0.6);
+      padding: 3rem 5%;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer p {
+      font-size: 0.85rem;
+    }
+
+    .footer a {
+      color: var(--primary-gold);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar { padding: 1rem 4%; }
+      .logo-main { font-size: 1.4rem; }
+      .nav-links { display: none; }
+      .hero { padding: 4rem 4%; margin-top: 70px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1.05rem; }
+      .benefits { padding: 3rem 4%; }
+      .benefits h2 { font-size: 2rem; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .benefit-card { padding: 1.5rem 1rem; }
+      .signup-section { padding: 3rem 4%; }
+      .signup-inner h2 { font-size: 1.8rem; }
+      .signup-form input, .signup-form select { padding: 0.9rem 1rem; font-size: 0.95rem; }
+      .form-row { flex-direction: column; }
+      .what-you-get { padding: 3rem 4%; }
+      .what-you-get h2 { font-size: 2rem; }
+      .preview-item { flex-direction: column; gap: 0.5rem; }
+      .social-proof { padding: 3rem 4%; }
+      .proof-stats { gap: 1.5rem; flex-direction: column; }
+      .proof-stat .number { font-size: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.6rem; }
+      .signup-inner h2 { font-size: 1.5rem; }
+      .signup-btn { padding: 0.9rem 1.5rem; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-main">The 407 Vibes</span>
+      <span class="logo-tagline">Culture Blog & Vlog Magazine</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="development.html">Development</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Get <span>Orlando Updates</span> in One Place</h1>
+      <p>A free weekly newsletter covering Orlando businesses, new openings, development projects, neighborhood updates, and the culture that makes the City Beautiful unique.</p>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="benefits">
+    <h2>What's Inside Every Issue</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">&#x1F4F0;</div>
+        <h3>Development News</h3>
+        <p>New construction, rezoning, and development projects shaping Orlando's skyline and neighborhoods — from Lake Nona to Winter Park.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#x1F37D;</div>
+        <h3>Business Openings</h3>
+        <p>First look at new restaurants, bars, shops, and businesses opening across Downtown Orlando, Mills 50, Dr. Phillips, and beyond.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#x1F3A4;</div>
+        <h3>Events & Culture</h3>
+        <p>Weekend picks, festivals, art shows, and the events that make Orlando more than just theme parks — curated for locals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Preview -->
+  <section class="what-you-get">
+    <h2>A Peek at a Typical Issue</h2>
+    <div class="newsletter-preview">
+      <div class="preview-header">
+        <h3>The 407 Vibes Weekly — Sample Issue</h3>
+      </div>
+      <div class="preview-body">
+        <div class="preview-item">
+          <span class="preview-badge">Development</span>
+          <div class="preview-text">
+            <h4>Creative Village Phase 3 Breaks Ground Near Amway Center</h4>
+            <p>The latest phase adds 400 residential units and 30,000 sq ft of retail to Orlando's downtown innovation hub.</p>
+          </div>
+        </div>
+        <div class="preview-item">
+          <span class="preview-badge">New Opening</span>
+          <div class="preview-text">
+            <h4>James Beard-Nominated Chef Opens Lakeside Concept on Lake Eola</h4>
+            <p>The 80-seat restaurant brings Southern-Asian fusion to the heart of downtown with waterfront seating.</p>
+          </div>
+        </div>
+        <div class="preview-item">
+          <span class="preview-badge">Events</span>
+          <div class="preview-text">
+            <h4>Immerse Returns to Downtown Orlando for Its Biggest Year Yet</h4>
+            <p>The annual interactive art and tech festival expands to three weekends with 200+ installations.</p>
+          </div>
+        </div>
+        <div class="preview-item">
+          <span class="preview-badge">Neighborhood</span>
+          <div class="preview-text">
+            <h4>Mills 50 Gets New Mural Trail Connecting Colonialtown to Milk District</h4>
+            <p>A dozen new murals from local and international artists create a walkable outdoor gallery.</p>
+          </div>
+        </div>
+        <div class="preview-item">
+          <span class="preview-badge">Real Estate</span>
+          <div class="preview-text">
+            <h4>Spotlight: Restored Bungalow in College Park Hits Market at $425K</h4>
+            <p>Original hardwood floors, updated kitchen, and a backyard oasis — our weekly featured home.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section class="signup-section">
+    <div class="signup-inner">
+      <h2>Everything You Need to Stay on Top of <span>Orlando</span></h2>
+      <p>Join the growing community of Orlando locals, entrepreneurs, and culture lovers who start their week with The 407 Vibes.</p>
+
+      <form class="signup-form" id="newsletter-form">
+        <div class="form-row">
+          <input type="text" name="first_name" placeholder="First Name" required>
+          <input type="text" name="last_name" placeholder="Last Name">
+        </div>
+        <input type="email" name="email" placeholder="Your Email Address" required>
+        <select name="area">
+          <option value="">Which area are you most interested in?</option>
+          <option value="downtown-orlando">Downtown Orlando</option>
+          <option value="winter-park">Winter Park</option>
+          <option value="thornton-park">Thornton Park / SoDo</option>
+          <option value="mills-50">Mills 50</option>
+          <option value="college-park">College Park / Edgewater</option>
+          <option value="international-drive">International Drive</option>
+          <option value="dr-phillips">Dr. Phillips / Restaurant Row</option>
+          <option value="east-orlando">East Orlando / UCF</option>
+          <option value="north-orlando">North Orlando / Maitland</option>
+          <option value="all">All of Orlando</option>
+        </select>
+        <button type="submit" class="signup-btn" id="submit-btn">Subscribe — It's Free</button>
+        <p class="form-note">No spam. Unsubscribe anytime. Delivered every Tuesday morning.</p>
+      </form>
+
+      <div class="form-success" id="form-success">
+        <h3>Welcome to The 407 Vibes!</h3>
+        <p>Check your inbox for a confirmation. Your first issue arrives next Tuesday.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="social-proof">
+    <h2>Join Orlando's Growing Community</h2>
+    <div class="proof-stats">
+      <div class="proof-stat">
+        <div class="number">9</div>
+        <div class="label">City Zones Covered</div>
+      </div>
+      <div class="proof-stat">
+        <div class="number">90+</div>
+        <div class="label">Neighborhoods</div>
+      </div>
+      <div class="proof-stat">
+        <div class="number">Weekly</div>
+        <div class="label">Tuesday Issues</div>
+      </div>
+      <div class="proof-stat">
+        <div class="number">Free</div>
+        <div class="label">Always</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">The 407 Vibes</div>
+    <p>&copy; 2026 The 407 Vibes. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="index.html">Home</a> &middot;
+      <a href="about.html">About</a> &middot;
+      <a href="privacy.html">Privacy</a> &middot;
+      <a href="terms.html">Terms</a>
+    </p>
+  </footer>
+
+  <script>
+    // Newsletter form submission — sends to Supabase newsletter_subscribers
+    document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const form = this;
+
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+
+      const formData = {
+        first_name: form.first_name.value.trim(),
+        last_name: form.last_name.value.trim(),
+        email: form.email.value.trim(),
+        area: form.area.value,
+        source: 'join-the-community'
+      };
+
+      try {
+        const response = await fetch('/api/forms', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'newsletter',
+            ...formData
+          })
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Subscribe — It\'s Free';
+        alert('Something went wrong. Please try again or email hello@the407vibes.com');
+      }
+    });
+  </script>
+
+</body>
+</html>

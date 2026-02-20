@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - The 407 Vibes</title>
   <meta name="description" content="Get in touch with The 407 Vibes. Contact us for partnerships, business listings, event submissions, or general inquiries.">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -29,14 +30,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.2;
     }
@@ -63,7 +64,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -76,6 +77,7 @@
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -96,7 +98,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* Hero */
@@ -171,7 +173,7 @@
       border: 1px solid var(--border-color);
       border-radius: 6px;
       font-size: 1rem;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
@@ -179,7 +181,7 @@
     .form-group select:focus,
     .form-group textarea:focus {
       outline: none;
-      border-color: var(--primary-red);
+      border-color: var(--primary-blue);
       box-shadow: 0 0 0 3px rgba(220, 53, 53, 0.1);
     }
 
@@ -190,7 +192,7 @@
 
     .submit-btn {
       width: 100%;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       border: none;
       padding: 1rem 2rem;
@@ -204,7 +206,7 @@
     }
 
     .submit-btn:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
     }
 
@@ -235,7 +237,7 @@
     }
 
     .info-card a {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       text-decoration: none;
     }
 
@@ -247,7 +249,7 @@
       font-size: 1rem;
       margin-bottom: 1rem;
       color: var(--text-dark);
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
@@ -273,14 +275,14 @@
     }
 
     .social-link:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       transform: translateY(-2px);
     }
 
     /* Quick Links */
     .quick-links {
       padding: 5rem 5%;
-      background: #f8f8f8;
+      background: #FFFFFF;
     }
 
     .quick-links-header {
@@ -323,7 +325,7 @@
     .quick-link-icon {
       width: 60px;
       height: 60px;
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -345,7 +347,7 @@
     }
 
     .quick-link-card .link-text {
-      color: var(--primary-red);
+      color: var(--primary-blue);
       font-weight: 600;
       font-size: 0.85rem;
       text-transform: uppercase;
@@ -367,10 +369,10 @@
     }
 
     .footer-brand h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
     }
 
@@ -389,20 +391,20 @@
     .footer .social-link {
       width: 36px;
       height: 36px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
     }
 
     .footer .social-link:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
     }
 
     .footer-column h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.1rem;
       margin-bottom: 1.25rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
     }
 
@@ -422,7 +424,7 @@
     }
 
     .footer-links a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-bottom {
@@ -440,7 +442,7 @@
     }
 
     .footer-bottom a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     /* Responsive */
@@ -476,6 +478,256 @@
 
       .footer-content {
         grid-template-columns: 1fr;
+      }
+    }
+
+    /* Extra-small devices (phones in portrait) */
+    @media (max-width: 480px) {
+      /* Hero */
+      .hero {
+        padding: 3.5rem 4%;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      /* Contact section */
+      .contact-section {
+        padding: 3rem 4%;
+      }
+
+      .contact-grid {
+        gap: 1.5rem;
+      }
+
+      /* Contact form */
+      .contact-form-container {
+        padding: 1.5rem;
+      }
+
+      .contact-form-container h2 {
+        font-size: 1.3rem;
+      }
+
+      .contact-form-container .subtitle {
+        font-size: 0.9rem;
+      }
+
+      .form-group label {
+        font-size: 0.85rem;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        font-size: 0.95rem;
+        padding: 0.75rem 0.875rem;
+        min-height: 44px;
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        min-height: 48px;
+        font-size: 0.95rem;
+        padding: 0.875rem 1.5rem;
+      }
+
+      /* Info cards */
+      .info-card {
+        padding: 1rem;
+      }
+
+      .info-card h3 {
+        font-size: 1.15rem;
+      }
+
+      .info-card p {
+        font-size: 0.95rem;
+      }
+
+      /* Quick links */
+      .quick-links {
+        padding: 3rem 4%;
+      }
+
+      .quick-links-header h2 {
+        font-size: 1.3rem;
+      }
+
+      .quick-links-header p {
+        font-size: 0.95rem;
+      }
+
+      .quick-links-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: 1.25rem;
+      }
+
+      .quick-link-card {
+        padding: 1.5rem 1rem;
+      }
+
+      .quick-link-card h3 {
+        font-size: 1.15rem;
+      }
+
+      .quick-link-card p {
+        font-size: 0.9rem;
+      }
+
+      .quick-link-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+      }
+
+      /* Footer - single column, centered */
+      .footer {
+        padding: 3rem 4% 1.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-brand h3 {
+        font-size: 1.4rem;
+      }
+
+      .footer-brand p {
+        font-size: 0.9rem;
+      }
+
+      .footer .social-links,
+      .social-links {
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 0.85rem;
+      }
+
+      .footer .social-link {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-column h4 {
+        font-size: 1rem;
+      }
+
+      .footer-links a {
+        font-size: 0.9rem;
+        display: inline-block;
+        padding: 0.25rem 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-bottom {
+        padding-top: 1.5rem;
+        font-size: 0.8rem;
+      }
+
+      .footer-bottom a {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+      }
+
+      /* Logo */
+      .logo-main {
+        font-size: 1.4rem;
+      }
+
+      .logo-tagline {
+        font-size: 0.5rem;
+      }
+
+      .navbar {
+        padding: 1rem 4%;
+      }
+    }
+
+    /* Touch-friendly enhancements */
+    @media (hover: none) and (pointer: coarse) {
+      .nav-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        min-height: 44px;
+        font-size: 16px; /* Prevents iOS zoom on focus */
+      }
+
+      .submit-btn {
+        min-height: 48px;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer .social-link {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-links a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .footer-bottom a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 0.5rem;
+      }
+
+      .quick-link-card {
+        min-height: 44px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .quick-link-card:hover {
+        transform: none;
+      }
+
+      .quick-link-card:active {
+        transform: scale(0.98);
+      }
+
+      .info-card a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
       }
     }
   </style>
@@ -566,22 +818,22 @@
         <div class="info-card">
           <h3>Contact Information</h3>
           <p><strong>Email:</strong><br>
-          <a href="mailto:hello@the-407-vibes.vercel.app">hello@the-407-vibes.vercel.app</a></p>
+          <a href="mailto:hello@the407vibes.com">hello@the407vibes.com</a></p>
           <p style="margin-top: 1rem;"><strong>Partnerships:</strong><br>
-          <a href="mailto:partnerships@the-407-vibes.vercel.app">partnerships@the-407-vibes.vercel.app</a></p>
+          <a href="mailto:partnerships@the407vibes.com">partnerships@the407vibes.com</a></p>
         </div>
 
         <div class="info-card">
           <h3>Mailing Address</h3>
           <p>The 407 Vibes<br>
-          3355 Lenox Rd, Ste 750<br>
+          101 S Orange Ave, Suite 300<br>
           Orlando, FL 32801</p>
         </div>
 
         <div class="info-card social-section">
           <h4>Follow Us</h4>
           <div class="social-links">
-            <a href="https://www.instagram.com/atlvibesandviews/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
+            <a href="https://www.instagram.com/the407vibes/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
             <a href="#" class="social-link">FB</a>
             <a href="#" class="social-link">TW</a>
             <a href="#" class="social-link">YT</a>
@@ -626,7 +878,7 @@
         <h3>The 407 Vibes</h3>
         <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
         <div class="social-links">
-          <a href="https://www.instagram.com/atlvibesandviews/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
+          <a href="https://www.instagram.com/the407vibes/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
           <a href="#" class="social-link">FB</a>
           <a href="#" class="social-link">TW</a>
           <a href="#" class="social-link">YT</a>

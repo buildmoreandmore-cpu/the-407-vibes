@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orlando Events | The 407 Vibes</title>
   <meta name="description" content="Discover upcoming events in Orlando - concerts, art exhibitions, food festivals, and community gatherings across all neighborhoods.">
-  <link rel="canonical" href="https://the-407-vibes.vercel.app/events.html">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://the407vibes.com/events.html">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -33,7 +34,7 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
@@ -41,7 +42,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.1;
     }
@@ -70,7 +71,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -80,12 +81,13 @@
     }
 
     .logo-tagline {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 0.65rem;
       font-weight: 400;
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
       margin-top: 4px;
     }
 
@@ -114,12 +116,12 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       transition: width 0.3s;
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .nav-links a:hover::after {
@@ -127,7 +129,7 @@
     }
 
     .nav-links a.active {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .nav-links a.active::after {
@@ -202,7 +204,7 @@
     }
 
     .dropdown-menu a:hover {
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
     }
 
@@ -211,7 +213,7 @@
     }
 
     .submit-btn {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       padding: 0.7rem 1.5rem;
       border-radius: 4px;
@@ -226,7 +228,7 @@
     }
 
     .submit-btn:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
     }
 
@@ -270,7 +272,7 @@
     }
 
     .events-hero-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 4rem;
       font-weight: 600;
       margin-bottom: 1rem;
@@ -325,7 +327,7 @@
 
     .time-toggle-btn.active {
       background: white;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
@@ -375,13 +377,13 @@
     }
 
     .date-filter-pill:hover {
-      border-color: var(--primary-yellow);
-      background: var(--secondary-yellow);
+      border-color: var(--primary-gold);
+      background: var(--secondary-gold);
     }
 
     .date-filter-pill.active {
-      background: var(--primary-yellow);
-      border-color: var(--primary-yellow);
+      background: var(--primary-gold);
+      border-color: var(--primary-gold);
       color: var(--primary-black);
       font-weight: 600;
     }
@@ -393,7 +395,7 @@
       border-radius: 6px;
       background: white;
       font-size: 0.9rem;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       color: var(--text-dark);
       cursor: pointer;
       appearance: none;
@@ -405,7 +407,7 @@
 
     .filter-select:focus {
       outline: none;
-      border-color: var(--primary-red);
+      border-color: var(--primary-blue);
     }
 
     /* Keyword Search */
@@ -416,12 +418,12 @@
       border: 1px solid var(--border-color);
       border-radius: 6px;
       font-size: 0.9rem;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     .filter-search-input:focus {
       outline: none;
-      border-color: var(--primary-red);
+      border-color: var(--primary-blue);
     }
 
     .filter-search-input::placeholder {
@@ -496,7 +498,7 @@
       position: absolute;
       top: 1rem;
       left: 1rem;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       padding: 0.35rem 0.75rem;
       font-size: 0.7rem;
@@ -548,7 +550,7 @@
     }
 
     .event-card-save-btn.saved {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
     }
 
@@ -570,7 +572,7 @@
     }
 
     .event-card-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
       color: var(--primary-black);
@@ -603,7 +605,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       text-decoration: none;
       font-size: 0.8rem;
       font-weight: 600;
@@ -628,7 +630,7 @@
     }
 
     .no-results h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       color: var(--text-dark);
       margin-bottom: 0.5rem;
@@ -649,12 +651,12 @@
     }
 
     .sidebar-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 1rem;
       padding-bottom: 0.75rem;
-      border-bottom: 2px solid var(--primary-yellow);
+      border-bottom: 2px solid var(--primary-gold);
     }
 
     /* Ad Placeholder */
@@ -691,7 +693,7 @@
     }
 
     .neighborhood-list-item:hover {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       margin: 0 -1rem;
       padding-left: 1rem;
       padding-right: 1rem;
@@ -705,13 +707,13 @@
     }
 
     .neighborhood-list-item a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .neighborhood-list-count {
       font-size: 0.75rem;
       color: var(--text-light);
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
     }
@@ -735,17 +737,17 @@
       border: 1px solid var(--border-color);
       border-radius: 4px;
       font-size: 0.95rem;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       transition: border-color 0.3s;
     }
 
     .newsletter-input:focus {
       outline: none;
-      border-color: var(--primary-red);
+      border-color: var(--primary-blue);
     }
 
     .newsletter-btn {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       border: none;
       padding: 0.875rem 1.5rem;
@@ -759,20 +761,20 @@
     }
 
     .newsletter-btn:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
     }
 
     /* Guide CTA */
     .guide-cta {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       border-radius: 8px;
       padding: 1.5rem;
       text-align: center;
     }
 
     .guide-cta-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
@@ -801,7 +803,7 @@
     }
 
     .guide-cta-btn:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       transform: translateY(-2px);
     }
 
@@ -820,10 +822,10 @@
     }
 
     .footer-brand h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
       letter-spacing: 0.1em;
     }
@@ -842,7 +844,7 @@
     .social-link {
       width: 40px;
       height: 40px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       display: flex;
       align-items: center;
@@ -854,16 +856,16 @@
     }
 
     .social-link:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       transform: translateY(-3px);
     }
 
     .footer-column h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
       letter-spacing: 0.1em;
     }
@@ -884,7 +886,7 @@
     }
 
     .footer-links a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-bottom {
@@ -984,6 +986,371 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ===== Enhanced Mobile Responsiveness ===== */
+
+    /* Tablet breakpoint enhancements */
+    @media (max-width: 768px) {
+      .events-hero-title {
+        font-size: 2rem;
+      }
+
+      .events-hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .events-hero-content {
+        padding: 1.5rem;
+      }
+
+      .events-content-layout {
+        padding: 2rem 5%;
+        gap: 2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+        position: static;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer {
+        padding: 3rem 5% 1.5rem;
+      }
+
+      /* Touch-friendly filter pills */
+      .date-filter-pill {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1.25rem;
+      }
+
+      .filter-select {
+        min-height: 44px;
+      }
+
+      .filter-search-input {
+        min-height: 44px;
+      }
+
+      .time-toggle-btn {
+        min-height: 44px;
+      }
+
+      .event-card {
+        margin-bottom: 0.5rem;
+      }
+
+      .event-card-save-btn {
+        width: 44px;
+        height: 44px;
+      }
+
+      .event-view-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .newsletter-btn {
+        min-height: 44px;
+      }
+
+      .newsletter-input {
+        min-height: 44px;
+      }
+
+      .guide-cta-btn {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .submit-btn {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+      }
+
+      .neighborhood-list-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+
+      .neighborhood-list-item a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .results-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+
+    /* Small phone breakpoint */
+    @media (max-width: 480px) {
+      .events-hero {
+        height: 30vh;
+        min-height: 240px;
+        margin-top: 70px;
+      }
+
+      .events-hero-title {
+        font-size: 1.6rem;
+      }
+
+      .events-hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .events-hero-content {
+        padding: 1rem;
+      }
+
+      .events-content-layout {
+        padding: 1.5rem 4%;
+        gap: 1.5rem;
+      }
+
+      .navbar {
+        padding: 1rem 4%;
+      }
+
+      .logo-main {
+        font-size: 1.5rem;
+      }
+
+      .logo-tagline {
+        font-size: 0.55rem;
+      }
+
+      /* Section headings */
+      .sidebar-title {
+        font-size: 1.3rem;
+      }
+
+      .no-results h3 {
+        font-size: 1.3rem;
+      }
+
+      /* Card adjustments */
+      .event-card-content {
+        padding: 1rem;
+      }
+
+      .event-card-title {
+        font-size: 1.1rem;
+      }
+
+      .event-card-description {
+        font-size: 0.85rem;
+      }
+
+      .event-card-category {
+        font-size: 0.6rem;
+      }
+
+      .event-card-neighborhood {
+        font-size: 0.8rem;
+      }
+
+      .event-card {
+        margin-bottom: 0.25rem;
+      }
+
+      /* Filter bar compact */
+      .filter-bar {
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .date-pills {
+        gap: 0.4rem;
+      }
+
+      .date-filter-pill {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.8rem;
+        min-height: 44px;
+      }
+
+      .filter-select {
+        font-size: 0.85rem;
+        min-height: 44px;
+      }
+
+      .filter-search-input {
+        font-size: 0.85rem;
+        min-width: unset;
+        min-height: 44px;
+      }
+
+      .time-toggle-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        min-height: 44px;
+      }
+
+      .results-count {
+        font-size: 0.85rem;
+      }
+
+      .results-sort {
+        font-size: 0.8rem;
+      }
+
+      /* Sidebar compact */
+      .sidebar-module {
+        padding: 1rem;
+      }
+
+      .guide-cta {
+        padding: 1rem;
+      }
+
+      .guide-cta-title {
+        font-size: 1.2rem;
+      }
+
+      .guide-cta-text {
+        font-size: 0.85rem;
+      }
+
+      .newsletter-description {
+        font-size: 0.85rem;
+      }
+
+      /* Footer single column centered */
+      .footer {
+        padding: 2.5rem 4% 1.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-brand {
+        text-align: center;
+      }
+
+      .footer-brand h3 {
+        font-size: 1.6rem;
+      }
+
+      .footer-brand p {
+        font-size: 0.9rem;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-column h4 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom {
+        font-size: 0.8rem;
+        padding-top: 1.5rem;
+      }
+
+      /* Touch targets */
+      .event-card-save-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+      }
+
+      .event-view-link {
+        min-height: 44px;
+        padding: 0.5rem 0;
+      }
+
+      .newsletter-btn {
+        min-height: 44px;
+        font-size: 0.8rem;
+      }
+
+      .newsletter-input {
+        min-height: 44px;
+        font-size: 0.9rem;
+      }
+
+      .guide-cta-btn {
+        min-height: 44px;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.75rem;
+      }
+
+      .neighborhood-list-item {
+        padding: 0.85rem 0;
+        min-height: 44px;
+      }
+
+      .neighborhood-list-item a {
+        font-size: 0.9rem;
+      }
+
+      .neighborhood-list-count {
+        font-size: 0.7rem;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.6rem;
+      }
+
+      .footer-links a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+      }
+
+      .ad-placeholder {
+        height: 200px;
+        font-size: 0.75rem;
+      }
+
+      .no-results {
+        padding: 2.5rem 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1016,7 +1383,7 @@
         return (
           <div className="sidebar-module">
             <h3 className="sidebar-title">Stay Updated</h3>
-            <p style={{color: 'var(--primary-yellow)'}}>Thanks for subscribing!</p>
+            <p style={{color: 'var(--primary-gold)'}}>Thanks for subscribing!</p>
           </div>
         );
       }
@@ -1052,8 +1419,8 @@
         date: "2026-02-14",
         endDate: "2026-02-16",
         displayDate: "Feb 14-16",
-        image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800",
-        neighborhood: "Piedmont Park",
+        image: "/api/places?query=Lake+Eola+Park+Orlando+FL&maxwidth=800",
+        neighborhood: "Lake Eola Park",
         area: "Winter Park",
         category: "Music",
         description: "Three days of world-class jazz performances featuring Grammy-winning artists and emerging talent from across the globe.",
@@ -1065,8 +1432,8 @@
         title: "College Park Art Walk",
         date: "2026-02-01",
         displayDate: "Feb 1",
-        image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800",
-        neighborhood: "West Winter Park",
+        image: "/api/places?query=Dr+Phillips+Center+Orlando+FL&maxwidth=800",
+        neighborhood: "Dr. Phillips",
         area: "College Park",
         category: "Art",
         description: "Explore galleries, studios, and pop-up exhibitions throughout the College Park Arts District.",
@@ -1075,24 +1442,24 @@
       },
       {
         id: 3,
-        title: "Taste of Thornton Park Orlando",
+        title: "Taste of Downtown Orlando",
         date: "2026-02-08",
         displayDate: "Feb 8",
-        image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800",
-        neighborhood: "Thornton Park Orlando",
-        area: "Thornton Park Orlando",
+        image: "/api/places?query=Wall+Street+Plaza+Orlando+FL&maxwidth=800",
+        neighborhood: "Downtown Orlando",
+        area: "Downtown Orlando",
         category: "Food & Drink",
-        description: "Sample dishes from over 40 of Thornton Park Orlando's finest restaurants at this annual culinary celebration.",
+        description: "Sample dishes from over 40 of Downtown Orlando's finest restaurants at this annual culinary celebration.",
         featured: true,
         link: "#"
       },
       {
         id: 4,
-        title: "Orlando Trail Food Lantern Parade Wine Classic",
+        title: "I-4 Creative Corridor Lantern Parade",
         date: "2026-02-22",
         displayDate: "Feb 22",
-        image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800",
-        neighborhood: "Thornton Park",
+        image: "/api/places?query=Audubon+Park+Garden+District+Orlando+FL&maxwidth=800",
+        neighborhood: "Audubon Park",
         area: "Mills 50",
         category: "Community",
         description: "Join thousands of Orlandons for the magical evening parade along the Mills 50 Trail.",
@@ -1104,21 +1471,21 @@
         title: "Thornton Park Film Festival",
         date: "2026-01-30",
         displayDate: "Jan 30",
-        image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800",
+        image: "/api/places?query=Thornton+Park+District+Orlando+FL&maxwidth=800",
         neighborhood: "Thornton Park",
         area: "Thornton Park",
         category: "Art",
-        description: "Screening independent films from emerging Florida filmmakers at the historic Fox Theatre.",
+        description: "Screening independent films from emerging Florida filmmakers at the historic Dr. Phillips Center.",
         featured: false,
         link: "#"
       },
       {
         id: 6,
-        title: "Thornton Park Wine Walk",
+        title: "Colonialtown Wine Walk",
         date: "2026-02-28",
         displayDate: "Feb 28",
-        image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800",
-        neighborhood: "Thornton Park",
+        image: "/api/places?query=Colonialtown+Orlando+FL&maxwidth=800",
+        neighborhood: "Colonialtown",
         area: "Mills 50",
         category: "Food & Drink",
         description: "Stroll through the charming streets of VaHi while sampling wines from around the world.",
@@ -1127,24 +1494,24 @@
       },
       {
         id: 7,
-        title: "Baldwin Park Music Festival",
+        title: "Delaney Park Music Festival",
         date: "2026-01-15",
         displayDate: "Jan 15",
-        image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800",
-        neighborhood: "Baldwin Park",
+        image: "/api/places?query=Delaney+Park+Orlando+FL&maxwidth=800",
+        neighborhood: "Delaney Park",
         area: "Dr. Phillips",
         category: "Music",
-        description: "An afternoon of live music featuring local Orlando bands in the historic Baldwin Park setting.",
+        description: "An afternoon of live music featuring local Orlando bands in the historic Delaney Park setting.",
         featured: false,
         link: "#"
       },
       {
         id: 8,
-        title: "Ivanhoe Village Art Show",
+        title: "Baldwin Park Art Show",
         date: "2026-01-10",
         displayDate: "Jan 10",
-        image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800",
-        neighborhood: "Ivanhoe Village",
+        image: "/api/places?query=Baldwin+Park+Orlando+FL&maxwidth=800",
+        neighborhood: "Baldwin Park",
         area: "Mills 50",
         category: "Art",
         description: "Discover works from over 200 artists at Orlando's oldest neighborhood art festival.",
@@ -1156,11 +1523,11 @@
         title: "Winter Park Food Truck Rally",
         date: "2026-02-07",
         displayDate: "Feb 7",
-        image: "https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=800",
+        image: "/api/places?query=Winter+Park+Farmers+Market+FL&maxwidth=800",
         neighborhood: "Winter Park",
         area: "Winter Park",
         category: "Food & Drink",
-        description: "Over 30 food trucks gather in Piedmont Park for Orlando's biggest mobile food festival.",
+        description: "Over 30 food trucks gather in Lake Eola Park for Orlando's biggest mobile food festival.",
         featured: false,
         link: "#"
       },
@@ -1169,7 +1536,7 @@
         title: "East Orlando Village Block Party",
         date: "2026-01-05",
         displayDate: "Jan 5",
-        image: "https://images.unsplash.com/photo-1528495612343-9ca9f4a4de28?w=800",
+        image: "/api/places?query=Camping+World+Stadium+Orlando+FL&maxwidth=800",
         neighborhood: "East Orlando",
         area: "Dr. Phillips",
         category: "Community",
@@ -1182,21 +1549,21 @@
     // Neighborhood data with event counts
     const neighborhoodEventCounts = [
       { name: "Winter Park", count: 8 },
-      { name: "Thornton Park Orlando", count: 6 },
-      { name: "Thornton Park", count: 5 },
-      { name: "Thornton Park", count: 4 },
+      { name: "Downtown Orlando", count: 6 },
+      { name: "Audubon Park", count: 5 },
+      { name: "Colonialtown", count: 4 },
       { name: "East Orlando", count: 4 },
-      { name: "Ivanhoe Village", count: 3 }
+      { name: "Baldwin Park", count: 3 }
     ];
 
     // Categories for filter
     const categories = ["Music", "Art", "Food & Drink", "Community"];
 
     // Areas for filter
-    const areas = ["Thornton Park Orlando", "Winter Park", "Thornton Park", "Mills 50", "College Park", "Dr. Phillips", "Lake Nona", "Northwest"];
+    const areas = ["Downtown Orlando", "Winter Park", "Thornton Park", "Mills 50", "College Park", "Dr. Phillips", "International Drive", "North Orlando"];
 
     // Neighborhoods for filter
-    const neighborhoods = ["Piedmont Park", "West Winter Park", "Thornton Park Orlando", "Thornton Park", "Thornton Park", "Thornton Park", "Baldwin Park", "Ivanhoe Village", "Winter Park", "East Orlando"];
+    const neighborhoods = ["Lake Eola Park", "Dr. Phillips", "Downtown Orlando", "Audubon Park", "Thornton Park", "Colonialtown", "Delaney Park", "Baldwin Park", "Winter Park", "East Orlando"];
 
     // Date helper functions
     const isToday = (dateStr) => {
@@ -1354,7 +1721,7 @@
           {/* Navigation */}
           <nav className="navbar">
             <a href="index.html" className="logo">
-              <span className="logo-main">Orlando Vibes</span>
+              <span className="logo-main">The 407 Vibes</span>
               <span className="logo-tagline">Orlando's Neighborhood Magazine</span>
             </a>
             <ul className="nav-links">
@@ -1362,7 +1729,7 @@
               <li className="nav-dropdown">
                 <a>Areas</a>
                 <ul className="dropdown-menu">
-                  <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                  <li><a href="downtown-orlando.html">Downtown Orlando</a></li>
                   <li><a href="winter-park.html">Winter Park</a></li>
                   <li><a href="thornton-park.html">Thornton Park</a></li>
                   <li><a href="mills-50.html">Mills 50</a></li>
@@ -1380,7 +1747,7 @@
           {/* Events Hero */}
           <section className="events-hero">
             <img
-              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600"
+              src="/api/places?query=Orlando+City+Stadium+FL&maxwidth=1600"
               alt="Orlando Events"
               className="events-hero-image"
             />
@@ -1555,7 +1922,7 @@
           <footer className="footer">
             <div className="footer-content">
               <div className="footer-brand">
-                <h3>Orlando VIBES & VIEWS</h3>
+                <h3>THE 407 VIBES</h3>
                 <p>Orlando's premier neighborhood and culture magazine. Exploring the vibes, venues, and views that make Orlando unique.</p>
                 <div className="social-links">
                   <a href="#" className="social-link">IG</a>
@@ -1575,7 +1942,7 @@
               <div className="footer-column">
                 <h4>Areas</h4>
                 <ul className="footer-links">
-                  <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+                  <li><a href="downtown-orlando.html">Downtown Orlando</a></li>
                   <li><a href="winter-park.html">Winter Park</a></li>
                   <li><a href="thornton-park.html">Thornton Park</a></li>
                   <li><a href="mills-50.html">Mills 50</a></li>
@@ -1609,6 +1976,25 @@
 
     // Render the app
     ReactDOM.render(<EventsApp />, document.getElementById('root'));
+  </script>
+
+  <!-- RSS Events Feed -->
+  <script src="/js/rss-feed.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        var root = document.getElementById('root');
+        if (root && typeof RSSFeed !== 'undefined') {
+          var section = document.createElement('section');
+          section.style.cssText = 'padding:3rem 5%;max-width:1400px;margin:0 auto;';
+          section.innerHTML = '<h2 style="font-family:Poppins,serif;font-size:2rem;margin-bottom:1.5rem;">Orlando Events from Around the Web</h2><div id="rss-events"></div>';
+          var footer = root.querySelector('footer');
+          if (footer) root.insertBefore(section, footer);
+          else root.appendChild(section);
+          RSSFeed.load('rss-events', 'events');
+        }
+      }, 500);
+    });
   </script>
 
 </body>

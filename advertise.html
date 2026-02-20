@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advertise With Us - The 407 Vibes</title>
   <meta name="description" content="Partner with The 407 Vibes to reach Orlando's most engaged audience. Advertising packages, sponsorship opportunities, and brand partnerships.">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -29,14 +30,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.2;
     }
@@ -63,7 +64,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -76,6 +77,7 @@
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -96,7 +98,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* Hero */
@@ -120,7 +122,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600') center/cover;
+      background: url('/api/places?query=Orlando+convention+center&maxwidth=1600') center/cover;
       filter: brightness(0.35);
     }
 
@@ -158,7 +160,7 @@
 
     .hero-cta {
       display: inline-block;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       padding: 1rem 2.5rem;
       text-decoration: none;
@@ -193,7 +195,7 @@
 
     .stat-item h3 {
       font-size: 3.5rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       margin-bottom: 0.5rem;
     }
 
@@ -229,7 +231,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 2px;
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     .section-subtitle {
@@ -299,13 +301,13 @@
       content: '✓';
       position: absolute;
       left: 0;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       font-weight: bold;
     }
 
     /* Pricing */
     .pricing-section {
-      background: #f8f8f8;
+      background: #FFFFFF;
     }
 
     .pricing-grid {
@@ -332,7 +334,7 @@
     }
 
     .pricing-card.featured {
-      border-color: var(--primary-yellow);
+      border-color: var(--primary-gold);
       border-width: 2px;
     }
 
@@ -342,7 +344,7 @@
       top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       padding: 0.35rem 1rem;
       font-size: 0.7rem;
@@ -416,11 +418,11 @@
     }
 
     .pricing-cta:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     .pricing-card.featured .pricing-cta {
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
     }
 
@@ -446,10 +448,10 @@
     }
 
     .demo-stat .value {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 3rem;
       font-weight: 600;
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .demo-stat .label {
@@ -472,9 +474,9 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       margin-bottom: 1rem;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 700;
     }
 
@@ -486,7 +488,7 @@
 
     /* Media Kit CTA */
     .media-kit-cta {
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       padding: 5rem 5%;
       text-align: center;
     }
@@ -520,7 +522,7 @@
     }
 
     .media-kit-button:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       transform: translateY(-2px);
     }
 
@@ -546,7 +548,7 @@
 
     .contact-cta a {
       display: inline-block;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       padding: 1rem 2.5rem;
       text-decoration: none;
@@ -578,10 +580,10 @@
     }
 
     .footer-brand h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
     }
 
@@ -600,7 +602,7 @@
     .social-link {
       width: 36px;
       height: 36px;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       display: flex;
       align-items: center;
@@ -613,16 +615,16 @@
     }
 
     .social-link:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       transform: translateY(-2px);
     }
 
     .footer-column h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.1rem;
       margin-bottom: 1.25rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       font-weight: 600;
     }
 
@@ -642,7 +644,7 @@
     }
 
     .footer-links a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-bottom {
@@ -660,7 +662,7 @@
     }
 
     .footer-bottom a:hover {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     /* Responsive */
@@ -789,7 +791,7 @@
     </div>
     <div class="options-grid">
       <div class="option-card">
-        <div class="option-image" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600')"></div>
+        <div class="option-image" style="background-image: url('/api/places?query=Orlando+media+production&maxwidth=600')"></div>
         <div class="option-content">
           <h3>Content Partnership</h3>
           <p>Collaborate on editorial content that tells your brand's story authentically within the context of Orlando's culture.</p>
@@ -802,7 +804,7 @@
         </div>
       </div>
       <div class="option-card">
-        <div class="option-image" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600')"></div>
+        <div class="option-image" style="background-image: url('/api/places?query=Orlando+festival+gathering&maxwidth=600')"></div>
         <div class="option-content">
           <h3>Event Sponsorship</h3>
           <p>Sponsor neighborhood events, food festivals, art walks, and community gatherings to connect with engaged audiences.</p>
@@ -815,7 +817,7 @@
         </div>
       </div>
       <div class="option-card">
-        <div class="option-image" style="background-image: url('https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600')"></div>
+        <div class="option-image" style="background-image: url('/api/places?query=Wall+Street+Plaza+Orlando&maxwidth=600')"></div>
         <div class="option-content">
           <h3>Digital Advertising</h3>
           <p>Reach our audience through targeted digital placements across our website and social channels.</p>
@@ -849,7 +851,7 @@
           <li><span class="check">✓</span> Basic analytics dashboard</li>
           <li><span class="check">✓</span> Neighborhood spotlight eligibility</li>
         </ul>
-        <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Starter Package Inquiry" class="pricing-cta">Get Started</a>
+        <a href="mailto:partnerships@the407vibes.com?subject=Starter Package Inquiry" class="pricing-cta">Get Started</a>
       </div>
 
       <!-- Growth -->
@@ -865,7 +867,7 @@
           <li><span class="check">✓</span> Event promotion (2/month)</li>
           <li><span class="check">✓</span> Advanced analytics & reporting</li>
         </ul>
-        <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Growth Package Inquiry" class="pricing-cta">Get Started</a>
+        <a href="mailto:partnerships@the407vibes.com?subject=Growth Package Inquiry" class="pricing-cta">Get Started</a>
       </div>
 
       <!-- Enterprise -->
@@ -881,7 +883,7 @@
           <li><span class="check">✓</span> Dedicated account manager</li>
           <li><span class="check">✓</span> Custom integration options</li>
         </ul>
-        <a href="mailto:partnerships@the-407-vibes.vercel.app?subject=Enterprise Partnership Inquiry" class="pricing-cta">Contact Us</a>
+        <a href="mailto:partnerships@the407vibes.com?subject=Enterprise Partnership Inquiry" class="pricing-cta">Contact Us</a>
       </div>
     </div>
   </section>
@@ -947,7 +949,7 @@
         <h3>The 407 Vibes</h3>
         <p>Your comprehensive guide to Orlando's neighborhoods, culture, events, and real estate. Discover what makes each corner of our city special.</p>
         <div class="social-links">
-          <a href="https://www.instagram.com/atlvibesandviews/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
+          <a href="https://www.instagram.com/the407vibes/" class="social-link" target="_blank" rel="noopener noreferrer">IG</a>
           <a href="#" class="social-link">FB</a>
           <a href="#" class="social-link">TW</a>
           <a href="#" class="social-link">YT</a>

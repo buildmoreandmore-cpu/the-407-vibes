@@ -4,20 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orlando Properties - The 407 Vibes | Real Estate Listings</title>
-  <meta name="description" content="Explore Orlando real estate listings across 243 neighborhoods. Find homes, condos, and investment properties in Thornton Park Orlando, Winter Park, Thornton Park, and more.">
-  <link rel="canonical" href="https://the-407-vibes.vercel.app/properties.html">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Explore Orlando real estate listings across 90+ neighborhoods. Find homes, condos, and investment properties in Downtown Orlando, Winter Park, Thornton Park, and more.">
+  <link rel="canonical" href="https://the407vibes.com/properties.html">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -30,14 +31,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.2;
     }
@@ -64,7 +65,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -77,6 +78,7 @@
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -97,11 +99,11 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .nav-links a.active {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* Hero */
@@ -125,7 +127,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600') center/cover;
+      background: url('/api/places?query=Downtown+Orlando+condos+FL&maxwidth=1600') center/cover;
       filter: brightness(0.35);
     }
 
@@ -181,7 +183,7 @@
 
     .search-bar button {
       padding: 1.2rem 2rem;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       border: none;
       font-weight: 600;
@@ -190,7 +192,7 @@
     }
 
     .search-bar button:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
     }
 
     /* Section */
@@ -250,7 +252,7 @@
 
     .filter-select:focus {
       outline: none;
-      border-color: var(--primary-red);
+      border-color: var(--primary-blue);
     }
 
     /* Properties Grid */
@@ -284,7 +286,7 @@
       position: absolute;
       top: 1rem;
       left: 1rem;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       padding: 0.4rem 1rem;
       border-radius: 20px;
@@ -298,7 +300,7 @@
     }
 
     .property-badge.featured {
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--text-dark);
     }
 
@@ -325,7 +327,7 @@
     .property-favorite svg {
       width: 20px;
       height: 20px;
-      stroke: var(--primary-red);
+      stroke: var(--primary-blue);
       fill: none;
     }
 
@@ -348,7 +350,7 @@
     }
 
     .property-price {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--text-dark);
@@ -407,7 +409,7 @@
     }
 
     .property-feature {
-      background: var(--secondary-yellow);
+      background: var(--secondary-gold);
       color: var(--text-dark);
       padding: 0.3rem 0.8rem;
       border-radius: 15px;
@@ -447,7 +449,7 @@
 
     .property-cta {
       padding: 0.8rem 1.5rem;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       border: none;
       border-radius: 8px;
@@ -458,7 +460,7 @@
     }
 
     .property-cta:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
     }
 
     /* Stats Bar */
@@ -481,10 +483,10 @@
     }
 
     .stat-number {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 3rem;
       font-weight: 600;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       margin-bottom: 0.5rem;
     }
 
@@ -497,7 +499,7 @@
 
     /* Neighborhood Section */
     .neighborhoods-section {
-      background: linear-gradient(135deg, var(--secondary-yellow) 0%, white 100%);
+      background: linear-gradient(135deg, var(--secondary-gold) 0%, white 100%);
     }
 
     .neighborhoods-grid {
@@ -522,7 +524,7 @@
     }
 
     .neighborhood-link:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       transform: translateY(-2px);
     }
@@ -563,7 +565,7 @@
     .cta-btn {
       display: inline-block;
       padding: 1rem 2.5rem;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       border-radius: 50px;
       font-weight: 600;
@@ -572,7 +574,7 @@
     }
 
     .cta-btn:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
     }
 
@@ -599,8 +601,8 @@
     }
 
     .pagination-btn:hover, .pagination-btn.active {
-      background: var(--primary-red);
-      border-color: var(--primary-red);
+      background: var(--primary-blue);
+      border-color: var(--primary-blue);
       color: white;
     }
 
@@ -649,13 +651,13 @@
     }
 
     .footer-social a:hover {
-      background: var(--primary-red);
+      background: var(--primary-blue);
     }
 
     .footer-title {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
     }
 
     .footer-links {
@@ -700,12 +702,17 @@
         font-size: 2.5rem;
       }
 
+      .hero p {
+        font-size: 1.1rem;
+      }
+
       .nav-links {
         display: none;
       }
 
       .properties-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
 
       .search-bar {
@@ -716,22 +723,452 @@
       .search-bar input, .search-bar select {
         border-right: none;
         border-bottom: 1px solid var(--border-color);
+        min-height: 48px;
+        font-size: 1rem;
       }
 
       .search-bar select {
         flex: 1;
       }
 
+      .search-bar button {
+        min-height: 48px;
+        font-size: 1rem;
+        border-radius: 0 0 16px 16px;
+      }
+
       .filter-bar {
         flex-direction: column;
       }
 
+      .filter-select {
+        min-height: 44px;
+        font-size: 1rem;
+        width: 100%;
+      }
+
+      .filter-group {
+        width: 100%;
+      }
+
       .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2.4rem;
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .neighborhoods-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .neighborhood-link {
+        min-height: 44px;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .property-cta {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pagination-btn {
+        min-width: 44px;
+        min-height: 44px;
+      }
+
+      .property-image {
+        height: 220px;
+      }
+
+      .property-favorite {
+        width: 44px;
+        height: 44px;
+      }
+
+      .cta-title {
+        font-size: 2rem;
+      }
+
+      .section {
+        padding: 3.5rem 5%;
+      }
+
+      .hero {
+        min-height: 350px;
+        height: 45vh;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+
+      .footer-social a {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 480px) {
+      .hero {
+        min-height: 300px;
+        height: 40vh;
+        margin-top: 70px;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-content {
+        padding: 0 1rem;
+      }
+
+      .section {
+        padding: 2.5rem 4%;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+
+      .section-header {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Navbar */
+      .navbar {
+        padding: 1rem 4%;
+      }
+
+      .logo-main {
+        font-size: 1.4rem;
+      }
+
+      .logo-tagline {
+        font-size: 0.5rem;
+      }
+
+      /* Search bar stacked full-width */
+      .search-container {
+        max-width: 100%;
+      }
+
+      .search-bar {
+        flex-direction: column;
+        border-radius: 12px;
+      }
+
+      .search-bar input {
+        width: 100%;
+        flex: none;
+        padding: 1rem;
+        min-height: 48px;
+        font-size: 0.95rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .search-bar select {
+        width: 100%;
+        flex: none;
+        padding: 1rem;
+        min-height: 48px;
+        font-size: 0.95rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .search-bar button {
+        width: 100%;
+        padding: 1rem;
+        min-height: 48px;
+        font-size: 0.95rem;
+        border-radius: 0 0 12px 12px;
+      }
+
+      /* Filter bar */
+      .filter-bar {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.8rem;
+      }
+
+      .filter-group {
+        width: 100%;
+      }
+
+      .filter-select {
+        width: 100%;
+        min-height: 44px;
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      .filter-label {
+        font-size: 0.75rem;
+      }
+
+      /* Property cards: single column full width */
+      .properties-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .property-card {
+        border-radius: 12px;
+      }
+
+      .property-card:hover {
+        transform: none;
+      }
+
+      .property-image {
+        height: 200px;
+      }
+
+      .property-content {
+        padding: 1rem;
+      }
+
+      .property-price {
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .property-address {
+        font-size: 1rem;
+      }
+
+      .property-neighborhood {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .property-details {
+        gap: 1rem;
+        padding: 0.8rem 0;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .property-detail {
+        font-size: 0.85rem;
+      }
+
+      .property-features {
+        gap: 0.4rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .property-feature {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+      }
+
+      .property-footer {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: stretch;
+      }
+
+      .property-agent {
+        justify-content: flex-start;
+      }
+
+      .property-cta {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 1.5rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+      }
+
+      .property-favorite {
+        width: 44px;
+        height: 44px;
+      }
+
+      .property-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem;
+      }
+
+      /* Stats grid: single column */
+      .stats-bar {
+        padding: 2rem 4%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+      }
+
+      /* Neighborhoods grid: single column */
+      .neighborhoods-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .neighborhood-link {
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        min-height: 44px;
+      }
+
+      .neighborhood-name {
+        font-size: 0.95rem;
+      }
+
+      .neighborhood-count {
+        font-size: 0.8rem;
+      }
+
+      /* CTA section */
+      .cta-title {
+        font-size: 1.6rem;
+      }
+
+      .cta-text {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem 2rem;
+        min-height: 44px;
+        font-size: 0.95rem;
+      }
+
+      /* Pagination */
+      .pagination {
+        gap: 0.3rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .pagination-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 0.9rem;
+      }
+
+      /* Footer: single column */
+      .footer {
+        padding: 2.5rem 4% 1.5rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-brand .logo-main {
+        font-size: 1.4rem;
+      }
+
+      .footer-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .footer-title {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        font-size: 0.9rem;
+        display: inline-block;
+        min-height: 32px;
+        line-height: 32px;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.4rem;
+      }
+
+      .footer-social a {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-bottom {
+        font-size: 0.8rem;
+        padding-top: 1.5rem;
+      }
+
+      /* Spotlight section adjustments */
+      #spotlight-section .properties-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Touch-friendly improvements for all mobile */
+    @media (hover: none) and (pointer: coarse) {
+      .search-bar input,
+      .search-bar select,
+      .search-bar button,
+      .filter-select {
+        min-height: 44px;
+      }
+
+      .property-cta,
+      .cta-btn,
+      .pagination-btn,
+      .neighborhood-link {
+        min-height: 44px;
+      }
+
+      .property-card:hover {
+        transform: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      }
+
+      .neighborhood-link:hover {
+        transform: none;
+      }
+
+      .footer-social a {
+        min-width: 44px;
+        min-height: 44px;
+      }
+
+      .property-favorite {
+        min-width: 44px;
+        min-height: 44px;
       }
     }
   </style>
@@ -759,16 +1196,16 @@
       <h1>Orlando Properties</h1>
       <p>Discover your dream home across Orlando's most desirable neighborhoods</p>
       <div class="search-container">
-        <div class="search-bar">
-          <input type="text" placeholder="Search by address or neighborhood...">
-          <select>
-            <option>All Types</option>
-            <option>House</option>
-            <option>Condo</option>
-            <option>Townhouse</option>
+        <form class="search-bar" id="zillow-search-form" onsubmit="return handleZillowSearch(event)">
+          <input type="text" id="search-query" placeholder="Search by address or neighborhood...">
+          <select id="search-type">
+            <option value="">All Types</option>
+            <option value="house">House</option>
+            <option value="condo">Condo</option>
+            <option value="townhouse">Townhouse</option>
           </select>
-          <button>Search</button>
-        </div>
+          <button type="submit">Search on Zillow</button>
+        </form>
       </div>
     </div>
   </section>
@@ -832,16 +1269,16 @@
       </div>
       <div class="filter-group">
         <span class="filter-label">Neighborhood</span>
-        <select class="filter-select">
+        <select class="filter-select" id="neighborhood-filter">
           <option>All Neighborhoods</option>
-          <option>Thornton Park Orlando</option>
+          <option>Downtown Orlando</option>
           <option>Winter Park</option>
           <option>Thornton Park</option>
-          <option>Thornton Park</option>
-          <option>Ivanhoe Village</option>
-          <option>Thornton Park</option>
-          <option>West Winter Park</option>
-          <option>Decatur</option>
+          <option>Mills 50</option>
+          <option>College Park</option>
+          <option>Dr. Phillips</option>
+          <option>Lake Nona</option>
+          <option>Baldwin Park</option>
         </select>
       </div>
       <div class="filter-group">
@@ -856,16 +1293,26 @@
     </div>
   </section>
 
+  <!-- Spotlight Properties -->
+  <section class="section" id="spotlight-section" style="display:none; background: linear-gradient(135deg, var(--secondary-gold) 0%, white 100%);">
+    <div class="section-header">
+      <h2 class="section-title">Spotlight Properties</h2>
+    </div>
+    <div class="properties-grid" id="spotlight-grid">
+      <!-- Loaded dynamically from /api/spotlight -->
+    </div>
+  </section>
+
   <!-- Properties Grid -->
   <section class="section">
     <div class="section-header">
-      <h2 class="section-title">850 Properties Found</h2>
+      <h2 class="section-title">Featured Orlando Listings</h2>
     </div>
 
     <div class="properties-grid">
       <!-- Property 1 -->
       <div class="property-card">
-        <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800')">
+        <div class="property-image" style="background-image: url('/api/places?query=Thornton+Park+homes+Orlando+FL&maxwidth=800')">
           <span class="property-badge featured">Featured</span>
           <div class="property-favorite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -877,10 +1324,10 @@
         </div>
         <div class="property-content">
           <div class="property-price">$1,250,000</div>
-          <div class="property-address">1234 Orange Ave Street NE</div>
+          <div class="property-address">1234 E Central Blvd</div>
           <div class="property-neighborhood">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Thornton Park Orlando
+            Thornton Park
           </div>
           <div class="property-details">
             <div class="property-detail">
@@ -903,7 +1350,7 @@
           </div>
           <div class="property-footer">
             <div class="property-agent">
-              <div class="agent-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100')"></div>
+              <div class="agent-avatar" style="background-image: url('/api/places?query=Orlando+real+estate+agent+FL&maxwidth=100')"></div>
               <div>
                 <div class="agent-name">Michael Chen</div>
                 <div class="agent-company">Berkshire Hathaway</div>
@@ -916,7 +1363,7 @@
 
       <!-- Property 2 -->
       <div class="property-card">
-        <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800')">
+        <div class="property-image" style="background-image: url('/api/places?query=Winter+Park+homes+FL&maxwidth=800')">
           <span class="property-badge new">New Listing</span>
           <div class="property-favorite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -928,10 +1375,10 @@
         </div>
         <div class="property-content">
           <div class="property-price">$875,000</div>
-          <div class="property-address">456 Highland Avenue NE</div>
+          <div class="property-address">456 Park Avenue S</div>
           <div class="property-neighborhood">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Thornton Park
+            Winter Park
           </div>
           <div class="property-details">
             <div class="property-detail">
@@ -954,7 +1401,7 @@
           </div>
           <div class="property-footer">
             <div class="property-agent">
-              <div class="agent-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100')"></div>
+              <div class="agent-avatar" style="background-image: url('/api/places?query=Winter+Park+realtor+FL&maxwidth=100')"></div>
               <div>
                 <div class="agent-name">Sarah Johnson</div>
                 <div class="agent-company">Compass</div>
@@ -967,7 +1414,7 @@
 
       <!-- Property 3 -->
       <div class="property-card">
-        <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800')">
+        <div class="property-image" style="background-image: url('/api/places?query=College+Park+Orlando+homes+FL&maxwidth=800')">
           <div class="property-favorite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
@@ -978,10 +1425,10 @@
         </div>
         <div class="property-content">
           <div class="property-price">$525,000</div>
-          <div class="property-address">789 Boulevard SE</div>
+          <div class="property-address">789 Summerlin Ave</div>
           <div class="property-neighborhood">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Baldwin Park
+            College Park
           </div>
           <div class="property-details">
             <div class="property-detail">
@@ -1004,7 +1451,7 @@
           </div>
           <div class="property-footer">
             <div class="property-agent">
-              <div class="agent-avatar" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100')"></div>
+              <div class="agent-avatar" style="background-image: url('/api/places?query=College+Park+Orlando+realtor+FL&maxwidth=100')"></div>
               <div>
                 <div class="agent-name">David Park</div>
                 <div class="agent-company">Keller Williams</div>
@@ -1017,7 +1464,7 @@
 
       <!-- Property 4 -->
       <div class="property-card">
-        <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800')">
+        <div class="property-image" style="background-image: url('/api/places?query=Isleworth+Windermere+Orlando+FL&maxwidth=800')">
           <span class="property-badge">Open House</span>
           <div class="property-favorite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -1029,10 +1476,10 @@
         </div>
         <div class="property-content">
           <div class="property-price">$2,100,000</div>
-          <div class="property-address">2100 West Paces Ferry Rd</div>
+          <div class="property-address">2100 Conroy Windermere Rd</div>
           <div class="property-neighborhood">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Tuxedo Park
+            Isleworth
           </div>
           <div class="property-details">
             <div class="property-detail">
@@ -1055,7 +1502,7 @@
           </div>
           <div class="property-footer">
             <div class="property-agent">
-              <div class="agent-avatar" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100')"></div>
+              <div class="agent-avatar" style="background-image: url('/api/places?query=Windermere+Orlando+realtor+FL&maxwidth=100')"></div>
               <div>
                 <div class="agent-name">Amanda Cole</div>
                 <div class="agent-company">Engel & Volkers</div>
@@ -1068,7 +1515,7 @@
 
       <!-- Property 5 -->
       <div class="property-card">
-        <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800')">
+        <div class="property-image" style="background-image: url('/api/places?query=Colonialtown+North+Orlando+FL&maxwidth=800')">
           <div class="property-favorite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
@@ -1079,10 +1526,10 @@
         </div>
         <div class="property-content">
           <div class="property-price">$450,000</div>
-          <div class="property-address">345 Moreland Avenue NE</div>
+          <div class="property-address">345 Mills Ave</div>
           <div class="property-neighborhood">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Little Church Street
+            Colonialtown North
           </div>
           <div class="property-details">
             <div class="property-detail">
@@ -1105,7 +1552,7 @@
           </div>
           <div class="property-footer">
             <div class="property-agent">
-              <div class="agent-avatar" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100')"></div>
+              <div class="agent-avatar" style="background-image: url('/api/places?query=Mills+50+Orlando+realtor+FL&maxwidth=100')"></div>
               <div>
                 <div class="agent-name">Marcus Lee</div>
                 <div class="agent-company">RE/MAX</div>
@@ -1118,7 +1565,7 @@
 
       <!-- Property 6 -->
       <div class="property-card">
-        <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800')">
+        <div class="property-image" style="background-image: url('/api/places?query=Lake+Nona+Orlando+FL&maxwidth=800')">
           <span class="property-badge new">New Listing</span>
           <div class="property-favorite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -1130,10 +1577,10 @@
         </div>
         <div class="property-content">
           <div class="property-price">$725,000</div>
-          <div class="property-address">890 North Highland Ave</div>
+          <div class="property-address">890 Lake Nona Blvd</div>
           <div class="property-neighborhood">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Ivanhoe Village
+            Lake Nona
           </div>
           <div class="property-details">
             <div class="property-detail">
@@ -1150,13 +1597,13 @@
             </div>
           </div>
           <div class="property-features">
-            <span class="property-feature">Orlando Trail Access</span>
+            <span class="property-feature">Lake Views</span>
             <span class="property-feature">Rooftop</span>
             <span class="property-feature">Modern</span>
           </div>
           <div class="property-footer">
             <div class="property-agent">
-              <div class="agent-avatar" style="background-image: url('https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100')"></div>
+              <div class="agent-avatar" style="background-image: url('/api/places?query=Lake+Nona+Orlando+realtor+FL&maxwidth=100')"></div>
               <div>
                 <div class="agent-name">Jennifer Wu</div>
                 <div class="agent-company">Orlando Fine Homes</div>
@@ -1187,7 +1634,7 @@
     </div>
     <div class="neighborhoods-grid">
       <a href="downtown-orlando.html" class="neighborhood-link">
-        <span class="neighborhood-name">Thornton Park Orlando</span>
+        <span class="neighborhood-name">Downtown Orlando</span>
         <span class="neighborhood-count">156 listings</span>
       </a>
       <a href="winter-park.html" class="neighborhood-link">
@@ -1199,32 +1646,32 @@
         <span class="neighborhood-count">89 listings</span>
       </a>
       <a href="mills-50.html" class="neighborhood-link">
-        <span class="neighborhood-name">Thornton Park</span>
+        <span class="neighborhood-name">Mills 50</span>
         <span class="neighborhood-count">67 listings</span>
       </a>
-      <a href="mills-50.html" class="neighborhood-link">
-        <span class="neighborhood-name">Ivanhoe Village</span>
-        <span class="neighborhood-count">58 listings</span>
-      </a>
-      <a href="mills-50.html" class="neighborhood-link">
-        <span class="neighborhood-name">Thornton Park</span>
+      <a href="college-park.html" class="neighborhood-link">
+        <span class="neighborhood-name">College Park</span>
         <span class="neighborhood-count">72 listings</span>
       </a>
-      <a href="college-park.html" class="neighborhood-link">
-        <span class="neighborhood-name">West Winter Park</span>
+      <a href="international-drive.html" class="neighborhood-link">
+        <span class="neighborhood-name">International Drive</span>
         <span class="neighborhood-count">95 listings</span>
       </a>
-      <a href="mills-50.html" class="neighborhood-link">
-        <span class="neighborhood-name">Decatur</span>
+      <a href="dr-phillips.html" class="neighborhood-link">
+        <span class="neighborhood-name">Dr. Phillips</span>
         <span class="neighborhood-count">83 listings</span>
       </a>
-      <a href="lake-nona.html" class="neighborhood-link">
-        <span class="neighborhood-name">Cascade</span>
+      <a href="east-orlando.html" class="neighborhood-link">
+        <span class="neighborhood-name">Lake Nona / UCF</span>
+        <span class="neighborhood-count">61 listings</span>
+      </a>
+      <a href="north-orlando.html" class="neighborhood-link">
+        <span class="neighborhood-name">Maitland</span>
         <span class="neighborhood-count">45 listings</span>
       </a>
-      <a href="dr-phillips.html" class="neighborhood-link">
+      <a href="east-orlando.html" class="neighborhood-link">
         <span class="neighborhood-name">Baldwin Park</span>
-        <span class="neighborhood-count">61 listings</span>
+        <span class="neighborhood-count">58 listings</span>
       </a>
     </div>
   </section>
@@ -1243,7 +1690,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="logo-main">The 407 Vibes</span>
-        <p class="footer-description">Your comprehensive guide to Orlando's culture, neighborhoods, and lifestyle. Discover what makes the Orlando special.</p>
+        <p class="footer-description">Your comprehensive guide to Orlando's culture, neighborhoods, and lifestyle. Discover what makes the City Beautiful special.</p>
         <div class="footer-social">
           <a href="#">IG</a>
           <a href="#">FB</a>
@@ -1254,7 +1701,7 @@
       <div>
         <h4 class="footer-title">Explore</h4>
         <ul class="footer-links">
-          <li><a href="downtown-orlando.html">Thornton Park Orlando</a></li>
+          <li><a href="downtown-orlando.html">Downtown Orlando</a></li>
           <li><a href="winter-park.html">Winter Park</a></li>
           <li><a href="thornton-park.html">Thornton Park</a></li>
           <li><a href="mills-50.html">Mills 50</a></li>
@@ -1282,8 +1729,70 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2025 The 407 Vibes. All rights reserved.
+      &copy; 2026 The 407 Vibes. All rights reserved.
     </div>
   </footer>
+
+  <script>
+    // Zillow search redirect
+    function handleZillowSearch(e) {
+      e.preventDefault();
+      const query = document.getElementById('search-query').value.trim();
+      const type = document.getElementById('search-type').value;
+      let zillowUrl = 'https://www.zillow.com/orlando-fl/';
+      if (query) {
+        zillowUrl = 'https://www.zillow.com/homes/' + encodeURIComponent(query + ' Orlando FL') + '_rb/';
+      }
+      if (type) {
+        zillowUrl += '?searchQueryState=' + encodeURIComponent(JSON.stringify({ filterState: { type: { value: type } } }));
+      }
+      window.open(zillowUrl, '_blank');
+      return false;
+    }
+
+    // Load spotlight properties
+    async function loadSpotlight() {
+      try {
+        const res = await fetch('/api/spotlight');
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!data.properties || data.properties.length === 0) return;
+
+        const section = document.getElementById('spotlight-section');
+        const grid = document.getElementById('spotlight-grid');
+        section.style.display = 'block';
+
+        grid.innerHTML = data.properties.map(p => `
+          <div class="property-card">
+            <div class="property-image" style="background-image: url('${p.image_url || '/api/places?query=Orlando+homes+for+sale+FL&maxwidth=800'}')">
+              <span class="property-badge featured">Spotlight</span>
+            </div>
+            <div class="property-content">
+              <div class="property-price">${p.price || 'Contact for Price'}</div>
+              <div class="property-address">${p.title}</div>
+              <div class="property-neighborhood">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                ${p.neighborhood || p.address || 'Orlando'}
+              </div>
+              <div class="property-details">
+                ${p.bedrooms ? `<div class="property-detail">${p.bedrooms} Beds</div>` : ''}
+                ${p.bathrooms ? `<div class="property-detail">${p.bathrooms} Baths</div>` : ''}
+                ${p.sqft ? `<div class="property-detail">${p.sqft.toLocaleString()} sq ft</div>` : ''}
+              </div>
+              <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">${p.description || ''}</p>
+              <div class="property-footer">
+                <div></div>
+                <a href="${p.zillow_url || 'https://www.zillow.com/orlando-fl/'}" target="_blank" class="property-cta">View on Zillow</a>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        // Spotlight is optional — fail silently
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadSpotlight);
+  </script>
 </body>
 </html>

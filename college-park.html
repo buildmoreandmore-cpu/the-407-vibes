@@ -3,71 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>College Park - The 407 Vibes | West Winter Park, Industrial-Chic & Galleries</title>
-  <meta name="description" content="Explore Orlando's College Park - West Winter Park's industrial-chic restaurants, galleries, and creative spaces. Home to College Park Provisions District.">
-  <link rel="canonical" href="https://the-407-vibes.vercel.app/college-park.html">
+  <title>College Park / Edgewater - The 407 Vibes | Trendy & Local</title>
+  <meta name="description" content="Explore College Park and Edgewater, Orlando's trendy neighborhoods with craft breweries, local eateries, and a strong sense of community.">
+  <link rel="canonical" href="https://the407vibes.com/college-park.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://the-407-vibes.vercel.app/college-park.html">
-  <meta property="og:title" content="College Park Orlando - West Winter Park & Industrial-Chic | The 407 Vibes">
-  <meta property="og:description" content="Explore Orlando's College Park - West Winter Park's industrial-chic restaurants, galleries, and creative spaces.">
-  <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta property="og:url" content="https://the407vibes.com/college-park.html">
+  <meta property="og:title" content="College Park / Edgewater - Trendy & Local | The 407 Vibes">
+  <meta property="og:description" content="Explore College Park and Edgewater, Orlando's trendy neighborhoods with craft breweries, local eateries, and a strong sense of community.">
+  <meta property="og:image" content="https://the407vibes.com/orlando-map.png">
   <meta property="og:site_name" content="The 407 Vibes">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="College Park Orlando - West Winter Park & Industrial-Chic | The 407 Vibes">
-  <meta name="twitter:description" content="Explore Orlando's College Park - West Winter Park's industrial-chic restaurants, galleries, and creative spaces.">
-  <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+  <meta name="twitter:title" content="College Park / Edgewater - Trendy & Local | The 407 Vibes">
+  <meta name="twitter:description" content="Explore College Park and Edgewater, Orlando's trendy neighborhoods with craft breweries and local eateries.">
+  <meta name="twitter:image" content="https://the407vibes.com/orlando-map.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
-    :root { --primary-yellow: #FFD95A; --primary-red: #DC3535; --primary-black: #0A0A0A; --primary-white: #FAFAFA; --secondary-yellow: #FFF4D6; --text-dark: #1A1A1A; --text-light: #6B6B6B; --border-color: #E5E5E5; }
+    :root { --primary-gold: #FF6B35; --primary-blue: #1E293B; --primary-black: #0A0A0A; --primary-white: #FFFFFF; --secondary-gold: #FFF5F0; --text-dark: #1A1A1A; --text-light: #6B6B6B; --border-color: #E5E5E5; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Source Sans 3', sans-serif; background-color: var(--primary-white); color: var(--text-dark); line-height: 1.6; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', 'Playfair Display', serif; font-weight: 600; line-height: 1.1; }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--primary-white); color: var(--text-dark); line-height: 1.6; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; font-weight: 600; line-height: 1.1; }
     .navbar { position: fixed; top: 0; left: 0; right: 0; background: var(--primary-white); z-index: 1000; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
     .logo { display: flex; flex-direction: column; text-decoration: none; }
-    .logo-main { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--primary-black); letter-spacing: 0.15em; text-transform: uppercase; }
-    .logo-tagline { font-size: 0.65rem; color: var(--text-light); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 4px; }
+    .logo-main { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 700; color: var(--primary-black); letter-spacing: 0.15em; text-transform: uppercase; }
+    .logo-tagline { font-size: 0.65rem; color: var(--text-light); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 4px;  white-space: nowrap; }
     .navbar-search { display: flex; align-items: center; gap: 0.5rem; flex: 0 1 300px; margin: 0 2rem; }
-    .navbar-search input { flex: 1; padding: 0.6rem 0; border: none; border-bottom: 2px solid #5BA4A4; background: transparent; font-size: 1rem; color: #5BA4A4; outline: none; }
-    .navbar-search input::placeholder { color: #5BA4A4; font-weight: 500; }
+    .navbar-search input { flex: 1; padding: 0.6rem 0; border: none; border-bottom: 2px solid #FF6B35; background: transparent; font-size: 1rem; color: #FF6B35; outline: none; }
+    .navbar-search input::placeholder { color: #FF6B35; font-weight: 500; }
     .navbar-search button { background: none; border: none; cursor: pointer; padding: 0.5rem; display: flex; }
-    .navbar-search button svg { width: 22px; height: 22px; stroke: #5BA4A4; }
+    .navbar-search button svg { width: 22px; height: 22px; stroke: #FF6B35; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.95rem; text-transform: uppercase; }
-    .nav-links a:hover { color: var(--primary-red); }
+    .nav-links a:hover { color: var(--primary-blue); }
     .nav-dropdown { position: relative; }
     .dropdown-menu { position: absolute; top: 100%; left: 0; background: white; min-width: 200px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); border-radius: 8px; padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 1001; }
     .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
     .dropdown-menu li { list-style: none; }
     .dropdown-menu a { display: block; padding: 0.75rem 1.5rem; font-size: 0.85rem; text-transform: none; }
-    .dropdown-menu a:hover { background: var(--secondary-yellow); }
+    .dropdown-menu a:hover { background: var(--secondary-gold); }
     .area-hero { margin-top: 80px; position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .area-hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .area-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); }
     .area-hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 2rem; max-width: 800px; }
     .area-back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: white; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0.8; }
-    .area-hero-title { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 600; margin-bottom: 1rem; }
+    .area-hero-title { font-family: 'Poppins', sans-serif; font-size: 4rem; font-weight: 600; margin-bottom: 1rem; }
     .area-hero-tagline { font-size: 1.25rem; font-weight: 300; margin-bottom: 1.5rem; opacity: 0.9; }
     .area-vibe-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
-    .area-vibe-tag { background: rgba(255, 217, 90, 0.2); border: 1px solid rgba(255, 217, 90, 0.5); color: var(--primary-yellow); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; }
+    .area-vibe-tag { background: rgba(255, 107, 53, 0.2); border: 1px solid rgba(255, 107, 53, 0.5); color: var(--primary-gold); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; }
     .area-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; }
     .area-stat { text-align: center; }
-    .area-stat-value { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; display: block; }
+    .area-stat-value { font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 600; display: block; }
     .area-stat-label { font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; }
     .area-content { padding: 4rem 5%; max-width: 1400px; margin: 0 auto; }
     .area-section { margin-bottom: 4rem; }
     .area-section-header { margin-bottom: 2rem; }
-    .area-section-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; }
+    .area-section-title { font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 600; }
     .neighborhoods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
     .neighborhood-card { position: relative; height: 200px; border-radius: 16px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
     .neighborhood-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); z-index: 1; transition: all 0.4s ease; }
@@ -76,69 +77,69 @@
     .neighborhood-card-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; transition: transform 0.4s ease; }
     .neighborhood-card:hover .neighborhood-card-bg { transform: scale(1.1); }
     .neighborhood-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; z-index: 2; color: white; }
-    .neighborhood-card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    .neighborhood-card-name { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
     .neighborhood-card-desc { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.5; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
     .neighborhood-card:hover .neighborhood-card-desc { opacity: 1; transform: translateY(0); }
     .neighborhood-card-arrow { position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; }
     .neighborhood-card:hover .neighborhood-card-arrow { opacity: 1; transform: translateX(0); }
     .neighborhood-card-arrow svg { width: 18px; height: 18px; stroke: white; fill: none; }
-    .neighborhood-card.selected { border: 3px solid var(--primary-yellow); box-shadow: 0 0 20px rgba(255, 217, 90, 0.4); }
+    .neighborhood-card.selected { border: 3px solid var(--primary-gold); box-shadow: 0 0 20px rgba(255, 107, 53, 0.4); }
     /* Neighborhood Map Styles */
     .neighborhood-map-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .neighborhood-map-wrapper { position: relative; background: #f5f5f5; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
+    .neighborhood-map-wrapper { position: relative; background: #FFFFFF; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
     .neighborhood-map-svg { width: 100%; height: 100%; }
-    .neighborhood-region { fill: rgba(255, 217, 90, 0.2); stroke: var(--primary-black); stroke-width: 1; cursor: pointer; transition: all 0.3s ease; }
-    .neighborhood-region:hover, .neighborhood-region.active { fill: rgba(255, 217, 90, 0.5); filter: drop-shadow(0 0 8px rgba(255, 215, 90, 0.5)); }
-    .neighborhood-region.selected { fill: rgba(255, 217, 90, 0.7); stroke: var(--primary-yellow); stroke-width: 2; filter: drop-shadow(0 0 12px rgba(255, 215, 90, 0.8)); }
+    .neighborhood-region { fill: rgba(255, 107, 53, 0.2); stroke: var(--primary-black); stroke-width: 1; cursor: pointer; transition: all 0.3s ease; }
+    .neighborhood-region:hover, .neighborhood-region.active { fill: rgba(255, 107, 53, 0.5); filter: drop-shadow(0 0 8px rgba(255, 215, 90, 0.5)); }
+    .neighborhood-region.selected { fill: rgba(255, 107, 53, 0.7); stroke: var(--primary-gold); stroke-width: 2; filter: drop-shadow(0 0 12px rgba(255, 215, 90, 0.8)); }
     .neighborhood-label { font-size: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; pointer-events: none; }
     .map-hint { text-align: center; font-size: 0.85rem; color: var(--text-light); margin-top: 0.75rem; font-style: italic; }
     /* Filter Indicator */
-    .filter-indicator { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--secondary-yellow); border-radius: 8px; margin-bottom: 2rem; }
+    .filter-indicator { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--secondary-gold); border-radius: 8px; margin-bottom: 2rem; }
     .filter-indicator-text { font-weight: 600; color: var(--text-dark); }
-    .filter-indicator-text span { color: var(--primary-red); }
+    .filter-indicator-text span { color: var(--primary-blue); }
     .filter-clear-btn { background: var(--primary-black); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-left: auto; }
-    .filter-clear-btn:hover { background: var(--primary-red); }
+    .filter-clear-btn:hover { background: var(--primary-blue); }
     .view-all-neighborhoods { margin-top: 1.5rem; text-align: center; }
     .view-all-btn { display: inline-flex; align-items: center; justify-content: center; background: var(--primary-black); color: white; border: none; padding: 0.875rem 1.75rem; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-    .view-all-btn:hover { background: var(--primary-red); }
+    .view-all-btn:hover { background: var(--primary-blue); }
     .neighborhoods-dropdown { margin-top: 1.5rem; background: white; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); padding: 1.5rem; animation: slideDown 0.3s ease; }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     .dropdown-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; }
     .dropdown-item { display: flex; flex-direction: column; padding: 1rem; background: var(--primary-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-    .dropdown-item:hover { border-color: var(--primary-yellow); background: var(--secondary-yellow); }
-    .dropdown-item.selected { border-color: var(--primary-yellow); background: var(--secondary-yellow); box-shadow: 0 0 0 2px var(--primary-yellow); }
+    .dropdown-item:hover { border-color: var(--primary-gold); background: var(--secondary-gold); }
+    .dropdown-item.selected { border-color: var(--primary-gold); background: var(--secondary-gold); box-shadow: 0 0 0 2px var(--primary-gold); }
     .dropdown-item-name { font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; }
     .dropdown-item-desc { font-size: 0.85rem; color: var(--text-light); }
     .content-tabs { display: flex; border-bottom: 2px solid var(--border-color); margin-bottom: 2rem; }
     @media (max-width: 968px) { .neighborhood-map-container { grid-template-columns: 1fr; } }
     .content-tab { padding: 1rem 2rem; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; color: var(--text-light); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -2px; }
     .content-tab:hover { color: var(--text-dark); }
-    .content-tab.active { color: var(--primary-red); border-bottom-color: var(--primary-red); }
+    .content-tab.active { color: var(--primary-blue); border-bottom-color: var(--primary-blue); }
     .content-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
     .content-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; }
     .content-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
-    .content-card.featured { border: 2px solid var(--primary-yellow); }
+    .content-card.featured { border: 2px solid var(--primary-gold); }
     .content-card-image { width: 100%; height: 200px; object-fit: cover; }
     .content-card-body { padding: 1.5rem; }
-    .content-card-badge { display: inline-block; background: var(--secondary-yellow); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; }
-    .content-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .content-card-badge { display: inline-block; background: var(--secondary-gold); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .content-card-title { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
     .content-card-desc { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
     .content-card-meta { display: flex; gap: 1rem; font-size: 0.8rem; color: var(--text-light); }
-    .property-card-price { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-red); }
+    .property-card-price { font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-blue); }
     .property-card-address { font-weight: 600; margin-bottom: 0.5rem; }
     .property-card-specs { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-light); }
     .newsletter-section { background: var(--primary-black); color: white; padding: 4rem 5%; text-align: center; }
-    .newsletter-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 1rem; }
+    .newsletter-title { font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
     .newsletter-subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; }
     .newsletter-form { display: flex; max-width: 500px; margin: 0 auto; gap: 1rem; }
     .newsletter-input { flex: 1; padding: 1rem 1.5rem; border: none; border-radius: 8px; }
-    .newsletter-btn { background: var(--primary-yellow); color: var(--primary-black); padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+    .newsletter-btn { background: var(--primary-gold); color: var(--primary-black); padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
     .footer { background: var(--primary-black); color: white; padding: 4rem 5% 2rem; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
     .footer-brand .logo-main { color: white; font-size: 1.5rem; }
-    .footer-brand .logo-tagline { color: rgba(255,255,255,0.6); }
+    .footer-brand .logo-tagline { color: rgba(255,255,255,0.6);  white-space: nowrap; }
     .footer-brand p { margin-top: 1rem; color: rgba(255,255,255,0.7); }
-    .footer-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--primary-yellow); }
+    .footer-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--primary-gold); }
     .footer-links { list-style: none; }
     .footer-links li { margin-bottom: 0.75rem; }
     .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; }
@@ -149,54 +150,105 @@
     .neighborhood-accordions { display: flex; flex-direction: column; gap: 1rem; }
     .accordion-section { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; border: 1px solid var(--border-color); }
     .accordion-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; background: white; cursor: pointer; transition: all 0.2s; border: none; width: 100%; text-align: left; }
-    .accordion-header:hover { background: var(--secondary-yellow); }
-    .accordion-header.active { background: var(--secondary-yellow); border-bottom: 1px solid var(--border-color); }
-    .accordion-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; gap: 0.75rem; }
-    .accordion-count { background: var(--primary-black); color: white; font-family: 'Source Sans 3', sans-serif; font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 50px; font-weight: 600; }
+    .accordion-header:hover { background: var(--secondary-gold); }
+    .accordion-header.active { background: var(--secondary-gold); border-bottom: 1px solid var(--border-color); }
+    .accordion-title { font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; gap: 0.75rem; }
+    .accordion-count { background: var(--primary-black); color: white; font-family: 'Poppins', sans-serif; font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 50px; font-weight: 600; }
     .accordion-icon { width: 24px; height: 24px; transition: transform 0.3s; }
     .accordion-header.active .accordion-icon { transform: rotate(180deg); }
-    .accordion-content { display: none; padding: 1.5rem; background: #fafafa; }
+    .accordion-content { display: none; padding: 1.5rem; background: #FFFFFF; }
     .accordion-content.open { display: block; animation: accordionOpen 0.3s ease; }
     @keyframes accordionOpen { from { opacity: 0; } to { opacity: 1; } }
     .accordion-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
     .accordion-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-    .accordion-item:hover { border-color: var(--primary-yellow); background: var(--secondary-yellow); transform: translateX(4px); }
-    .accordion-item.selected { border-color: var(--primary-yellow); background: var(--secondary-yellow); box-shadow: 0 0 0 2px var(--primary-yellow); }
+    .accordion-item:hover { border-color: var(--primary-gold); background: var(--secondary-gold); transform: translateX(4px); }
+    .accordion-item.selected { border-color: var(--primary-gold); background: var(--secondary-gold); box-shadow: 0 0 0 2px var(--primary-gold); }
     .accordion-item-name { font-weight: 600; color: var(--text-dark); font-size: 0.95rem; }
     .accordion-item-arrow { margin-left: auto; opacity: 0; transition: opacity 0.2s; }
     .accordion-item:hover .accordion-item-arrow { opacity: 1; }
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .area-hero-title { font-size: 2.2rem; }
+      .area-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .area-stat { flex: 0 0 auto; min-width: 80px; }
+      .area-stat-value { font-size: 2rem; }
+      .content-tabs { flex-wrap: wrap; }
+      .content-tab { padding: 0.75rem 1.25rem; font-size: 0.8rem; }
+      .content-grid { grid-template-columns: 1fr; }
+      .neighborhoods-grid { grid-template-columns: 1fr; }
+      .accordion-grid { grid-template-columns: 1fr; }
+      .dropdown-grid { grid-template-columns: 1fr; }
+      .area-section-title { font-size: 1.8rem; }
+      .area-section-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .neighborhood-map-container { grid-template-columns: 1fr; }
+      .navbar-search { flex: 0 1 100%; margin: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .area-hero-title { font-size: 1.6rem; }
+      .area-hero-tagline { font-size: 0.9rem; }
+      .area-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .area-stat-value { font-size: 1.75rem; }
+      .area-section-title { font-size: 1.3rem; }
+      .content-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; scrollbar-width: none; }
+      .content-tabs::-webkit-scrollbar { display: none; }
+      .content-tab { min-height: 44px; white-space: nowrap; padding: 0.6rem 1rem; font-size: 0.75rem; }
+      .content-card-body { padding: 1rem; }
+      .accordion-header { min-height: 44px; padding: 1rem; }
+      .accordion-content { padding: 1rem; }
+      .accordion-item { min-height: 44px; }
+      .filter-clear-btn { min-height: 44px; }
+      .newsletter-btn { min-height: 44px; }
+      .view-all-btn { min-height: 44px; }
+      .logo-main { font-size: 1.4rem; }
+      .area-content { padding: 2rem 4%; }
+      .newsletter-section { padding: 3rem 4%; }
+      .footer { padding: 3rem 4% 2rem; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand { text-align: center; }
+      .footer-links { text-align: center; }
+      .footer-bottom { font-size: 0.8rem; }
+      .area-hero { min-height: 350px; }
+      .area-hero-content { padding: 1.25rem; }
+      .area-vibe-tag { padding: 0.4rem 0.75rem; font-size: 0.65rem; }
+      .navbar { padding: 0.75rem 4%; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.8rem; }
+      .filter-indicator { flex-direction: column; text-align: center; }
+      .filter-clear-btn { margin-left: 0; }
+    }
   </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
-    const areaData = { id: 'westside', name: 'College Park', tagline: "Orlando's industrial-chic hub for food, art, and nightlife", image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600', vibes: ['Restaurants', 'Galleries', 'Industrial-Chic', 'Nightlife'], stats: { neighborhoods: 16, businesses: 178, events: 34 } };
+    const areaData = { id: 'college-park', name: 'College Park / Edgewater', tagline: "Orlando's trendy neighborhoods with craft breweries, local eateries, and community vibes", image: '/api/places?query=College+Park+Orlando+FL&maxwidth=1600', vibes: ['Craft Beer', 'Local Eats', 'Community', 'Trendy'], stats: { neighborhoods: 10, businesses: 145, events: 28 } };
     const neighborhoodGroups = [
-      { id: 'west-winter-park', name: 'West Winter Park', description: 'Design district & restaurants', neighborhoods: [
-        { id: 'west-winter-park', name: 'West Winter Park' }, { id: 'westside-provisions', name: 'College Park Provisions' }, { id: 'howell-mill', name: 'Howell Mill' }
+      { id: 'college-park-core', name: 'College Park', description: 'Tree-lined streets & local restaurants', neighborhoods: [
+        { id: 'college-park-main', name: 'College Park Main Street' }, { id: 'dubsdread', name: 'Dubsdread' }, { id: 'princeton', name: 'Princeton' }
       ]},
-      { id: 'historic-west', name: 'Historic College Park', description: 'Civil rights heritage', neighborhoods: [
-        { id: 'vine-city', name: 'Creative Village' }, { id: 'english-avenue', name: 'English Avenue' }, { id: 'washington-park', name: 'Washington Park' }, { id: 'ashview-heights', name: 'Ashview Heights' }
+      { id: 'edgewater', name: 'Edgewater & Surrounding', description: 'Lakefront living & craft breweries', neighborhoods: [
+        { id: 'edgewater-drive', name: 'Edgewater Drive' }, { id: 'lake-adair', name: 'Lake Adair' }, { id: 'lake-ivanhoe', name: 'Lake Ivanhoe' }, { id: 'ivanhoe-village', name: 'Ivanhoe Village' }
       ]},
-      { id: 'northwest', name: 'Northwest Orlando', description: 'Residential & emerging', neighborhoods: [
-        { id: 'grove-park', name: 'Grove Park' }, { id: 'center-hill', name: 'Center Hill' }, { id: 'bankhead', name: 'Bankhead' }, { id: 'bolton', name: 'Bolton' }
+      { id: 'west-orlando', name: 'West Orlando', description: 'Residential & emerging', neighborhoods: [
+        { id: 'orwin-manor', name: 'Orwin Manor' }, { id: 'pine-hills', name: 'Pine Hills' }, { id: 'holden-heights', name: 'Holden Heights' }
       ]}
     ];
     const neighborhoods = neighborhoodGroups.flatMap(g => g.neighborhoods);
     // Fallback Demo Businesses
     const demoBusinesses = [
-      { id: 1, name: 'College Park Provisions District', category: 'Mixed Use', description: 'Premier shopping and dining in converted warehouses.', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', neighborhood: 'College Park Provisions', featured: true },
-      { id: 2, name: 'Miller Union', category: 'Restaurant', description: 'Award-winning farm-to-table Southern cuisine.', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800', neighborhood: 'West Winter Park', featured: true },
-      { id: 3, name: 'Octane Coffee', category: 'Coffee', description: 'Artisanal coffee roasters and creative workspace.', image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800', neighborhood: 'West Winter Park', featured: false }
+      { id: 1, name: 'The Ravenous Pig', category: 'Restaurant', description: 'Award-winning gastropub with farm-to-table cuisine and craft cocktails.', image: '/api/places?query=The+Ravenous+Pig+Orlando+FL', neighborhood: 'College Park Main Street', featured: true },
+      { id: 2, name: 'Dubsdread Golf Course', category: 'Recreation', description: 'Historic public golf course and community gathering spot since 1924.', image: '/api/places?query=Dubsdread+Golf+Course+Orlando+FL', neighborhood: 'Dubsdread', featured: true },
+      { id: 3, name: 'Lineage Coffee', category: 'Coffee', description: 'Specialty coffee roasters and community gathering space on Edgewater.', image: '/api/places?query=Lineage+Coffee+Roasting+Orlando+FL', neighborhood: 'Edgewater Drive', featured: false }
     ];
     // Fallback Demo Events
     const demoEvents = [
-      { id: 1, title: 'College Park Art Walk', category: 'Art', description: 'Monthly gallery hop featuring local artists.', image: 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=800', date: 'First Friday Monthly', location: 'Marietta Street', featured: true }
+      { id: 1, title: 'Ivanhoe Village Art Walk', category: 'Art', description: 'Monthly gallery hop featuring local artists along Ivanhoe Village.', image: '/api/places?query=Ivanhoe+Village+Orlando+FL', date: 'First Friday Monthly', location: 'Ivanhoe Village', featured: true }
     ];
     // Fallback Demo Properties
     const demoProperties = [
-      { id: 1, price: '$520,000', address: '456 Howell Mill Rd', neighborhood: 'West Winter Park', beds: 2, baths: 2, sqft: '1,650', image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800', featured: true }
+      { id: 1, price: '$520,000', address: '456 Edgewater Dr', neighborhood: 'Edgewater Drive', beds: 3, baths: 2, sqft: '1,650', image: '/api/places?query=456+Edgewater+Dr+Orlando+FL', featured: true }
     ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
@@ -206,7 +258,7 @@
       const [events, setEvents] = useState(demoEvents);
       const properties = demoProperties;
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
-      const [expandedSections, setExpandedSections] = useState(['west-winter-park']);
+      const [expandedSections, setExpandedSections] = useState(['college-park-core']);
       const toggleSection = (id) => setExpandedSections(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]);
 
       const filterByNeighborhood = (items, neighborhoodId) => {
@@ -253,13 +305,13 @@
             <ul className="nav-links">
               <li><a href="index.html">Home</a></li>
               <li className="nav-dropdown"><a href="#">Areas</a>
-                <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul>
+                <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul>
               </li>
               <li><a href="development.html">Development</a></li>
             </ul>
           </nav>
           <section className="area-hero">
-            <img src={areaData.image} alt={areaData.name} className="area-hero-image" />
+            <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Orlando</a>
@@ -298,6 +350,26 @@
                 ))}
               </div>
             </section>
+
+            {/* Interactive Map */}
+            <section className="area-section">
+              <div className="area-section-header">
+                <h2 className="area-section-title">Explore the Map</h2>
+              </div>
+              <div className="neighborhood-map-wrapper">
+                <iframe
+                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyB1Et0TpTJaGLD8I6_XB7T4zs0o0y6H5cA&q=College+Park+Orlando+FL&zoom=14`}
+                  width="100%"
+                  height="100%"
+                  style={{border: 0, borderRadius: '12px'}}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Map of ${areaData.name}`}
+                />
+              </div>
+            </section>
+
             <section className="area-section">
               <div className="area-section-header"><h2 className="area-section-title">Discover {areaData.name}</h2></div>
               {selectedNeighborhood && (
@@ -312,13 +384,13 @@
                 <button className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')}>Properties</button>
               </div>
               <div className="content-grid">
-                {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
-                {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
-                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
+                {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
+                {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
+                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
                 {selectedNeighborhood && ((activeTab === 'businesses' && filteredBusinesses.length === 0) || (activeTab === 'events' && filteredEvents.length === 0) || (activeTab === 'properties' && filteredProperties.length === 0)) && (
                   <div style={{gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-light)'}}>
                     <p style={{fontSize: '1.1rem', marginBottom: '1rem'}}>No {activeTab} found in {getSelectedNeighborhoodName()}</p>
-                    <button onClick={clearFilter} style={{background: 'var(--primary-yellow)', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer'}}>Show All {areaData.name} {activeTab}</button>
+                    <button onClick={clearFilter} style={{background: 'var(--primary-gold)', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer'}}>Show All {areaData.name} {activeTab}</button>
                   </div>
                 )}
               </div>
@@ -327,13 +399,13 @@
           <section className="newsletter-section">
             <h2 className="newsletter-title">Stay Connected with {areaData.name}</h2>
             <p className="newsletter-subtitle">Get the latest news and events delivered to your inbox.</p>
-            {!subscribed ? (<form className="newsletter-form" onSubmit={handleSubscribe}><input type="email" className="newsletter-input" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required /><button type="submit" className="newsletter-btn">Subscribe</button></form>) : (<p style={{color: 'var(--primary-yellow)'}}>Thanks for subscribing!</p>)}
+            {!subscribed ? (<form className="newsletter-form" onSubmit={handleSubscribe}><input type="email" className="newsletter-input" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required /><button type="submit" className="newsletter-btn">Subscribe</button></form>) : (<p style={{color: 'var(--primary-gold)'}}>Thanks for subscribing!</p>)}
           </section>
           <footer className="footer">
             <div className="footer-grid">
               <div className="footer-brand"><div className="logo"><span className="logo-main">The 407 Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Orlando's neighborhoods.</p></div>
-              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li></ul></div>
-              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul></div>
+              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li></ul></div>
+              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul></div>
               <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="index.html#directory">Business Directory</a></li><li><a href="index.html#events">Events Calendar</a></li><li><a href="development.html">Development News</a></li></ul></div>
             </div>
             <div className="footer-bottom"><p>&copy; 2026 The 407 Vibes. All rights reserved.</p></div>

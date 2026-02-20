@@ -1,7 +1,7 @@
 -- ============================================================
 -- The 407 Vibes - Complete Supabase Schema Migration
 -- ============================================================
--- 8 tables, indexes, RLS policies, triggers, and auto-newsletter
+-- 9 tables, indexes, RLS policies, triggers, and auto-newsletter
 -- ============================================================
 
 -- ============================================================
@@ -168,6 +168,27 @@ CREATE TABLE ai_ingest_log (
 
 
 -- ============================================================
+-- 9. SPOTLIGHT_PROPERTIES - Featured real estate listings
+-- ============================================================
+CREATE TABLE spotlight_properties (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  address TEXT,
+  neighborhood TEXT,
+  price TEXT,
+  bedrooms INT,
+  bathrooms INT,
+  sqft INT,
+  image_url TEXT,
+  description TEXT,
+  zillow_url TEXT,
+  featured BOOLEAN DEFAULT true,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+
+-- ============================================================
 -- INDEXES
 -- ============================================================
 
@@ -218,6 +239,11 @@ CREATE INDEX idx_ai_ingest_log_status ON ai_ingest_log(status);
 CREATE INDEX idx_ai_ingest_log_content_type ON ai_ingest_log(content_type);
 CREATE INDEX idx_ai_ingest_log_target ON ai_ingest_log(target_table, target_id);
 
+-- spotlight_properties
+CREATE INDEX idx_spotlight_properties_featured ON spotlight_properties(featured) WHERE featured = true;
+CREATE INDEX idx_spotlight_properties_neighborhood ON spotlight_properties(neighborhood);
+CREATE INDEX idx_spotlight_properties_created_at ON spotlight_properties(created_at DESC);
+
 
 -- ============================================================
 -- UPDATED_AT TRIGGER FUNCTION
@@ -249,6 +275,10 @@ CREATE TRIGGER trigger_events_updated_at
 
 CREATE TRIGGER trigger_articles_updated_at
   BEFORE UPDATE ON articles
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER trigger_spotlight_properties_updated_at
+  BEFORE UPDATE ON spotlight_properties
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
 
@@ -292,6 +322,7 @@ ALTER TABLE articles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE form_submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE newsletter_subscribers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE ai_ingest_log ENABLE ROW LEVEL SECURITY;
+ALTER TABLE spotlight_properties ENABLE ROW LEVEL SECURITY;
 
 
 -- ============================================================
@@ -401,6 +432,20 @@ CREATE POLICY "newsletter_subscribers_service_all"
 -- ----------------------------------------------------------
 CREATE POLICY "ai_ingest_log_service_all"
   ON ai_ingest_log FOR ALL
+  TO service_role
+  USING (true)
+  WITH CHECK (true);
+
+-- ----------------------------------------------------------
+-- SPOTLIGHT_PROPERTIES: public read featured, service role full access
+-- ----------------------------------------------------------
+CREATE POLICY "spotlight_properties_public_select"
+  ON spotlight_properties FOR SELECT
+  TO anon, authenticated
+  USING (featured = true);
+
+CREATE POLICY "spotlight_properties_service_all"
+  ON spotlight_properties FOR ALL
   TO service_role
   USING (true)
   WITH CHECK (true);

@@ -3,71 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ivanhoe Village - The 407 Vibes | Sandy Springs, Dunwoody & Perimeter</title>
-  <meta name="description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee. Business centers, diverse dining, and suburban amenities.">
-  <link rel="canonical" href="https://the-407-vibes.vercel.app/ivanhoe-village.html">
+<<<<<<<< HEAD:baldwin-park.html
+  <title>Baldwin Park - The 407 Vibes | Baldwin Park, Zoo Orlando & Summerhill</title>
+  <meta name="description" content="Explore Baldwin Park including Baldwin Park, Zoo Orlando, and Summerhill. Historic homes, parks, and tight-knit communities.">
+  <link rel="canonical" href="https://the-407-vibes.vercel.app/baldwin-park.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://the-407-vibes.vercel.app/ivanhoe-village.html">
-  <meta property="og:title" content="Ivanhoe Village - Sandy Springs, Dunwoody & Perimeter | The 407 Vibes">
-  <meta property="og:description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee.">
+  <meta property="og:url" content="https://the-407-vibes.vercel.app/baldwin-park.html">
+  <meta property="og:title" content="Baldwin Park - Baldwin Park, Zoo Orlando & Summerhill | The 407 Vibes">
+  <meta property="og:description" content="Explore Baldwin Park including Baldwin Park, Zoo Orlando, and Summerhill. Historic homes and tight-knit communities.">
   <meta property="og:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+========
+  <title>International Drive - The 407 Vibes | Entertainment & Tourism</title>
+  <meta name="description" content="Explore International Drive, Orlando's world-famous entertainment corridor with theme parks, ICON Park, dining, and the Convention Center.">
+  <link rel="canonical" href="https://the407vibes.com/international-drive.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://the407vibes.com/international-drive.html">
+  <meta property="og:title" content="International Drive - Entertainment & Tourism | The 407 Vibes">
+  <meta property="og:description" content="Explore International Drive, Orlando's world-famous entertainment corridor with theme parks, ICON Park, dining, and the Convention Center.">
+  <meta property="og:image" content="https://the407vibes.com/orlando-map.png">
+>>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
   <meta property="og:site_name" content="The 407 Vibes">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ivanhoe Village - Sandy Springs, Dunwoody & Perimeter | The 407 Vibes">
-  <meta name="twitter:description" content="Explore Ivanhoe Village and the Perimeter area including Sandy Springs, Dunwoody, and Chamblee.">
+<<<<<<<< HEAD:baldwin-park.html
+  <meta name="twitter:title" content="Baldwin Park - Baldwin Park, Zoo Orlando & Summerhill | The 407 Vibes">
+  <meta name="twitter:description" content="Explore Baldwin Park including Baldwin Park, Zoo Orlando, and Summerhill.">
   <meta name="twitter:image" content="https://the-407-vibes.vercel.app/orlando-map.png">
+========
+  <meta name="twitter:title" content="International Drive - Entertainment & Tourism | The 407 Vibes">
+  <meta name="twitter:description" content="Explore International Drive, Orlando's world-famous entertainment corridor with theme parks and ICON Park.">
+  <meta name="twitter:image" content="https://the407vibes.com/orlando-map.png">
+>>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
-    :root { --primary-yellow: #FFD95A; --primary-red: #DC3535; --primary-black: #0A0A0A; --primary-white: #FAFAFA; --secondary-yellow: #FFF4D6; --text-dark: #1A1A1A; --text-light: #6B6B6B; --border-color: #E5E5E5; }
+    :root { --primary-gold: #FF6B35; --primary-blue: #1E293B; --primary-black: #0A0A0A; --primary-white: #FFFFFF; --secondary-gold: #FFF5F0; --text-dark: #1A1A1A; --text-light: #6B6B6B; --border-color: #E5E5E5; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Source Sans 3', sans-serif; background-color: var(--primary-white); color: var(--text-dark); line-height: 1.6; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', 'Playfair Display', serif; font-weight: 600; line-height: 1.1; }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--primary-white); color: var(--text-dark); line-height: 1.6; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; font-weight: 600; line-height: 1.1; }
     .navbar { position: fixed; top: 0; left: 0; right: 0; background: var(--primary-white); z-index: 1000; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
     .logo { display: flex; flex-direction: column; text-decoration: none; }
-    .logo-main { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--primary-black); letter-spacing: 0.15em; text-transform: uppercase; }
-    .logo-tagline { font-size: 0.65rem; color: var(--text-light); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 4px; }
+    .logo-main { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 700; color: var(--primary-black); letter-spacing: 0.15em; text-transform: uppercase; }
+    .logo-tagline { font-size: 0.65rem; color: var(--text-light); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 4px;  white-space: nowrap; }
     .navbar-search { display: flex; align-items: center; gap: 0.5rem; flex: 0 1 300px; margin: 0 2rem; }
-    .navbar-search input { flex: 1; padding: 0.6rem 0; border: none; border-bottom: 2px solid #5BA4A4; background: transparent; font-size: 1rem; color: #5BA4A4; outline: none; }
-    .navbar-search input::placeholder { color: #5BA4A4; font-weight: 500; }
+    .navbar-search input { flex: 1; padding: 0.6rem 0; border: none; border-bottom: 2px solid #FF6B35; background: transparent; font-size: 1rem; color: #FF6B35; outline: none; }
+    .navbar-search input::placeholder { color: #FF6B35; font-weight: 500; }
     .navbar-search button { background: none; border: none; cursor: pointer; padding: 0.5rem; display: flex; }
-    .navbar-search button svg { width: 22px; height: 22px; stroke: #5BA4A4; }
+    .navbar-search button svg { width: 22px; height: 22px; stroke: #FF6B35; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.95rem; text-transform: uppercase; }
-    .nav-links a:hover { color: var(--primary-red); }
+    .nav-links a:hover { color: var(--primary-blue); }
     .nav-dropdown { position: relative; }
     .dropdown-menu { position: absolute; top: 100%; left: 0; background: white; min-width: 200px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); border-radius: 8px; padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 1001; }
     .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
     .dropdown-menu li { list-style: none; }
     .dropdown-menu a { display: block; padding: 0.75rem 1.5rem; font-size: 0.85rem; text-transform: none; }
-    .dropdown-menu a:hover { background: var(--secondary-yellow); }
+    .dropdown-menu a:hover { background: var(--secondary-gold); }
     .area-hero { margin-top: 80px; position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .area-hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .area-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); }
     .area-hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 2rem; max-width: 800px; }
     .area-back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: white; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0.8; }
-    .area-hero-title { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 600; margin-bottom: 1rem; }
+    .area-hero-title { font-family: 'Poppins', sans-serif; font-size: 4rem; font-weight: 600; margin-bottom: 1rem; }
     .area-hero-tagline { font-size: 1.25rem; font-weight: 300; margin-bottom: 1.5rem; opacity: 0.9; }
     .area-vibe-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
-    .area-vibe-tag { background: rgba(255, 217, 90, 0.2); border: 1px solid rgba(255, 217, 90, 0.5); color: var(--primary-yellow); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; }
+    .area-vibe-tag { background: rgba(255, 107, 53, 0.2); border: 1px solid rgba(255, 107, 53, 0.5); color: var(--primary-gold); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; }
     .area-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; }
     .area-stat { text-align: center; }
-    .area-stat-value { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; display: block; }
+    .area-stat-value { font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 600; display: block; }
     .area-stat-label { font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; }
     .area-content { padding: 4rem 5%; max-width: 1400px; margin: 0 auto; }
     .area-section { margin-bottom: 4rem; }
     .area-section-header { margin-bottom: 2rem; }
-    .area-section-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; }
+    .area-section-title { font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 600; }
     .neighborhoods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
     .neighborhood-card { position: relative; height: 200px; border-radius: 16px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
     .neighborhood-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); z-index: 1; transition: all 0.4s ease; }
@@ -76,67 +96,67 @@
     .neighborhood-card-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; transition: transform 0.4s ease; }
     .neighborhood-card:hover .neighborhood-card-bg { transform: scale(1.1); }
     .neighborhood-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; z-index: 2; color: white; }
-    .neighborhood-card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    .neighborhood-card-name { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
     .neighborhood-card-desc { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.5; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
     .neighborhood-card:hover .neighborhood-card-desc { opacity: 1; transform: translateY(0); }
     .neighborhood-card-arrow { position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; }
     .neighborhood-card:hover .neighborhood-card-arrow { opacity: 1; transform: translateX(0); }
     .neighborhood-card-arrow svg { width: 18px; height: 18px; stroke: white; fill: none; }
-    .neighborhood-card.selected { border: 3px solid var(--primary-yellow); box-shadow: 0 0 20px rgba(255, 217, 90, 0.4); }
+    .neighborhood-card.selected { border: 3px solid var(--primary-gold); box-shadow: 0 0 20px rgba(255, 107, 53, 0.4); }
     .neighborhood-map-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .neighborhood-map-wrapper { position: relative; background: #f5f5f5; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
+    .neighborhood-map-wrapper { position: relative; background: #FFFFFF; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
     .neighborhood-map-svg { width: 100%; height: 100%; }
-    .neighborhood-region { fill: rgba(255, 217, 90, 0.2); stroke: var(--primary-black); stroke-width: 1; cursor: pointer; transition: all 0.3s ease; }
-    .neighborhood-region:hover { fill: rgba(255, 217, 90, 0.5); filter: drop-shadow(0 0 8px rgba(255, 215, 90, 0.5)); }
-    .neighborhood-region.selected { fill: rgba(255, 217, 90, 0.7); stroke: var(--primary-yellow); stroke-width: 2; filter: drop-shadow(0 0 12px rgba(255, 215, 90, 0.8)); }
+    .neighborhood-region { fill: rgba(255, 107, 53, 0.2); stroke: var(--primary-black); stroke-width: 1; cursor: pointer; transition: all 0.3s ease; }
+    .neighborhood-region:hover { fill: rgba(255, 107, 53, 0.5); filter: drop-shadow(0 0 8px rgba(255, 215, 90, 0.5)); }
+    .neighborhood-region.selected { fill: rgba(255, 107, 53, 0.7); stroke: var(--primary-gold); stroke-width: 2; filter: drop-shadow(0 0 12px rgba(255, 215, 90, 0.8)); }
     .neighborhood-label { font-size: 8px; font-weight: 600; text-transform: uppercase; pointer-events: none; }
     .map-hint { text-align: center; font-size: 0.85rem; color: var(--text-light); margin-top: 0.75rem; font-style: italic; }
-    .filter-indicator { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--secondary-yellow); border-radius: 8px; margin-bottom: 2rem; }
+    .filter-indicator { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--secondary-gold); border-radius: 8px; margin-bottom: 2rem; }
     .filter-indicator-text { font-weight: 600; color: var(--text-dark); }
-    .filter-indicator-text span { color: var(--primary-red); }
+    .filter-indicator-text span { color: var(--primary-blue); }
     .filter-clear-btn { background: var(--primary-black); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; margin-left: auto; }
-    .filter-clear-btn:hover { background: var(--primary-red); }
+    .filter-clear-btn:hover { background: var(--primary-blue); }
     .view-all-neighborhoods { margin-top: 1.5rem; text-align: center; }
     .view-all-btn { display: inline-flex; align-items: center; justify-content: center; background: var(--primary-black); color: white; border: none; padding: 0.875rem 1.75rem; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-    .view-all-btn:hover { background: var(--primary-red); }
+    .view-all-btn:hover { background: var(--primary-blue); }
     .neighborhoods-dropdown { margin-top: 1.5rem; background: white; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); padding: 1.5rem; animation: slideDown 0.3s ease; }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     .dropdown-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; }
     .dropdown-item { display: flex; flex-direction: column; padding: 1rem; background: var(--primary-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-    .dropdown-item:hover { border-color: var(--primary-yellow); background: var(--secondary-yellow); }
-    .dropdown-item.selected { border-color: var(--primary-yellow); background: var(--secondary-yellow); box-shadow: 0 0 0 2px var(--primary-yellow); }
+    .dropdown-item:hover { border-color: var(--primary-gold); background: var(--secondary-gold); }
+    .dropdown-item.selected { border-color: var(--primary-gold); background: var(--secondary-gold); box-shadow: 0 0 0 2px var(--primary-gold); }
     .dropdown-item-name { font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; }
     .dropdown-item-desc { font-size: 0.85rem; color: var(--text-light); }
     @media (max-width: 968px) { .neighborhood-map-container { grid-template-columns: 1fr; } }
     .content-tabs { display: flex; border-bottom: 2px solid var(--border-color); margin-bottom: 2rem; }
     .content-tab { padding: 1rem 2rem; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; color: var(--text-light); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -2px; }
     .content-tab:hover { color: var(--text-dark); }
-    .content-tab.active { color: var(--primary-red); border-bottom-color: var(--primary-red); }
+    .content-tab.active { color: var(--primary-blue); border-bottom-color: var(--primary-blue); }
     .content-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
     .content-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; }
     .content-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
-    .content-card.featured { border: 2px solid var(--primary-yellow); }
+    .content-card.featured { border: 2px solid var(--primary-gold); }
     .content-card-image { width: 100%; height: 200px; object-fit: cover; }
     .content-card-body { padding: 1.5rem; }
-    .content-card-badge { display: inline-block; background: var(--secondary-yellow); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; }
-    .content-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .content-card-badge { display: inline-block; background: var(--secondary-gold); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .content-card-title { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
     .content-card-desc { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
     .content-card-meta { display: flex; gap: 1rem; font-size: 0.8rem; color: var(--text-light); }
-    .property-card-price { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-red); }
+    .property-card-price { font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-blue); }
     .property-card-address { font-weight: 600; margin-bottom: 0.5rem; }
     .property-card-specs { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-light); }
     .newsletter-section { background: var(--primary-black); color: white; padding: 4rem 5%; text-align: center; }
-    .newsletter-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 1rem; }
+    .newsletter-title { font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
     .newsletter-subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; }
     .newsletter-form { display: flex; max-width: 500px; margin: 0 auto; gap: 1rem; }
     .newsletter-input { flex: 1; padding: 1rem 1.5rem; border: none; border-radius: 8px; }
-    .newsletter-btn { background: var(--primary-yellow); color: var(--primary-black); padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+    .newsletter-btn { background: var(--primary-gold); color: var(--primary-black); padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
     .footer { background: var(--primary-black); color: white; padding: 4rem 5% 2rem; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
     .footer-brand .logo-main { color: white; font-size: 1.5rem; }
-    .footer-brand .logo-tagline { color: rgba(255,255,255,0.6); }
+    .footer-brand .logo-tagline { color: rgba(255,255,255,0.6);  white-space: nowrap; }
     .footer-brand p { margin-top: 1rem; color: rgba(255,255,255,0.7); }
-    .footer-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--primary-yellow); }
+    .footer-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--primary-gold); }
     .footer-links { list-style: none; }
     .footer-links li { margin-bottom: 0.75rem; }
     .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; }
@@ -147,54 +167,130 @@
     .neighborhood-accordions { display: flex; flex-direction: column; gap: 1rem; }
     .accordion-section { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; border: 1px solid var(--border-color); }
     .accordion-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; background: white; cursor: pointer; transition: all 0.2s; border: none; width: 100%; text-align: left; }
-    .accordion-header:hover { background: var(--secondary-yellow); }
-    .accordion-header.active { background: var(--secondary-yellow); border-bottom: 1px solid var(--border-color); }
-    .accordion-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; gap: 0.75rem; }
-    .accordion-count { background: var(--primary-black); color: white; font-family: 'Source Sans 3', sans-serif; font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 50px; font-weight: 600; }
+    .accordion-header:hover { background: var(--secondary-gold); }
+    .accordion-header.active { background: var(--secondary-gold); border-bottom: 1px solid var(--border-color); }
+    .accordion-title { font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; gap: 0.75rem; }
+    .accordion-count { background: var(--primary-black); color: white; font-family: 'Poppins', sans-serif; font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 50px; font-weight: 600; }
     .accordion-icon { width: 24px; height: 24px; transition: transform 0.3s; }
     .accordion-header.active .accordion-icon { transform: rotate(180deg); }
-    .accordion-content { display: none; padding: 1.5rem; background: #fafafa; }
+    .accordion-content { display: none; padding: 1.5rem; background: #FFFFFF; }
     .accordion-content.open { display: block; animation: accordionOpen 0.3s ease; }
     @keyframes accordionOpen { from { opacity: 0; } to { opacity: 1; } }
     .accordion-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
     .accordion-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-    .accordion-item:hover { border-color: var(--primary-yellow); background: var(--secondary-yellow); transform: translateX(4px); }
-    .accordion-item.selected { border-color: var(--primary-yellow); background: var(--secondary-yellow); box-shadow: 0 0 0 2px var(--primary-yellow); }
+    .accordion-item:hover { border-color: var(--primary-gold); background: var(--secondary-gold); transform: translateX(4px); }
+    .accordion-item.selected { border-color: var(--primary-gold); background: var(--secondary-gold); box-shadow: 0 0 0 2px var(--primary-gold); }
     .accordion-item-name { font-weight: 600; color: var(--text-dark); font-size: 0.95rem; }
     .accordion-item-arrow { margin-left: auto; opacity: 0; transition: opacity 0.2s; }
     .accordion-item:hover .accordion-item-arrow { opacity: 1; }
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .area-hero-title { font-size: 2.2rem; }
+      .area-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .area-stat { flex: 0 0 auto; min-width: 80px; }
+      .area-stat-value { font-size: 2rem; }
+      .content-tabs { flex-wrap: wrap; }
+      .content-tab { padding: 0.75rem 1.25rem; font-size: 0.8rem; }
+      .content-grid { grid-template-columns: 1fr; }
+      .neighborhoods-grid { grid-template-columns: 1fr; }
+      .accordion-grid { grid-template-columns: 1fr; }
+      .dropdown-grid { grid-template-columns: 1fr; }
+      .area-section-title { font-size: 1.8rem; }
+      .area-section-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .neighborhood-map-container { grid-template-columns: 1fr; }
+      .navbar-search { flex: 0 1 100%; margin: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .area-hero-title { font-size: 1.6rem; }
+      .area-hero-tagline { font-size: 0.9rem; }
+      .area-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .area-stat-value { font-size: 1.75rem; }
+      .area-section-title { font-size: 1.3rem; }
+      .content-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; scrollbar-width: none; }
+      .content-tabs::-webkit-scrollbar { display: none; }
+      .content-tab { min-height: 44px; white-space: nowrap; padding: 0.6rem 1rem; font-size: 0.75rem; }
+      .content-card-body { padding: 1rem; }
+      .accordion-header { min-height: 44px; padding: 1rem; }
+      .accordion-content { padding: 1rem; }
+      .accordion-item { min-height: 44px; }
+      .filter-clear-btn { min-height: 44px; }
+      .newsletter-btn { min-height: 44px; }
+      .view-all-btn { min-height: 44px; }
+      .logo-main { font-size: 1.4rem; }
+      .area-content { padding: 2rem 4%; }
+      .newsletter-section { padding: 3rem 4%; }
+      .footer { padding: 3rem 4% 2rem; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand { text-align: center; }
+      .footer-links { text-align: center; }
+      .footer-bottom { font-size: 0.8rem; }
+      .area-hero { min-height: 350px; }
+      .area-hero-content { padding: 1.25rem; }
+      .area-vibe-tag { padding: 0.4rem 0.75rem; font-size: 0.65rem; }
+      .navbar { padding: 0.75rem 4%; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.8rem; }
+      .filter-indicator { flex-direction: column; text-align: center; }
+      .filter-clear-btn { margin-left: 0; }
+    }
   </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
-    const areaData = { id: 'north-orlando', name: 'Ivanhoe Village', tagline: "Business centers, diverse dining, and suburban living at the Perimeter", image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600', vibes: ['Business', 'Diverse Dining', 'Shopping', 'Suburban'], stats: { neighborhoods: 18, businesses: 287, events: 45 } };
+<<<<<<<< HEAD:baldwin-park.html
+    const areaData = { id: 'south-orlando', name: 'Baldwin Park', tagline: "Historic homes and Zoo Orlando in tight-knit communities", image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600', vibes: ['Historic Homes', 'Zoo Orlando', 'Parks', 'Community'], stats: { neighborhoods: 18, businesses: 78, events: 22 } };
     const neighborhoodGroups = [
-      { id: 'perimeter', name: 'Perimeter Area', description: 'Business & shopping hubs', neighborhoods: [
-        { id: 'sandy-springs', name: 'Sandy Springs' }, { id: 'dunwoody', name: 'Dunwoody' }, { id: 'perimeter-center', name: 'Perimeter Center' }, { id: 'brookhaven', name: 'Brookhaven' }
+      { id: 'grant-park-area', name: 'Baldwin Park Area', description: 'Zoo Orlando & Victorian homes', neighborhoods: [
+        { id: 'grant-park', name: 'Baldwin Park' }, { id: 'summerhill', name: 'Summerhill' }, { id: 'peoplestown', name: 'Peoplestown' }, { id: 'chosewood-park', name: 'Chosewood Park' }
       ]},
-      { id: 'buford-hwy', name: 'Buford Highway Corridor', description: 'International food & culture', neighborhoods: [
-        { id: 'chamblee', name: 'Chamblee' }, { id: 'doraville', name: 'Doraville' }, { id: 'norcross', name: 'Norcross' }, { id: 'tucker', name: 'Tucker' }
+      { id: 'orlando-trail-south', name: 'Orlando Trail South', description: 'Trail-connected neighborhoods', neighborhoods: [
+        { id: 'pittsburgh', name: 'Pittsburgh' }, { id: 'mechanicsville', name: 'Mechanicsville' }, { id: 'capitol-view', name: 'Capitol View' }, { id: 'lakewood-heights', name: 'Lakewood Heights' }
+========
+    const areaData = { id: 'international-drive', name: 'International Drive', tagline: "Orlando's world-famous entertainment corridor with theme parks, ICON Park, and dining", image: '/api/places?query=ICON+Park+Orlando+FL&maxwidth=1600', vibes: ['Theme Parks', 'ICON Park', 'Dining', 'Convention Center'], stats: { neighborhoods: 10, businesses: 320, events: 52 } };
+    const neighborhoodGroups = [
+      { id: 'north-idrive', name: 'North I-Drive', description: 'ICON Park & entertainment', neighborhoods: [
+        { id: 'icon-park', name: 'ICON Park Area' }, { id: 'sand-lake-rd', name: 'Sand Lake Road' }, { id: 'universal-area', name: 'Universal Studios Area' }, { id: 'wet-n-wild', name: 'North I-Drive' }
       ]},
-      { id: 'north-fulton', name: 'North Fulton', description: 'Tech hub & upscale living', neighborhoods: [
-        { id: 'roswell', name: 'Roswell' }, { id: 'alpharetta', name: 'Alpharetta' }, { id: 'johns-creek', name: 'Johns Creek' }, { id: 'milton', name: 'Milton' }
+      { id: 'convention', name: 'Convention Center Area', description: 'Business & events hub', neighborhoods: [
+        { id: 'convention-center', name: 'Orange County Convention Center' }, { id: 'pointe-orlando', name: 'Pointe Orlando' }, { id: 'beachline-corridor', name: 'Beachline Corridor' }
+>>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
+      ]},
+      { id: 'south-idrive', name: 'South I-Drive', description: 'SeaWorld & attractions', neighborhoods: [
+        { id: 'seaworld-area', name: 'SeaWorld Area' }, { id: 'aquatica', name: 'Aquatica District' }, { id: 'south-idrive', name: 'South International Drive' }
       ]}
     ];
     const neighborhoods = neighborhoodGroups.flatMap(g => g.neighborhoods);
     // Fallback Demo Businesses
     const demoBusinesses = [
-      { id: 1, name: 'Perimeter Mall', category: 'Shopping', description: 'Premier shopping destination in Ivanhoe Village.', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800', neighborhood: 'Dunwoody', featured: true },
-      { id: 2, name: 'Buford Highway Food Corridor', category: 'Dining', description: 'Diverse international restaurants along Buford Highway.', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800', neighborhood: 'Chamblee', featured: true },
-      { id: 3, name: 'Chattahoochee River National Recreation Area', category: 'Parks', description: 'Beautiful river trails and outdoor activities.', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800', neighborhood: 'Sandy Springs', featured: false }
+<<<<<<<< HEAD:baldwin-park.html
+      { id: 1, name: 'Zoo Orlando', category: 'Attraction', description: 'Major zoo and conservation center with giant pandas.', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=800', neighborhood: 'Baldwin Park', featured: true },
+      { id: 2, name: 'Six Feet Under', category: 'Restaurant', description: 'Rooftop seafood restaurant with skyline views.', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800', neighborhood: 'Baldwin Park', featured: true },
+      { id: 3, name: 'Baldwin Park Market', category: 'Farmers Market', description: 'Weekly farmers market with local produce.', image: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800', neighborhood: 'Baldwin Park', featured: false }
     ];
     // Fallback Demo Events
     const demoEvents = [
-      { id: 1, title: 'Taste of Chamblee', category: 'Food Festival', description: 'Celebrating the diverse cuisines of Buford Highway.', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800', date: 'October 2026', location: 'Chamblee', featured: true }
+      { id: 1, title: 'Baldwin Park Summer Shade Festival', category: 'Festival', description: 'Annual arts and music festival in the park.', image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800', date: 'August 2026', location: 'Baldwin Park', featured: true },
+      { id: 2, title: 'Baldwin Park Tour of Homes', category: 'Home Tour', description: 'Annual tour of historic Victorian homes.', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800', date: 'September 2026', location: 'Baldwin Park', featured: false }
     ];
     // Fallback Demo Properties
     const demoProperties = [
-      { id: 1, price: '$485,000', address: '123 Roswell Rd', neighborhood: 'Sandy Springs', beds: 3, baths: 2, sqft: '2,100', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', featured: true }
+      { id: 1, price: '$675,000', address: '456 Cherokee Ave SE', neighborhood: 'Baldwin Park', beds: 4, baths: 2, sqft: '2,400', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800', featured: true },
+      { id: 2, price: '$425,000', address: '123 Boulevard SE', neighborhood: 'Baldwin Park', beds: 3, baths: 2, sqft: '1,800', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800', featured: false }
+========
+      { id: 1, name: 'ICON Park', category: 'Entertainment', description: 'Entertainment complex featuring The Wheel, SEA LIFE Aquarium, and dining.', image: '/api/places?query=ICON+Park+Orlando+FL', neighborhood: 'ICON Park Area', featured: true },
+      { id: 2, name: 'Pointe Orlando', category: 'Shopping & Dining', description: 'Open-air shopping and dining complex on International Drive.', image: '/api/places?query=Pointe+Orlando+International+Drive+FL', neighborhood: 'Pointe Orlando', featured: true }
+    ];
+    // Fallback Demo Events
+    const demoEvents = [
+      { id: 1, title: 'I-Drive Food & Wine Festival', category: 'Food & Wine', description: 'Annual food and wine festival along International Drive.', image: '/api/places?query=International+Drive+Orlando+FL', date: 'November 2026', location: 'ICON Park Area', featured: true }
+    ];
+    // Fallback Demo Properties
+    const demoProperties = [
+      { id: 1, price: '$350,000', address: '8500 International Dr #1204', neighborhood: 'ICON Park Area', beds: 2, baths: 2, sqft: '1,200', image: '/api/places?query=8500+International+Dr+Orlando+FL', featured: true }
+>>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
     ];
     function AreaPage() {
       const [activeTab, setActiveTab] = useState('businesses');
@@ -205,7 +301,7 @@
       const properties = demoProperties;
 
       const [selectedNeighborhood, setSelectedNeighborhood] = useState(null);
-      const [expandedSections, setExpandedSections] = useState(['perimeter']);
+      const [expandedSections, setExpandedSections] = useState(['north-idrive']);
       const toggleSection = (id) => setExpandedSections(prev => prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]);
 
       const filterByNeighborhood = (items, neighborhoodId) => {
@@ -252,13 +348,17 @@
             <ul className="nav-links">
               <li><a href="index.html">Home</a></li>
               <li className="nav-dropdown"><a href="#">Areas</a>
+<<<<<<<< HEAD:baldwin-park.html
                 <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul>
+========
+                <ul className="dropdown-menu"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul>
+>>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
               </li>
               <li><a href="development.html">Development</a></li>
             </ul>
           </nav>
           <section className="area-hero">
-            <img src={areaData.image} alt={areaData.name} className="area-hero-image" />
+            <img src={areaData.image} alt={areaData.name} className="area-hero-image" onError={(e) => { e.target.style.display='none'; e.target.parentElement.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; }} />
             <div className="area-hero-overlay"></div>
             <div className="area-hero-content">
               <a href="index.html" className="area-back-link"><span>&larr;</span> Back to Orlando</a>
@@ -297,6 +397,26 @@
                 ))}
               </div>
             </section>
+
+            {/* Interactive Map */}
+            <section className="area-section">
+              <div className="area-section-header">
+                <h2 className="area-section-title">Explore the Map</h2>
+              </div>
+              <div className="neighborhood-map-wrapper">
+                <iframe
+                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyB1Et0TpTJaGLD8I6_XB7T4zs0o0y6H5cA&q=International+Drive+Orlando+FL&zoom=13`}
+                  width="100%"
+                  height="100%"
+                  style={{border: 0, borderRadius: '12px'}}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Map of ${areaData.name}`}
+                />
+              </div>
+            </section>
+
             <section className="area-section">
               <div className="area-section-header"><h2 className="area-section-title">Discover {areaData.name}</h2></div>
               {selectedNeighborhood && (
@@ -311,22 +431,27 @@
                 <button className={`content-tab ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')}>Properties</button>
               </div>
               <div className="content-grid">
-                {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
-                {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
-                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
+                {activeTab === 'businesses' && filteredBusinesses.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.name} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.name}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.neighborhood}</span></div></div></div>))}
+                {activeTab === 'events' && filteredEvents.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.title} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><span className="content-card-badge">{item.category}</span><h3 className="content-card-title">{item.title}</h3><p className="content-card-desc">{item.description}</p><div className="content-card-meta"><span>{item.date}</span><span>{item.location}</span></div></div></div>))}
+                {activeTab === 'properties' && filteredProperties.map((item) => (<div key={item.id} className={`content-card ${item.featured ? 'featured' : ''}`}><img src={item.image} alt={item.address} className="content-card-image" onError={(e) => { e.target.src=''; e.target.style.background='linear-gradient(135deg,#FF6B35 0%,#E8530E 40%,#1E293B 100%)'; e.target.style.display='block'; }} /><div className="content-card-body"><div className="property-card-price">{item.price}</div><div className="property-card-address">{item.address}</div><div className="property-card-specs"><span>{item.beds} beds</span><span>{item.baths} baths</span><span>{item.sqft} sq ft</span></div></div></div>))}
               </div>
             </section>
           </div>
           <section className="newsletter-section">
             <h2 className="newsletter-title">Stay Connected with {areaData.name}</h2>
             <p className="newsletter-subtitle">Get the latest news and events delivered to your inbox.</p>
-            {!subscribed ? (<form className="newsletter-form" onSubmit={handleSubscribe}><input type="email" className="newsletter-input" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required /><button type="submit" className="newsletter-btn">Subscribe</button></form>) : (<p style={{color: 'var(--primary-yellow)'}}>Thanks for subscribing!</p>)}
+            {!subscribed ? (<form className="newsletter-form" onSubmit={handleSubscribe}><input type="email" className="newsletter-input" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required /><button type="submit" className="newsletter-btn">Subscribe</button></form>) : (<p style={{color: 'var(--primary-gold)'}}>Thanks for subscribing!</p>)}
           </section>
           <footer className="footer">
             <div className="footer-grid">
               <div className="footer-brand"><div className="logo"><span className="logo-main">The 407 Vibes</span><span className="logo-tagline">Culture Blog & Vlog Magazine</span></div><p>Your guide to Orlando's neighborhoods.</p></div>
+<<<<<<<< HEAD:baldwin-park.html
               <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Thornton Park Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park</a></li></ul></div>
               <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="lake-nona.html">Lake Nona Orlando</a></li><li><a href="dr-phillips.html">Dr. Phillips Orlando</a></li><li><a href="baldwin-park.html">Baldwin Park</a></li><li><a href="ivanhoe-village.html">Ivanhoe Village</a></li></ul></div>
+========
+              <div><h4 className="footer-title">Areas</h4><ul className="footer-links"><li><a href="downtown-orlando.html">Downtown Orlando</a></li><li><a href="winter-park.html">Winter Park</a></li><li><a href="thornton-park.html">Thornton Park / SoDo</a></li><li><a href="mills-50.html">Mills 50</a></li><li><a href="college-park.html">College Park / Edgewater</a></li></ul></div>
+              <div><h4 className="footer-title">More Areas</h4><ul className="footer-links"><li><a href="international-drive.html">International Drive</a></li><li><a href="dr-phillips.html">Dr. Phillips / Restaurant Row</a></li><li><a href="east-orlando.html">East Orlando / UCF</a></li><li><a href="north-orlando.html">North Orlando / Maitland</a></li></ul></div>
+>>>>>>>> cada35d (Integrate Google Places API photos & maps, rebrand to Orlando):international-drive.html
               <div><h4 className="footer-title">Explore</h4><ul className="footer-links"><li><a href="index.html#directory">Business Directory</a></li><li><a href="index.html#events">Events Calendar</a></li><li><a href="development.html">Development News</a></li></ul></div>
             </div>
             <div className="footer-bottom"><p>&copy; 2026 The 407 Vibes. All rights reserved.</p></div>

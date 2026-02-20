@@ -5,25 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Submit a Listing - The 407 Vibes</title>
   <meta name="description" content="Submit your business or event to The 407 Vibes. Get discovered by Orlando locals and visitors.">
-  <link rel="canonical" href="https://the-407-vibes.vercel.app/submit.html">
+  <link rel="canonical" href="https://the407vibes.com/submit.html">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Submit a Listing - The 407 Vibes">
   <meta property="og:description" content="Submit your business or event to The 407 Vibes. Get discovered by Orlando locals and visitors.">
   <meta property="og:site_name" content="The 407 Vibes">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -36,14 +37,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--primary-white);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3 {
-      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       line-height: 1.2;
     }
@@ -72,7 +73,7 @@
     }
 
     .logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.75rem;
       font-weight: 700;
       color: var(--primary-black);
@@ -82,12 +83,13 @@
     }
 
     .logo-tagline {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 0.6rem;
       font-weight: 400;
       color: var(--text-light);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      white-space: nowrap;
       margin-top: 4px;
     }
 
@@ -109,7 +111,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     /* Main Content */
@@ -155,7 +157,7 @@
       padding: 1rem 1.5rem;
       background: none;
       border: none;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1rem;
       font-weight: 600;
       color: var(--text-light);
@@ -170,8 +172,8 @@
     }
 
     .tab-btn.active {
-      color: var(--primary-red);
-      border-bottom-color: var(--primary-red);
+      color: var(--primary-blue);
+      border-bottom-color: var(--primary-blue);
     }
 
     .tab-content {
@@ -217,7 +219,7 @@
     }
 
     label .required {
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     input[type="text"],
@@ -232,7 +234,7 @@
       padding: 0.875rem 1rem;
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1rem;
       transition: border-color 0.3s, box-shadow 0.3s;
       background: white;
@@ -242,8 +244,8 @@
     select:focus,
     textarea:focus {
       outline: none;
-      border-color: var(--primary-yellow);
-      box-shadow: 0 0 0 3px rgba(255, 217, 90, 0.2);
+      border-color: var(--primary-gold);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
     }
 
     textarea {
@@ -261,11 +263,11 @@
     .submit-btn {
       width: 100%;
       padding: 1.25rem 2rem;
-      background: var(--primary-red);
+      background: var(--primary-blue);
       color: white;
       border: none;
       border-radius: 8px;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -275,7 +277,7 @@
     }
 
     .submit-btn:hover {
-      background: var(--accent-red);
+      background: var(--accent-blue);
       transform: translateY(-2px);
       box-shadow: 0 4px 15px rgba(220, 53, 53, 0.3);
     }
@@ -331,7 +333,7 @@
     .success-message .btn-secondary {
       display: inline-block;
       padding: 1rem 2rem;
-      background: var(--primary-yellow);
+      background: var(--primary-gold);
       color: var(--primary-black);
       text-decoration: none;
       border-radius: 8px;
@@ -373,7 +375,7 @@
       width: 40px;
       height: 40px;
       border: 3px solid var(--border-color);
-      border-top-color: var(--primary-red);
+      border-top-color: var(--primary-blue);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
       margin: 0 auto 1rem;
@@ -392,7 +394,7 @@
     }
 
     .footer a {
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       text-decoration: none;
     }
 
@@ -420,6 +422,284 @@
         padding: 0.75rem 1rem;
       }
     }
+
+    /* =============================================
+       Touch-friendly baseline (applies to all sizes)
+       ============================================= */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+      min-height: 44px;
+    }
+
+    .submit-btn,
+    .success-message .btn-secondary {
+      min-height: 48px;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    /* =============================================
+       640px breakpoint - small tablets / large phones
+       ============================================= */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .page-header {
+        padding: 2.5rem 5%;
+      }
+
+      .page-header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .tab-container {
+        padding: 1.25rem 4%;
+      }
+
+      .tab-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        border-bottom: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .tab-btn {
+        flex: 1 1 auto;
+        min-width: 140px;
+        font-size: 0.95rem;
+        padding: 0.85rem 1.25rem;
+        min-height: 48px;
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+
+      .tab-btn.active {
+        border-color: var(--primary-blue);
+        background: rgba(13, 27, 42, 0.05);
+      }
+
+      .form-section {
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 1.25rem;
+      }
+
+      .form-section h3 {
+        font-size: 1.15rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 1.1rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .success-message {
+        padding: 2rem 1.25rem;
+      }
+
+      .success-icon {
+        width: 64px;
+        height: 64px;
+      }
+
+      .success-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .footer {
+        padding: 2rem 5%;
+      }
+    }
+
+    /* =============================================
+       480px breakpoint - small phones
+       ============================================= */
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 1rem 4%;
+      }
+
+      .logo-main {
+        font-size: 1.4rem;
+      }
+
+      .logo-tagline {
+        font-size: 0.5rem;
+        letter-spacing: 0.2em;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .main-content {
+        padding-top: 80px;
+      }
+
+      .page-header {
+        padding: 1.75rem 4%;
+      }
+
+      .page-header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .page-header p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .tab-container {
+        padding: 1rem 3%;
+      }
+
+      .tab-nav {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .tab-btn {
+        width: 100%;
+        min-width: unset;
+        font-size: 0.88rem;
+        padding: 0.75rem 1rem;
+        min-height: 46px;
+      }
+
+      .form-section {
+        padding: 0.85rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      }
+
+      .form-section h3 {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group label {
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="url"],
+      input[type="date"],
+      input[type="time"],
+      select,
+      textarea {
+        min-height: 44px;
+        padding: 0.75rem 0.85rem;
+        font-size: 0.95rem;
+        border-radius: 6px;
+      }
+
+      textarea {
+        min-height: 100px;
+      }
+
+      .help-text {
+        font-size: 0.78rem;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        font-size: 0.95rem;
+        min-height: 48px;
+        border-radius: 6px;
+        letter-spacing: 0.5px;
+      }
+
+      .error-message {
+        padding: 0.85rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .success-message {
+        padding: 1.5rem 1rem;
+      }
+
+      .success-message h2 {
+        font-size: 1.4rem;
+      }
+
+      .success-message p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .success-message .btn-secondary {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.85rem 1.5rem;
+        min-height: 48px;
+      }
+
+      .success-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 1rem;
+      }
+
+      .success-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .loading p {
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        padding: 1.5rem 4%;
+      }
+
+      .footer p {
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -433,7 +713,7 @@
       <li><a href="/">Home</a></li>
       <li><a href="/directory.html">Directory</a></li>
       <li><a href="/events.html">Events</a></li>
-      <li><a href="/submit.html" style="color: var(--primary-red);">Submit Listing</a></li>
+      <li><a href="/submit.html" style="color: var(--primary-blue);">Submit Listing</a></li>
     </ul>
   </nav>
 
@@ -521,7 +801,7 @@
               </div>
               <div class="form-group">
                 <label>Phone</label>
-                <input type="tel" name="phone" placeholder="(404) 555-1234">
+                <input type="tel" name="phone" placeholder="(407) 555-1234">
               </div>
             </div>
             <div class="form-group">
@@ -535,7 +815,7 @@
             <h3>Location</h3>
             <div class="form-group">
               <label>Street Address <span class="required">*</span></label>
-              <input type="text" name="street" required placeholder="123 Orange Ave Street NE">
+              <input type="text" name="street" required placeholder="123 Orange Ave">
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -550,31 +830,26 @@
             <div class="form-row">
               <div class="form-group">
                 <label>ZIP Code <span class="required">*</span></label>
-                <input type="text" name="zip" required placeholder="30308">
+                <input type="text" name="zip" required placeholder="32801">
               </div>
               <div class="form-group">
                 <label>Neighborhood</label>
                 <select name="neighbourhood" id="businessNeighbourhood">
                   <option value="">Select neighborhood...</option>
-                  <option value="downtown-orlando">Thornton Park Orlando</option>
+                  <option value="downtown-orlando">Downtown Orlando</option>
                   <option value="winter-park">Winter Park</option>
-                  <option value="downtown">Thornton Park</option>
-                  <option value="virginia-highland">Virginia Highland</option>
-                  <option value="inman-park">Ivanhoe Village</option>
-                  <option value="old-fourth-ward">Thornton Park</option>
-                  <option value="east-orlando">East Orlando</option>
-                  <option value="west-end">College Park</option>
-                  <option value="grant-park">Baldwin Park</option>
-                  <option value="decatur">Decatur</option>
-                  <option value="little-five-points">Little Church Street</option>
-                  <option value="atlantic-station">Atlantic Station</option>
-                  <option value="poncey-highland">Poncey-Highland</option>
-                  <option value="kirkwood">Kirkwood</option>
-                  <option value="edgewood">Edgewood</option>
-                  <option value="reynoldstown">Audubon Park</option>
-                  <option value="cabbagetown">Milk District</option>
-                  <option value="castleberry-hill">Castleberry Hill</option>
-                  <option value="west-winter-park">West Winter Park</option>
+                  <option value="thornton-park">Thornton Park</option>
+                  <option value="mills-50">Mills 50</option>
+                  <option value="college-park">College Park</option>
+                  <option value="audubon-park">Audubon Park</option>
+                  <option value="international-drive">International Drive</option>
+                  <option value="dr-phillips">Dr. Phillips</option>
+                  <option value="lake-nona">Lake Nona</option>
+                  <option value="baldwin-park">Baldwin Park</option>
+                  <option value="maitland">Maitland</option>
+                  <option value="ucf-area">UCF Area</option>
+                  <option value="waterford-lakes">Waterford Lakes</option>
+                  <option value="windermere">Windermere</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -583,17 +858,12 @@
               <label>County <span class="required">*</span></label>
               <select name="county" required>
                 <option value="">Select county...</option>
-                <option value="Fulton">Fulton County</option>
-                <option value="DeKalb">DeKalb County</option>
-                <option value="Cobb">Cobb County</option>
-                <option value="Gwinnett">Gwinnett County</option>
-                <option value="Clayton">Clayton County</option>
-                <option value="Douglas">Douglas County</option>
-                <option value="Fayette">Fayette County</option>
-                <option value="Henry">Henry County</option>
-                <option value="Rockdale">Rockdale County</option>
-                <option value="Cherokee">Cherokee County</option>
-                <option value="Paulding">Paulding County</option>
+                <option value="Orange">Orange County</option>
+                <option value="Seminole">Seminole County</option>
+                <option value="Osceola">Osceola County</option>
+                <option value="Lake">Lake County</option>
+                <option value="Volusia">Volusia County</option>
+                <option value="Brevard">Brevard County</option>
               </select>
             </div>
             <input type="hidden" name="country" value="United States">
@@ -672,7 +942,7 @@
             <h3>Venue Location</h3>
             <div class="form-group">
               <label>Venue Name <span class="required">*</span></label>
-              <input type="text" name="venue" required placeholder="e.g., Piedmont Park">
+              <input type="text" name="venue" required placeholder="e.g., Lake Eola Park">
             </div>
             <div class="form-group">
               <label>Street Address <span class="required">*</span></label>
@@ -685,17 +955,17 @@
               </div>
               <div class="form-group">
                 <label>ZIP Code <span class="required">*</span></label>
-                <input type="text" name="zip" required placeholder="30306">
+                <input type="text" name="zip" required placeholder="32801">
               </div>
             </div>
             <div class="form-group">
               <label>County <span class="required">*</span></label>
               <select name="county" required>
                 <option value="">Select county...</option>
-                <option value="Fulton" selected>Fulton County</option>
-                <option value="DeKalb">DeKalb County</option>
-                <option value="Cobb">Cobb County</option>
-                <option value="Gwinnett">Gwinnett County</option>
+                <option value="Orange" selected>Orange County</option>
+                <option value="Seminole">Seminole County</option>
+                <option value="Osceola">Osceola County</option>
+                <option value="Lake">Lake County</option>
                 <option value="Clayton">Clayton County</option>
                 <option value="Douglas">Douglas County</option>
                 <option value="Fayette">Fayette County</option>
@@ -890,7 +1160,7 @@
         region: data.region,
         zip: data.zip,
         country: data.country,
-        county: data.county, // Properly cased (e.g., "Fulton" not "fulton")
+        county: data.county, // Properly cased (e.g., "Orange" not "orange")
         business_certifications: [data.business_certifications], // Must be array
         status: 'pending' // Submit as pending for review
       };

@@ -4,18 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The 407 Vibes - Visual Reference Guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script src="/js/platform-api.js"></script>
+  <script src="/js/google-places.js"></script>
   <style>
     :root {
-      --primary-yellow: #FFD95A;
-      --primary-red: #DC3535;
+      --primary-gold: #FF6B35;
+      --primary-blue: #1E293B;
       --primary-black: #0A0A0A;
-      --primary-white: #FAFAFA;
-      --secondary-yellow: #FFF4D6;
-      --accent-red: #A82B2B;
+      --primary-white: #FFFFFF;
+      --secondary-gold: #FFF5F0;
+      --accent-blue: #E8530E;
       --text-dark: #1A1A1A;
       --text-light: #6B6B6B;
       --border-color: #E5E5E5;
@@ -28,14 +29,14 @@
     }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #fff;
       color: var(--text-dark);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
     }
 
@@ -65,7 +66,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://images.unsplash.com/photo-1555992336-03a23c7b20ee?w=1600') center/cover;
+      background: url('/api/places?query=Orlando+cityscape+panorama&maxwidth=1600') center/cover;
       opacity: 0.15;
     }
 
@@ -75,7 +76,7 @@
     }
 
     .cover-logo {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 3.5rem;
       font-weight: 700;
       letter-spacing: 0.15em;
@@ -87,7 +88,7 @@
       font-size: 0.9rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--primary-yellow);
+      color: var(--primary-gold);
       margin-bottom: 2rem;
     }
 
@@ -107,14 +108,14 @@
     }
 
     .section:nth-child(even) {
-      background: #f9f9f9;
+      background: #FFFFFF;
     }
 
     .section-number {
       font-size: 0.75rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       margin-bottom: 1rem;
     }
 
@@ -143,7 +144,7 @@
       align-items: center;
       margin-bottom: 1rem;
       padding-bottom: 1rem;
-      border-bottom: 2px solid var(--primary-yellow);
+      border-bottom: 2px solid var(--primary-gold);
     }
 
     .page-header h3 {
@@ -247,19 +248,19 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      color: var(--primary-red);
+      color: var(--primary-blue);
       margin-bottom: 1rem;
     }
 
     .type-heading {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.5rem;
       font-weight: 600;
       color: var(--primary-black);
     }
 
     .type-body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1rem;
       color: var(--text-dark);
     }
@@ -283,7 +284,7 @@
       font-size: 1rem;
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--primary-yellow);
+      border-bottom: 2px solid var(--primary-gold);
     }
 
     .sitemap-group ul {
@@ -313,10 +314,10 @@
     }
 
     .stat-number {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.5rem;
       font-weight: 700;
-      color: var(--primary-red);
+      color: var(--primary-blue);
     }
 
     .stat-label {
@@ -348,7 +349,7 @@
   <!-- Cover -->
   <div class="cover">
     <div class="cover-content">
-      <div class="cover-logo">Orlando VIBES & VIEWS</div>
+      <div class="cover-logo">THE 407 VIBES</div>
       <div class="cover-tagline">Orlando's Neighborhood & Culture Magazine</div>
       <h1 class="cover-title">Website Visual Reference Guide</h1>
     </div>
@@ -383,9 +384,9 @@
       <h3 style="margin-top: 3rem; margin-bottom: 1rem;">Color Palette</h3>
       <div class="color-grid">
         <div class="color-swatch">
-          <div class="color-box" style="background: #FFD95A;"></div>
+          <div class="color-box" style="background: #FF8C5A;"></div>
           <div class="color-name">Primary Yellow</div>
-          <div class="color-hex">#FFD95A</div>
+          <div class="color-hex">#FF8C5A</div>
         </div>
         <div class="color-swatch">
           <div class="color-box" style="background: #DC3535;"></div>
@@ -398,9 +399,9 @@
           <div class="color-hex">#0A0A0A</div>
         </div>
         <div class="color-swatch">
-          <div class="color-box" style="background: #FAFAFA; border: 1px solid #e5e5e5;"></div>
+          <div class="color-box" style="background: #FFFFFF; border: 1px solid #e5e5e5;"></div>
           <div class="color-name">Primary White</div>
-          <div class="color-hex">#FAFAFA</div>
+          <div class="color-hex">#FFFFFF</div>
         </div>
         <div class="color-swatch">
           <div class="color-box" style="background: #FFF4D6;"></div>
@@ -413,11 +414,11 @@
       <div class="type-grid">
         <div class="type-sample">
           <div class="type-label">Headlines</div>
-          <div class="type-heading">Cormorant Garamond</div>
+          <div class="type-heading">Poppins</div>
         </div>
         <div class="type-sample">
           <div class="type-label">Body Text</div>
-          <div class="type-body">Source Sans 3 for all body copy, navigation, and UI elements.</div>
+          <div class="type-body">Poppins for all body copy, navigation, and UI elements.</div>
         </div>
       </div>
     </div>
@@ -577,10 +578,10 @@
             <li>thornton-park.html</li>
             <li>mills-50.html</li>
             <li>college-park.html</li>
-            <li>ivanhoe-village.html</li>
-            <li>baldwin-park.html</li>
+            <li>north-orlando.html</li>
+            <li>east-orlando.html</li>
             <li>dr-phillips.html</li>
-            <li>lake-nona.html</li>
+            <li>international-drive.html</li>
           </ul>
         </div>
         <div class="sitemap-group">
@@ -609,8 +610,8 @@
 
   <!-- Footer -->
   <footer style="background: var(--primary-black); color: white; padding: 2rem; text-align: center;">
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; letter-spacing: 0.15em; margin-bottom: 0.5rem;">Orlando VIBES & VIEWS</div>
-    <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">Visual Reference Guide | the-407-vibes.vercel.app</p>
+    <div style="font-family: 'Poppins', sans-serif; font-size: 1.3rem; letter-spacing: 0.15em; margin-bottom: 0.5rem;">THE 407 VIBES</div>
+    <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">Visual Reference Guide | the407vibes.com</p>
   </footer>
 
 </body>
