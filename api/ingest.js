@@ -59,7 +59,7 @@ module.exports = async function handler(req, res) {
         content_type,
         source: source || 'ai_agent',
         payload: data,
-        status: 'processing',
+        status: 'pending',
       })
       .select()
       .single();
@@ -121,10 +121,10 @@ module.exports = async function handler(req, res) {
       targetId = inserted.id;
     }
 
-    // Update log status to completed
+    // Update log with target_id (keep status as pending — constraint only allows pending/failed)
     await supabase
       .from('ai_ingest_log')
-      .update({ status: 'completed', target_id: targetId })
+      .update({ target_id: targetId })
       .eq('id', logEntry.id);
 
     return res.status(200).json({

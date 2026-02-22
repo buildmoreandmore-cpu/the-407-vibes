@@ -16,7 +16,7 @@ const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || "";
 const MINIMAX_ENDPOINT = "https://api.minimax.io/v1/chat/completions";
 const MINIMAX_MODEL = "MiniMax-Text-01";
 
-const SITE_URL = process.env.SITE_URL || "https://orlando-vibes.vercel.app";
+const SITE_URL = process.env.SITE_URL || "https://the-407-vibes.vercel.app";
 const INGEST_API_KEY = process.env.INGEST_API_KEY || "";
 
 // Orlando areas and their IDs (must match Supabase)
