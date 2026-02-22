@@ -21,16 +21,16 @@ const INGEST_API_KEY = process.env.INGEST_API_KEY || "";
 
 // Orlando areas and their IDs (must match Supabase)
 const ORLANDO_AREAS = [
-  { id: 1, name: "Downtown Orlando", slug: "downtown" },
-  { id: 2, name: "Winter Park", slug: "winter-park" },
-  { id: 3, name: "College Park", slug: "college-park" },
-  { id: 4, name: "Mills 50 / Milk District", slug: "mills-50" },
-  { id: 5, name: "Thornton Park", slug: "thornton-park" },
-  { id: 6, name: "Lake Nona", slug: "lake-nona" },
-  { id: 7, name: "Dr. Phillips", slug: "dr-phillips" },
-  { id: 8, name: "Baldwin Park", slug: "baldwin-park" },
-  { id: 9, name: "Ivanhoe Village", slug: "ivanhoe-village" },
-  { id: 10, name: "Audubon Park", slug: "audubon-park" },
+  { id: 10, name: "Downtown Orlando", slug: "downtown" },
+  { id: 11, name: "Winter Park", slug: "winter-park" },
+  { id: 14, name: "College Park", slug: "college-park" },
+  { id: 13, name: "Mills 50 / Milk District", slug: "mills-50" },
+  { id: 12, name: "Thornton Park", slug: "thornton-park" },
+  { id: 15, name: "Lake Nona", slug: "lake-nona" },
+  { id: 16, name: "Dr. Phillips", slug: "dr-phillips" },
+  { id: 17, name: "Baldwin Park", slug: "baldwin-park" },
+  { id: 18, name: "Ivanhoe Village", slug: "ivanhoe-village" },
+  { id: 19, name: "Audubon Park", slug: "audubon-park" },
 ];
 
 const CONTENT_TYPES = [

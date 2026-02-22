@@ -99,12 +99,15 @@ module.exports = async function handler(req, res) {
       // Insert into target table with pending status
       const targetTable = TARGET_TABLES[content_type];
 
+      // Strip fields that don't exist in the table
+      const { author_name, tags, ...cleanData } = data;
       const { data: inserted, error: insertError } = await supabase
         .from(targetTable)
         .insert({
-          ...data,
+          ...cleanData,
+          author: author_name || cleanData.author || 'Orlando Vibes',
           status: 'published',
-          source: source || 'ai_agent',
+          source: 'manual',
         })
         .select()
         .single();
