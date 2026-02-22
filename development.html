@@ -40,6 +40,7 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script src="/js/site-config.js"></script>
   <script src="/js/site-renderer.js"></script>
   <script defer src="/js/platform-api.js"></script>
@@ -1286,6 +1287,42 @@
     // Main App Component
     function App() {
       const [selectedStory, setSelectedStory] = React.useState(null);
+      const [supabaseArticles, setSupabaseArticles] = React.useState([]);
+
+      React.useEffect(() => {
+        const sbUrl = typeof SiteConfig !== 'undefined' ? SiteConfig.supabase?.url : null;
+        const sbKey = typeof SiteConfig !== 'undefined' ? SiteConfig.supabase?.anonKey : null;
+        if (sbUrl && sbKey && window.supabase?.createClient) {
+          const sb = window.supabase.createClient(sbUrl, sbKey);
+          sb.from('articles').select('*')
+            .eq('status', 'published')
+            .eq('category', 'Development')
+            .order('published_at', { ascending: false })
+            .limit(10)
+            .then(({ data }) => {
+              if (data && data.length > 0) {
+                const mapped = data.map((a, i) => ({
+                  id: 'sb-' + a.id,
+                  subcategory: 'Development',
+                  category: 'Development',
+                  title: a.title,
+                  excerpt: a.excerpt || '',
+                  content: a.content || '',
+                  author: a.author || 'Orlando Vibes',
+                  date: a.published_at ? new Date(a.published_at).toLocaleDateString('en-US', {day:'numeric',month:'short',year:'numeric'}) : '',
+                  image: a.image_url || '/api/places?query=Orlando+FL&maxwidth=800',
+                  neighborhood: '',
+                  featured: i === 0,
+                }));
+                setSupabaseArticles(mapped);
+              }
+            });
+        }
+      }, []);
+
+      // Merge Supabase articles with hardcoded — Supabase first
+      const allFeatured = [...supabaseArticles.filter(a => !a.featured), ...featuredDevelopmentStories];
+      const heroStory = supabaseArticles.find(a => a.featured) || primaryDevelopmentStory;
 
       const handleStoryClick = (story) => {
         setSelectedStory(story);
@@ -1310,10 +1347,10 @@
           </nav>
 
           {/* Primary Featured Development Story (Hero) */}
-          <DevelopmentHero story={primaryDevelopmentStory} onClick={handleStoryClick} />
+          <DevelopmentHero story={heroStory} onClick={handleStoryClick} />
 
           {/* Featured Development Stories Grid (6 stories) */}
-          <DevelopmentGrid stories={featuredDevelopmentStories} onStoryClick={handleStoryClick} />
+          <DevelopmentGrid stories={allFeatured.slice(0, 6)} onStoryClick={handleStoryClick} />
 
           {/* Two-Column Layout (Main + Sidebar) */}
           <div className="content-layout">
