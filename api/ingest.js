@@ -101,10 +101,14 @@ module.exports = async function handler(req, res) {
 
       // Strip fields that don't exist in the table
       const { author_name, tags, ...cleanData } = data;
+      // Generate area-specific image if not provided
+      const areaNames = {10:'Downtown+Orlando',11:'Winter+Park',12:'Thornton+Park',13:'Mills+50+District',14:'College+Park',15:'Lake+Nona',16:'Dr+Phillips',17:'Baldwin+Park',18:'Ivanhoe+Village',19:'Audubon+Park'};
+      const imageUrl = cleanData.image_url || `/api/places?query=${areaNames[cleanData.area_id] || 'Orlando'}+Orlando+FL&maxwidth=1600`;
       const { data: inserted, error: insertError } = await supabase
         .from(targetTable)
         .insert({
           ...cleanData,
+          image_url: imageUrl,
           author: author_name || cleanData.author || 'Orlando Vibes',
           status: 'published',
           source: 'manual',

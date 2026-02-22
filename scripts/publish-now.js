@@ -61,6 +61,7 @@ async function run() {
       excerpt: article.excerpt,
       category: article.category || p.type,
       area_id: p.area.id,
+      image_url: '/api/places?query=' + encodeURIComponent(p.area.name + ' Orlando FL') + '&maxwidth=1600',
       author: 'Orlando Vibes',
       status: 'published',
       source: 'manual',
