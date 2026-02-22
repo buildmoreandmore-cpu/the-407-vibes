@@ -14,7 +14,7 @@
 
 const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || "";
 const MINIMAX_ENDPOINT = "https://api.minimax.io/v1/chat/completions";
-const MINIMAX_MODEL = "MiniMax-M2.5";
+const MINIMAX_MODEL = "MiniMax-Text-01";
 
 const SITE_URL = process.env.SITE_URL || "https://orlando-vibes.vercel.app";
 const INGEST_API_KEY = process.env.INGEST_API_KEY || "";
@@ -128,11 +128,17 @@ async function generateArticle(area) {
 
   const raw = await callMiniMax(SYSTEM_PROMPT, prompts[type]);
 
-  // Parse JSON from response (handle potential markdown wrapping)
+  // Parse JSON from response (handle thinking tags + markdown wrapping)
   let article;
   try {
-    const jsonStr = raw.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
-    article = JSON.parse(jsonStr);
+    let cleaned = raw.replace(/<think>[\s\S]*?<\/think>/g, "").trim();
+    cleaned = cleaned.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+    // If still not starting with {, try to find first {
+    if (!cleaned.startsWith("{")) {
+      const idx = cleaned.indexOf("{");
+      if (idx !== -1) cleaned = cleaned.slice(idx);
+    }
+    article = JSON.parse(cleaned);
   } catch (err) {
     console.error(`Failed to parse MiniMax response for ${area.name}:`, err.message);
     console.error("Raw:", raw.slice(0, 200));
