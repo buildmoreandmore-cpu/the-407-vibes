@@ -24,7 +24,7 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'GOOGLE_PLACES_API_KEY not configured' });
   }
 
-  const { query, photo_reference, maxwidth = '800', info } = req.query;
+  const { query, photo_reference, maxwidth = '800', info, idx } = req.query;
 
   try {
     // Mode 1: Direct photo by reference
@@ -57,7 +57,9 @@ module.exports = async function handler(req, res) {
       return res.status(404).json({ error: 'No places found', status: searchData.status });
     }
 
-    const place = searchData.results[0];
+    // Use idx param to pick different results/photos for variety
+    const photoIdx = idx ? parseInt(idx, 10) : 0;
+    const place = searchData.results[Math.min(photoIdx, searchData.results.length - 1)] || searchData.results[0];
 
     // Mode 2: Return JSON metadata
     if (info === 'true') {
@@ -85,7 +87,9 @@ module.exports = async function handler(req, res) {
       return res.status(404).json({ error: 'Place found but no photos available' });
     }
 
-    const photoRef = place.photos[0].photo_reference;
+    // Pick different photo based on idx for variety
+    const pIdx = Math.min(photoIdx, place.photos.length - 1);
+    const photoRef = place.photos[pIdx].photo_reference;
     const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?photoreference=${encodeURIComponent(photoRef)}&maxwidth=${maxwidth}&key=${apiKey}`;
     const photoRes = await fetch(photoUrl);
 
