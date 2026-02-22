@@ -219,8 +219,8 @@ const SiteConfig = {
   // SUPABASE
   // ============================================
   supabase: {
-    url: '', // Set via environment or manually
-    anonKey: '' // Set via environment or manually
+    url: 'https://ottaaklorclfbzztpsrm.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90dGFha2xvcmNsZmJ6enRwc3JtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0NjQyMzIsImV4cCI6MjA4NzA0MDIzMn0.qLff-CNx8KDjhvPzhS_m-KkGAfF0qQCFd768Co83AG4'
   },
 
   // ============================================

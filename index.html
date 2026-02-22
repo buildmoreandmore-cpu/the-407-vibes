@@ -7018,6 +7018,44 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       }
     ];
 
+    // Fetch articles from Supabase and merge into demoBlogPosts
+    if (USE_SUPABASE && SUPABASE_URL && SUPABASE_KEY) {
+      const _sb = window.supabase?.createClient?.(SUPABASE_URL, SUPABASE_KEY);
+      if (_sb) {
+        _sb.from('articles').select('*').eq('status', 'published').order('published_at', { ascending: false }).limit(20)
+          .then(({ data: articles }) => {
+            if (articles && articles.length > 0) {
+              // Map area_id to area slug
+              const areaSlugMap = {10:'downtown-orlando',11:'winter-park',12:'thornton-park',13:'mills-50',14:'college-park',15:'lake-nona',16:'dr-phillips',17:'baldwin-park',18:'ivanhoe-village',19:'audubon-park'};
+              articles.forEach(a => {
+                // Only add if not already in demoBlogPosts
+                if (!demoBlogPosts.find(p => p.title === a.title)) {
+                  demoBlogPosts.unshift({
+                    id: a.id,
+                    title: a.title,
+                    slug: a.slug,
+                    category: a.category || 'Article',
+                    author: a.author || 'Orlando Vibes',
+                    author_bio: '',
+                    created_at: a.published_at ? a.published_at.split('T')[0] : a.created_at?.split('T')[0],
+                    excerpt: a.excerpt || '',
+                    content: a.content || '',
+                    image: a.image_url || '/api/places?query=Orlando+FL&maxwidth=800',
+                    video_url: '',
+                    featured: a.featured || false,
+                    status: 'published',
+                    areaTag: areaSlugMap[a.area_id] || 'downtown-orlando',
+                    areaTags: [areaSlugMap[a.area_id] || 'downtown-orlando'],
+                  });
+                }
+              });
+              console.log(`Loaded ${articles.length} articles from Supabase`);
+            }
+          })
+          .catch(err => console.warn('Failed to fetch articles from Supabase:', err));
+      }
+    }
+
     // Mock Supabase-like functions for demo (will be replaced by real Supabase client)
     const mockSupabase = {
       auth: {
