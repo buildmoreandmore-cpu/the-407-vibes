@@ -7018,35 +7018,50 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       }
     ];
 
+    // Shared Supabase client and area slug mapping
+    const AREA_SLUG_MAP = {10:'downtown-orlando',11:'winter-park',12:'thornton-park',13:'mills-50',14:'college-park',15:'lake-nona',16:'dr-phillips',17:'baldwin-park',18:'ivanhoe-village',19:'audubon-park'};
+    const SLUG_TO_AREA_ID = Object.fromEntries(Object.entries(AREA_SLUG_MAP).map(([k,v]) => [v, parseInt(k)]));
+    let _supabaseClient = null;
+    function getSupabaseClient() {
+      if (_supabaseClient) return _supabaseClient;
+      if (USE_SUPABASE && SUPABASE_URL && SUPABASE_KEY && window.supabase?.createClient) {
+        _supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      }
+      return _supabaseClient;
+    }
+
+    // Convert Supabase article to demoBlogPost format
+    function mapArticleToBlogPost(a) {
+      return {
+        id: a.id,
+        title: a.title,
+        slug: a.slug,
+        category: a.category || 'Article',
+        author: a.author || 'Orlando Vibes',
+        author_bio: '',
+        created_at: a.published_at ? a.published_at.split('T')[0] : a.created_at?.split('T')[0],
+        excerpt: a.excerpt || '',
+        content: a.content || '',
+        image: a.image_url || '/api/places?query=Orlando+FL&maxwidth=800',
+        video_url: '',
+        featured: a.featured || false,
+        status: 'published',
+        area_id: a.area_id,
+        areaTag: AREA_SLUG_MAP[a.area_id] || 'downtown-orlando',
+        areaTags: [AREA_SLUG_MAP[a.area_id] || 'downtown-orlando'],
+      };
+    }
+
     // Fetch articles from Supabase and merge into demoBlogPosts
-    if (USE_SUPABASE && SUPABASE_URL && SUPABASE_KEY) {
-      const _sb = window.supabase?.createClient?.(SUPABASE_URL, SUPABASE_KEY);
-      if (_sb) {
-        _sb.from('articles').select('*').eq('status', 'published').order('published_at', { ascending: false }).limit(20)
+    if (USE_SUPABASE) {
+      const sb = getSupabaseClient();
+      if (sb) {
+        sb.from('articles').select('*').eq('status', 'published').order('published_at', { ascending: false }).limit(50)
           .then(({ data: articles }) => {
             if (articles && articles.length > 0) {
-              // Map area_id to area slug
-              const areaSlugMap = {10:'downtown-orlando',11:'winter-park',12:'thornton-park',13:'mills-50',14:'college-park',15:'lake-nona',16:'dr-phillips',17:'baldwin-park',18:'ivanhoe-village',19:'audubon-park'};
               articles.forEach(a => {
-                // Only add if not already in demoBlogPosts
                 if (!demoBlogPosts.find(p => p.title === a.title)) {
-                  demoBlogPosts.unshift({
-                    id: a.id,
-                    title: a.title,
-                    slug: a.slug,
-                    category: a.category || 'Article',
-                    author: a.author || 'Orlando Vibes',
-                    author_bio: '',
-                    created_at: a.published_at ? a.published_at.split('T')[0] : a.created_at?.split('T')[0],
-                    excerpt: a.excerpt || '',
-                    content: a.content || '',
-                    image: a.image_url || '/api/places?query=Orlando+FL&maxwidth=800',
-                    video_url: '',
-                    featured: a.featured || false,
-                    status: 'published',
-                    areaTag: areaSlugMap[a.area_id] || 'downtown-orlando',
-                    areaTags: [areaSlugMap[a.area_id] || 'downtown-orlando'],
-                  });
+                  demoBlogPosts.unshift(mapArticleToBlogPost(a));
                 }
               });
               console.log(`Loaded ${articles.length} articles from Supabase`);
@@ -7368,13 +7383,12 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
         },
         // Get stories/blog posts tagged with neighborhood
         getStoriesByNeighborhood: async (neighborhoodId) => {
-          await new Promise(r => setTimeout(r, 300));
           const allNeighborhoods = Object.values(demoNeighborhoods).flat();
           const neighborhood = allNeighborhoods.find(n => n.id === neighborhoodId);
           if (!neighborhood) return [];
 
-          // Filter blog posts that match neighborhood or area
-          return demoBlogPosts.filter(p =>
+          // Get local demo posts
+          const localPosts = demoBlogPosts.filter(p =>
             p.status === 'published' && (
               p.neighborhoodId === neighborhoodId ||
               p.neighborhood === neighborhood.name ||
@@ -7382,6 +7396,29 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               (p.areaTags && p.areaTags.includes(neighborhood.area))
             )
           );
+
+          // Also fetch from Supabase by area_id
+          const sb = getSupabaseClient();
+          if (sb) {
+            const areaId = SLUG_TO_AREA_ID[neighborhood.area];
+            if (areaId) {
+              try {
+                const { data: sbArticles } = await sb.from('articles').select('*')
+                  .eq('status', 'published').eq('area_id', areaId)
+                  .order('published_at', { ascending: false }).limit(10);
+                if (sbArticles && sbArticles.length > 0) {
+                  const mapped = sbArticles.map(mapArticleToBlogPost);
+                  // Merge without duplicates
+                  const merged = [...mapped];
+                  localPosts.forEach(lp => {
+                    if (!merged.find(m => m.title === lp.title)) merged.push(lp);
+                  });
+                  return merged;
+                }
+              } catch (e) { console.warn('Supabase article fetch error:', e); }
+            }
+          }
+          return localPosts;
         },
         // Get related neighborhoods (from same area)
         getRelatedNeighborhoods: async (neighborhood) => {
@@ -11175,6 +11212,25 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       const [selectedArea, setSelectedArea] = useState(null);
       const [showSubmit, setShowSubmit] = useState(false);
       const [submitType, setSubmitType] = useState('business');
+      const [blogPosts, setBlogPosts] = useState([...demoBlogPosts]);
+
+      // Load Supabase articles into state
+      useEffect(() => {
+        const sb = getSupabaseClient();
+        if (!sb) return;
+        sb.from('articles').select('*').eq('status', 'published')
+          .order('published_at', { ascending: false }).limit(50)
+          .then(({ data: articles }) => {
+            if (articles && articles.length > 0) {
+              const mapped = articles.map(mapArticleToBlogPost);
+              setBlogPosts(prev => {
+                const merged = [...mapped];
+                prev.forEach(p => { if (!merged.find(m => m.title === p.title)) merged.push(p); });
+                return merged;
+              });
+            }
+          });
+      }, []);
 
       // Search state
       const [searchOpen, setSearchOpen] = useState(false);
@@ -11302,7 +11358,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
       // Filter stories by area
       const getFilteredStories = () => {
         if (!mapSelectedArea) {
-          return demoBlogPosts.filter(p => p.status === 'published').slice(0, 3);
+          return blogPosts.filter(p => p.status === 'published').slice(0, 3);
         }
         const areaVariants = mapAreaToListingAreas(mapSelectedArea);
         return demoBlogPosts
@@ -11747,7 +11803,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <p className="section-subtitle">Stories Worth Your Time</p>
             </div>
             <div className="featured-grid">
-              {demoBlogPosts.filter(p => p.status === 'published').slice(0, 3).map((post) => (
+              {blogPosts.filter(p => p.status === 'published').slice(0, 3).map((post) => (
                 <div
                   key={post.id}
                   className="story-card"
@@ -11953,7 +12009,7 @@ For casual hangs, **Burton's** in College Park has sidewalk seating perfect for 
               <p className="section-subtitle">The latest stories from Orlando's neighborhoods</p>
             </div>
             <div className="articles-grid">
-              {demoBlogPosts.filter(p => p.status === 'published').slice(0, 6).map((post) => (
+              {blogPosts.filter(p => p.status === 'published').slice(0, 6).map((post) => (
                 <div
                   key={post.id}
                   className="article-card"
